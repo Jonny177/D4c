@@ -1,0 +1,673 @@
+\section{裴礼文-数学分析中的典型问题与方法}
+\begin{problem}
+	用$\varepsilon-N$方法证明$\lim\limits_{n\rightarrow\infty}\sqrt[n]{n+1}=1$
+\end{problem}
+\begin{solution}
+	$\forall\varepsilon>0,\ $要$|\sqrt[n]{n+1}-1|<\varepsilon,\ $记$\alpha=\sqrt[n]{n+1}-1,\ $此式可改写成
+	$$1+n=(1+\alpha)^n=1+n\alpha+\frac{n(n-1)}{2}\alpha^2+\cdots+\alpha^n\geqslant\frac{n(n-1)}{2}\alpha^2,\ $$
+	得
+	$$0<\alpha<\sqrt{\frac{2(n+1)}{n(n-1)}}\leqslant\sqrt{\frac{2(n+1)+2n-2}{n(n-1)}}=\frac{2}{\sqrt{n-1}}(\text{当}n>1\text{时}).$$
+	至此要$|\alpha|<\varepsilon,\ $只要$\frac{2}{\sqrt{n-1}}<\varepsilon,\ $即$n>\frac{4}{\varepsilon^2}+1.$故令$N=\frac{4}{\varepsilon^2}+1,\ $则$n>N$时有$|\sqrt[n]{n+1}-1|=|\alpha|<\varepsilon.$
+\end{solution}
+\begin{problem}
+	设$\{a_n\}$是一数列($a_n\neq 0$),\ 满足$a_n\rightarrow 0$(当$n\rightarrow\infty$时).定义数集
+	$$P=\{ka_i|k\in\mathbb{Z},\ i\in\mathbb{N}\}$$
+	试证:对任何实数$b,\ $存在数列$\{b_n\}\subset P,\ $使得$\lim\limits_{n\rightarrow\infty}b_n=b.$
+\end{problem}
+\begin{proof}
+	因对每个$a_n,\ $集合$\{ka_n:k\in\mathbb{Z}\}$组成一格点集;格点间距为$\{a_n\}.$对任何实数$b,\ $总存在某个$k\in\mathbb{Z},\ $使得$|b-ka_n|\leqslant|a_n|.$\\
+	因$\lim\limits_{n\rightarrow\infty}|a_n|=0,\ $故$\forall\varepsilon_m=\frac{1}{m}>0,\ \exists n_m\in\mathbb{N},\ $使得$0<|a_{n_m}|<\varepsilon_m.$\\
+	如前所述,\ $\exists k_m\in\mathbb{Z},\ k_ma_{n_m}\in P,\ $使得$|b-k_ma_{n_m}|\leqslant|a_{n_m}|<\varepsilon_m.$\\
+	对每个$\varepsilon_m>0,\ $把对应找出的$k_ma_{n_m}$记为$b_m,\ $令$\varepsilon_m\rightarrow 0(m\rightarrow\infty),\ $则$b_m\rightarrow b,\ $其中$\{b_m\}\subset P$便是.
+\end{proof}
+\newpage
+\begin{problem}
+	设$x\rightarrow 0$时,\ $f(x)\sim x,\ x_n=\sum\limits_{i=1}^{n}f\left(\frac{2i-1}{n^2}a\right).$试证$\lim\limits_{n\rightarrow\infty}x_n=a(a>0).$
+\end{problem}
+\begin{proof}
+	我们注意到$a=\sum\limits_{i=1}^{n}\frac{2i-1}{n^2}a,\ $从而
+	\begin{equation}
+		|x_n-a|=\left|\sum_{i=1}^{n}f\left(\frac{2i-1}{n^2}a\right)-\sum_{i=1}^{n}\frac{2i-1}{n^2}a\right|\leqslant\sum_{i=1}^{n}\left|f\left(\frac{2i-1}{n^2}a\right)-\frac{2i-1}{n^2}a\right|.\label{1.4.1}
+	\end{equation}
+	若能证明$\forall\varepsilon>0,\ n$充分大时,\ 
+	\begin{equation}
+		\left|f\left(\frac{2i-1}{n^2}a\right)-\frac{2i-1}{n^2}a\right|<\frac{2i-1}{n^2}\varepsilon\quad(i=1,\ 2,\ \cdots,\ n).\label{1.4.2}
+	\end{equation}
+	则式$\eqref{1.4.1}$右端$\leqslant\sum\limits_{i=1}^{n}\frac{2i-1}{n^2}\varepsilon=\varepsilon.$
+	问题获证.要证明$\eqref{1.4.2},\ $亦即要证
+	\begin{equation}
+		\left|\frac{f\left(\frac{2i-1}{n^2}a\right)}{\frac{2i-1}{n^2}a}-1\right|<\frac{\varepsilon}{a}.\label{1.4.3}
+	\end{equation}
+	事实上,\ 因为$f(x)\sim x(x\rightarrow 0),\ $因此$\forall\varepsilon>0,\ \exists \delta>0,\ $当$0<|x|<\delta$时,\ 有
+	\begin{equation}
+		\left|\frac{f(x)}{x}-1\right|<\frac{\varepsilon}{a}.\label{1.4.4}
+	\end{equation}
+	于是,\ 令$N=\frac{2a}{\delta},\ $则当$n>N$时,\ $0<\frac{2i-1}{n^2}a<\delta(i=1,\ 2,\ \cdots,\ n).$从而按式$\eqref{1.4.4}$有式$\eqref{1.4.3}$成立.
+\end{proof}
+\begin{note}
+	特别地,\ 当$f(x)=\sin x$时,\ 该问题有如下证明:
+	$$\begin{aligned}
+		\sum_{i=1}^{n}\sin\frac{2i-1}{n^2}a&=\frac{1}{2\sin\frac{a}{n^2}}\sum_{i=1}^{n}2\sin\frac{2i-1}{n^2}a\sin\frac{a}{n^2}\\
+		&=\frac{1}{2\sin\frac{a}{n^2}}\sum_{i=1}^{n}\left(\cos\frac{2i-2}{n^2}a-\cos\frac{2i}{n^2}a\right)\\
+		&=\frac{1}{2\sin\frac{a}{n^2}}\left(1-\cos\frac{2}{n}a\right)=\frac{1}{\sin\frac{a}{n^2}}\sin^2\frac{a}{n}\\
+		&=\frac{\frac{a}{n^2}}{\sin\frac{a}{n^2}}\cdot\frac{\left(\sin\frac{a}{n}\right)^2}{\left(\frac{a}{n}\right)^2}\cdot a\rightarrow a\quad(n\rightarrow\infty).
+	\end{aligned}$$
+\end{note}
+\newpage
+\begin{problem}
+	设$\lim\limits_{n \rightarrow \infty} a_{n}=a ,\ $ 试证
+	$$\lim\limits_{n\rightarrow\infty}\frac{1}{2^n}(a_0+\mathrm{C}_n^1a_1+\mathrm{C}_n^2a_2+\cdots+\mathrm{C}_n^ka_k+\cdots+a_n)=a.$$
+\end{problem}
+\begin{proof}
+	(拟合法)因  $1=\frac{(1+1)^{n}}{2^{n}}=\frac{1}{2^{n}} \sum\limits_{k=0}^{n} \mathrm{C}_{n}^{k} ,\  $故  $a=\frac{1}{2^{n}} \sum\limits_{k=0}^{n} \mathrm{C}_{n}^{k} a ,\ $
+	$$\left|\frac{1}{2^{n}} \sum_{k=0}^{n} \mathrm{C}_{n}^{k} a_{k}-a\right| \leqslant \sum_{k=0}^{n} \frac{\mathrm{C}_{n}^{k}}{2^{n}}\left|\alpha_{k}\right|.$$
+	其中 $ \alpha_{k}=a_{k}-a \rightarrow 0 $ (当 $ k \rightarrow+\infty  $时).  $\exists M>0,\ \left|\alpha_{k}\right| \leqslant M(k=0,\ 1,\ 2,\  \cdots),\  \forall \varepsilon>0,\  \exists k_{0}>0 ,\  $当 $ k>k_{0} $ 时,\   $\left|\alpha_{k}\right|<\frac{\varepsilon}{2} ,\ $
+	$$\text { 上式 }\leqslant \sum_{k=0}^{k_{0}-1} \frac{n^k}{2^{n}} \cdot M+\frac{1}{2^{n}} \sum_{k=k_{0}}^{n} \mathrm{C}_{n}^{k} \cdot \frac{\varepsilon}{2} \leqslant \frac{M k_{0} n^{k_{0}}}{2^{n}}+\frac{\varepsilon}{2}.$$
+	因  $\frac{M k_{0} n^{k_{0}}}{2^{n} .} \rightarrow 0 $ (当  $n \rightarrow \infty $ 时),\   $\exists N>k_{0}>0 ,\  $使 $ n>N $ 时,\   $\frac{M k_{0} n^{k_{0}}}{2^{n}}<\frac{\varepsilon}{2} . $从 而
+	$$\text{上式} <\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon .$$
+\end{proof}
+\newpage
+\begin{problem}
+	设$f:\mathbf{N}\rightarrow \mathbf{N}_1,\ n=f(m)$($\mathbf{N}$和$\mathbf{N}_1$都是全体自然数组成的空间),\ 且$\forall n \in \mathbf{N}: f^{-1}(n)  $为有限集. 试证: 若  $\lim\limits_{n \rightarrow \infty} a_{n} \stackrel{\text {存在}}{=} a ,\ $ 则  $\lim\limits_{m \rightarrow \infty} a_{f(m)} \stackrel{\text {存在}}{=} a . $
+\end{problem}
+\begin{proof}
+	证 I (利用极限的等价描述) 已知  $\lim\limits_{n \rightarrow \infty} a_{n} \stackrel{\text {存在}}{=} a ,\  $即  $\forall \varepsilon>0 ,\  $在  $a$  的 $ \varepsilon  $邻域外最多有  $a_{n}  $的有限项,\  记作$  \left\{a_{n_{j}}\right\}_{j=1}^{k}=\left\{a_{n_{1}},\  a_{n_{2}},\  \cdots,\  a_{n_{k}}\right\} .$
+	又每个  $n_{j} $ 对应的  $\left\{m \mid n_{j}=f(m)\right\}  $皆为有限集,\  它们的并:$ E=\bigcup\limits_{j=1}\left\{m \mid n_{j}=f(m)\right\} $
+	仍是有限集. 此即:  $a$  的$  \varepsilon  $邻域外最多只有$  \left\{a_{f(m)}\right\} $ 的有限项$  \left\{a_{f(m)}\right\} m \in E . $故$ \lim\limits_{m \rightarrow \infty} a_{f(m)} \stackrel{\text {存在}}{=} a .$
+	\begin{note}
+		若缺少 $ f^{-1}(n)  $为有限集的条件,\  结论可能不成立. 例如: 若 $ a_{8} \neq a ,\ $ 但  $f(m)=8 ,\ $ 则$  \lim\limits_{m \rightarrow \infty} a_{f(m)}=a_{8} \neq a .$
+	\end{note}
+	证 II 已知$  \lim\limits_{n \rightarrow \infty} a_{n} \stackrel{\text { 存在}}{=} a ,\ $ 即  $\forall \varepsilon>0,\  \exists N>0 ,\ $ 当 $ n>N$  时,\ $ a_{n} \in U(a,\  \varepsilon) .$
+	因对每个 $ n: f^{-1}(n)  $都为有限集,\  故$  \bigcup\limits_{n \leqslant N} f^{-1}(n)  $仍是有限集,\  因此,\  $ \exists M=\max \{m \mid   \left.m \in \bigcup_{n \leqslant N} f^{-1}(n)\right\} ,\  $则 $ m>M  $时,\ $ 有  a_{f(m)} \in U(a,\  \varepsilon) . $故$ \lim\limits_{m \rightarrow \infty} a_{f(m)} \stackrel{\text {存在 }}{=} a .$ 
+	
+	证 III (利用子列 .) 只需证明: 若  $\{f(m)\}_{m=1}^{\infty} $ 是  $\{n\}_{n=1}^{\infty} $ 的子列,\  则必有 $\lim\limits_{m \rightarrow \infty} a_{f(m)}   \stackrel{\text { 存在 }}{=} a .$
+	事实上,\  若$  \{f(m)\}_{m=1}^{\infty} $ 不是  $\{n\}_{n=1}^{\infty}  $的子列,\  则说明$  \{f(m)\}_{m=1}^{\infty} $ 只是$  \{n\}_{n=1}^{\infty} $ 中的有 限项,\  也就是说:  $\{n\}_{n=1}^{\infty}  $中的有限项对应着$  \{f(m)\}_{m=1}^{\infty} $ 中的无穷多项. 因此,\  至少有 一个$  n$  通过$  n=f(m) $ 对应无穷多个 $ m . $与题设矛盾. 可见,\ $  \{f(m)\}_{m=1}^{\infty}  $只可能是  $\{n\}_{n=1}^{\infty}$  的子列. 证毕.
+\end{proof}
+\begin{note}
+	释题 作为映射,\  $ n=f(m) ,\  $“每个$  m $ 必有且仅有一个$  n $ 与之对应”,\  此外,\  \\
+	(1) 可 以有多个不同的 $ m $ 与同一个 $ n $ 相对应,\  \\
+	(2) 甚至有无穷多个不同的 $ m  $与同一个  $n  $相 对应.
+	题设: $ f^{-1}(n)  $为有限集. 意指:第(2)种情况不发生. 因此题意是: 若 $ \lim\limits_{n \rightarrow \infty} a_{n} \stackrel{\text { 存在 }}{=} a ,\  $且情况(2)不发生,\  试证:  $\lim\limits_{m \rightarrow \infty} a_{f(m)} \stackrel{\text {存在}}{=} a .$
+\end{note}
+\newpage
+\begin{problem}
+	证明 $ \lim\limits_{n\rightarrow\infty} \sin n  $不存在.
+\end{problem}
+\begin{proof}
+	证 I (用极限定义) 因为  $-1 \leqslant \sin n \leqslant 1 ,\ $ 所以我们只要证明: 任意 $ A \in   [-1,\ 1],\  \lim\limits_{n \rightarrow \infty} \sin n \neq A $ 即可. 不妨设 $A \in$$[0,\ 1] $ (对于 $ [-1,\ 0]  $的情况,\  类似可证). 根 据极限定义,\  我们只要证明: $ \exists \varepsilon_{0}>0,\  \forall N>0,\  \exists n>N ,\ $ 使得  $|\sin n-A| \geqslant \varepsilon_{0} .$
+	事实上,\  可取 $ \varepsilon_{0}=\frac{\sqrt{2}}{2},\  \forall N>0 ,\  $令  $n=\left[\left(2 N \pi-\frac{\pi}{2}\right)+\frac{\pi}{4}\right]  $(这里  $[\cdot]  $表示取整数 部分),\  则 $ n>N ,\ $且由  
+	$$2 N \pi-\frac{3 \pi}{4}<n<2 N \pi-\frac{2}{4} $$
+	知
+	$$|\sin n- A|\geqslant\frac{\sqrt[]{2}}{2}.$$
+	证 II 根据 Cauchy 准则,\  要证 $ \lim\limits_{n \rightarrow \infty} \sin n  $不存在,\  即要证明: $ \exists \varepsilon_{0}>0,\  \forall N>0 ,\   \exists n,\  m>N ,\  $使得$  |\sin n-\sin m| \geqslant \varepsilon_{0} .$
+	取  $\varepsilon_{0}=\frac{\sqrt{2}}{2},\  \forall N>0 ,\ $ 令$  n=\left[2 N \pi+\frac{3}{4} \pi\right],\  m=[2 N \pi+2 \pi]$($[\cdot] $ 表示取整数部 分),\  则  $m>n>N ,\  $且 $ 2 N \pi+\frac{\pi}{4}<n<2 N \pi+\frac{3}{4} \pi,\  2 N \pi+\pi<m<2 N \pi+2 \pi ,\ $
+	$$|\sin n-\sin m| \geqslant \varepsilon_{0}=\frac{\sqrt{2}}{2} . \quad \frac{2 \cos (n+1) \sin 1}{\sin [(n+1)+1)-\sin [(n+1)-1]}$$
+	这表明$  \{\sin n\}  $发散.
+	证 III (反证法) 若 $ \lim\limits_{n \rightarrow \infty} \sin n=A ,\  $因 $ \sin (n+2)-\sin n=2 \sin 1 \cos (n+1) ,\  $知 $ \lim\limits_{n \rightarrow \infty} 2 \sin 1 \cos (n+1)=\lim\limits_{n \rightarrow \infty}[\sin (n+2)-\sin n]=A-A=0 ,\ $ 从而
+	$$\lim\limits_{n \rightarrow \infty} \cos n=0,\  A=\lim\limits_{n \rightarrow \infty} \sin n=\lim\limits_{n \rightarrow \infty} \sqrt{1-\cos ^{2} n}=1 \text {. }$$
+	但  $\sin 2 n=2 \sin n \cdot \cos n ,\  $取极限得 $ A=0 ,\  $矛盾.
+\end{proof}
+\newpage
+\begin{problem}
+	(1)求$\lim\limits_{n\rightarrow\infty}\left(\frac{\sqrt[n]{a}+\sqrt[n]{b}}{2}\right)^n(a\geqslant 0,\ b\geqslant 0);$\\
+	(2) 是否存在数列  $\left\{a_{n}\right\} $ 满足:  $\lim\limits_{n \rightarrow \infty} \frac{a_{n}}{n}=0 ,\ $ 但  $\lim\limits_{n \rightarrow \infty} \frac{\max \left\{a_{1},\  \cdots,\  a_{n}\right\}}{n} \neq 0 . $
+\end{problem}
+\begin{solution}
+	(1)因 $ n \rightarrow \infty $时,\ 
+	$$\begin{array}{l}
+		n\left(\frac{\sqrt[n]{a}+\sqrt[n]{b}}{2}-1\right)=\frac{1}{2}\left(\frac{a^{\frac{1}{n}}-1}{\frac{1}{n}}+\frac{b^{\frac{1}{n}}-1}{\frac{1}{n}}\right) \rightarrow \frac{1}{2}(\ln a+\ln b),\ 
+	\end{array}$$
+	故
+	$$\begin{aligned}
+		\lim\limits_{n\rightarrow\infty}\left(\frac{\sqrt[n]{a}+\sqrt[n]{b}}{2}\right)^n&=\lim\limits_{n\rightarrow\infty}\left\{\left[1+\left(\frac{\sqrt[n]{a}+\sqrt[n]{b}}{2}-1\right)\right]^{\frac{1}{\frac{\sqrt[n]{a}+\sqrt[n]{b}}{2}-1}}\right\}^{n\left(\frac{\sqrt[n]{a}+\sqrt[n]{b}}{2}-1\right)}\\
+		&=\mathrm{e}^{\frac{1}{2}(\ln a+\ln b)}=\mathrm{e}^{\ln\sqrt[]{ab}}=\sqrt{2}.
+	\end{aligned}$$
+\end{solution}
+(2) 不存在.
+提因为收敛数列的子列必收敛,\  且其极限与原数列的极限相同,\  由此,\  假若 存在如此数列  $\left\{a_{n}\right\} ,\ $ 那么 $ \forall n \in \mathbf{N},\  \exists i_{n} \leqslant n ,\  $使得 $ a_{i_{n}}=\max \left\{a_{1},\  \cdots,\  a_{n}\right\} .$ 而 $ \left\{\frac{a_{i_{n}}}{i_{n}}\right\} $ 是 $ \left\{\frac{a_{n}}{n}\right\}  $的子列 ,\  则
+$$\begin{array}{l}
+	\lim\limits_{n \rightarrow \infty} \frac{a_{i_{n}}}{i_{n}}=\lim\limits_{n \rightarrow \infty} \frac{a_{n}}{n}=0\left(\text { 而 } 0<\frac{i_{n}}{n} \leqslant 1\right) .
+\end{array}$$
+故  $\lim\limits_{n \rightarrow \infty} \frac{\max \left\{a_{1},\  \cdots,\  a_{n}\right\}}{n}=\lim\limits_{n \rightarrow \infty} \frac{a_{i_{n}}}{i_{n}} \cdot \frac{i_{n}}{n}=0  $(无穷小量乘以有界量仍是无穷小量).
+结果与已知条件 
+$$ \lim\limits_{n \rightarrow \infty} \frac{\max \left\{a_{1},\  \cdots,\  a_{n}\right\}}{n} \neq 0$$
+矛盾.
+\newpage
+\begin{problem}
+	若  $\lim\limits_{n \rightarrow \infty} x_{n}=a,\  \lim\limits_{n \rightarrow \infty} y_{n}=b ,\ $ 试证 
+	$$\lim\limits_{n \rightarrow \infty} \frac{x_{1} y_{n}+x_{2} y_{n-1}+\cdots+x_{n} y_{1}}{n}=a b .$$
+\end{problem}
+\begin{solution}
+	令 $ x_{n}=a+\alpha_{n},\  y_{n}=b+\beta_{n} ,\ $ 则 $ n \rightarrow \infty  $时,\   $\alpha_{n},\  \beta_{n} \rightarrow 0 .$ 于是
+	\begin{align}
+		&\frac{x_{1} y_{n}+x_{2} y_{n-1}+\cdots+x_{n} y_{1}}{n}\nonumber\\
+		=&\frac{\left(a+\alpha_{1}\right)\left(b+\beta_{n}\right)+\left(a+\alpha_{2}\right)\left(b+\beta_{n-1}\right)+\cdots+\left(a+\alpha_{n}\right)\left(b+\beta_{1}\right)}{n} \nonumber\\
+		=&a b+a \frac{\beta_{1}+\beta_{2}+\cdots+\beta_{n}}{n}+b \frac{\alpha_{1}+\alpha_{2}+\cdots+\alpha_{n}}{n}+\frac{\alpha_{1} \beta_{n}+\alpha_{2} \beta_{n-1}+\cdots+\alpha_{n} \beta_{1}}{n} .\label{1.4.5}
+	\end{align}
+	$n \rightarrow \infty  $时第二,\ 三项趋向零. 现证第四项极限亦为零. 事实上,\  因  $\alpha_{n} \rightarrow 0  $(当$  n \rightarrow \infty  $时),\  故$  \left|\alpha_{n}\right|  $有界,\  即$  \exists M>0 ,\  $使得  $\left|\alpha_{n}\right| \leqslant M(\forall n \in \mathbf{N}  ).$ 故
+	$$0<\left|\frac{\alpha_{1} \beta_{n}+\alpha_{2} \beta_{n-1}+\cdots+\alpha_{n} \beta_{1}}{n}\right| \leqslant M \frac{\left|\beta_{n}\right|+\left|\beta_{n-1}\right|+\cdots+\left|\beta_{1}\right|}{n} \rightarrow 0 .$$
+	从而$\eqref{1.4.5}$式以 $ a b $ 为极限.
+\end{solution}
+\begin{note}
+	本题的变换具有一般性,\  常常用这种变换可将一般情况归结为特殊情况. 如 本题原来是已知  $\lim\limits_{n \rightarrow \infty} x_{n}=a,\  \lim\limits_{n \rightarrow \infty} y_{n}=b ,\  $求证  $\lim\limits_{n \rightarrow \infty} \frac{x_{1} y_{n}+\cdots+x_{n} y_{1}}{n}=a b . $变换后,\  归结为已 $ \lim\limits_{n \rightarrow \infty} \alpha_{n}=0,\  \lim\limits_{n \rightarrow \infty} \beta_{n}=0 ,\  $求证  $\lim\limits_{n \rightarrow \infty} \frac{\alpha_{1} \beta_{n}+\cdots+\alpha_{n} \beta_{1}}{n}=0 .$
+\end{note}
+\newpage
+\begin{problem}
+	计算下列数列极限
+	$$\lim\limits_{n\rightarrow\infty}\frac{\sin \frac{\pi}{n}}{n+\frac{1}{n}}+\frac{\sin \frac{2 \pi}{n}}{n+\frac{2}{n}}+\cdots+\frac{\sin \pi}{n+1}$$
+\end{problem}
+\begin{solution}
+	因
+	$$\frac{1}{n+1} \sum\limits_{i=1}^{n} \sin \frac{i}{n} \pi \leqslant \sum\limits_{i=1}^{n} \frac{\sin \frac{i}{n} \pi}{n+\frac{i}{n}} \leqslant \frac{1}{n+\frac{1}{n}} \sum\limits_{i=1}^{n}\sin\frac{i}{n}\pi,\ $$
+	$$\text { 左端极限 }=\lim\limits_{n \rightarrow \infty}\frac{n}{(n+1) \pi} \cdot \frac{\pi}{n} \sum_{i=1}^{n} \sin \frac{i}{n} \pi=\frac{1}{\pi} \int_{0}^{\pi} \sin x \mathrm{~d} x=\frac{2}{\pi}(n \rightarrow \infty),\ $$
+	$$\text { 右端极限 }=\lim\limits_{n \rightarrow \infty} \frac{1}{\left(1+\frac{1}{n^{2}}\right) \pi} \cdot \frac{\pi}{n} \sum_{i=1}^{n} \sin \frac{i}{n} \pi=\frac{1}{\pi} \int_{0}^{\pi} \sin x \mathrm{~d} x=\frac{2}{\pi}(n \rightarrow \infty).$$
+	故
+	原式 $ =\frac{2}{\pi} $ (两边夹法则 ).
+\end{solution}
+\newpage
+\begin{problem}
+	求下列极限 $ \lim\limits_{n \rightarrow \infty} x_{n} ,\ $ 其中 $ x_{n}  :$\\
+	(1)$  x_{n}=\frac{5^{n} \cdot n !}{(2 n)^{n}} ;  $\\
+	(2)$ x_{n}=\frac{11 \cdot 12 \cdot 13 \cdot \cdots \cdot(n+10)}{2 \cdot 5 \cdot 8 \cdot \cdots \cdot(3 n-1)}$
+\end{problem}
+\begin{solution}
+	(1) 因为
+	$$\frac{x_{n+1}}{x_{n}}=\frac{5^{n+1} \cdot(n+1) !(2 n)^{n}}{(2 n+2)^{n+1} \cdot 5^{n} n !}=\frac{5}{2}\left(\frac{n}{n+1}\right)^{n}=\frac{5}{2} \frac{1}{\left(1+\frac{1}{n}\right)^{n}} \rightarrow \frac{5}{2 \mathrm{e}}<1(n \rightarrow \infty) .$$
+	故正项级数 $ \sum\limits_{n=1}^{\infty} x_{n} $ 收敛 ,\ 从而通项$  x_{n} \rightarrow 0(n \rightarrow \infty) .$\\
+	(2) $ \frac{x_{n+1}}{x_{n}}=\frac{n+11}{3 n+2} \rightarrow \frac{1}{3}<1(n \rightarrow \infty) ,\  $故正项级数  $\sum\limits_{n=1}^{\infty} x_{n} $ 收敛,\   $x_{n} \rightarrow 0(n \rightarrow \infty) . $
+\end{solution}
+\begin{problem}
+	求极限 $$ \lim\limits_{n \rightarrow \infty}\left[\frac{1}{n^{2}}+\frac{1}{(n+1)^{2}}+\cdots+\frac{1}{(2 n)^{2}}\right] .$$
+\end{problem}
+\begin{solution}
+	因级数  $\sum\limits_{k=1}^{\infty} \frac{1}{k^{2}}  $收敛,\ 故其余项
+	$$\begin{array}{c}
+		R_{n}=\sum\limits_{k=n+1}^{\infty} \frac{1}{k^{2}} \rightarrow 0(n \rightarrow \infty) . \\
+		0 \leqslant \frac{1}{n^{2}}+\frac{1}{(n+1)^{2}}+\cdots+\frac{1}{(2 n)^{2}} \leqslant R_{n-1} \rightarrow 0(n \rightarrow \infty),\ 
+	\end{array}$$
+	故原极限为零 (用 Cauchy 准则也行).
+\end{solution}
+\newpage
+\begin{problem}
+	设函数  $f(x)$  是周期为$  T(T>0)  $的连续周期函数,\  试证
+	$$\lim\limits_{x \rightarrow+\infty} \frac{1}{x} \int_{0}^{x} f(t) \,\mathrm{d} t=\frac{1}{T} \int_{0}^{T} f(t) \,\mathrm{d} t .$$
+\end{problem}
+\begin{solution}
+	证 I $ \forall x \in$$[0,\ +\infty),\  \exists n \in \mathbf{N}: n T \leqslant x<(n+1) T ,\ $记 $ \int_{0}^{T} f(t)\,\mathrm{d} t=c,\  \int_{n T}^{x} f(t) \,\mathrm{d} t=\alpha ,\ x-n T=\beta ,\ $ 则
+	$$\lim\limits_{x \rightarrow+\infty} \frac{1}{x} \int_{0}^{x} f(t) \,\mathrm{d} t=\lim\limits_{x \rightarrow+\infty} \frac{n c+\alpha}{n T+\beta}=\lim\limits_{x \rightarrow+\infty} \frac{c+\frac{\alpha}{n}}{T+\frac{\beta}{n}}=\frac{c}{T}=\frac{1}{T} \int_{0}^{T} f(t)\, \mathrm{d} t$$
+	(因为 $ \left|\frac{\alpha}{n}\right| \leqslant \frac{1}{n} \int_{n T}^{x}|f(t)|\, \mathrm{d} t \leqslant \frac{M(x-n T)}{n} \leqslant \frac{M T}{n} \rightarrow 0  $(当 $ x \rightarrow+\infty $ 时)(其中 $ M $ 为 $ |f(x)|$  的界),\  $\left|\frac{\beta}{n}\right|=\frac{|x-n T|}{n} \leqslant \frac{T}{n} \rightarrow 0$(  当 $ x \rightarrow+\infty  $时)  ) .\\
+	证 II  $1^{\circ} $ 当 $ f(x) \geqslant 0  $时(用两边夹法则),\  $ \forall x \geqslant 0,\  \exists n \in \mathbf{N} ,\  $使得 $ n T \leqslant x< (n+1) T ,\ $ 从而有
+	$$\frac{1}{(n+1) T} \int_{0}^{n T} f(t) \,\mathrm{d} t \leqslant \frac{1}{x} \int_{0}^{x} f(t)\, \mathrm{d} t \leqslant \frac{1}{n T} \int_{0}^{(n+1) T} f(t)\, \mathrm{d} t . $$
+	$$\text { 上式左端 }=\frac{n}{n+1} \cdot \frac{1}{T} \int_{0}^{T} f(t) \,\mathrm{d} t \rightarrow \frac{1}{T} \int_{0}^{T} f(t)\, \mathrm{d} t \equiv I \text { (当 } n \rightarrow+\infty \text { 时). }$$
+	类似,\ 上式右端  $=\frac{n+1}{n} \cdot \frac{1}{T} \int_{0}^{T} f(t)\, \mathrm{d} t \rightarrow I ,\ $ 故  $\frac{1}{x} \int_{0}^{1} f(t) \,\mathrm{d} t \rightarrow I .$\\
+	$2^{\circ} $ (一般情况) 令 $ g(x)=f(x)-m $ (周期连续函数必有界,\ $ m $表示其下界),\ 这时$  g(x) \geqslant 0 ,\ $应用  $1^{\circ}  $之结果:
+	$$\begin{aligned}
+		\frac{1}{x} \int_{0}^{x} f(t) \,\mathrm{d} t&=\frac{1}{x} \int_{0}^{x}(g(t)+m) \,\mathrm{d} t=\frac{1}{x} \int_{0}^{x} g(t)\, \mathrm{d} t+m \\
+		&\stackrel{\text { 由 } {1^\circ}}{\longrightarrow} \frac{1}{T} \int_{0}^{T} g(t)\, \mathrm{d} t+m=\frac{1}{T} \int_{0}^{T} f(t) \,\mathrm{d} t (\text {当 }x\rightarrow+\infty\text{时}). \\
+	\end{aligned}$$
+\end{solution}
+\newpage
+\begin{problem}
+	(1)设函数 $ f:(0,\ +\infty) \rightarrow(0,\ +\infty)  $单调递增,\  且$  \lim\limits_{t \rightarrow \infty} \frac{f(2 t)}{f(t)}=1 . $试 证: 对任意 $ m>0 ,\  $有  $\lim\limits_{t\rightarrow+\infty} \frac{f(m t)}{f(t)}=1 ;$\\
+	(2) 设  $\lim\limits_{x\rightarrow 0} f(x)=0 ,\ $ 且 $ \lim\limits_{x \rightarrow 0} \frac{f(x)-f\left(\frac{x}{2}\right)}{x}=0 ,\  $试证  $\lim\limits_{x \rightarrow 0} \frac{f(x)}{x}=0 . $
+\end{problem}
+\begin{proof}
+	(1) 因 $\lim\limits_{\rightarrow+\infty} \frac{f(4 t)}{f(2 t)} \stackrel{s=2 t}{=} \lim\limits_{\cdots+\infty} \frac{f(2 s)}{f(s)}=1 ,\ $ 故
+	$$\lim\limits_{\therefore+\infty} \frac{f(4 t)}{f(t)}=\lim\limits_{t \rightarrow \infty} \frac{f(2 t)}{f(t)} \cdot \frac{f(4 t)}{f(2 t)}=1 .$$
+	类似地,\ 由 $ \lim\limits_{t\rightarrow+\infty} \frac{f\left(2^{t} t\right)}{f(t)}=1 $ 即得  $$\lim\limits_{t\rightarrow+\infty} \frac{f\left(2^{k+1} t\right)}{f(t)}=\lim\limits_{t \rightarrow +\infty} \frac{f\left(2^{k+1} t\right)}{f\left(2^{k} t\right)} \cdot \frac{f\left(2^{k} t\right)}{f(t)}=1 .$$
+	(按数学归纳法) 这就证明了 $ \lim\limits_{t \rightarrow +\infty} \frac{f\left(2^{t} t\right)}{f(t)}=1(k=1,\ 2,\  \cdots) .$
+	同理,\   
+	$$\forall k \in \mathbf{N},\  \lim\limits_{t\rightarrow+\infty} \frac{f\left(2^{-k} t\right)}{f(t)}=\frac{1}{\lim\limits_{x \rightarrow \infty} \frac{f(t)}{f\left(2^{-k} t\right)}} \xlongequal{t=2^{k} s}\frac{1}{\lim\limits\limits_{s \rightarrow +\infty} \frac{f\left(2^{k} s\right)}{f(s)}}=1 .$$
+	如此,\ $  \forall m>0,\  \exists k>0 ,\  $使得$  2^{-k} \leqslant m \leqslant 2^{k} . $由 $ f$  单调递增有
+	$$\frac{f(2^{-k}t)}{f(t)}\leqslant\frac{f(mt)}{f(t)}\leqslant\frac{f(2^kt)}{f(t)}.$$
+	令 $ t+\infty ,\  $(利用两边夹法则) 知 $ \forall m>0 ,\ $ 有 $ \lim\limits_{t \rightarrow +\infty} \frac{f(m t)}{f(t)}=1 .$ 证毕.
+	
+	(2) 已知:  $\forall \varepsilon>0,\  \exists \delta>0 ,\  $当$  |x|<\delta  $时,\  有  $\left|\frac{f(x)-f\left(\frac{x}{2}\right)}{x}\right|<\frac{\varepsilon}{3} . $亦即
+	$$-\frac{\varepsilon}{3}|x|<f(x)-f\left(\frac{x}{2}\right)<\frac{\varepsilon}{3}|x| .$$
+	将$  x $ 替换为 $ \frac{x}{2^{k}} ,\ $ 得
+	$$-\frac{\varepsilon}{3} \frac{1}{2^{k}}|x|<f\left(\frac{x}{2^{k}}\right)-f\left(\frac{x}{2^{k+1}}\right)<\frac{\varepsilon}{3} \frac{1}{2^{k}}|x|(k=0,\ 1,\ 2,\  \cdots,\  n) .$$
+	将诸式相加,\ [注意到 $\sum\limits_{i=0}^{n}\left[f\left(\frac{x}{2^{k}}\right)-f\left(\frac{x}{2^{k+1}}\right)\right]=f(x)-f\left(\frac{x}{2^{n+1}}\right)  $] 得
+	$$-\frac{\varepsilon}{3} \sum_{k=0}^{n} \frac{1}{2^{k}}|x|<f(x)-f\left(\frac{x}{2^{n+1}}\right)<\frac{\varepsilon}{3} \sum_{k=0}^{n} \frac{1}{2^{k}}|x| .$$
+	令 $ n \rightarrow \infty ,\  $取极限得 $ -\frac{2 \varepsilon}{3}|x| \leqslant f(x) \leqslant \frac{2 \varepsilon}{3}|x|\left(\right. $ 因 $ \sum\limits_{i=0}^{\infty} \frac{1}{2^{i}}=2  ),\  $故  $\left|\frac{f(x)}{x}\right| \leqslant \frac{2 \varepsilon}{3}<\varepsilon .$
+	表明: $ \lim\limits_{x \rightarrow 0} \frac{f(x)}{x}=0 .$
+\end{proof}
+\newpage
+\begin{problem}
+	证明:
+	$$\ln\ln n\ll\ln n\stackrel{0<\alpha<1}{\ll}n^\alpha\stackrel{k\in\mathbf{N}}{\leqslant}n^k\stackrel{a>1}{\ll}a^n\ll n!\ll n^n(n\rightarrow\infty).$$
+\end{problem}
+\begin{proof}
+	$1^{\circ}$ 
+	$$\lim\limits_{n \rightarrow \infty} \frac{n !}{n^{n}}=0\text{明显},\ \text{因}  0<\frac{n !}{n^{n}} \leqslant \frac{1}{n} \rightarrow 0  (\text{当}  n \rightarrow \infty \text{时}).$$
+	$2^{\circ} \text{证明}\lim\limits_{n \rightarrow \infty} \frac{a^{n}}{n !}=0 .$ 记 $ n_{0}=[a]  $(不超过  $a  $的最大整数),\  则当$  n>n_{0} $ 时,\   $0< \frac{a}{n_{0}+1},\  \cdots,\  \frac{a}{n-1}<1,\  $
+	$$0<\frac{a^{n}}{n !}=\frac{a}{1} \cdot \frac{a}{2} \cdot \frac{a}{3} \cdots \cdots \cdot \frac{a}{n_{0}} \cdot \frac{a}{n_{0}+1} \cdots \cdots \cdot \frac{a}{n-1} \cdot \frac{a}{n}<a^{n_{0}} \cdot \frac{a}{n} \rightarrow 0(n \rightarrow \infty) . $$
+	$3^{\circ}$
+	$$\lim\limits_{n \rightarrow \infty} \frac{n^{k}}{a^{n}}=\lim\limits_{n\rightarrow+\infty} \frac{x^{k}}{a^{x}} \xlongequal{L'Hospital}\lim\limits_{x \rightarrow \infty} \frac{k x^{k-1}}{a^{x} \ln a}=\cdots .$$
+	应用 $ k $ 次 L'Hospital 法则,\  上式  $$=\lim\limits_{x \rightarrow+\infty} \frac{k !}{a^{x}(\ln a)^{k}}=0 .$$
+	$4^{\circ}$ 
+	$$\lim\limits\limits_{n \rightarrow \infty} \frac{n^{\alpha}}{n^{k}}=\lim\limits_{n \rightarrow \infty} \frac{1}{n^{k-a}}=0 . $$
+	$5^{\circ}$ $$\lim\limits_{n \rightarrow \infty} \frac{\ln n}{n^{\alpha}}=\lim\limits_{x \rightarrow+\infty} \frac{\ln x}{x^{\alpha}}. $$
+	$\text {令 } \ln x=y,\  x=\mathrm{e}^{y},\ \text {于是 } $
+	$$\text { 上式 }=\lim\limits_{x \rightarrow+\infty} \frac{y}{\mathrm{e}^{\alpha y}} \xlongequal{L'Hosipital} \lim _{x\rightarrow+\infty} \frac{1}{\alpha \mathrm{e}^{\alpha y}}=0 .$$
+	$6^{\circ}$ 
+	$$\lim\limits_{n \rightarrow \infty} \frac{\ln \ln n}{\ln n}=\lim\limits_{x \rightarrow+\infty} \frac{\ln \ln x}{\ln x}.$$
+	$\text {令 } \ln x=y,\  \text {则 上式 }$
+	$$=\lim\limits_{x\rightarrow+\infty} \frac{\ln y}{y}=0 .$$
+\end{proof}
+\newpage
+\begin{problem}
+	设极限  $\lim\limits_{n \rightarrow \infty}\left(a_{1}+a_{2}+\cdots+a_{n}\right) $ 存在,\  试求 :\\
+	(1)$\lim\limits_{n\rightarrow\infty}\frac{1}{n}(a_1+2a_2+\cdots+na_n)$\\
+	(2)$\lim\limits_{n\rightarrow\infty}(n!a_1\cdot a_2\cdot\cdots\cdot a_n)^{\frac{1}{n}}$\\
+	(3)$\lim\limits_{n\rightarrow\infty}\frac{n^2}{\frac{1}{a_1}+\frac{1}{a_2}+\cdots+\frac{1}{a_n}}$(其中$a_n>0,\ \forall n\in\mathbb{N}$)
+\end{problem}
+\begin{solution}
+	(1)记$S_n=\sum_{k=1}^{n}a_k,\ $则
+	$$\frac{1}{n}\sum_{k=1}^{n}ka_k=\frac{1}{n}\sum_{k=1}^{n}[(k+(n-k))a_k-(n-k)a_k]=S_n-\frac{n-1}{n}\cdot\frac{1}{n-1}\sum_{k=1}^{n-1}S_k$$
+	由于$\lim\limits_{n \rightarrow \infty}\left(a_{1}+a_{2}+\cdots+a_{n}\right) $ 存在,\ 故$\lim\limits_{n\rightarrow\infty}\frac{1}{n}\sum_{k=1}^{n-1}S_n$存在,\ 可知本题极限为$0.$\\
+	(2)
+	$$0\leqslant(1a_1\cdot 2a_2\cdot \cdots \cdot na_n)^{\frac{1}{n}}\leqslant\frac{1}{n}(a_1+2a_2+\cdots+na_n)$$
+	(3)
+	$$\begin{aligned}
+		0<&\frac{n^2}{\frac{1}{a_1}+\frac{1}{a_2}+\cdots+\frac{1}{a_n}}=\frac{n}{\frac{1}{n}(\frac{1}{a_1}+\frac{1}{a_2}+\cdots+\frac{1}{a_n})}\leqslant\frac{n}{\sqrt[n]{\frac{1}{a_1}\cdot\frac{1}{a_2}\cdot\cdots\cdot\frac{1}{a_n}}}\\
+		=&n\sqrt[n]{a_1a_2\cdots a_n}=\frac{n}{\sqrt[n]{n!}\sqrt[n]{a_1\cdot 2a_2\cdot\cdots\cdot na_n}}\leqslant\frac{n}{\sqrt[n]{n!}}\frac{a_1+2a_2+\cdots+na_n}{n}
+	\end{aligned}$$
+\end{solution}
+\newpage
+\begin{problem}
+	($\frac{\infty}{\infty}$型Stolz公式)设$\{x_n\}$严格递增,\ (即$\forall n\in\mathbb{N}$有$x_n<x_{n+1}$),\ 且$\lim_{n\rightarrow\infty}=+\infty.$\\
+	(1)若$\lim\limits_{n\rightarrow\infty}\frac{y_n-y_{n-1}}{x_n-x_{n-1}}=a$(有限数),\ 则$\lim\limits_{n\rightarrow\infty}\frac{y_n}{x_n}=a;$\\
+	(2)若$\lim\limits_{n\rightarrow\infty}\frac{y_n-y_{n-1}}{x_n-x_{n-1}}=+\infty$,\ 则$\lim\limits_{n\rightarrow\infty}\frac{y_n}{x_n}=+\infty;$\\
+	(3)若$\lim\limits_{n\rightarrow\infty}\frac{y_n-y_{n-1}}{x_n-x_{n-1}}=-\infty$,\ 则$\lim\limits_{n\rightarrow\infty}\frac{y_n}{x_n}=-\infty.$
+\end{problem}
+\begin{proof}
+	$1^{\circ}$已知$\lim\limits_{n\rightarrow\infty}\frac{y_n-y_{n-1}}{x_n-x_{n-1}}=a,\ $即$\forall\varepsilon>0,\ \exists N>0,\ $当$n>N$时,\ 有$\left|\frac{y_n-y_{n-1}}{x_n-x_{n-1}}-a\right|<\frac{\varepsilon}{2}.$即
+	\begin{equation}
+		a-\frac{\varepsilon}{2}<\frac{y_k-y_{k-1}}{x_k-x_{k-1}}<a+\frac{\varepsilon}{2}(k=N+1,\ N+2,\ \cdots,\ n-1,\ n,\ \cdots).\label{1.4.6}
+	\end{equation}
+	借助分数的和比性质:"当$m<\frac{b_k}{a_k}<M(k=1,\ 2,\ \cdots,\ n)$时,\ 有$m<\frac{b_1+b_2+\cdots+b_n}{a_1+a_2+\cdots+a_n}<M$".于是由\eqref{1.4.6}可得$a-\frac{\varepsilon}{2}<\frac{y_n-y_N}{x_n-x_N}<a+\frac{\varepsilon}{2},\ $亦即
+	$$\left|\frac{y_n-y_N}{x_n-x_N}-a\right|<\frac{\varepsilon}{2}.$$
+	另一方面,\ 
+	\begin{align}
+		\frac{y_n}{x_n}-a&=\frac{y_n-ax_n}{x_n}=\frac{y_n-y_N-ax_n+ax_N}{x_n-x_N}\cdot\frac{x_n-x_N}{x_n}+\frac{y_N-ax_N}{x_n}\notag\\
+		&=\left(\frac{y_n-y_N}{x_n-x_N}-a\right)\cdot\left(1-\frac{x_N}{x_n}\right)+\frac{y_N-ax_N}{x_n}.\label{1.4.7}
+	\end{align}
+	因$x_n$严格增加趋向$+\infty,\ $可默认$x_n>0;$当$n>N$时,\ 有$\left|1-\frac{x_N}{x_n}\right|\leqslant 1.$固定$N,\ $让$n$进一步增大,\ 还能保持$\left|\frac{y_N-ax_N}{x_n}\right|<\frac{\varepsilon}{2}.$故由\eqref{1.4.7}地
+	$$\left|\frac{y_n}{x_n}-a\right|\leqslant\left|\frac{y_n-y_N}{x_n-x_N}-a\right|+\left|\frac{y_N-ax_N}{x_n}\right|<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon,\ $$
+	亦即$\lim\limits_{n\rightarrow\infty}\frac{y_n}{x_n}=a.$\\
+	$2^{\circ}$(极限为$+\infty$的情况)因已知$\lim\limits_{n\rightarrow\infty}\frac{y_n-y_{n-1}}{x_n-x_{n-1}}=+\infty,\ $所以$\lim\limits_{n\rightarrow\infty}\frac{x_n-x_{n-1}}{y_n-y_{n-1}}=0.$利用$1^{\circ}$中的结论,\ 只要证明$y_n$严格增加趋向$+\infty,\ $则$\lim\limits_{n\rightarrow\infty}\frac{x_n}{y_n}=0,\ \lim\limits_{n\rightarrow\infty}\frac{y_n}{x_n}=+\infty$(问题得证).因$x_n$严格单调递增,\ $y_n$严格单调递增,\ 只要证明$\frac{y_n-y_{n-1}}{x_{n}-x_{n-1}}>1.$事实上,\ $\lim\limits_{n\rightarrow\infty}\frac{y_n-y_{n-1}}{x_n-x_{n-1}}=+\infty,\ $所以对$M=1,\ \exists N>0,\ $当$n>N$时,\ 有$\frac{y_n-y_{n-1}}{x_{n}-x_{n-1}}>1,\ $即$n>N$时,\ 
+	\begin{equation}
+		y_n-y_{n-1}>x_n-x_{n-1}>0.\label{1.4.8}
+	\end{equation}
+	所以当$n>N$时,\ $y_n$严格单调增加.在式\eqref{1.4.8}中令$n=N+1,\ N+2,\ \cdots,\ k,\ $然后相加,\ 可知
+	$$y_k-y_N>x_k-x_N.$$
+	令$k\rightarrow\infty,\ $知$y_k\rightarrow+\infty.$\\
+	$3^{\circ}$令$y_n=-z_n.$
+\end{proof}
+\begin{note}
+	$\lim\limits_{n\rightarrow\infty}\frac{y_n-y_{n-1}}{x_n-x_{n-1}}=\infty,\ $一般推不出$\lim\limits_{n\rightarrow\infty}\frac{y_n}{x_n}=\infty.$如令$\{x_n\}=n,\ \{y_n\}=\{0,\ 2^2,\ 0,\ 4^2,\ 0,\ 6^2,\ ,\ \cdots\}.$这时虽然$\lim\limits_{n\rightarrow\infty}\frac{y_n-y_{n-1}}{x_n-x_{n-1}}=\infty,\ $但
+	$$\left\{\frac{y_n}{x_n}\right\}=\{0,\ 2,\ 0,\ 4,\ 0,\ 6,\ \cdots\nrightarrow \infty\}.$$
+\end{note}
+\newpage
+\begin{problem}
+	已知$\lim\limits_{n\rightarrow\infty}\sum\limits_{k=1}^{n}a_k$存在$,\ \{p_k\}$为单调增加的正数列,\ 且$\lim\limits_{n\rightarrow\infty}p_n=+\infty,\ p_{n+1}\neq p_n(n=1,\ 2,\ \cdots),\ $求证$\lim\limits_{n\rightarrow\infty}\frac{p_1a_1+p_2a_2+\cdots+p_na_n}{p_n}=0.$
+\end{problem}
+\begin{proof}
+	记
+	$$S_n=\sum_{k=1}^{n}a_k,\ \text{则}\sum_{k=1}^{n}p_ka_k=\sum_{k=2}^{n}p_k(S_k-S_{k-1})+p_1S_1=\sum_{k=1}^{n-1}S_k(p_k-p_{k+1})+S_np_n.$$
+	由Stolz公式可知
+	$$\lim\limits_{n\rightarrow\infty}\frac{\sum_{k=1}^{n-1}S_k(p_k-p_{k+1})}{p_n}=\lim\limits_{n\rightarrow\infty}(-S_{n-1}).$$
+	故原式可证极限为$0.$
+\end{proof}
+\newpage
+\begin{problem}
+	若$0<\lambda<1,\ a_n>0,\ $且$\lim\limits_{n\rightarrow\infty}a_n=a,\ $试证
+	$$\lim_{n\rightarrow\infty}(a_n+\lambda a_{n-1}+\lambda^2a_{n-2}+\cdots+\lambda^na_0)=\frac{a}{1-\lambda}$$
+\end{problem}
+\begin{proof}
+	令$a_k=a+\alpha_k$
+	左边可转化为
+	$$\begin{aligned}
+		&\frac{(1-\lambda^{n+1})a}{1-\lambda}+\sum_{k=0}^{n}\lambda^k\alpha_{n-k}\\
+		=&\frac{(1-\lambda^{n+1})a}{1-\lambda}+\sum_{i=0}^{n}\lambda^{n-i}\alpha_i\\
+		=&\frac{(1-\lambda^{n+1})a}{1-\lambda}+\frac{\sum\limits_{i=0}^{n}\lambda^{-i}\alpha_i}{\lambda^{-n}}\rightarrow\frac{a}{1-\lambda}
+	\end{aligned}$$
+	上式右端的极限可由Stolz解得.
+\end{proof}
+\newpage
+\begin{problem}
+	证明数列$x_0=1,\ x_{n+1}=\sqrt{2x_n},\ n=0,\ 1,\ 2,\ \cdot$有极限,\ 并求其值.
+\end{problem}
+\begin{proof}
+	$1^\circ$显然$1\leqslant x_0<2.$若$1\leqslant x_n<2,\ $则$1\leqslant x_{n+1}=\sqrt{2x_n}<\sqrt{2\cdot 2}=2.$故对一切$n\in\mathbb N,\ $有$1\leqslant x_n<2.$\\
+	因$\frac{x_{n+1}}{x_n}=\frac{\sqrt{2x_n}}{x_n}=\sqrt{\frac{2}{x_n}}>\sqrt{\frac{2}{2}}=1,\ $故$x_n$单调递增.\\
+	利用单调有界原理,\ 知道$\{x_n\}$收敛.记$A=\lim\limits_{n\rightarrow\infty}x_n,\ $在$x_{n+1}=\sqrt{2x_n}$中取极限得$A=\sqrt{2A},\ A=0\text{或} 2.$\\
+	因$x_n>0\text{且} x_n\text{单调递增},\ $故$A\neq 0,\ $记$\lim\limits_{n\rightarrow\infty}=2.$\\
+	$2^{\circ}$记$f(x)=\sqrt{2x}(x>0),\ $有$f'(x)=\frac{1}{\sqrt{2x}}>0,\ $故$f(x)$单调增加,\ 从而由$x_n>x_{n-1}$可知推出$x_{n+1}=f(x_n)>f(x_{n-1})=x_n.$今有$x_1=\sqrt{2}>x_0=1,\ $故$x_1<x_2<x_3<\cdots,\ x_n\text{单调递增}.$其余与$1^\circ$相同.\\
+	$3^\circ$(利用压缩映像原理)如$1^\circ,\ $已有$1\leqslant x_n<2,\ $对$f(x)=\sqrt{2x},\ $有
+	$$\left|f'(x)\right|=\frac{1}{\sqrt{2x}}\leqslant\frac{\sqrt{2}}{2}<1,\ $$
+	满足压缩影像原理,\ 可知$\{x_n\}$收敛.其余同$1^\circ.$\\
+	$4^\circ$
+	$$x_n=\sqrt{2x_{n-1}}=\sqrt{2\sqrt{2x_{n-2}}}=\sqrt{2\sqrt{2\sqrt{\cdots\sqrt{2}}}}=2^{\frac{1}{2}+\frac{1}{2^2}+\frac{1}{2^3}+\cdots+\frac{1}{2^n}}=2^{1-\frac{1}{2^n}}\rightarrow 2(n\rightarrow\infty)$$
+\end{proof}
+\newpage
+\begin{problem}
+	设$0\leqslant x_{n+1}\leqslant x_n+y_n(\forall n\in N),\ $且$\lim\limits_{n\rightarrow\infty}\sum\limits_{k=1}^{n}y_k<+\infty.$试证$\{x_n\}$收敛.
+\end{problem}
+\begin{proof}
+	因  $\lim\limits_{n \rightarrow \infty} \sum_{k=1}^{n} y_{k}<+\infty $ 收敛,\  根据 Cauchy 准则,\  $ \forall \varepsilon>0,\  \exists N>0 ,\  $当 $ n \geqslant N $ 时,\  有
+	$$\left|\sum_{k=n}^{n+p}y_k\right|=\left|\sum_{k=1}^{n+p}y_k-\sum_{k=1}^{n}y_k\right|<\varepsilon(\forall p\geqslant 0).$$
+	因恒有 $ x_{n} \geqslant 0 ,\ $ 故 $ \inf _{k \geqslant n} x_{k}=\alpha_{n} \geqslant 0 . $由下确界的定义,\ $  \forall \varepsilon>0,\  \exists n_{1}>n ,\ $ 使得 根据已知条件$:  x_{n+1} \leqslant x_{n}+y_{n} ,\ $ 有 
+	$$x_{n_{1}+k+1}-x_{n_{1}+k} \leqslant y_{n_{1}+k}(\forall k=0,\ 1,\ 2,\  \cdots,\  p-1) .$$
+	诸式累加，得
+	\begin{equation}
+		x_{n_{1}+p+1}-x_{n_{1}} \leqslant \sum_{k=0}^{p} y_{n_{1}+k}=\sum_{k=n_{1}}^{n_{1}+p} y_{k}<\varepsilon\quad(\forall p \geqslant 0) .\label{1.4.9}
+	\end{equation}
+	1) 若 $ x_{n_{1}+p+1} \leqslant x_{n_{1}} ,\  $则  $0 \leqslant \alpha_{n} \leqslant x_{n_{1}+p+1} \leqslant x_{n_{1}} \leqslant \alpha_{n}+\varepsilon ,\  $知  $\left|x_{n_{1}+p+1}-x_{n_{1}}\right|<\varepsilon .$\\
+	2) 若  $x_{n_{1}}<x_{n_{1}+p+1} ,\  $则由式$\eqref{1.4.9}:0<  x_{n_{1}+p+1}-x_{n_{1}} \leqslant \sum\limits_{k=n_{1}}^{n_{1}+p} y_{k}<\varepsilon . $\\
+	总之数列  $\{x_n\}$  符合 Cauchy 准则条件,\  故  $\left\{x_{n}\right\} $ 收敛.
+\end{proof}
+\newpage
+\begin{problem}
+	设数列$\{a_n\}$满足条件:$a_n>0(n=1,\ 2,\ \cdots),\ $且
+	$$\lim\limits_{n \rightarrow \infty} \frac{a_{n}}{a_{n+2}+a_{n+4}}=0 .$$
+	试证  $\left\{a_{n}\right\}$  无界.
+\end{problem}
+\begin{proof}
+	由题目,\  $ \lim\limits_{n \rightarrow \infty} \frac{a_{n+2}+a_{n+4}}{a_{n}}=+\infty ,\ $ 即 $ \exists N>0 ,\ $ 当 $ n>N $ 时,\ 
+	$$\frac{a_{n+2}+a_{n+4}}{a_{n}}>4 .$$
+	用反证法. 假设 $ \left\{a_{n}\right\}  $有界,\  有界必有上确界,\  即有 $ 0<a_{n} \leqslant \alpha=\sup _{n} a_{n}  $差在.由上式 $4 a_{n}<   a_{n+2}+a_{n+4} \leqslant 2 \alpha ,\ $ 亦即
+	$$2 a_{n} \leqslant \alpha .$$
+	再对此式左端取上确界,\  得 $ 2 \alpha \leqslant \alpha ,\  $( 而  $\alpha>0  $) 导致  $2 \leqslant 1 ,\ $ 谬误! $\{a_{n}\}$  只能无界.
+\end{proof}
+\newpage
+\begin{problem}
+	已知数列 $ \left\{u_{n}\right\} $ 由关系 $ u_{1}=b ,\ $
+	\begin{equation}
+		u_{n+1}=u_{n}^{2}+(1-2 a) u_{n}+a^{2}(n \geqslant 1)\label{1.4.10}
+	\end{equation}
+	给出,\ 问当且仅当  $a,\  b  $是什么数时,\ 数列 $ \left\{u_{n}\right\} $ 收敛? 其极限等于什么?
+\end{problem}
+\begin{solution}
+	我们首先考察: 若 $ \left\{u_{n}\right\} $ 收敛$,\   a,\  b $ 应满足什么条件. 从式\eqref{1.4.10}知,\  若 $ \lim\limits_{n \rightarrow \infty} u_{n}=A ,\  $则 $ A=A^{2}+(1-2 a) A+a^{2} ,\  $从而$  A=a . $又按式\eqref{1.4.10},\ 
+	$$u_{n+1}=u_{n}+\left(u_{n}-a\right)^{2} \geqslant u_{n}(n \geqslant 1),\ $$
+	因此 $ \left\{u_{n}\right\} \nearrow A .$ 故一切 $ u_{n} \leqslant A=a .$ 从而
+	$$u_{n}^{2}+(1-2 a) u_{n}+a^{2}-a \leqslant 0,\ $$
+	但 $ x^{2}+(1-2 a) x+a^{2}-a=0$  的两根为 $ (a-1) $ 与 $ a^{-1} x^{2} $ 的系数 $ >0 ,\  $故上式当且仅当
+	$$u_{n} \in[a-1,\  a]$$
+	时成立. $ u_{1}=b ,\  $这样我们知要极限存在必须
+	$$a-1 \leqslant b \leqslant a .$$
+	反之,\ 假如上式成立,\  按二次三项式的性质应有
+	$$u_{2}=u_{1}^{2}+(1-2 a) u_{1}+a^{2} \in[a-1,\  a].$$
+	如此递推,\  用数学归纳法可得
+	$$a-1 \leqslant u_{1} \leqslant u_{2} \leqslant \cdots \leqslant u_{n} \leqslant u_{n+1} \leqslant \cdots \leqslant a,\ $$
+	$\left\{u_{n}\right\} \nearrow$  有上界. 故由式\eqref{1.4.10}取极限,\  可得  $\lim\limits_{n \rightarrow \infty} u_{n}=a .$
+\end{solution}
+\newpage
+\begin{problem}
+	(不动点方法)已知数列$\{x_n\}$在区间$I$上由$x_{n+1}=f(x_n)(n=1,\ 2,\ \cdots)$给出$,\   f $ 是$  I  $上连续增函数,\  若  $f $ 在  $I$  上有不动点$  x^{*} $ (即$x^*=f(x^*)$)满足
+	\begin{equation}
+		\left(x_{1}-f\left(x_{1}\right)\right)\left(x_{1}-x^{*}\right) \geqslant 0,\ \label{1.4.11}
+	\end{equation}
+	则此时数列 $ \left\{x_{n}\right\}$  必收敛,\  且极限 $ A $ 满足$  A=f(A) .$
+	若\eqref{1.4.11} 式“  $\geqslant$  ” 改为 “  $>$  ” 对任意 $ x_{1} \in I $ 成立,\  则意味着  $x^{*} $ 是唯一不动点,\  并 且$  A=x^{*} .$\\
+	特别,\  若 $ f $ 可导,\  且  $0<f^{\prime}(x)<1(x \in I) ,\  $则 $ f $ 严增,\  且不等式(\eqref{1.4.11})  ( “  $\geqslant$  ”可改为 “ $ > $ ” ) 会自动满足  $\left(\forall x_{1} \in I\right) .$ 这时  $f $ 的不动点存在且唯一,\  从而$  A=x^{*} .$
+\end{problem}
+\begin{proof}
+	分三种情况进行讨论:\\
+	$1^{\circ} $ 若 $ x_{1}>x^{*} ,\  $则$  x_{2}=f\left(x_{1}\right) \geqslant f\left(x^{*}\right)=x^{*} ,\  $一般地,\  若已证到 $ x_{n} \geqslant x^{*} ,\ $ 则$  x_{n+1}=   f\left(x_{n}\right) \geqslant f\left(x^{*}\right)=x^{*} ,\  $根据数学归纳法,\  这就证明了对一切 $ n: x_{n} \geqslant x^{*} $ ( 即 $ x^{*} $ 是 $ x_{n}$  之下 界）.
+	$$x_{1} \geqslant f\left(x_{1}\right)=x_{2}$$
+	另一方面,\  由式  (\eqref{1.4.11})  条件,\  已有 $ x_{2}=f\left(x_{1}\right) \leqslant x_{1} ,\ $ 由 $ f \nearrow $ 知 $ x_{3}=f\left(x_{2}\right) \leqslant f\left(x_{1}\right)=x_{2},\  \cdots . $一般地,\  若已证到 $ x_{n} \leqslant x_{n-1} ,\ $ 由$  f \nearrow  $知 $ x_{n+1}=f\left(x_{n}\right) \leqslant f\left(x_{n-1}\right)=x_{n} ,\ $ 这就证明了$  x_{n} \searrow .$ 再 由单调有界原理,\  知  $\left\{x_{n}\right\}  $收敛.
+	在  $x_{n+1}=f\left(x_{n}\right)  $中取极限,\  因$  f(x) $ 连续,\  可知  $\left\{x_{n}\right\}  $的极限 $ A $ 适合方程 $ A=f(A) . $\\
+	$2^{\circ} x_{1}<x^{*} $ 的情况,\  类似可证.\\
+	$3^{\circ} $ 若 $ x_{1}=x^{*} ,\ $ 则对一切 $ n,\  x_{n}=x^{*} ,\  $结论自明.\\
+	最后,\  假若 $ 0<f^{\prime}(x)<1(\forall x \in I) ,\  $由压缩映像原理可知 $ \left\{x_{n}\right\} $ 收敛. 事实上,\  这时 也不难验证式  (\eqref{1.4.11})  条件成立. 如: 对函数$  F(x) \equiv x-f(x) $ 应用微分中值定理(注意到 $ \left.F\left(x^{*}\right)=0,\  F^{\prime}(x)>0\right) $,\  知 $ \exists \xi $ 在$  x^{*} $ 与 $ x $ 之间,\  使得
+	$$x-f(x) \equiv F(x)=F\left(x^{*}\right)+F^{\prime}(\xi)\left(x-x^{*}\right)=F^{\prime}(\xi)\left(x-x^{*}\right) ,\ $$
+	可见 $ (x-f(x))\left(x-x^{*}\right)>0 .$ 即式  (\eqref{1.4.11})  条件严格成立,\  故  $\lim\limits_{n \rightarrow \infty} x_{n}=x^{*} .$
+\end{proof}
+\newpage
+\begin{problem}
+	设  $f(x) $ 映  $[a,\  b] $ 为自身,\  且
+	\begin{equation}
+		|f(x)-f(y)| \leqslant|x-y|.\label{1.4.12}
+	\end{equation}
+	任取 $ x_{1} \in[a,\  b] ,\ $ 令
+	\begin{equation}
+		x_{n+1}=\frac{1}{2}\left[x_{n}+f\left(x_{n}\right)\right],\ \label{1.4.13}
+	\end{equation}
+	求证数列有极限 $ x^{*},\  x^{*} $ 满足方程 $ f\left(x^{*}\right)=x^{*} .$
+\end{problem}
+\begin{proof}
+	式\eqref{1.4.12}表明$f(x)$连续.只要证明了$\{x_n\}$单调,\ $\{x_n\}\in [a,\ b](n=1,\ 2,\ \cdots),\ $自然$\{x_n\}$就有极限,\ 在式\eqref{1.4.13}中取极限,\ 便知$\{x_n\}$的极限$x^*$满足$f(x^*)=x^*.$\\
+	因为 $ f(x)  $映$  [a,\  b]  $为自身,\  所以当 $ x_{n} \in[a,\  b] $ 时,\  由式 \eqref{1.4.13} 知 $ x_{n+1} \in[a,\  b]$  亦然. 既然 $ x_{1} \in[a,\  b] ,\ $ 故对一切 $ n ,\  $恒有 $ x_{n} \in[a,\  b] .$ 剩下只需证明单调性. 事实上,\  若 $ x_{1} \leqslant f\left(x_{1}\right) ,\ $ 则$  x_{2}=\frac{1}{2}\left(x_{1}+f\left(x_{1}\right)\right) \geqslant x_{1} ,\ $ 而任一 $ n ,\ $ 若 $ x_{n-1} \leqslant x_{n} ,\ $ 便有
+	$$f\left(x_{n-1}\right)-f\left(x_{n}\right) \leqslant\left|f\left(x_{n-1}\right)-f\left(x_{n}\right)\right| \leqslant\left|x_{n-1}-x_{n}\right|=x_{n}-x_{n-1} .$$
+	将带负号的项移到不等式的另一端,\  然后同除以$ 2 ,\ $ 即得
+	$$x_{n}=\frac{1}{2}\left[x_{n-1}+f\left(x_{n-1}\right)\right] \leqslant \frac{1}{2}\left[x_{n}+f\left(x_{n}\right)\right]=x_{n+1},\ $$
+	故  $x_{n} \nearrow .$ 同理若$  x_{1} \geqslant f\left(x_{1}\right) ,\  $可证 $ x_{n} \searrow .$
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ a_{1}^{(0)},\  a_{2}^{(0)},\  a_{3}^{(0)} $ 为三角形各边的长,\  令
+	\begin{equation}
+		\left.\begin{array}{l}
+			a_{1}^{(k)}=\frac{1}{2}\left(a_{2}^{(k-1)}+a_{3}^{(k-1)}\right),\  \\
+			a_{2}^{(k)}=\frac{1}{2}\left(a_{1}^{(k-1)}+a_{3}^{(k-1)}\right),\  \\
+			a_{3}^{(k)}=\frac{1}{2}\left(a_{1}^{(k-1)}+a_{2}^{(k-1)}\right),\ 
+		\end{array}\right\}\label{1.4.14}
+	\end{equation}
+	证明:  $\lim\limits_{k \rightarrow \infty} a_{i}^{(k)}=\frac{a_{1}^{(0)}+a_{2}^{(0)}+a_{3}^{(0)}}{3}(i=1,\ 2,\ 3) .$
+\end{problem}
+\begin{proof}
+	(分别求 $ a_{i}^{(k)}(i=1,\ 2,\ 3) $ 的表达式. ) 由式\eqref{1.4.14}知
+	$$a_{1}^{(k)}+a_{2}^{(k)}+a_{3}^{(k)}=a_{1}^{(k-1)}+a_{2}^{(k-1)}+a_{3}^{(k-1)}=\cdots=a_{1}^{(0)}+a_{2}^{(0)}+a_{3}^{(0)} \stackrel{\text{记}}{=} l .$$
+	\\
+	$$\begin{aligned}
+		a_1^{(k)}&=\frac{1}{2}(a_2^{(k-1)}+a_3^{(k-1)})\\
+		&=\frac{1}{2}\left[\frac{1}{2}(a_1^{(k-2)}+a_3^{(k-2)})+\frac{1}{2}(a_1^{(k-2)}+a_2^{(k-2)})\right]\\
+		&=\frac{l}{4}+\frac{1}{4}a_1^{(k-2)}.
+	\end{aligned}$$
+	由此 $ a_{1}^{(2 k)}=\frac{l}{4}+\frac{l}{4^{2}}+\cdots+\frac{l}{4^{k}}+\frac{a_{1}^{(0)}}{4^{k}}=\frac{\frac{l}{4}-\frac{l}{4^{k+1}}}{1-\frac{1}{4}}+\frac{a_{1}^{(0)}}{4^{k}} \rightarrow \frac{l}{3}(k \rightarrow \infty) .$\\
+	同理,\  $ a_{2}^{(2 k)} \rightarrow \frac{l}{3},\  a_{3}^{(2 k)} \rightarrow \frac{l}{3}(k \rightarrow \infty) .$ 故 $ a_{1}^{(2 k+1)}=\frac{1}{2}\left(a_{2}^{(2 k)}+a_{3}^{(2 k)}\right) \rightarrow \frac{l}{3}(k \rightarrow \infty) .$\\
+	同理,\  $ a_{2}^{(2 k+1)} \rightarrow \frac{l}{3},\  a_{3}^{(2 k+1)} \rightarrow \frac{l}{3}(k \rightarrow \infty) .$ 故
+	$$\lim\limits_{k \rightarrow \infty} a_{i}^{(k)}=\frac{l}{3}=\frac{a_{1}^{(0)}+a_{2}^{(0)}+a_{3}^{(0)}}{3} .$$
+	通项并不总是轻而易举地能写出来,\  有时需要引入适当的参量.
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ [x] $ 表示不超过  $x $ 的最大整数,\  记号$  \{x \mid \equiv x-[x] $ 表示 $ x  $的小数部分,\  试求 $ \lim\limits_{n \rightarrow \infty}\{(2+\sqrt{3}) " \mid . $( 国外赛题)
+\end{problem}
+\begin{solution}
+	$\left|(2+\sqrt{3})^{n}\right|$  是$  (2+\sqrt{3})^{n}  $的小数部分,\  自然,\  将$  (2+\sqrt{3})^{n} $ 中的整数项去掉,\  不会影响它的 值. 将  $(2+\sqrt{3})^{n} $ 展开,\ 合并同类项:\begin{equation}
+		(2+\sqrt{3})^{n}=\sum_{i=0}^{n} \mathrm{C}_{n}^{k}(\sqrt{3})^{k} 2^{n-k}=A_{n}+B_{n} \sqrt{3},\ \label{1.4.15}
+	\end{equation}
+	其中 $ A_{n} $ 表示  $k$  为偶数的各项之和$,\   B_{n} \sqrt{3}  $是 $ k $ 为奇数的各项之和,\  可见 $ A_{n},\  B_{n}  $都是整数. 去掉第一项 $ A_{n} ,\  $不影响小数部分,\ 
+	\begin{equation}
+		\left\{(2+\sqrt{3})^{n}\right\}=\left|B_{n} \sqrt{3}\right| .\label{1.4.16}
+	\end{equation}
+	为了进一步求  $\left|B_{n} \sqrt{3}\right|$  的表达式,\ 打开思路,\  考虑对偶问题. 与式\eqref{1.4.15} 比较,\  有
+	\begin{equation}
+		0<(2-\sqrt{3})^{n}=A_{n}-B_{n} \sqrt{3} .\label{1.4.17}
+	\end{equation}
+	由此,\  我们发现.$  B_{n} \sqrt{3}<A_{n},\  y_{n}$  是比无理数$  B_{n} \sqrt{3}$  大的整数,\  而且式\eqref{1.4.17}中 $ 0<2-\sqrt{3}<1 ,\ $ 故由式\eqref{1.4.17},\ 
+	\begin{equation}
+		A_{n}-B_{n} \sqrt{3}=(2-\sqrt{3})^{n} \rightarrow 0(n \rightarrow \infty) .\label{1.4.18}
+	\end{equation}
+	这说明 $ A_{n}  $不仅是比$  B_{n} \sqrt{3} $ 大的整数,\  而且是与 $ B_{n} \sqrt{3} $ 无限接近的整数. 故  $B_{n} \sqrt{3} $ 的小数部分 $ \left|B_{n} \sqrt{3}\right|=   B_{n} \sqrt{3}-\left(A_{n}-1\right) . $联系式\eqref{1.4.16}和\eqref{1.4.18},\ 
+	$$\left|(2+\sqrt{3})^{n}\right|=\left|B_{n} \sqrt{3}\right|=B_{n} \sqrt{3}-\left(A_{n}-1\right)=1-\left(A_{n}-B_{n} \sqrt{3}\right) \rightarrow 1(n \rightarrow \infty) .$$
+\end{solution}
+\newpage
+\begin{problem}
+	已知数列 $ \left\{a_{n}\right\} $ 满足 :$  \lim\limits_{n \rightarrow \infty} \frac{a_{2 n}}{2 n}=a,\  \lim\limits_{n \rightarrow \infty} \frac{a_{2 n+1}}{2 n+1}=b ,\  $试证:
+	$$\lim\limits_{n \rightarrow \infty} \frac{a_{1}+a_{2}+\cdots+a_{n}}{1+2+\cdots+n}=\frac{a+b}{2}.$$
+\end{problem}
+\begin{proof}
+	记  $x_{n}=\frac{a_{1}+a_{2}+\cdots+a_{n}}{1+2+\cdots+n} ,\  $则
+	$$\begin{array}{l}
+		\text { Stolz 公式 } \lim\limits_{n \rightarrow \infty} \frac{2 n-1}{(2 n-1+2 n)} \cdot \frac{a_{2 n-1}}{2 n-1}=\frac{b}{2}. \\
+	\end{array}$$
+	同理可证: $ \lim\limits_{n \rightarrow \infty} x_{2 n}^{\prime \prime}=\frac{a}{2} . $于是  $\lim\limits_{n \rightarrow \infty} x_{2 n}=\lim\limits_{n \rightarrow \infty}\left(x_{2 n}^{\prime}+x^{\prime \prime}{ }_{2 n}\right)=\frac{a+b}{2} .$
+	类似可证:  $\lim\limits_{n \rightarrow \infty} x_{2 n+1}=\frac{a+b}{2} $ (只需定义 $ a_{0}=0 $ (不影响敛散性和极限值),\ 并将 $ x_{2 n+1} $ 写成
+	$$x_{2 n+1}=\frac{a_{1}+a_{3}+\cdots+a_{2 n+1}}{(0+1)+(2+3)+\cdots+(2 n+2 n+1)}+	\frac{0+a_{2}+a_{4}+\cdots+a_{2 n}}{(0+1)+(2+3)+\cdots+(2 n+2 n+1)} .$$
+\end{proof}
+\newpage
+\begin{problem}
+	设$x_0\in\left(1,\ \frac{3}{2}\right),\ x_1=x_0^2,\ x_{n+1}=\sqrt{x_n}+\frac{x_{n-1}}{2},\ n=1,\ 2,\ \cdots,\ $求证数列$\{x_n\}$收敛,\ 并求极限.
+\end{problem}
+\begin{solution}
+	I:$$\begin{aligned}
+		|x_n-4|&=\left|\sqrt{x_{n-1}}+\frac{x_{n-2}}{2}-4\right|\leqslant|\sqrt{x_{n-1}}-2|+\frac{|x_{n-2}-4|}{2}\\
+		&=\left|\frac{x_{n-1}-4}{\sqrt{x_{n-1}+2}}\right|+\frac{|x_{n-2}|-4}{2}\\
+		&\leqslant\frac{1}{2}(|x_{n-1}-4|+|x_{n-2}-4|)(\text{再对}|x_{n-1}-4|\text{应用此结果})\\
+		&\leqslant\frac{1}{2^2}(3|x_{n-2}-4|+|x_{n-3}-4|)\\
+		&\leqslant\frac{1}{2^3}(5|x_{n-3}-4|+|x_{n-4}-4|)\\
+		&\leqslant\cdots\leqslant\frac{1}{2^{n-1}}[(2n-1)|x_1-4|+(2n-3)|x_0-4|]\\
+		&\leqslant\frac{1}{2^{n-1}}[(2n)\cdot 3+(2n)\cdot 3]\leqslant\frac{n}{2^{n-5}}\rightarrow 0(n\rightarrow\infty).
+	\end{aligned}$$
+	II:\\
+	$1^\circ$用数学归纳可证:$1<x_n<4,\ $且$\{x_n\}\narrower.$\\
+	说明:事实上,\ 已有:$1<x_0,\ x_1<4;$若$1<x_{n-1},\ x_n<4,\ $则
+	$$x_{n+1}=\sqrt{x_n}+\frac{x_{n-1}}{2}>\sqrt{1}+\frac{1}{2}>1,\ x_{n+1}=\sqrt{x_n}+\frac{x_{n-1}}{2}<\sqrt{4}+\frac{4}{2}=4.$$
+	因此,\ $1<x_n<4,\ \{x_n\}$有界.\\
+	另一方面,\ 由$1<x_0<x_0^2=x_1$知:$\frac{x_2}{x_1}=\frac{\sqrt{x_1}+\frac{x_0}{2}}{x_1}=\frac{3}{2x_0}\stackrel{x_0<\frac{3}{2}}{>}1,\ $故$x_1<x_2.$\\
+	设已证$x_{n-2}<x_{n-1}<x_n,\ $则有
+	$$x_{n+1}-x_n=\left(\sqrt{x_n}+\frac{x_{n-1}}{2}\right)-\left(\sqrt{x_{n-1}}+\frac{x_{n-2}}{2}\right)=(\sqrt{x_n}-\sqrt{x_{n-1}})+\left(\frac{x_{n-1}}{2}-\frac{x_{n-2}}{2}\right)>0,\ $$
+	亦即$x_{n-1}<x_n<x_{n+1},\ $因此$x_n\narrower.$\\
+	$2^\circ$根据单调有界原理,\ 令$\lim\limits_{n\rightarrow\infty}x_n=a,\ $在$x_{n+1}=\sqrt{x_n}+\frac{x_{n-1}}{2}$里取极限,\ 得$a=\sqrt{a}+\frac{a}{2},\ a=4.$
+\end{solution}
+\newpage
+\begin{problem}
+	设$0<a_1,\ b_1<1,\ $当$n\geqslant 2$时,\ 
+	\begin{equation}
+		a_n=\frac{1+b_{n-1}^2}{2},\ \quad b_n=a_{n-1}-\frac{a_{n-1}^2}{2}.\label{1.4.19}
+	\end{equation}
+	试证$\{a_n\},\ \{b_n\}$收敛,\ 并求它们的极限.
+\end{problem}
+\begin{solution}
+	I:\\
+	$1^\circ n\geqslant 2$时,\ 
+	$$\begin{aligned}
+		&a_n=\frac{1+b_{n-1}^2}{2}\geqslant\frac{1}{2},\ 0<b_n=a_{n-1}-\frac{a_{n-1}^2}{2}=\frac{1}{2}-\frac{(a_{n-1}-1)^2}{2}\leqslant\frac{1}{2}\\
+		\Rightarrow&\frac{1}{2}\leqslant a_{n+1}=a_n=\frac{1+b_{n}^2}{2}\leqslant\frac{5}{8},\ \frac{1}{2}\geqslant b_{n+1}=\frac{1}{2}-\frac{(a_{n}-1)^2}{2}\geqslant\frac{3}{8}.
+	\end{aligned}$$
+	可见,\ 当$n\geqslant 3$时,\ 
+	\begin{equation}
+		\frac{1}{2}\leqslant a_n\leqslant \frac{5}{8},\ \frac{1}{2}\geqslant b_n\geqslant \frac{3}{8}.\label{1.4.20}
+	\end{equation}
+	$2^\circ$若$\{a_n\},\ \{b_n\}$收敛,\ 极限分别记为$a$和$b.$在式\eqref{1.4.19}里取极限,\ 得
+	\begin{align}
+		a=\frac{1+b^2}{2}\label{1.4.21}\\
+		b=a-\frac{a^2}{2}\label{1.4.22}
+	\end{align}
+	将式\eqref{1.4.22}改写成$\frac{a^2}{2}=a-b\stackrel{\eqref{1.4.21}}{=}\frac{1+b^2-2b}{2}=\frac{(1-b)^2}{2},\ $故$a=1-b(a=-(1-b)\text{舍去}).$代入式\eqref{1.4.21}解得$b=-1\pm\sqrt{2}.$由式\eqref{1.4.20}可知$a\geqslant \frac{1}{2},\ b\geqslant\frac{3}{8},\ $故
+	\begin{equation}
+		b=\sqrt{2}-1,\ \quad a=2-\sqrt{2}.\label{1.4.23}
+	\end{equation}
+	这说明$\{a_n\},\ \{b_n\}$如果收敛,\ 那么极限必是此二数.\\
+	至此,\ 只需验证$(n\rightarrow\infty):|a_n-a|\rightarrow 0$和$|b_n-b|\rightarrow 0.$\\
+	$3^\circ$利用式\eqref{1.4.19}至式\eqref{1.4.23}:
+	$$|a_n-a|=\frac{1}{2}|b_{n-1}^2-b^2|=\frac{1}{2}|b_{n-1}+b||b_{n-1}-b|\leqslant\frac{1}{2}|b_{n-1}-b|,\ $$
+	$$\begin{aligned}
+		|b_n-b|&=\left|a_{n-1}-a-\frac{a_{n-1}^2-a^2}{2}\right|=|a_{n-1}-a|\left|\frac{2-(a_{n-1}+a)}{2}\right|\\
+		&\leqslant\frac{1}{2}|a_{n-1}-a|(\text{因}|2-(a_{n-1}+a)|\leqslant 1),\ 
+	\end{aligned}$$
+	两式迭代得
+	\begin{align}
+		|a_n-a|\leqslant\frac{1}{4}|a_{n-2}-a|,\ \label{1.4.24}\\
+		|b_n-b|\leqslant\frac{1}{4}|b_{n-2}-b|.\label{1.4.25}
+	\end{align}
+	用式\eqref{1.4.24}进行迭代,\ 可得
+	$$|a_{2n}-a|\leqslant\frac{1}{4^{n-1}}|a_2-a|,\ \quad |a_{2n+1}-a|\leqslant\frac{1}{4^{n-1}}|a_3-a|,\ $$
+	可见$\{a_n\}$收敛$,\ \lim\limits_{n\rightarrow\infty}a_n=a=2-\sqrt{2}.$\\
+	类似地,\ 有$\lim\limits_{n\rightarrow\infty}b_n=b=\sqrt{2}-1.$\\
+	II:同上,\ $\forall n:$
+	\begin{align}
+		1>a_n=\frac{1+b_{n-1}^2}{2}\geqslant\frac{1}{2}\label{1.4.26}\\
+		0<b_n=a_{n-1}-\frac{a_{n-1}^2}{2}=\frac{1}{2}-\frac{(a_{n-1}-1)^2}{2}\leqslant\frac{1}{2}.\label{1.4.27}
+	\end{align}
+	故
+	$$|a_n-a_{n-1}|=\frac{1}{2}|b_{n-1}^2-b_{n-2}^2|=\frac{1}{2}|b_{n-1}+b_{n-2}||b_{n-1}-b_{n-2}|\stackrel{\eqref{1.4.27}}{\leqslant}\frac{1}{2}|b_{n-1}-b_{n-2}|.$$
+	类似地,\ 
+	$$\begin{aligned}
+		|b_n-b{n-1}|&=\left|a_{n-1}-a_{n-2}-\left(\frac{a_{n-1}^2}{2}-\frac{a_{n-2}^2}{2}\right)\right|\\
+		&=|a_{n-1}-a_{n-2}|\left|\frac{2-(a_{n-1}+a_{n-2})}{2}\right|\stackrel{\eqref{1.4.26}}{\leqslant}\frac{1}{2}|a_{n-1}-a_{n-2}|.
+	\end{aligned}$$
+	迭代即得
+	$$|a_n-a_{n-1}|\leqslant\frac{1}{4}|a_{n-2}-a_{n-3}|,\ \quad |b_n-b_{n-1}|\leqslant\frac{1}{4}|b_{n-2}-b_{n-3}|.$$
+	于是
+	$$|a_{2n}-a_{2n-1}|\leqslant\frac{1}{4^{n-1}}|a_2-a_1|\leqslant\frac{1}{2}\cdot\frac{1}{4^{n-1}}=\frac{1}{2^{2n-1}},\ $$
+	$$|a_{2n+1}-a_{2n}|\leqslant\frac{1}{4^{n-1}}|a_3-a_2|\leqslant\frac{1}{4^{n-1}}\cdot\frac{1}{2}|b_2-b_1|=\frac{1}{2^{2n}}.$$
+	由此可得$\{a_n\}$和$\{b_n\}$收敛,\ 解方程\eqref{1.4.20}和\eqref{1.4.21}可得式\eqref{1.4.22}.
+\end{solution}
+\newpage
+\begin{problem}
+	设$a_1,\ b_1$为任意选定的两实数$,\ a_n,\ b_n$定义如下:
+	\begin{equation}
+		a_n=\int_{0}^{1}\max\{b_{n-1},\ x\}\,\mathrm{d}x,\ \quad b_n=\int_{0}^{1}\min\{a_{n-1},\ x\}\,\mathrm{d}x\quad(n=2,\ 3,\ \cdots),\ \label{1.4.28}
+	\end{equation}
+	试证:$\lim\limits_{n\rightarrow\infty}a_n=2-\sqrt{2},\ \lim\limits_{n\rightarrow\infty}b_n=\sqrt{2}-1.$
+\end{problem}
+\begin{proof}
+	令$a_1,\ b_1\notin(0,\ 1),\ $迭代几次后$,\ a_n,\ b_n$会全部进入$(0,\ 1)$中.又因去掉有限项不影响数列的敛散性和极限值.故可设$a_1,\ b_1\in(0,\ 1).$由式\eqref{1.4.28}有
+	$$a_n=\frac{1+b_{n-1}^2}{2},\ b_n=a_{n-1}-\frac{a_{n-1}^2}{2}.$$
+	于是,\ 问题转化为上题.因此
+	$$\lim\limits_{n\rightarrow\infty}a_n=2-\sqrt{2},\ \quad\lim\limits_{n\rightarrow\infty}b_n=\sqrt{2}-1.$$
+\end{proof}
+\begin{note}
+	此处来证明:不论$b_{n-1}$或$a_{n-1}$落在何处,\ 都推出$:a_n,\ b_n\in(0,\ 1).$
+	\begin{enumerate}
+		\item 若$a_{n-1}\in(0,\ 1),\ $则
+		$$\begin{aligned}
+			b_n&=\int_{0}^{1}\min\{a_{n-1},\ x\}\,\mathrm{d}x=\int_{0}^{a_{n-1}}x\,\mathrm{d}x+a_{n-1}\int_{a_{n-1}}^{1}\,\mathrm{d}x\\
+			&=\frac{1}{2}a_{n-1}^2+a_{n-1}(1-a_{n-1})=a_{n-1}-\frac{a_{n-1}^2}{2}\in(0,\ 1).
+		\end{aligned}$$
+		若$b_{n-1}\in(0,\ 1),\ $则
+		$$\begin{aligned}
+			a_n&=\int_{0}^{1}\max\{b_{n-1},\ x\}\,\mathrm{d}x=\int_{0}^{b_{n-1}}\max\{b_{n-1},\ x\}\,\mathrm{d}x+\int_{b_{n-1}}^{1}x\,\mathrm{d}x+\int_{b_{n-1}}^{1}\max\{b_{n-1},\ x\}\,\mathrm{d}x\\
+			&=\int_{0}^{b_{n-1}}b_{n-1}\,\mathrm{d}x+\int_{b_{n-1}}^{1}x\,\mathrm{d}x=b_{n-1}^2+\frac{1}{2}(1-b_{n-1}^2)=\frac{1+b_{n-1}^2}{2}\in(0,\ 1).
+		\end{aligned}$$
+		\item 若$a_{n-1}\geqslant 1,\ $则$b_n=\frac{1}{2},\ $故$a_{n+1}=\frac{5}{8}\in(0,\ 1).$从而$b_{n+2}\in(0,\ 1).$\\
+		若$b_{n-1}\geqslant 1,\ $则$a_n=b_{n-1}\geqslant 1,\ $故$b_{n+1}=\frac{1}{2}\in(0,\ 1).$
+		\item 若$a_{n-1}\leqslant 0,\ $则$b_n=0,\ $故$a_{n+1}=\frac{1}{2}\in(0,\ 1).$\\
+		若$b_{n-1}\leqslant 0,\ $则$a_n=\frac{1}{2},\ $故
+		$$b_{n+1}=\int_{0}^{a_n}x\,\mathrm{d}x+a_n\int_{a_n}^{1}\,\mathrm{d}x=\left.\frac{1}{2}x^2\right|_0^{\frac{1}{2}}+\frac{1}{2}\cdot\frac{1}{2}=\frac{3}{8}\in(0,\ 1).$$
+	\end{enumerate}
+	从而$a_{n+2}\in(0,\ 1).$\\
+	总之无论怎样开始,\ 总有$a_n,\ b_n\in(0,\ 1).$
+\end{note}
+\newpage
+\begin{problem}
+	证明: 若  $a_{n}>0(n=1,\ 2,\  \cdots) ,\ $ 则
+	$$\varlimsup_{n \rightarrow \infty} \sqrt[n]{a_{n}} \leqslant \varlimsup_{n \rightarrow \infty} \frac{a_{n+1}}{a_{n}} .$$
+\end{problem}
+\begin{proof}
+	设
+	\begin{equation}
+		\alpha=\varlimsup_{n \rightarrow \infty} \frac{a_{n-1}}{a_{n}} .\label{1.4.29}
+	\end{equation}
+	若 $ \alpha=+\infty ,\ $ 不等式自明.只要沚明$  0 \leqslant \alpha<+\infty  $的情况. 要证 $ \lim _{n \rightarrow \infty} \sqrt[n]{a_{n}} \leqslant \alpha ,\ $ 只要证明  $\forall \varepsilon>0 ,\ $ 仿  $\varlimsup_{n \rightarrow \infty} \sqrt[n]{a_{n}}<\alpha+\varepsilon .$ 由式\eqref{1.4.29},\   $\forall \varepsilon>0,\  \exists N>0 ,\  $当  $i>N$  时,\ 
+	$$\frac{a_{i+1}}{a_{i}}<\alpha+\varepsilon$$
+	任取 $ n>N ,\  $上式中令  $i=N,\  N+1,\  \cdots,\  n-2,\  n-1 ,\  $将所得的$  n-N$  个不等式相乘,\  得		
+	$$\frac{a_{N+1}}{a_{N}} \frac{a_{N+2}}{a_{N-1}} \cdots \frac{a_{n-1}}{a_{*-2}} \frac{a_{n}}{a_{n-1}}<(\alpha+\varepsilon)^{n-1} .$$		
+	此即		
+	$$a_{n}<a_{n}(\alpha+\varepsilon)^{-N} \cdot(\alpha+\varepsilon)^{n}=M(\alpha+\varepsilon)^{n},\ $$		
+	其中  $M \equiv a_{n}(\alpha+\varepsilon)^{-1} .$ 从而  $\sqrt[n]{a_{n}}<\sqrt[n]{M}(\alpha+\varepsilon) .$ 令  $n \rightarrow \infty ,\  $取上极限得		
+	$$\varlimsup_{n \rightarrow \infty} \sqrt[n]{a_{n}} \leqslant \lim _{\cdots \infty} \sqrt[n]{M}(\alpha+\varepsilon)=\alpha+\varepsilon .$$		
+	由  $\varepsilon>0$  的任意性,\ 即得欲证的不等式.
+\end{proof}
+\newpage
+\begin{problem}
+	证明: 对任意正数序列$  \left\{x_{n}\right\} ,\ $ 有		
+	$$\varlimsup_{n \rightarrow \infty} n\left(\frac{1+x_{n+1}}{x_{n}}-1\right) \geqslant 1 ,\ $$		
+	并举例说明右端数$ 1$ 是最佳估计(即把右端$ 1 $改换成任意比$ 1$ 大的数. 不等式不再成 立.).
+\end{problem}
+\begin{proof}
+	$1^{\circ} $ (用反证法证明不等式.) 设 $ \varlimsup_{n \rightarrow \infty} n\left(\frac{1+x_{n+1}}{x_{n}}-1\right)<1 ,\ $则 $ \exists N>0 ,\  $当  $n \geqslant   N $ 时，		
+	$$n\left(\frac{1+x_{n+1}}{x_{n}}-1\right)<1,\ $$		
+	此即  $\frac{1}{n+1}<\frac{x_{n}}{n}-\frac{x_{n+1}}{n+1}(n=N,\  N+1,\  \cdots,\  N+k-1 ， \cdots) .$这是无穷多个不等式,\  将前 $ k $ 个不等式相加得		
+	$$\frac{1}{N+1}+\cdots+\frac{1}{N+k}<\frac{x_{N}}{N}-\frac{x_{N+k}}{N+k}<\frac{x_{N}}{N} .$$		
+	此式应对一切 $ k>1 $ 成立,\  但实际上,\  左端当 $ k \rightarrow \infty $ 时,\  极限为$  +\infty ,\  $矛盾.\\
+	$2^{\circ} $ （证明 1 为最佳估计.)  $\forall \alpha>0 ,\ $ 令  $x_{n}=\alpha n ,\ $ 则		
+	$$\varlimsup_{n \rightarrow \infty} n\left(\frac{1+x_{n+1}}{x_{n}}-1\right)=\varlimsup_{n \rightarrow \infty} n \cdot \frac{1+\alpha(n+1)-\alpha n}{\alpha n}=\frac{1+\alpha}{\alpha}>1 .	$$	
+	因$\lim\limits_{\alpha\rightarrow+\infty}\frac{1+\alpha}{\alpha}=1,\ $可见$\forall c>1,\ $可取$\alpha>0$充分大使得
+	$$\varlimsup_{n \rightarrow \infty} n\left(\frac{1+x_{n \cdot 1}}{x_{n}}-1\right)=\frac{1+\alpha}{\alpha}<c.$$
+\end{proof}

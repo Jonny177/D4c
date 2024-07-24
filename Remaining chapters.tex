@@ -1,0 +1,523 @@
+	\chapter{Inequality}
+\begin{definition}[凸函数]
+	若函数$f:\mathbb{R}^ n\to\mathbb{R}$满足
+	$$f(\tau x+(1-\tau)y)\leqslant \tau f(x)+(1-\tau)f(y)$$
+	对于所有$x,y\in\mathbb{R}^n$和每个$0\leqslant\tau\leqslant 1$成立,\ 则称$f$为凸函数.
+\end{definition}
+\begin{theorem}[支撑超平面]
+	假设$f:\mathbb{R}^n\to\mathbb{R}$是凸函数.\ 则对于每个$x\in\mathbb{R}^n$存在$r\in\mathbb{R}^n$使得以下不等式
+	$$f(y)\geqslant f(x)+r\cdot(y-x)$$
+	对所有$y\in\mathbb{R}^n$成立.
+\end{theorem}
+映射$y\mapsto f(x)+r\cdot(y-x)$确定了$f$在$x$处的支撑超平面,\ 上述不等式表示$f$的图像位于每个支撑超平面之上.\ 如果$f$可微,\ 则$r=Df(x).$
+
+如果$f$是$C^2$类函数,\ 那么$f$是凸函数当且仅当$D^2f\geqslant 0.$如果$D^2f\geqslant\theta I$对于某个常数$\theta>0$成立:\ 这意味着
+$$\sum_{i,j=1}^nf_{x_ix_j}(x)\xi_i\xi_j\geq\theta|\xi|^2\quad(x,\ \xi\in\mathbb{R}^n).$$
+\begin{theorem}[Jesen's inequality]
+	假设$f:\mathbb{R}^m\to\mathbb{R}$是凸函数且$U\subset\mathbb{R}^n$是有界开集.\ 令$\mathbf{u}:\ U\to\mathbb{R}^m$是可积的.\ 则有
+	$$f(\dashint_U\mathbf{u}\,\mathrm{d}x)\leqslant\dashint_Uf(\mathbf{u})\,\mathrm{d}x.$$
+\end{theorem}
+\begin{proof}
+	由于$f$是凸函数,\ 对$\forall p\in\mathbb{R}^m,\ \exists r\in\mathbb{R}^m$使得
+	$$f(q)\geqslant f(p)+r\cdot (q-p)\quad\forall q\in\mathbb{R}^m.$$
+	取$p=\dashint_U\mathbf{u}\,\mathrm{d}y,\ q=\mathbf{u}(x):$
+	$$f(\mathbf{u}(x))\geqslant f\left(\dashint_{U}\mathbf{u}\,dy\right)+r\cdot\left(\mathbf{u}(x)-\dashint_{U}\mathbf{u}\,dy\right)$$
+	在等式两边对$x$在$U$上积分有
+	$$\int_Uf(\mathbf{u}(x))\,\mathrm{d}x\geqslant \int_Uf\left(\dashint_{U}\mathbf{u}\,dy\right)\,\mathrm{d}x+r\cdot\left(\int_U\mathbf{u}(x)\,\mathrm{d}x-|U|\dashint_{U}\mathbf{u}\,dy\right)=f(\dashint_U\mathbf{u}\,\mathrm{d}x),$$
+	故定理得证.
+\end{proof}
+\begin{note}
+	此处$\dashint_U\mathbf{u}\,\mathrm{d}x$为$\mathbf{u}$在$U$上的平均值,\ 即$\dashint_U\mathbf{u}\,\mathrm{d}x=\frac{1}{|U|}\int_U\mathbf{u}\,\mathrm{d}x.$
+\end{note}
+\begin{proposition}[$C^2$下凸函数的Jesen不等式]
+	设$f$为区间$I$上的二阶可微下凸函数,\ 则对任和$x_1,\ x_2,\ \cdots,\ x_n\in I$与满足条件$\lambda_1+\lambda_2+\cdots+\lambda_n=1$的$n$个正数成立不等式
+	$$\lambda_1f(x_1)+\lambda_2f(x_2)+\cdots+\lambda_nf(x_n)\geqslant f(\lambda_1fx_1+\lambda_2x_2+\cdots+\lambda_nx_n)$$
+	又若$f$严格下凸,\ 则上述不等式成立等号的充分必要条件是
+	$$x_1=x_2=\cdots=x_n.$$
+\end{proposition}
+\begin{proof}
+	记$\bar{x}=\lambda_1fx_1+\lambda_2x_2+\cdots+\lambda_nx_n$(即$x_1,\ x_2,\ \cdots,\ x_n$的加权平均值),\ 并写出$f(x_i)(i=1,\ 2,\ \cdots,\ n)$在点$\bar{x}$的带Lagrange余项的Taylor公式:
+	$$f(x_i)=f(\bar{x})+f^{\prime}(\bar{x})(x_i-\bar{x})+\frac{f''(\xi_i)}{2!}(x_i-\bar{x})^2,\ i=1,\ 2,\ \cdots,\ n.$$
+	将这$n$个公式分别乘以$\lambda_{1},\ \lambda_{2},\ \cdots,\ \lambda_{n}$后相加,\ 利用$\lambda_1+\lambda_2+\cdots+\lambda_n=1$和二阶导数非负,\ 就得到Jesen不等式.
+\end{proof}
+\begin{proposition}[广义的算数平均值-几何平均值不等式]
+	设有非负数$x_1,\ x_2,\ \cdots,\ x_n$和正数$\lambda_1,\ \lambda_2,\ \cdots,\ \lambda_n,\ $且$\lambda_1+\lambda_2+\cdots+\lambda_n=1,\ $则成立不等式
+	$$\prod_{k=1}^{n}x_k^{\lambda_k}\leqslant\sum_{k=1}^{n}\lambda_kx_k,\ $$
+	其中当且仅当$x_1=x_2=\cdots=x_n$时等号成立.
+\end{proposition}
+\begin{proof}
+	令$f(u)=-\ln u,\ u>0.$由于$f''(u)=\frac{1}{u^2}>0,\ $因此$f(u)$是严格下凸函数,\ 由Jesen不等式得到
+	$$-\ln\left(\sum_{k=1}^{n}\lambda_kx_k\right)\leqslant-\sum_{k=1}^{n}\lambda_k\ln x_k.$$
+	移项即可证明.
+\end{proof}
+\begin{proposition}[Young's inequality]
+	令$1<p,\ q<\infty,\ \frac{1}{p}+\frac{1}{q}=1.$则有
+	$$ab\leqslant\frac{a^{p}}{p}+\frac{b^{q}}{q}\quad(a,b>0).$$
+\end{proposition}
+\begin{proof}
+	我们有映射$x\mapsto \mathrm{e}^x$为凸函数,\ 故由Jesen不等式可得
+	$$ab=\mathrm{e}^{\log a+\log b}=\mathrm{e}^{\frac1p\log a^p+\frac1q\log b^q}\leq\frac1p\mathrm{e}^{\log a^p}+\frac1q\mathrm{e}^{\log b^q}=\frac{a^p}p+\frac{b^q}q.$$
+\end{proof}
+\begin{proposition}[$\varepsilon$-Young's inequality]
+	$$ab\leqslant\varepsilon a^p+C(\varepsilon)b^q\quad(a,\ b>0,\ \varepsilon>0),\quad C(\varepsilon)=(\varepsilon p)^{-q/p}/q$$
+\end{proposition}
+\begin{proof}
+	我们在Young's inequality$xy\leqslant\frac{x^{p}}{p}+\frac{y^{q}}{q}$中取$\frac{x^p}{p}=\varepsilon a^p$可得$x=(p\varepsilon)^{1/p}a,\ $为了保证$xy=ab$可得$y=(p\varepsilon)^{-1/p}b$可得证.
+\end{proof}
+\begin{proposition}[H\"{o}lder不等式]
+	假设$1\leqslant p,\ q\leqslant\infty,\ \frac{1}{p}+\frac{1}{q}=1.$则若有$u\in L^p(U),\ v\in L^q(U),\ $有
+	$$\int_U |uv|\,\mathrm{d}x\leqslant\|u\|_{L^p(U)}\|v\|_{L^q(U)}.$$
+\end{proposition}
+\begin{proof}
+	由齐次性,\ 可以假设$\|u\|_{L^p(U)}\|v\|_{L^q(U)}=1.\ $则由Young's inequality可得对$1<p,\ q<\infty$有
+	$$\int_U|uv| dx\leq\frac1p\int_U|u|^p dx+\frac1q\int_U|v|^q dx=1=\|u\|_{L^p}\|v\|_{L^q}.$$
+\end{proof}
+\begin{proposition}[Minkowski不等式]
+	假设$1\leqslant p\leqslant\infty,\ u,\ v\in L^p(U).\ $则有
+	$$\|u+v\|_{L^p(U)}\leqslant\|u\|_{L^p(U)}+\|v\|_{L^p(U)}.$$
+\end{proposition}
+\begin{proof}
+	\begin{align*}
+		\|u+v\|_{L^p(U)}&=\int_U|u+v|^p\,\mathrm{d}x\leqslant\int_U|u+v|^{p-1}(|u|+|v|)\,\mathrm{d}x\\
+		&\leqslant\int_U|u+v|^{p-1}|u|\,\mathrm{d}x+\int_U|u+v|^{p-1}|v|\,\mathrm{d}x\\
+		&\leqslant\left(\int_U|u+v|^p\,\mathrm{d}x\right)^{\frac{p-1}{p}}\left[\left(\int_U|u|^p\,\mathrm{d}x\right)^{1/p}+\left(\int_U|v|^q\,\mathrm{d}x\right)^{1/q}\right]\\
+		&=\|u+v\|^{p-1}_{L^p(U)}(\|u\|_{L^p(U)}+\|v\|_{L^p(U)}).
+	\end{align*}
+\end{proof}
+\begin{note}
+	同样的证明方法可以证明H\"{o}lder不等式以及Minkowski不等式的离散版本:
+$$\begin{cases}
+	\left|\sum_{k=1}^na_kb_k\right|\leq\left(\sum_{k=1}^n|a_k|^p\right)^\frac1p\left(\sum_{k=1}^n|b_k|^q\right)^\frac1q,\\\left(\sum_{k=1}^n|a_k+b_k|^p\right)^\frac1p\leq\left(\sum_{k=1}^n|a_k|^p\right)^\frac1p+\left(\sum_{k=1}^n|b_k|^p\right)^\frac1p,
+\end{cases}$$
+其中$a=(a_1,\dots,a_n),\ b=(b_1,\dots,b_n)\in\mathbb{R}^n,\ 1\leqslant p<\infty,\ \frac{1}{p}+\frac{1}{q}=1.$
+\end{note}
+\begin{proposition}[H\"{o}lder不等式的一般形式]
+	令$1\leqslant p_1,\ \dots,\ p_n\leqslant\infty,\ $且有$\frac{1}{r}=\frac{1}{p_1}+\cdots+\frac{1}{p_n}$则有
+	$$\|u_1\cdots u_n\|_{L^r(U)}\leqslant\prod_{k=1}^{n}\|u_k\|_{L^{p_k}(U)}.$$
+\end{proposition}
+\begin{proof}
+	由数学归纳法,\ 
+	\begin{enumerate}
+		\item 当$n=2$时,\ 此时为$\frac{1}{r}=\frac{1}{p}+\frac{1}{q},\ $需证$\|fg\|_{L^r(U)}\leqslant \|f\|_{L^p(U)}\|g\|_{L^q(U)}.$\\
+		由于此时有$1=\frac{r}{p}+\frac{r}{q},\ $在H\"{o}lder不等式中取$f^r,\ g^r$得证.
+		\item 假设不等式对$n-1$时成立,\ 下面证明$n$的情况.\\
+		取
+		$$p=\frac{p_n}{p_n-r},\ q=\frac{p_n}{r},\ \text{有},\ \frac{1}{p}+\frac{1}{q}=1.$$
+		此时有
+		$$\int_U|u_1\cdots u_n|^r\,\mathrm{d}x\leqslant\left(\int_U|u_1\cdots u_{n-1}|^{rp}\,\mathrm{d}x\right)^{1/p}\left(\int_U|u_n|^{rq}\right)^{1/q}.$$
+		对于右边第一项我们首先有
+		$$\frac{1}{p_1}+\cdots+\frac{1}{p_{n-1}}=\frac{1}{r}-\frac{1}{p_n}=\frac{p_n-r}{rp_n}$$
+		则由$n-1$的形式以及上述可得
+		$$\left(\int_U|u_1\cdots u_{n-1}|^{rp}\right)^{1/p}\leqslant\prod_{k=1}^{n-1}\left(\int_U|u_k|^{rp\frac{p_n-r}{rp_n}p_k}\right)^{\frac{rp_n}{p_n-r}p_k\frac{1}{p}}=\prod_{k=1}^{n-1}\|u_k\|^r_{L^{p_k}(U)}$$
+	\end{enumerate}
+\end{proof}
+\begin{proposition}[Bernoulli不等式]
+	在$x>-1$时,\ 对于$0<\alpha<1$成立不等式
+	$$(1+x)^\alpha\leqslant 1 +\alpha x,\ $$
+	而对于$\alpha<0$和$\alpha>1$则成立相反的不等式
+	$$(1+x)^\alpha\geqslant 1+\alpha x,\ $$
+	而且这些不等式中当$x=0$时成立等号.
+\end{proposition}
+\begin{proof}
+	对于函数$f(x)=(1+x)^\alpha$计算导数:
+	$$f'(x)=\alpha(1+x)^{\alpha-1},\ $$
+	$$f''(x)=\alpha(\alpha-1)(1+x)^{\alpha-2},\ $$
+	再注意到$y=1+\alpha x$是曲线$f(x)$在$(0,\ 1)$处的切线与函数的凸性可证.
+\end{proof}
+\begin{proposition}[Hadamard不等式]
+	设$f$是$(a,\ b)$上的下凸函数,\ 则对每一对$x_1,\ x_2\in(a,\ b).x_1<x_2,\ $有
+	$$f\left(\frac{x_1+x_2}{2}\right)\leqslant\frac{1}{x_2-x_1}\int_{x_1}^{x_2}f(t)\,\ \text{d}t\leqslant\frac{f(x_1)+f(x_2)}{2}.$$
+\end{proposition}
+\begin{proof}
+	可知$f$连续,\ 因此可积性没有问题.注意到点$\frac{1}{2}(x_1+x_2)$不仅是$x_1$和$x_2$的中点,\ 同时也是$x_1+\lambda(x_2-x_1)$和$x_2-\lambda(x_2-x_1)$的中点,\ 其中$\lambda\in\left[0,\ 1\right].$利用$f$为下凸函数,\ 则就有不等式
+	$$\frac{1}{2}[f(x_1+\lambda(x_2-x_1))+f(x_2-\lambda(x_2-x_1))]\geqslant f\left(\frac{x_1+x_2}{2}\right).$$
+	将上式两边对$\lambda$从$0$到$1$积分,\ 经计算就可以得到
+	$$\frac{1}{x_2-x_1}\int_{x_1}^{x_2}f(t)\,\ \text{d}t\geqslant f\left(\frac{x_1+x_2}{2}\right).$$
+	另一方面,\ 由$f$是下凸函数又可以得到
+	\begin{align*}
+		\frac{1}{x_2-x_1}\int_{x_1}^{x_2}f(t)\,\ \text{d}t&=\int_{0}^{1}f(\lambda x_2+(1-\lambda)x_1)\,\ \text{d}\lambda\\
+		&\leqslant\int_{0}^{1}[\lambda f(x_2)+(1-\lambda)f(x_1)]\,\ \text{d}\lambda\\
+		&=\frac{f(x_1)+f(x_2)}{2}
+	\end{align*}
+	\begin{note}
+		\begin{itemize}
+			\item 其中每一个不等式都是函数下凸地充分必要条件\\
+			\item 若其中任何一个不等式对所有的$x_1,\ x_2\in(a,\ b)$成立等号,\ 则$f$只能是线性函数.	
+		\end{itemize}
+	\end{note}
+\end{proof}
+\begin{proposition}[Jesen不等式]
+	设$f,\ p\in R[a,\ b],\ m\leqslant f(x)\leqslant M,\ p(x)$非负且$\int_{a}^{b}p(x)\,\ \text{d}x>0,\ $则当$\varphi$是$[m,\ M]$上的下凸函数时,\ 成立不等式:
+	$$\varphi\left(\frac{\int_{a}^{b}p(x)f(x)\,\ \text{d}x}{\int_{a}^{b}}p(x)\,\ \text{d}x\right)\leqslant\frac{\int_{a}^{b}p(x)\varphi(f(x)\,\ \text{d}x}{\int_{a}^{b}p(x)\,\ \text{d}x}$$
+	若$\varphi$为上凸函数则不等式反向.
+\end{proposition}
+\begin{proposition}[Schwarz不等式]
+	设$f,\ g\in R[a,\ b],\ $则
+	$$\left(\int_{a}^{b}f(x)g(x)\,\ \text{d}x\right)^2\leqslant\int_{a}^{b}f^2(x)\,\ \text{d}x\int_{a}^{b}g^2(x)\,\ \text{d}x.$$
+\end{proposition}
+\begin{proof}
+	如果$\int_{a}^{b}f(x)\,\ \text{d}x$与$\int_{a}^{b}g(x)\,\ \text{d}x$两个积分中至少有一个不等于$0,\ $我们不妨设$\int_{a}^{b}f^2(x)\,\ \text{d}x\neq 0.$由于对一切实数$\lambda,\ $在$[a.b]$上$[\lambda f(x)-g(x)]^2\geqslant 0,\ $因此有
+	$$\int_{a}^{b}[\lambda f(x)-g(x)]^2\,\ \text{d}x\geqslant 0.$$
+	将它展开,\ 得到关于$\lambda$的非负二次三项式
+	$$\lambda^2\int_{a}^{b}f^2(x)\,\ \text{d}x-2\lambda\int_{a}^{b}f(x)g(x)\,\ \text{d}x+\int_{a}^{b}g^2(x)\,\ \text{d}x\geqslant 0,\ $$
+	因此它的判别式$\Delta\leqslant 0,\ $即
+	$$\left(\int_{a}^{b}f(x)g(x)\,\ \text{d}x\right)^2-\int_{a}^{b}f^2(x)\,\ \text{d}x\int_{a}^{b}g^2(x)\,\ \text{d}x\leqslant 0,\ $$
+	移项即得所欲证的不等式.
+	如果积分$\int_{a}^{b}f^2(x)\,\ \text{d}x=\int_{a}^{b}g^2(x)\,\ \text{d}x=0,\ $则可如下证明:
+	\begin{align*}
+		\left|\int_{a}^{b}f(x)g(x)\,\ \text{d}x\right|&\leqslant\int_{a}^{b}|f(x)||g(x)|\,\ \text{d}x\leqslant\int_{a}^{b}\frac{f^2(x)+g^2(x)}{2}\,\ \text{d}x\\
+		&=\frac{1}{2}\int_{a}^{b}f^2(x)\,\ \text{d}x+\frac{1}{2}\int_{a}^{b}g^2(x)\,\ \text{d}x=0.
+	\end{align*}
+\end{proof}
+\begin{proposition}[Young不等式]
+	设$f$在$[0,\ +\infty]$上连续可导且严格单调增加,\ $f(0)=0,\ a,\ b>0,\ $则有
+	$$ab\leqslant\int_{0}^{a}f(x)\,\ \text{d}x+\int_{0}^{b}g(y)\,\ \text{d}y.$$
+	其中$g(y)$是$f(x)$的反函数,\ 而等号当且仅当$b=f(a)$时成立.
+\end{proposition}
+\begin{proof}
+	将上式右端的两个积分之和记为$I.$利用$g(f(x))\equiv x,\ $对其中第二个积分作变量代换$y=f(x),\ $即$x=g(y),\ $然后分部积分得到:
+	\begin{align*}
+		I&=\int_{0}^{a}f(x)\,\ \text{d}x+\int_{0}^{b}g(y)\,\ \text{d}y=\int_{0}^{a}f(x)\,\ \text{d}x+\int_{0}^{g(b)}x\,\ \text{d}f(x)\\
+		&=\int_{0}^{a}f(x)\,\ \text{d}x+xf(x)|_{0}^{g(b)}-\int_{0}^{g(b)}f(x)\,\ \text{d}x\\
+		&=bg(b)-\int_{a}^{g(b)}f(x)\,\ \text{d}x,\ 
+	\end{align*}
+	其中利用了$f(g(b))=b.$如果$a=g(b),\ $也就是$b=f(a),\ $就已经得到了等号成立的情况.
+	
+	在$a<g(b)$时,\ 对于上述积分利用$f(x)$在区间$[a,\ g(b)]$上严格单调递增,\ $f(x)\leqslant f(g(b))=b,\ $就可以得到$I>bg(b)-[g(b)-a]b=ab.$在$a>g(b)$时,\ 类似地可以得到
+	$$I=bg(b)+\int_{g(b)}^{a}f(x)\,\ \text{d}x>bg(b)+[a-g(b)]b=ab.$$
+\end{proof}
+\begin{proposition}[Carleman不等式]
+	设$\sum\limits_{n=1}^{\infty}a_n$为收敛的正项级数,\ 则成立
+	$$\sum\limits_{n=1}^{\infty}\sqrt[n]{a_1a_2\cdots a_n}\leqslant \mathrm{e}\sum\limits_{n=1}^{\infty}a_n,\ $$
+	其中右边的系数$\mathrm{e}$不能再改进.
+\end{proposition}
+\begin{proof}
+	对部分和估计如下(其中利用不等式$\left(\frac{n+1}{\mathrm{e}}\right)^{n}<n!$):
+	\begin{align*}
+		\sum\limits_{n=1}^{N}\sqrt[n]{a_1a_2\cdots a_n}&=\sum\limits_{n=1}^{N}\frac{\sqrt[n]{a_12a_2\cdots na_n}}{\sqrt[n]{n!}}\leqslant \sum\limits_{n=1}^{N}\frac{a_1+2a_2+\cdots+na_n}{n\sqrt[n]{n!}}\\
+		&\leqslant\mathrm{e}\sum\limits_{n=1}^{N}\frac{a_1+2a_2+\cdots+na_n}{n(n+1)}=\mathrm{e}\sum\limits_{n=1}^{N}\frac{1}{n(n+1)}\sum\limits_{n=1}^{n}ka_k\\
+		&=\mathrm{e}\sum\limits_{n=1}^{N}ka_k\sum\limits_{n=k}^{N}\frac{1}{n(n+1)}=\mathrm{e}\sum\limits_{n=1}^{N}ka_k(\frac{1}{k}-\frac{1}{N+1})\\
+		&\leqslant\mathrm{e}\sum\limits_{n=1}^{N}a_k,\ 
+	\end{align*}
+	然后令$N\rightarrow\infty$即可得到$Carleman$不等式.最后,\ 对于每个$N$构造一个数列:$a_n=1/n,\ n=1,\ 2,\ \cdots,\ N,\ $而$a_n=0,\ \forall n>N,\ $然后作出由$\{a_n\}$得到的两个级数和之比,\ 令$N\rightarrow\infty,\ $且用Stolz定理可以得到
+	$$\lim\limits_{N\rightarrow\infty}\frac{\sum\limits_{n=1}^{N}\sqrt[n]{a_1a_2\cdots a_n}}{\sum\limits_{n=1}^{N}a_n}=\lim\limits_{N\rightarrow\infty}\frac{N}{\sqrt[N]{N!}}=\mathrm{e}.$$
+	这表明不等式右边的系数$\mathrm{e}$不能再改进.
+\end{proof}
+\begin{note}[Hardy不等式]
+	其中当$p>1$时为
+	$$\sum\limits_{n=1}^{\infty}\left(\frac{1}{n}\sum\limits_{n=1}^{n}a_k^{\frac{1}{p}}\right)^p\leqslant\left(\frac{p}{p-1}\right)^p\sum\limits_{n=1}^{\infty}a_n.$$
+	令$p\to +\infty$就导出Carleman不等式.
+\end{note}
+\begin{proposition}[AM-GM不等式推广]
+	$$x^\alpha y^{1-\alpha}\leqslant x+y,\ \quad\forall x,\ y>0,\ \alpha\in[0,\ 1]$$
+\end{proposition}
+\begin{proof}
+	当$\alpha=0,1$时易证.\\
+	其余情况下原式可转为证明
+	$$1\leqslant\left(\frac{x}{y}\right)^{1-\alpha}\left(\frac{y}{x}\right)^{\alpha}$$
+	即证明$$1\leqslant t^{-\alpha}(t+1),\ \quad\forall t>0,\alpha\in(0,1)$$
+	令$f(t)=t^{-\alpha}(t+1),\ g(t)=t^t$,\ 有
+	$$f'(t)=t^{-\alpha-1}[(1-\alpha)t-\alpha]$$
+	且有当$t\in(0,\ \frac{\alpha}{1-\alpha})$时单减,\ $t\in(\frac{\alpha}{1-\alpha},\ 1)$时单增.
+	故有
+	$$\min\limits_{t\in(0,1)}f(t)=f(\frac{\alpha}{1-\alpha})=\frac{1}{\alpha^\alpha}\frac{1}{(1-\alpha)^{1-\alpha}}.$$
+	研究函数$g(t)$可得$g(t)<1,\ \forall t\in(0,1)$,\ 由$\alpha$的范围可知不等式得证.
+\end{proof}
+
+\newpage
+\chapter{Eight Equivalence Theorems}
+\textbf{Dedekind分割原理:}全体实数$\mathbb{R}^1$的任何一个分割$\left(X,\ Y\right),\ $只能要么$X$有最大数,\ $Y$有最小数,\ 即对$\mathbb{R}^1$的任何一个分割$\left(X,\ Y\right),\ $必存在唯一的实数$\alpha \in \mathbb{R}^1,\ $使对任意的$x\in X,\ y \in Y$有
+$$x\le \alpha < y\text{或}x < \alpha \le y.$$
+所谓实数集$D$的一个Dedekind分割,\ 就是将$D$中的元素分成两个子集$X$和$Y$,\ 且满足下列条件:
+\begin{itemize}
+	\item $X$与$Y$都不空;
+	\item $X \bigcap Y = \varnothing $
+	\item 每一个属于$X$的元小于$Y$中的所有元,\ 称$X$为$D$的前段,\ $Y$为$D$的后段,\ 且将$D$的分割记为$\left(X,\ Y\right).$
+\end{itemize}
+
+\textbf{确界存在原理:}非空有上$\left(\text{下}\right)$界的数集,\ 必有上$\left(\text{下}\right)$确界.
+
+\textbf{单调有界原理:}递增$\left(\text{递减}\right)$有上界$\left(\text{下界}\right)$的数列必定收敛.
+
+Cantor\textbf{区间套定理:}设$\left[a_n,\ b_n\right]\left(n=1,\ 2,\ \dots\right)$是一列闭区间.又设
+\begin{itemize}
+	\item[(i)] $\left[a_{n+1},\ b_{n+1}\right]\subset\left[a_{n},\ b_{n}\right]\left(n=1,\ 2,\ \dots\right),\ $
+	\item[(ii)] $\lim\limits_{n\rightarrow\infty}\left(b_n-a_n\right)=0,\ $
+	则存在唯一数$x_0\in \left[a_n,\ b_n\right]\left(n=1,\ 2,\ \dots\right).$
+\end{itemize}
+
+Heiene-Borel\textbf{有限覆盖定理:}有界闭集的任何开覆盖必有有限子覆盖.
+
+\textbf{聚点原理:}有界无穷点集$E$至少有一个聚点(极限点).
+
+Bolazano-Weierstrass\textbf{定理:}有界数列必有收敛子列.
+
+Cauchy\textbf{收敛准则:}数列$\left\{x_n\right\}$收敛当且仅当它是Cauchy数列.
+\newpage
+\begin{problem}
+	Dedekind分割原理$\Rightarrow$确界存在原理
+\end{problem}
+
+\begin{solution}
+	只要证明,\ 若数集$D$有上界,\ 则$D$必有唯一的上确界.
+	\begin{itemize}
+		\item[$1^\circ$] 若$D$有最大值$M$,\ 则$M$就是$D$的上确界.
+		\item[$2^\circ$] 设$D$为无限集且无最大值,\ 做实数集$\mathbb{R}^1$的分割$\left(X,\ Y\right),\ $其中$Y$为$D$的一切上界所组成之集,\ $X$为$Y$的补集.于是
+		\item[$\left(i\right)$] $X\neq\varnothing,\ Y\neq\varnothing$,\ 
+		\item[$\left(ii\right)$] $X\cap Y = \varnothing$,\ 
+		\item[$\left(iii\right)$] 任取$x \in X$,\ 若存在$y \in Y$使$y\le x$,\ 则$x$成为$D$的一个上界,\ 从而$x\in X$,\ 这与$\left(ii\right)$矛盾,\ 故对任意$y\in Y,\ x\in X$,\ 均有$x<y$.
+	\end{itemize}
+	因此$\left(X,\ Y\right)$是一个Dedekind分割.由分割原理,\ 存在唯一的实数$\alpha \in \mathbb{R}^1,\ $使对任意的$x\in X,\ y \in Y$有$$x\le \alpha < y\ \text{或}\ x < \alpha \le y.$$
+	因$\alpha$不可能是$X$的最大值(\text{若}$\alpha$ \text{是}X\text{的最大值},\ \text{则}$\alpha \in Y,\ $\text{从而}$X \bigcap Y \neq \varnothing,\ $\text{矛盾}!)
+	故对一切$x\in X$,\ 均有$x<\alpha,\ $即$x\le \alpha  < y$不能成立.这样,\ 只有$x<\alpha \le y$成立,\ 即$\alpha$是$Y$中的最小者,\ 也就是$D$的上界中的最小者,\ 故$D$有唯一的上确界$\alpha$. 
+\end{solution}
+\newpage
+\begin{problem}
+	确界存在原理$\Rightarrow$单调有界原理
+\end{problem}
+
+\begin{solution}
+	不妨假设$\left\{x_n\right\}$单调增加有上界.据确界存在原理,\ $\left\{x_n\right\}$必有上确界$a$,\ 即
+	$$\text{sup}\left\{x_n\right\}=a.$$
+	证明$a$就是$\left\{x_n\right\}$当$n\rightarrow\infty$时的极限.
+	事实上,\ 由上确界定义知对任意$\varepsilon>0,\ $存在$n_0,\ $使$$a-\varepsilon<x_{n_0}\le a.$$
+	由$\left\{x_n\right\}$单调增加,\ 可知对任何$n>n_0$均有$$x_{n_0}\le x_n \le a.$$
+	因此,\ 当$n>n_0$时有$|x_n - a|<\varepsilon,\ $即
+	$$\lim\limits_{n\rightarrow\infty}\left\{x_n\right\}=a.$$ 
+\end{solution}
+\newpage
+\begin{problem}
+	单调有界原理$\Rightarrow$Cantor区间套定理
+\end{problem}
+
+\begin{solution}
+	设闭区间列$\left\{\left[a_n,\ b_n\right]\right\}$满足条件:
+	\begin{itemize}
+		\item[(i)] $\left[a_{n+1},\ b_{n+1}\right]\subset\left[a_{n},\ b_{n}\right]\left(n=1,\ 2,\ \dots\right),\ $
+		\item[(ii)] $\lim\limits_{n\rightarrow\infty}\left(b_n-a_n\right)=0,\ $
+	\end{itemize}
+	由(i)知数列$\left\{a_n\right\}$单调增加且有上界,\ 故$\left\{a_n\right\}$收敛.令
+	\begin{equation}
+		\lim\limits_{n\rightarrow\infty}a_n=\text{sup}a_n=a\ge a_n\left(n=1,\ 2,\ \dots\right).\label{eq32}
+	\end{equation}
+	又因对每一$n,\ b_n$是$\left\{a_n\right\}$的上界,\ 且$a$是$\left\{a_n\right\}$的最小上界,\ 故
+	\begin{equation}
+		a\le b_n\left(n=1,\ 2,\ \dots\right).\label{eq33}
+	\end{equation}
+	由\eqref{eq32}\eqref{eq33}可知$a_n\le a \le b_n\left(n=1,\ 2,\ \dots\right),\ $即
+	$$a\in\left[a_n,\ b_n\right]\left(n=1,\ 2,\ \dots\right).$$
+	若还存在实数$b$使
+	$$b\in\left[a_n,\ b_n\right]\left(n=1,\ 2,\ \dots\right),\ $$
+	则$0\le|a-b|\le b_n-a_n\rightarrow0\left(n\rightarrow\infty\right),\ $故$a=b.$ 
+\end{solution}
+\newpage
+\begin{problem}
+	Cantor区间套定理$\Rightarrow$Heiene-Borel有限覆盖定理
+\end{problem}
+
+\begin{solution}
+	设$\mathcal{D}$是闭区间$\left[a,\ b\right]$的一个开覆盖.假如$\left[a,\ b\right]$不能被$\mathcal{D}$中任何有限个开集覆盖,\ 将$\left[a,\ b\right]$等分为两个区间,\ 则其中至少有一个区间不能被$\mathcal{D}$中任何有限个开集覆盖,\ 记此区间为$\left[a_1,\ b_1\right]$.再等分$\left[a_1,\ b_1\right]$,\ 同样至少有一个不能被$\mathcal{D}$中任何有限个开集覆盖,\ 记此区间为$\left[a_2,\ b_2\right]$.如此继续下去,\ 得到一列闭区间
+	$$\left[a_1,\ b_1\right],\ \left[a_2,\ b_2\right],\ \dots,\ \left[a_n,\ b_n\right],\ \dots$$
+	适合
+	\begin{itemize}
+		\item[(i)] 任何一个$\left[a_n,\ b_n\right]$都不能被$\mathcal{D}$中任何有限个开集覆盖.
+		\item[(ii)]$\left[a_{n+1},\ b_{n+1}\right]\subset\left[a_n,\ b_n\right]\subset\left[a,\ b\right]\left(n=1,\ 2,\ \dots\right).$
+		\item[(iii)]$\lim\limits_{n\rightarrow\infty}\left(b_n-a_n\right)=0.$
+	\end{itemize}
+	据区间套定理,\ 存在唯一实数$c\in\left[a_n,\ b_n\right]\left(n=1,\ 2,\ \dots\right),\ $且
+	$$\lim\limits_{n\rightarrow}a_n=\lim\limits_{n\rightarrow}b_n=c.$$
+	因$\mathcal{D}$覆盖了$\left[a,\ b\right]$,\ 故$\mathcal{D}$中至少有一个开集从而至少有一个开区间$\left(\alpha,\ \beta\right),\ $使得
+	$$c \in \left(\alpha,\ \beta\right).$$
+	由极限性质知存在$n_0,\ $当$n>n_0$时有
+	$$\alpha<a_n<b_n<\beta,\ $$
+	即$\left[a_n,\ b_n\right]\subset\left(\alpha,\ \beta\right).$因此,\ $\left(\alpha,\ \beta\right)$覆盖了$\left[a_n,\ b_n\right]\left(n>n_0\right).$这与$(i)$发生矛盾. 
+\end{solution}
+\newpage
+\begin{problem}
+	Heiene-Borel有限覆盖定理$\Rightarrow$聚点原理
+\end{problem}
+
+\begin{solution}
+	设$D$为有界的无限集，令
+	$$a=\text{inf}D,\ b=\text{sup}D,\ $$
+	则$D\subset\left[a,\ b\right]$.假如$D$没有聚点,\ 那么对于任意$x\in\left[a,\ b\right],\ $存在$x$的邻域$U\left(x,\ \delta_x\right)=\left(x-\delta_x,\ x+\delta_x\right),\ $使$U\left(x,\ \delta_x\right)$中至多含有$D$的有限个点,\ 即$U\left(x,\ \delta_x\right)\cap D$是有限集.显然,\ 当$x$走遍$\left[a,\ b\right]$时,\ 这些邻域就覆盖了$\left[a,\ b\right],\ $即
+	$$\left[a,\ b\right]\subset\bigcup_{x\in \left[a,\ b\right]}^{}U\left(x,\ \delta_x\right) $$
+	据有限覆盖定理,\ 存在有限个邻域,\ $U\left(x_1,\ \delta_{x_1}\right),\ \dots,\ U\left(x_n,\ \delta_{x_n}\right),\ $它们覆盖$\left[a,\ b\right]$,\ 即
+	$$\left[a,\ b\right]\subset\bigcup_{i=1}^{n}U\left(x_i,\ \delta_{x_i}\right)$$
+	从而$D\subset\bigcup_{i=1}^{n}U\left(x_i,\ \delta_{x_i}\right).$由此得到$D$为有限集,\ 此为矛盾.因此,\ $D$必有聚点.
+\end{solution}
+\newpage
+\begin{problem}
+	聚点原理$\Rightarrow$Bolazano-Weierstrass定理
+\end{problem}
+
+\begin{solution}
+	设$\left\{x_n\right\}$是有界无穷数列.若$\left\{x_n\right\}$是由有限个实数重复出现而构成的数列,\ 则至少有一个数$c$要重复出现无穷多次.设$c$重复出现的项为$n_1,\ n_2,\ \dots,\ $则
+	$$\lim\limits_{k\rightarrow\infty}x_{n_k}=c,\ $$
+	即$\left\{x_{n_k}\right\}$是$\left\{x_n\right\}$的一个收敛子列.
+	
+	现设$\left\{x_n\right\}$确由无穷多个不同实数组成.则此数列为一有界无穷集.据聚点原理,\ $\left\{x_n\right\}$至少有一聚点$c$.于是,\ 对任何$k,\ \left(c-\frac{1}{k},\ c+\frac{1}{k}\right)$中必含有$\left\{x_n\right\}$的无穷多项,\ 从而在$\left(c-\frac{1}{k},\ c+\frac{1}{k}\right)$中可选出$\left\{x_n\right\}$的一个项$x_{n_k}$使$x_{n_k}\neq c.$因$k$是任意正整数,\ 故得$\left\{x_n\right\}$的一个子列$\left\{x_{n_k}\right\},\ $使得$\left\{x_{n_k}\right\}\in \left(c-\frac{1}{k},\ c+\frac{1}{k}\right),\ $因而
+	$$\lim\limits_{k\rightarrow\infty}x_{n_k}=c.$$ 
+\end{solution}
+\newpage
+\begin{problem}
+	Bolazano-Weierstrass定理$\Rightarrow$Cauchy收敛准则
+\end{problem}
+
+\begin{solution}
+	必要性显然.
+	
+	兹证充分性.据条件,\ 对$\varepsilon=1,\ $存在$n_0,\ $当$n,\ m>n_0$时有
+	$$|x_n-x_m|<1.$$
+	于是,\ 
+	$$|x_n|\le|x_n-x_{n_0+1}|+|x_{n_0+1}|<1+|x_{n_0+1}|.$$
+	令
+	$$M=\text{max}\left\{|x_1|,\ \dots,\ |x_{n_0}|,\ 1+|x_{n_0+1}|\right\},\ $$
+	则$|x_n|\le M\left(n=1,\ 2,\ \dots\right),\ $故$\left\{x_n\right\}$有界.因此存在收敛子列$\left\{x_{n_k}\right\}$,\ 设
+	$$\lim\limits_{k\rightarrow\infty}x_{n_k}=c.$$
+	于是由不等式
+	$$|x_n-c|\le|x_n-x_{n_k}|+|x_{n_k}-c|$$
+	可知,\ $\lim\limits_{n\rightarrow \infty}x_n=c.$
+\end{solution}
+\newpage
+\begin{problem}
+	Cauchy收敛准测$\Rightarrow$Dedekind分割原理
+\end{problem}
+
+\begin{solution}
+	设$\left(X,\ Y\right)$是全体实数$\mathbb{R}^1$的任意一个分割.因$X\neq\varnothing,\ Y\neq\varnothing,\ $故可任取$a_1\in X,\ b_1\in Y,\ $则$b_1>a_1.$将$\left[a_1,\ b_1\right]$等分为二,\ 若分点$\frac{a_1+b_1}{2}\in X$就取右半区间并记为$\left[a_2,\ b_2\right];$若$\frac{a_1+b_1}{2}\in Y,\ $则取左半区间并记为$\left[a_2,\ b_2\right].$总之,\ $a_2\in X,\ b_2\in Y.$如此继续下去,\ 得到闭区间列$\left\{\left[a_n,\ b_n\right]\right\},\ $满足
+	\begin{itemize}
+		\item[(i)] $\left[a_{n+1},\ b_{n+1}\right]\subset\left[a_n,\ b_n\right]\left(n=1,\ 2,\ \dots\right),\ $
+		\item[(ii)]$\lim\limits_{n\rightarrow\infty}\left(b_n-a_n\right)=0,\ $
+		\item[(iii)]$a_n\in X,\ b_n\in Y\left(n=1,\ 2,\ \dots\right).$
+	\end{itemize}
+	由(i),\ (ii)可知数列
+	$$a_1,\ b_1,\ a_2,\ b_2,\ \dots,\ a_n,\ b_n,\ \dots$$
+	是Cauchy数列,\ 因而收敛.设其极限为$c\in \mathbb{R}^1.$若$c\in X,\ $可证$c$必为$X$的最大值.事实上,\ 假如存在$x\in X$而有$c<x,\ $取正数$\varepsilon=x-c,\ $则
+	$$\left(c-\varepsilon,\ c+\varepsilon\right)\subset X.$$
+	由(iii),\ 每个$b_n\notin\left(c-\varepsilon,\ c+\varepsilon\right),\ $这与$a_1,\ b_1,\ a_2,\ b_2,\ \dots,\ a_n,\ b_n,\ \dots$收敛于$c$发生矛盾.因此,\ $c$为$X$的最大值.此时$Y$显然无最小值.类似地可证,\ 若$c$在$Y$中,\ 则$c$必是$Y$地最小值,\ 此时$X$无最大值.
+	
+	至此证明了
+	
+	Dedekind分割原理\ 确界存在原理\ 单调有界原理\ Cantor区间套定理\ Heiene-Borel有限覆盖定理\ 聚点原理\ Bolazano-Weierstrass定理\ Cauchy收敛准则 
+	
+	这八条之间的等价性,\ 并且这八个等价的断语从不同的角度刻画了\textbf{实数的连续$\left(\text{完备}\right)$性}.
+\end{solution}
+\chapter{Differential Manifold}
+\section{微分流形的基本概念}
+\subsection{微分流形}
+\textbf{流形}:$m$维拓扑流形(简称"流形")是指\textbf{局部}同胚于$m$维欧氏空间中的开集$T_2$(即Hausdorff性)且$C_2$(即具有可数基)拓扑空间,\ 一维的理解为曲线,\ 二维理解为曲面.
+\begin{note}
+	\begin{itemize}
+		\item $m\in\textbf{N}$
+		\item 流形满足$T_1-T_3,\ C_1,\ C_2,\ $局部道路连通性,\ 局部紧性,\ 仿紧性
+		\item 类似可延拓流形的定义至带边流形$M$,\ 记$\partial M$为$M$的边界点集.若$M$为带边流形,\ 则$M$为流形$\Leftrightarrow\partial M=\varnothing.$
+		\item 在流形中,\ 往往对它的道路连通分支感兴趣,\ 又由于流形具有道路连通性,\ 所以流形的连通性等价于道路连通性.
+	\end{itemize}
+\end{note}
+\textbf{微分流形}:一个$m$维流形$M$就是一个赋予了微分结构的$m$维流形,\ 即存在一个坐标卡$\mathcal{A}=\left\{\left(U_i,\ \varphi_i\right)\right\}$(即流形定义中的局部同胚映射),\ 使得:
+\begin{itemize}
+	\item $\mathcal{A}\text{为}\mathcal{M}$的一个开覆盖;
+	\item 任意两个坐标卡(U,\ $\phi$)和$\left(V,\ \psi\right)$满足$U\cap V=\varnothing,\ $或者交集非空时$\psi\circ\varphi^{-1}$与$\varphi\circ\psi^{-1}$皆为$C^{\infty}$函数;
+	\item $\mathcal{A}$为极大的(该条件可由前两条唯一生成)
+\end{itemize}
+
+微分流形的直观含义是指,\ 这个流形是由同胚于欧氏空间的部分局部光滑粘贴起来的,\ 就是很光滑的曲线或者曲面等等.并且一旦赋予了微分结构,\ 流形上的每一点$p$都会有一个局部坐标卡$\left\{u^i\right\},\ $方便我们在流形上进行局部的运算.
+
+\textbf{以下所说的"流形"均指(赋予了微分结构的)“微分流形”.}
+
+\textbf{微分同胚}:现实中,\ 我们往往会思考两个流形是不是一样,\ 如何判断这两个流形一样,\ 使得在计算和分析的时候可以用另一个流形来代替?于是引入了微分同胚(或称光滑同胚)的概念:两个流形微分同胚是指存在一个可逆的光滑映射,\ 并且逆映射也是光滑的(注意与同胚的区别:同胚是指存在一个可逆的连续映射,\ 并且逆映射也连续).因此一旦两个流形微分同胚,\ 那么上面问题都是可以肯定回答的了.值得一提的是,\ 对维数不超过3的流形,\ 同胚一定是微分同胚.而四维以上便有了著名的“七维怪球”的反例!
+\subsection{流形上的切空间和与切空间}
+\textbf{切空间}:给了一个$m$维流形$M$后,\ 既然它是光滑的,\ 那么对于其上的每一点$p,\ $就有和$p$“相切”的$m$维线性空间,\ 好比一条光滑曲线(1维流形)上的任一点有一条(1维)切线,\ 一个光滑曲面(2维流形)上任一点有一个二维切平面一样,\ 称这个相切的线性空间为$M$在$p$点的$(m\text{维})$切空间,\ 记为$T_p$(或$T_pM$).在取定$p$的一个局部的坐标卡$\left\{u^i\right\}$后,\ $T_p$的一组基有表示$\left\{\frac{\partial}{\partial u^i}\right\}_{i=1}^{m}.$
+
+\textbf{余切空间}:由于一个线性空间$V$有一个对偶空间$V^*,\ $那么上述流形在$p$点的切空间$T_p$的对偶空间$T_p^*$称为点$p$上的余切空间,\ 并且$T_p^x$中的元素$\text{d}f$在$T_p$中元素$X_p$上的共轭作用记为$<X_p,\ \left(\text{d}f\right)_p>,\ $其中$f$是$M$上光滑函数空间$C^{\infty}(M)$中的元素,\ $\text{d}f$为$f$在流形$M$上的全微分(因此$\text{d}f$也属于是$M$上的一个一次微分形式,\ 即余切场).在取定$p$的一个局部坐标卡$\left\{u^i\right\}$后,\ $T_p^*$的一组基有表示$\left\{\text{d}u^i|_p\right\}_{i=1}^m$.
+
+当流形是$\mathbb{R}^2$(欧式平面)时,\ $<X_p,\ \text{d}f>$就是光滑函数$f$在$p$点的处沿$X_p$方向的方向导数(设$X_p=\sum\limits_{i=1}^{2}a^i\frac{\partial}{\partial x^i},\ \text{d}f=\sum\limits_{i=1}^{2}\frac{\partial f}{\partial x^i}\text{d}x^i,\ $则$<X_p,\ \text{d}f>=\sum\limits_{i=1}^{2}a^i\frac{\partial f}{\partial x^u}=\text{D}_{X_p}f$).
+
+\textbf{拉回和推前映射}:如果两个流形间存在一个光滑映射$\varphi:M\rightarrow N,\ $($M$为$m$维流形,\ $N$为$n$维流形)那么由这个映射自然诱导出流形$M$上每一点$p$处切空间$T_p$到$N$上相应点$q=\varphi(p)$上切空间$T_q$的线性映射$\varphi_*$(称为\textbf{推前映射}或\textbf{Frechet导数}),\ 以及$T_q^*$到$T_p^*$的线性映射$\varphi^*$(称为\text{拉回映射}).有以下关系图:
+\begin{align*}
+	\varphi:M\rightarrow N\\
+	\varphi_*:T_p\rightarrow T_q\\
+	\varphi^*:T_q^*\rightarrow T_p^*
+\end{align*} 
+并且这种如果$\varphi$在$p$处的Frechet导数是矩阵$A=\left(\frac{\partial v^i}{\partial u^j}\right)_{n\times m}$\\
+($\left\{u^i\right\}$为$p$的局部坐标卡,\ $\left\{v^i\right\}$为$q$的局部坐标卡),\ 那么$\varphi_*$的矩阵表示便是$A,\ $而$\varphi^*$的矩阵表示便是$A^T$(表示转置).
+\begin{note}
+	在微分同胚下,\ 这两种映射可以从局部的$p$点扩大到整个流形上,\ 即把流形上的场拉回或推前到另一个流形上形成另一个流形的一个场,\ 且此时拉前或拉回为同构,\ 但是,\ 如果只是光滑映射,\ 则推前映射不能把“场”推前到“场”,\ 而拉回映射可以把“场”拉回到“场”,\ 因为光滑映射不能保证是满射且单射!
+\end{note}
+\section{流形上的全体切场}
+\subsection{切场\ \raisebox{0.5mm}{------}\ 切丛的截面}
+在上章可以看到,\ 流形$M$上的每一个点$p$都有一个切空间$T_P,\ $自然地,\ 想知道有没有一种比较好(光滑)的映射(切场),\ 把每个点$p$映射到切空间$T_P$中的一个元素.在一般的$\mathbb{R}^n$中,\ 我们知道(光滑)的向量场$\mathbb{R}^n\rightarrow\mathbb{R}^n$的定义,\ 但是流形上的切场如何定义
+
+\textbf{切丛}:一种很漂亮的想法是在$M$中每个点$p$上放一个切空间$T_P,\ $并且把这些切空间并起来形成拓扑和$T_M=\bigcup\limits_{p\in M}T_p,\ $可以证明这也是一个流形,\ 称之为$M$的切丛
+
+\textbf{切场}接着,\ 考虑底空间$M$到切丛$T_M$的一个截面$X$(定义为:$X:M\rightarrow\bigcup_{p\in M}T_p$是光滑映射,\ 且$\pi\circ X=\text{id}:M\rightarrow M,\ $其中$\pi$为$TM\rightarrow M$的自然投影,\ 其为光滑满射.这样就很好地把流形上的每一个点映射到这个点的切空间中的一个切向量),\ 记$\Gamma(TM)$为所有$X$构成的全体,\ 并称$X$为流形$M$的一个(光滑)切场.(映射怎么理解成截面?想象$\mathbb{R}^2\rightarrow\mathbb{R}$的一个函数$f,\ $在$\mathbb{R}^3$中,\ $f$可以看成一个面.)
+
+\subsection{另一个角度看切场全体\ \raisebox{0.5mm}{------}\ 一般先行李代数$\mathcal{L}(C^{\infty}(M))$的子李代数}
+\textbf{切场的另一种等价定义}:让流形$M$上所有光滑函数全体构成的线性空间$C^{\infty}(M),\ $则$M$上的切场$X$可以看成该空间上的“具有特殊性质”的线性变换算子.在先前定义的切场中,\ 我们可以通过针对$M$上每一点$p,\ $令$(Xf)_:=<X_P,\ \text{d}f>,\ $从而$X$视作$C^{\infty}(M)$上所有线性变换算子构成的线性空间$\mathcal{L}(C^{\infty}(M))$的子空间.
+
+\textbf{$\Gamma(TM)\subset\mathcal{L}(C^{\infty}(M))$}:可以验证,\ 这些“具有特殊性质”的线性变换算子的全体构成的集合$\Gamma(TM)$是一个线性空间,\ 所以也是$C^{\infty(M)}$上所有线性变换算子构成的线性空间$\mathcal{L}(C^{\infty}(M))$的子空间.
+
+\textbf{$\Gamma(TM)$为李代数}:由后面可知在$\mathcal{L}(C^{\infty}(M))$上可以定义李括号构成一般线性李代数$\left(\mathcal{L}(C^{\infty}(M)),\ [,\ ]\right),\ $由于$C^{\infty}(M)$可看成一个代数,\ 因此记为$O_p(C^{\infty}(M)).$同样可验证子空间$\Gamma(TM)$关于李括号封闭,\ 所以其也是一个李代数($\Gamma$(TM),\ [,\ ]),\ 是上述一般线性李代数的子李代数,\ 更具体的,\ $\Gamma(TM)\cong\mathrm{Der}(C^{\infty}(M)),\ $为$O_p(C^{\infty}(M))$的子李代数(此即上述所说的“具有特殊性质”的一类线性算子).
+
+综上,\ 可以得出结论,\ 流形$M$上的切场全体$\Gamma(TM)$在李括号下构成一个(线性)李代数($\Gamma(TM),\ [,\ ]$)!
+\section{李代数}
+\textbf{李代数}:抽象的李代数的定义为:一个定义了特殊的二元运算的线性空间(运算满足双线性、反对称性和Jacobi性,\ 但不要求满足结合律).但是定义太抽象了,\ 有一类更具体的例子:线性空间$V,\ \mathcal{L}(V)$是$V$上所有线性变换算子构成的线性空间,\ (其上由乘法运算,\ 定义为两个算子的复合)在$\mathcal{L}(V)$上定义李括号:
+$$[,\ ]:\mathcal{L}(V)\times\mathcal{L}(V)\rightarrow\mathcal{L}(V),\ (X,\ Y)\rightarrow[X,\ Y]=XY-YX$$
+则可以验证$\mathcal{L}(V)$关于李括号的运算成为一个李代数,\ 称为一般先行李代数.(特别地,\ 当$V$是一个代数时,\ 记为$O_p(V),\ $称$V$上满足$D(ab)=D(a)b+aD(b)$的线性算子$D$为$A$的导子.记$A$上所有导子构成的全体为$\mathrm{Der}(V),\ $则$\mathrm{D}(V)$为$O_p(V)$的子李代数)$H$称为李代数$V$的子李代数,\ 当且仅当$H$是$V$的在二元运算下封闭的线性子空间($H$也是一个李代数).特别地,\ 一般线性李代数的子李代数称为先行李代数.
+
+\textbf{有限维李代数与结构常数的相互决定}:当一个李代数$V$的维数,\ 是有限维的时候,\ 它决定了$V$的维数是有限维的时候,\ 它决定了$V$上的一个特殊的(1,\ 2)型张量$C$(称为结构张量),\ 在取定这个李代数的一组基$\left\{X_1,\ X_2,\ \cdots,\ X_m\right\}$后,\ $C$有了坐标形式$C_{ij}^{k}$(称为结构常数),\ 并且$C_{ij}^kX_k,\ $这样,\ 我们就知道了一个李代数具体的运算法则.那么,\ 给定线性空间上的一组基,\ 并且给定了一个结构常数$C_{ij}^{k},\ $那么我们能不能决定这个空间的一个李代数结构?这是肯定的,\ 所以一个李代数和赋予了一个结构常数(给定基)的线性空间是一一决定的!
+
+\section{李群的李代数\ \raisebox{0.5mm}{------}\ 左不变切场全体}
+
+\textbf{李群}:李群$G$是一个特殊的$m$维流形,\ 其上不仅有微分结构,\ 还有群的结构,\ 并且群运算(乘法和求逆)是光滑的,\ 称这样的流形$G$为一个$m$维的李群,\ 两个李群通过是指这两个李群微分同胚且群同构,\ 两个李群同态是指两者间存在一个光滑映射,\ 且这个映射是一个群同态.
+
+\textbf{李群的李代数$\mathcal{G}$(左不变切场全体)}:在一个赋有“群性质”的微分流形上,\ 称它所有左不变切场$\mathcal{G}$(其同构于$G$在单位元$e$处的切空间$T_e,\ $因此,\ $\mathcal{G}$是$m$维线性空间)为这个李群$G$的李代数.由于$\Gamma(TM)$太过平凡,\ 故$\Gamma(TM)$不是它的李代数,\ 不要求$G$是一个李群,\ 哪怕$G$是任一个微分流形都有这种全体切场构成的李代数,\ 所以试图将$\Gamma(TM)$缩小一些,\ 得到它的子空间$\mathcal{G}.$由于$\mathcal{G}$中的元素也是切场,\ 而且是一些只有在$G$是李群时才会有特殊性质的切场(由上述讨论也可知这类特殊的切场又是一些“更”特殊线性变换算子),\ 并且,\ 可以验证$\mathcal{G}$在李括号下也封闭,\ 因此$\mathcal{G}$也是一个(线性)李代数,\ 称为李群$G$的李代数,\ 而$\mathcal{G}$的特殊性在于其同构于$T_e,\ $故可以得出$\mathcal{G}$的维数$m,\ $是一个有限维的李代数!(而$\Gamma(TM)$是无限维的李代数)并且任意$X\in\mathcal{G},\ X$在$g$点的取值可以由$X$在$e$点的值加上左移动$L_g(L_g:G\rightarrow G,\ a\rightarrow ga)$决定!于是便有:
+$$(Lg)_* X=X(\text{左不变的含义})$$
+另一种意义下,\ 只要取$T_e$中的一个元素$X_e,\ $就能把$X_e$经过上述的有李群的有本身性质决定的左移动延拓成整个流形$G$上的一个切场,\ 因此这个意义上说,\ $\mathcal{G}$和$T_e$是同构的.\\
+\textbf{以下,\ 在李群中,\ 李代数均特指左不变切场全体构成的李代数}\\
+\textbf{结构方程}:现在知道了李群能决定其上的一个李代数(左不变切场),\ 如何获取这个李代数的信息,\ 由于有限维李代数和结构常数相互决定,\ 不妨看看这个李代数的结构常数是什么,\ 求结构常数的一种方法,\ 称为结构方程法,\ 通过结构方程求得结构常数,\ 进而知道李代数的结构.具体而言,\ 考虑$m$维李代数$\mathcal{G}$(同构于$T_e$)的对偶空间$\mathcal{G^*}$(同构于$T_e^*$),\ 取定$T_e$中的一组基$\left\{\delta_1,\ \delta_2,\ \cdots,\ \delta_m\right\}$后,\ 我们可以得到$T_e^*$中的对偶基$\left\{\delta_1,\ \delta_2,\ \cdots,\ \delta_m\right\},\ $再由同构诱导出$\mathcal{G}^*$的一组基$\left\{\omega_1,\ \omega_2,\ \cdots,\ w_m\right\}$(称为李群$G$的Maurer-Cartan形式),\ 这样可以得到一个方程$\mathrm{d}w_i=-\frac{1}{2}C_{jk}^{i}\omega_j\bigwedge \omega_k,\ $称为李群$G$的结构方程,\ 利用方程可以计算出结构常数$C_{ij}^{k},\ $也就获取了李代数(左不变切场)的信息.
+
+综上,\ 有如下结论:流形$M$上的切场全体$\Gamma(TM)$在李括号下构成一个(线性)李代数($\Gamma(TM),\ [,\ ]$);李群的左不变切场$\mathcal{G}$(又称为李群的李代数)在李括号下构成一个$m$维的(线性)李代数$(\mathcal{G},\ [,\ ]).$
+
+\section{单参数李氏变换群\ \raisebox{0.5mm}{------}\ 再论流形上的切场以及李群上的左不变切场}
+
+\textbf{从全体到个体}:已知一般流形的切场全体与李群的左不变切场全体都是一个先行李代数,\ 接下来深入考虑以下这两个切场全体中的元素\ \raisebox{0.5mm}{------}\ 切场与左不变切场是否能和单参数变换群对应起来,\ 以及切场全体上的李括号有无更直观的含义.
+
+\subsection{李群的作用}
+在$\ll\text{群表示论} \gg$ 中知道群作用的定义$\varphi:G\times M\rightarrow M,\ $其中,\ $G$为一个群,\ $M$为一个集合.
+
+特别地,\ 在微分流形中,\ 我们取$M$为一个流形,\ $G$为一个李群,\ 并且作用$\varphi$保持光滑性,\ 于是称这样地$\varphi$为一个\textbf{李群的作用},\ 又称为\textbf{李氏变换群.}
+
+其隐含了$G$到$\mathrm{Diff}(M)$($M$上全体自微分同胚构成的群)的群同态,\ 这样$G$中的每一个元素$g$可以看成$M$到$M$的一个微分同胚.
+
+特别地,\ 取$G$为实数加法群$R,\ $这样群作用变成了$\varphi:R\times M\rightarrow M,\ $称为\textbf{单参数李氏变换群.}
+\begin{note}[拓扑群的作用]
+	若$G$是一个拓扑群,\ $M$是一个拓扑空间,\ $\varphi:G\times M\rightarrow M$为一个连续映射,\ 则称$\varphi$为一个拓扑群作用,\ 其暗含了$G$到$\mathrm{Homeo}(M)$($M$上全体自同胚构成的群)的群同态.
+\end{note}
+\subsection{一般流形上,\ 切场与单参数李氏变换群的相互诱导}
+\textbf{单参数李氏变换群决定了切场:}对固定的$p\in M,\ $记$\varphi_t=\varphi(t,\ p),\ $那么在$M$上一条过$p$点的一条参数曲线,\ 由于$\varphi_0$是恒同变换,\ 所以$\gamma_p(0)=p.$定义$p$处的切向量$X_p:=\frac{\mathrm{d}(\gamma_p(t))}{\mathrm{d}t}|_{t=0}$(此时恰好满足:如果$q$在$p$的轨道上,\ 可设$q=\gamma_p(s),\ $则$X_q=\frac{\mathrm{d}\gamma_p(s+t)}{\mathrm{d}t},\ $且($\varphi_s$)$_*X_p=X_q$)让$p$跑遍$M,\ $就有$M$上的一个切场$X$(可验证具有光滑性).这样一个单参数李氏变换群$\varphi_t$就决定了$M$上的一个切场$X.$
+
+\textbf{切场决定了\textbf{局部}单参数李氏变换群}:那么反问题是,\ 给定了$M$上的一个切场$X,\ $能不能决定作用在$M$上的一个单参数李氏变换群?答案是否定的,\ 但是可以决定一个\textbf{局部}的单参数李氏变换群!即任一点$p,\ $存在$p$的邻域$U,\ $以及$\varepsilon>0,\ $使得$\varphi_t$为局部作用:$(-\varepsilon,\ \varepsilon)\times U\rightarrow M,\ $并且$\varphi_t$在$U$上诱导的经过$p$的局部轨道是$X$经过$p$的一条局部积分曲线(X(r)=$\frac{\mathbb{d}r}{\mathrm{d}t}$),\ 诱导的切场等于原切场$X$在$U$上的限制,\ 并且这种诱导在局部上是唯一的.若$M$是紧的流形,\ 那么可以利用开覆盖定理证明$M$上的任意切场可以决定$M$上一个(整体的)单参数李氏变换群!
+
+\subsection{切场全体中的李括号运算的另一种含义\ \raisebox{0.5mm}{------}\ 李导数}
+
+\textbf{李导数}:首先定义一种二元运算:
+$$L_{()}():\Gamma(TM)\times \Gamma(TM)\rightarrow\Gamma(TM):\text{对}X,\ Y\in\Gamma(TM),\ $$
+$$L_XY:=\lim\limits_{t\rightarrow 0}\frac{Y-(\varphi_t)_*Y}{t}=\lim\limits_{t\rightarrow0}\frac{(\varphi_{-t})_*Y-Y}{t},\ $$
+称为$Y$关于$X$的李导数,\ 其中,\ $\varphi_t$为$X$诱导的局部单参数李氏变换群.$Y$关于$X$的李导数在$p$点处的具体含义是:由$X$在$p$点诱导了一个局部单参数李氏变换群因而也诱导了过$p$的局部轨道$X_p(t),\ $让切场$Y$限制在这条轨道上,\ 那么$Y$关于$X$在$p$的李导数就是$Y$沿轨道$X_p(t)$在$p$点处让$t$趋于0时的变化率,\ 通俗一点,\ 就是$Y$限制在$X_p(t)$上无限靠近$p$时的变化率.
+
+(广义的李导数还可以延伸到一般的张量场上,\ 即$\Gamma(TM)\times\Gamma(T_s^rM)\rightarrow\Gamma(T_s^rM):(X,\ \xi)\rightarrow L_X\xi=\lim\limits_{t\rightarrow 0}\frac{\phi_t(\xi)-\xi}{t}\in\Gamma(T_s^rM),\ $其中$\phi_t$为诱导$\varphi_t$诱导的$T_s^r(\varphi_t(p))$与$T_s^r(p)$间的同构;数量场$f$关于$X$的李导数规定为$L_Xf:=D_Xf.$可以同样理解为张量场$\xi$沿$X_p$在点$p$的变化率).
+
+\textbf{切场上李导数与李括号等价}:李括号$[,\ ]$是切场全体$\Gamma(TM)$上的二元运算,\ 而刚刚我们定义的李导数$L_{()}()$也是$\Gamma(TM)$上的二元运算,\ 而这两个是等价的,\ 因此,\ 流形$M$上的切场全体和李群$G$上的左不变切场全体构成的李代数$(\Gamma(TM),\ [,\ ])$与$(\mathcal{G},\ [,\ ])$又可以写成$(\Gamma(TM),\ L_{()}())$与$(\mathcal{G},\ L_{()}()).$
+
+\subsection{李群上,\ 左不变切场与李氏变换群的相互诱导}
+
+\textbf{左不变切场决定了单参数李氏变换群}:一般流形上的切场只能诱导局部的单参数李氏变换群,\ 但是李群比一般流形性质好就是李群$G$上的左不变切场$X$可以决定$G$上(整体的)单参数李氏变换群$\varphi_t$!并且这个单参数变换群在单位元$e$处的轨道$\gamma_e(t)$是$G$的一条一维李子群(单参数子群)!同时,\ $X$在其他点$p$的轨道$\gamma_p(t)$是由轨道$\gamma_e(t)$右作用在$p$上生成的($\gamma_p(t)=p\cdot \gamma_e(t),\ $)所以也称左不变切场为无穷小右移动!
+
+\textbf{指数映射}:有了上述结论,\ 可以继续深入看以下李代数$T_e$和李群$G$的关系,\ 考虑映射$exp:T_e\rightarrow G,\ $如下定义:对任意$X\in T_e,\ $由于$X$决定了$G$的一条单参数子群$\sigma_X(t)=\gamma_e(t),\ $因此定义$exp(X)=\sigma_X(1),\ $即把单位元切空间中的切向量(也可以看成切空间中的点)通过诱导的单参数子群映射到$G$中,\ 并且还可以得出两条结论:
+\begin{itemize}
+	\item 在局部上,\ $exp$是$T_e$到$G$的一个微分同胚($T_e$在零点的某个邻域与$G$在$e$点的某个邻域微分同胚)!
+	\item (第一类标准坐标卡)$G$在$e$处存在局部坐标卡$(U;u^i),\ $使得$X=\sum\limits_{j=1}^{r}a^j\frac{\partial}{\partial u^j}|_e\in T_e$所决定的单参数子群$\sigma_X(t)$限制在$U$内有方程$u^i(\sigma_X(t))=ta^i$
+\end{itemize}
+因此,\ 在局部上指数映射把$e$处切空间的点和$e$邻域内的点用同一个坐标一一对应了起来.

@@ -1,0 +1,63 @@
+\documentclass[lang=cn,11pt,device=pad]{elegantbook}
+\title{Mathmatical Workbook}
+%\subtitle{Elegant\LaTeX{} 经典之作}
+
+\author{王乐凯}
+%\institute{Elegant\LaTeX{} Program}
+\date{\today}
+\version{0.8}
+%\bioinfo{自定义}{信息}
+
+%\extrainfo{不要以为抹消过去,重新来过,即可发生什么改变.—— 比企谷八幡}
+\extrainfo{出身寒微不是耻辱,能屈能伸方为丈夫.—— 邓艾}
+\setcounter{tocdepth}{1}
+
+\logo{logo2.png}
+\cover{cover.jpg}
+
+% 本文档命令
+\usepackage{esint, amsmath, enumitem, cases, amssymb, bm, color, framed, graphicx, hyperref, mathrsfs, extarrows,tikz-cd,tikz,url,pdfpages,amssymb,multicol,tabularx,multirow,float,booktabs,indentfirst,lipsum,wrapfig,array}
+\def\Xint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\Xint=}
+\def\dashint{\Xint-}
+\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+
+% 修改标题页的橙色带
+% \definecolor{customcolor}{RGB}{32,178,170}
+% \colorlet{coverlinecolor}{customcolor}
+
+\begin{document}
+	
+	\maketitle
+	\frontmatter
+	
+	\tableofcontents
+	
+	\mainmatter
+	
+	\chapter{习题集}
+	\input{习题集/section1.1.tex}
+	\newpage
+	\input{习题集/section1.2.tex}
+	\newpage
+	\input{习题集/section1.3.tex}
+	\newpage
+	\input{习题集/section1.4.tex}
+	\newpage
+	\input{习题集/section1.5.tex}
+	\newpage
+	\input{习题集/section1.6.tex}
+	\input{chapter2.tex}
+	\input{chapter3.tex}
+	\newpage
+	\input{Remaining chapters.tex}
+\nocite{*}
+\printbibliography[heading=bibintoc, title=\ebibname]
+\end{document}

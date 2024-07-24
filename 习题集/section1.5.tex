@@ -1,0 +1,525 @@
+\section{谢惠民-数学分析习题课讲义}
+\begin{definition}
+	数$\mathrm{e}$是数列$\{\left(1+\frac{1}{n}\right)^n\}$的极限.
+\end{definition}
+\begin{theorem}
+	令$x_n$=$\left(1+\frac{1}{n}\right)^n,\ y_n=\left(1+\frac{1}{n}\right)^{n+1}\forall n,\ $则数列$\{x_n\}$和$\{y_n\}$都是收敛数列,\ 且有相同的极限.
+\end{theorem}
+\begin{proof}
+	利用平均值不定式可以对这两个数列  $\left\{x_{n}\right\}  $和  $\left\{y_{n}\right\}$  作出统一 处理. 先将  $x_{n} $ “无中生有”地看成为不全相等的 $ n+1 $ 个非负数的乘积,\  就可以从算术平均值-几何平均值不等式 推出数列  $\left\{x_{n}\right\}$  严格单调增加:
+	$$x_{n}=1\cdot\left(\frac{n+1}{n}\right)^{n}=\left(\sqrt[n+1]{1\cdot\left(\frac{n+1}{n}\right)^{n}}\right)^{n+1}<\left(\frac{1+n\left(\frac{n+1}{n}\right)}{n+1}\right)^{n+1}=\left(\frac{n+2}{n+1}\right)^{n+1}=x_{n+1} .$$
+	然后利用调和平均值-几何平均值不等式,\  “无中生有”地 将 $ y_{n}  $看成为$  n+2  $个不全相等的正数的乘积,\  就可推出数列  $\left\{y_{n}\right\}  $严格单调减少:
+	$$y_{n}=1 \cdot\left(\frac{n+1}{n}\right)^{n+1}=\left(\sqrt[n+2]{1\cdot\left(\frac{n+1}{n}\right)^{n+1}}\right)^{n+2}>\left(\frac{n+2}{1+(n+1)\left(\frac{n}{n+1}\right)}\right)^{n+2}=\left(\frac{n+2}{n+1}\right)^{n+2}=y_{n+1} .$$
+	从不等式  $x_{1} \leqslant x_{n}<y_{n} \leqslant y_{1} $ 可见两个单调数列 $ \left\{x_{n}\right\}  $和 $ \left\{y_{n}\right\} $ 都有界,\  因此都 收敛. 又从
+	$$y_{n}=x_{n} \cdot\left(1+\frac{1}{n}\right)$$
+	令  $n \rightarrow \infty $ 知道它们有共同极限.\\
+	注:可以分别证明两个数列有界. 例如用平均值不等式于  $\left\{x_{n}\right\}  $可以得到
+	$$x_{n} \cdot \frac{1}{2} \cdot \frac{1}{2}<\left(\frac{n\left(\frac{n+1}{n}\right)+\frac{1}{2}+\frac{1}{2}}{n+2}\right)^{n+2}=1,\ $$
+	可见  $\left\{x_{n}\right\} $ 以 $4$ 为其上界. 再用调和平均值-几何平均值不等式于  $\left\{y_{n}\right\} $ 可以得到	
+	$$y_{n} \cdot \frac{1}{2}=\left(\frac{n+1}{n}\right)^{n+1} \cdot \frac{1}{2}>\left(\frac{n+2}{2+(n+1)\left(\frac{n}{n+1}\right)}\right)^{n+2}=1,\ $$
+	可见 $\left\{y_{n}\right\} $ 有下界$ 2 .$ 因此只用其中一个数列就可以知道数  $\mathrm{e}$  的定义的合理性.
+\end{proof}
+\begin{problem}
+	证明数
+	$$\mathrm{e}=\sum\limits_{n=0}^{\infty}\frac{1}{n!}=1+1+\frac{1}{2!}+\cdots+\frac{1}{n!}+\cdots.$$
+\end{problem}
+\begin{proof}
+	记$s_n=1+\frac{1}{1!}+\frac{1}{2!}+\cdots+\frac{1}{n!}.$
+	将数列的通项$a_n$用二项式展开,\ 得到
+	$$\begin{aligned}
+		a_n&=(1+\frac{1}{n})^n=1+\sum\limits_{k=1}^{n}\begin{pmatrix}
+			n\\
+			k
+		\end{pmatrix}\\
+		&=1+1+\frac{1}{2!}(1-\frac{1}{n})+\frac{1}{3!}(1-\frac{1}{n})(1-\frac{2}{n})+\cdots\\
+		&+\frac{1}{n!}(1-\frac{1}{n})(1-\frac{2}{n})\cdots(1-\frac{n-1}{n}).
+	\end{aligned}$$
+	$$a_n<s_n<1+1+\frac{1}{2}+\frac{1}{2^2}+\cdots+\frac{1}{2^{n-1}}<3,\ $$
+	知$\{s_n\}$以$3$为上界,\ 又因$\{s_n\}$严格单调增加,\ 因此收敛,\ 记其极限为$s,\ $则从$a_n<s_n$得到$\mathrm{e}<s.$固定正整数$m,\ $并令$n>m,\ $就有
+	$$\begin{aligned}
+		a_n&=1+1+\frac{1}{2!}(1-\frac{1}{n})+\cdots+\frac{1}{n!}(1-\frac{1}{n})(1-\frac{2}{n})\cdots(1-\frac{n-1}{n})\\
+		&>1+1+\frac{1}{2!}(1-\frac{1}{n})+\cdots+\frac{1}{m!}(1-\frac{1}{n})(1-\frac{2}{n})\cdots(1-\frac{m-1}{n}).
+	\end{aligned}$$
+	其中不等号右边的和式是从$a_n$的表达式去掉后$n-m$个正项得到的.令$n\rightarrow\infty,\ $就有
+	$$\mathrm{e}\geqslant 1+1+\frac{1}{2!}+\cdots+\frac{1}{m!}=s_m.$$
+	再令$m\rightarrow\infty,\ $得到$\mathrm{e}\geqslant s.$因此有$s=\mathrm{e}.$
+\end{proof}
+\begin{problem}
+	记$\varepsilon_n=\mathrm{e}-\left(1+1+\frac{1}{2!}+\cdots+\frac{1}{n!}\right),\ $则有$\lim\limits_{n\rightarrow\infty}\varepsilon_n(n+1)!=1.$
+\end{problem}
+\begin{proof}
+	写出
+	$$\lim\limits_{n\rightarrow\infty}\varepsilon_n(n+1)!=\lim\limits_{n\rightarrow\infty}\frac{\varepsilon_n}{\frac{1}{(n+1)!}},\ $$
+	此时
+	$$\varepsilon_{n+1}-\varepsilon_n=-\frac{1}{(n+1)!},\ \quad\frac{1}{(n+2)!}-\frac{1}{(n+1)!}=-\frac{1}{n!(n+2)},\ $$
+	由Stolz定理可知所求极限为$1.$
+\end{proof}
+\begin{problem}
+	对于上述$\varepsilon_n$成立不等式$\frac{1}{(n+1)!}<\varepsilon_n<\frac{1}{n!n}.$
+\end{problem}
+\begin{proof}
+	从$\varepsilon_n=\sum\limits_{k=n+1}^{\infty}\frac{1}{k!}$可见$\varepsilon_n>\frac{1}{(n+1)!}$成立.对任意的$m>n,\ $估计
+	$$\begin{aligned}
+		\frac{1}{(n+1)!}+\frac{1}{(n+2)!}+\cdots+\frac{1}{m!}&<\frac{1}{(n+1)!}\left(1+\frac{1}{n+2}+\cdots+\frac{1}{(n+2)^k}+\cdots\right)\\
+		&=\frac{1}{(n+1)!}\left(\frac{1}{1-\frac{1}{n+2}}\right)\\
+		&=\frac{n+2}{(n+1)!(n+1)}<\frac{1}{n!n},\ 
+	\end{aligned}$$
+	再令$m\rightarrow\infty,\ $就得到所求的第二个不等式.
+\end{proof}
+\begin{problem}
+	自然对数的底$\mathrm{e}$是无理数.
+\end{problem}
+\begin{proof}
+	用反证法.如果$\mathrm{e}$是有理数,\ 则可写为$\mathrm{e}=\frac{p}{q},\ $这里$p$和$q$是正整数.从上两个问题可知,\ 对于正整数$q,\ $可以将$\mathrm{e}$的无穷级数展开式写成为两项之和,\ 即从级数的第一项到$\frac{1}{q!}$为第一部分,\ 余下的$\varepsilon_q$为第二部分:
+	$$\mathrm{e}=\frac{p}{q}=\left(1+\frac{1}{1!}+\frac{1}{2!}+\cdots+\frac{1}{q!}\right)+\varepsilon_q.$$
+	由此可见,\ $\varepsilon_q$一定是$\frac{1}{q!}$的整数倍,\ 但是从上一题可以知道
+	$$0<\varepsilon_q<\frac{1}{q!q},\ $$
+	因此这是不可能的.
+\end{proof}
+\newpage
+\begin{lemma}
+	设  $n \geqslant 2 ,\  $角 $ t $ 满足条件 $ 0<n t<90^{\circ}  $(即 $ n t $ 为锐角),\  则成立不等式  $\tan n t>n \tan t .$
+\end{lemma}
+\begin{proof}
+	用数学归纳法. 对 $ n=2 ,\  $用正切函数的倍角公式就够了:
+	$$\tan 2 t=\frac{2 \tan t}{1-\tan ^{2} t}>2 \tan t,\ $$
+	这里利用了 $ 0<2 t<90^{\circ}  $时分母小于$ 1$ 的事实.
+	现设不等式对于 $ n=k  $已经成立,\  则对于 $ n=k+1  $就有
+	$$\begin{aligned}
+		\tan (k+1) t & =\frac{\tan t+\tan k t}{1-\tan t \cdot \tan k t} \\
+		& >\tan t+\tan k t \\
+		& >(k+1) \tan t,\ 
+	\end{aligned}$$
+	这样就完成了数学归纳法的证明.\\ 
+	注意: 当 $ (k+1) t $ 为锐角时,\  $ k t $ 也是锐角,\  因此可 以推出分母在  $(0,\ 1) $内并可以用归纳假设.
+\end{proof}
+\begin{theorem}
+	$x_{n}=n \sin \frac{180^{\circ}}{n} \forall n ,\ $ 则数列  $\left\{x_{n}\right\} $ 收敛.
+\end{theorem}
+\begin{proof}
+	首先证明 $ x_{n} \uparrow .$ 令  $t=\frac{180^{\circ}}{n(n+1)} ,\ $ 则有  $\frac{180^{\circ}}{n}=(n+1) t,\  \frac{180^{\circ}}{n+1}=n t ,\ $ 且 当$  n \geqslant 2  $时$  n t $ 为锐角.
+	于是有
+	$$\begin{aligned}
+		x_{n} & =n \sin \frac{180^{\circ}}{n}=n \sin (n+1) t \\
+		& =n \sin n t \cos t+n \cos n t \sin t=n \sin n t \cos t\left(1+\frac{\tan t}{\tan n t}\right) \\
+		& <n \sin n t\left(1+\frac{1}{n}\right)=(n+1) \sin n t \\
+		& =(n+1) \sin \frac{180^{\circ}}{n+1}=x_{n+1} .
+	\end{aligned}$$
+	又从单位圆的内接正  $n $ 边形面积小于单位圆的外切正方形面积可知有
+	$$n \cdot \frac{1}{2} \sin \frac{360^{\circ}}{n}=n \sin \frac{180^{\circ}}{n} \cos \frac{180^{\circ}}{n}<4 .$$
+	从而当 $ n \geqslant 3  $时有
+	$$x_{n}=n \sin \frac{180^{\circ}}{n}<\frac{4}{\cos \frac{180^{\circ}}{n}} \leqslant \frac{4}{\cos 60^{\circ}}=8,\ $$
+	可见  $\left\{x_{n}\right\} $ 有上界. 从单调有界数列收敛定理得出  $\left\{x_{n}\right\}  $收敛.
+\end{proof}
+\begin{definition}
+	数 $ \pi=\lim\limits_{n \rightarrow \infty} n \sin \frac{180^{\circ}}{n} .$
+\end{definition}
+\newpage
+\begin{problem}
+	证明实数集$  \mathbb{R} $ 不可列.
+\end{problem}
+\begin{proof}
+	用反证法. 设 $ \mathbb{R} $ 为可列集,\  则可以将所有实数表示为
+	\begin{equation}
+		\mathbb{R}=\left\{x_{1},\  x_{2},\  \cdots,\  x_{n},\  \cdots\right\} .\label{1.5.1}
+	\end{equation}
+	任取 $ a<b ,\ $ 考虑有界闭区间 $ [a,\  b] .$
+	将  $[a,\  b] $ 三等分,\  则所得的 $3 $个闭子区间中至少有一个子区间不含  $x_{1} ,\  $将这个 闭子区间取为 $ I_{1} .$ 然后再将 $ I_{1}  $三等分,\  在所得的三个子区间中至少又有一个子区 间不含  $x_{2} ,\ $ 将它取为 $ I_{2} .$如此继续下去,\  就归纳地得到一个闭区间套 $ \left\{I_{n}\right\} ,\  $它们的 长度满足
+	$$\left|I_{n}\right|=\frac{b-a}{3^{n}} \rightarrow 0 .$$
+	因此从闭区间套定理知道存在 (惟一的) 实数  $\xi ,\ $ 它属于每一个  $I_{n} ,\  $即有  $\xi \in I_{n} \forall n . $但从闭区间套$  \left\{I_{n}\right\}$  的构造过程知道
+	$$x_{n} \notin I_{n}\quad \forall n,\ $$
+	因此对每一个 $ n  $都只能是  $\xi \neq x_{n} . $这就表明实数 $ \xi  $不在实数全体的可列表示\eqref{1.5.1} 中,\  引出矛盾. 因此 $ \mathbb{R}  $不是可列集.
+\end{proof}
+\newpage
+\begin{definition}
+	称$\{x_n\}$为基本数列(或Cauchy数列),\ 若对$\forall\varepsilon>0,\ \exists N,\ \forall n,\ m\geqslant N:|x_n-x_m|<\varepsilon.$
+\end{definition}
+\begin{theorem}
+	(Cauchy 收敛准则) 一个数列收敛的充分必要条件是该数列为基 本数列.
+\end{theorem}
+\begin{proof}
+	必要性 $ (\Longrightarrow) .$ 设  $\left\{x_{n}\right\} $ 收敛,\  记其极限为 $ a ,\ $ 则对  $\forall \varepsilon>0,\  \exists N,\  \forall n \geqslant N  :  \left|x_{n}-a\right|<\frac{\varepsilon}{2} . $于是当 $ n,\  m \geqslant N $ 时,\  就有
+	$$\left|x_{n}-x_{m}\right| \leqslant\left|x_{n}-a\right|+\left|a-x_{m}\right|<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon.$$
+	这就证明了收敛数列一定是基本数列.\\
+	充分性  $(\Longleftarrow) .$ 设 $ \left\{x_{n}\right\} $ 是基本数列. 首先证明它一定有界. 为此取 $ \varepsilon=1 ,\   \exists N,\  \forall n,\  m \geqslant N:\left|x_{n}-x_{m}\right|<1 . $固定$  m=N ,\ $ 则当 $ n \geqslant N  $时,\  就有 $ \left|x_{n}\right| \leqslant   \left|x_{n}-x_{N}\right|+\left|x_{N}\right|<1+\left|x_{N}\right| ,\ $ 因此对所有 $ n $ 就成立
+	$$\left|x_{n}\right| \leqslant \max \left\{\left|x_{1}\right|,\  \cdots,\ \left|x_{N-1}\right|,\ \left|x_{N}\right|+1\right\} \text {,\  }$$
+	即数列$  \left\{x_{n}\right\} $ 有界.
+	于是$  \exists\left[a_{0},\  b_{0}\right],\  \forall n: a_{0} \leqslant x_{n} \leqslant b_{0} .$ 用三分点将该区间等分为三个子区间:
+	$$\left[a_{0},\  \frac{2 a_{0}+b_{0}}{3}\right],\ \left[\frac{2 a_{0}+b_{0}}{3},\  \frac{a_{0}+2 b_{0}}{3}\right],\ \left[\frac{a_{0}+2 b_{0}}{3},\  b_{0}\right].$$
+	可以看出位于左边和右边的两个子区间不可能同时含有数列 $ \left\{x_{n}\right\}  $中的无穷多项,\  否则就会存在下标任意大的 $ n,\  m ,\ $ 使得 $ \left|x_{n}-x_{m}\right| \geqslant \frac{b_{0}-a_{0}}{3}(>0) ,\ $ 这与基本数列的条件矛盾.\\
+	不妨设上述三个子区间中左边 (或右边) 的一个子区间只含有数列中的有 限多项. 去掉这个区间,\  并将余下的两个子区间的并重记为  $\left[a_{1},\  b_{1}\right] ,\ $ 则其长度  $b_{1}-a_{1}=\frac{2}{3}\left(b_{0}-a_{0}\right) ,\ $ 且  $\exists N_{1},\  \forall n \geqslant N_{1}: x_{n} \in\left[a_{1},\  b_{1}\right] .$\\
+	对  $\left[a_{1},\  b_{1}\right]$  重复以上做法,\  如此继续下去就得到一个闭区间套  $\left\{\left[a_{k},\  b_{k}\right]\right\} ,\  $使 得它们的长度为  $b_{k}-a_{k}=\left(\frac{2}{3}\right)^{k}\left(b_{0}-a_{0}\right) \rightarrow 0 ,\ $ 同时存在正整数列  $\left\{N_{k}\right\} ,\   \forall n \geqslant N_{k}: x_{n} \in\left[a_{k},\  b_{k}\right] .$\\
+	用闭区间套定理,\  存在惟一的  $\xi \in\left[a_{k},\  b_{k}\right] \forall k .$ 由于对  $\forall \varepsilon>0,\  \exists K,\  \forall k \geqslant   K:\left[a_{k},\  b_{k}\right] \subset O_{\varepsilon}(\xi) .$ 于是当 $ n \geqslant N_{K} $ 时也有 $ \left|x_{n}-\xi\right|<\varepsilon ,\ $ 即已经证明了 $ \lim\limits_{n \rightarrow \infty} x_{n}=\xi .$
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ f \in C^{2}[a,\  b]  $(也就是$  f^{\prime \prime} \in C[a,\  b]  $),\  于  $(a,\  b)$  三阶可微,\  且 $ f(a)=   f^{\prime}(a)=f(b)=0 ,\ $ 证明: 对每个  $x \in(a,\  b) ,\ $ 存在 $ \xi \in(a,\  b) ,\ $ 使得
+	$$f(x)=\frac{f^{\prime \prime \prime}(\xi)}{3 !} \cdot(x-a)^{2}(x-b) .$$
+\end{problem}
+\begin{proof}
+	用待定常数法,\  令 $ \lambda=\frac{6 f(x)}{(x-a)^{2}(x-b)} ,\  $构造辅助函数
+	$$F(t)=f(t)-\frac{\lambda}{6}(t-a)^{2}(t-b) .$$
+	则只需要证明存在 $ \xi ,\  $使得  $F^{\prime \prime \prime}(\xi)=0 .$
+	这时有$  F(a)=F(b)=F(x)=0 .$ 用两次 Rolle 定理知道有$  \xi_{1} \in(a,\  x),\  \xi_{2} \in   (x,\  b) ,\ $ 使得
+	$$F^{\prime}\left(\xi_{1}\right)=F^{\prime}\left(\xi_{2}\right)=0 .$$
+	又因 $ F^{\prime}(a)=0 ,\ $ 对于$  a<\xi_{1}<\xi_{2} $ 再用两次 Rolle 定理就知道存在$  \eta_{1} \in\left(a,\  \xi_{1}\right) ,\   \eta_{2} \in\left(\xi_{1},\  \xi_{2}\right) ,\ $ 使得  $F^{\prime \prime}\left(\eta_{1}\right)=F^{\prime \prime}\left(\eta_{2}\right)=0 .$ 最后在  $\left[\eta_{1},\  \eta_{2}\right] $ 上再用 Rolle 定理,\  就得到  $\xi ,\  $使得$  F^{\prime \prime \prime}(\xi)=0 .$
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ f $ 在 $ [0,\  a]  $上连续可微,\  在 $ (0,\  a)  $上二阶可微,\  且存在 $ M>0 ,\  $使 得 $ \left|f^{\prime \prime}(x)\right| \leqslant M \forall x \in(0,\  a) ,\  $又设  $f $ 在$  (0,\  a)  $内有驻点 $ c ,\ $ 证明:
+	$$\left|f^{\prime}(0)\right|+\left|f^{\prime}(a)\right| \leqslant M a .$$
+\end{problem}
+\begin{proof}
+	根据 $0<c<a $ 和 $ f^{\prime}(c)=0 ,\  $分别在 $ [0,\  c] $ 和 $ [c,\  a]  $上对于  $f^{\prime} $ 分别用 Lagrange 微分中值定理,\  就有
+	$$\begin{aligned}
+		\left|f^{\prime}(0)\right|+\left|f^{\prime}(a)\right| & =\left|f^{\prime}(0)-f^{\prime}(c)\right|+\left|f^{\prime}(c)-f^{\prime}(a)\right| \\
+		& \leqslant M[c+(a-c)]=M a . \quad \square
+	\end{aligned}$$
+\end{proof}
+\newpage
+\begin{problem}
+	设函数 $ f $ 在 $ (-\infty,\ +\infty) $ 上二阶可微,\  记  $|f(x)|,\ \left|f^{\prime}(x)\right|,\ \left|f^{\prime \prime}(x)\right|$  在 $ (-\infty,\ +\infty)$  上的上确界分别为$  M_{0},\  M_{1},\  M_{2} ,\  $证明成立不等式
+	$$M_{1} \leqslant 2 \sqrt{M_{0} M_{2}} \text {. }$$
+\end{problem}
+\begin{proof}
+	写出带 Lagrange 余项的 Taylor 公式
+	$$f(x+t)=f(x)+f^{\prime}(x) t+\frac{f^{\prime \prime}(\xi)}{2} t^{2},\ $$
+	其中 $ t \neq 0,\  \xi \in(x,\  x+t) .$
+	于是可以对一阶导函数估计为:
+	$$\begin{aligned}
+		\left|f^{\prime}(x)\right| & =\frac{1}{|t|}\left|f(x+t)-f(x)-\frac{f^{\prime \prime}(\xi)}{2} t^{2}\right| \\
+		& \leqslant \frac{2 M_{0}}{|t|}+\frac{1}{2}|t| M_{2},\ 
+	\end{aligned}$$
+	于是就得到
+	$$M_{1} \leqslant \frac{2 M_{0}}{|t|}+\frac{|t|}{2} M_{2} .$$
+	最后利用平均值不等式得到
+	$$M_{1} \leqslant \min _{|t|}\left(\frac{2 M_{0}}{|t|}+\frac{|t|}{2} M_{2}\right)=2 \sqrt{M_{0} M_{2}}$$
+\end{proof}
+\newpage
+\begin{theorem}
+	(连续函数的零点存在定理)有界闭区间上的连续函数若在区间的两个端点处异号,\ 则一定在此区间上有根.这就是
+	$$f\in C[a,\ b],\ f(a)f(b)<0\Rightarrow\exists\xi\in[a,\ b]:f(\xi)=0.$$
+\end{theorem}
+\begin{proof}
+	法1:
+	(用闭区间套定理,\  并用 Bolzano 二分法构造闭区间套) 设 $ f \in C[a,\  b] $ 且  $f(a) f(b)<0 . $记 $ \Delta_{1}=\left[a_{1},\  b_{1}\right] ,\ $ 其中  $a_{1}=a,\  b_{1}=b ,\ $ 考虑用它的中点分成的两个 等长度的闭子区间$  \left[a,\  \frac{a+b}{2}\right] $ 和  $\left[\frac{a+b}{2},\  b\right] .$ 若恰好有  $f\left(\frac{a+b}{2}\right)=0 ,\  $则不必再做 下去. 否则,\  在这两个闭子区间中一定有一个使得函数 $f$  在其两端异号,\  就取它为  $\Delta_{2} .$ 这时  $\left|\Delta_{2}\right|=\frac{1}{2}\left|\Delta_{1}\right|=\frac{1}{2}(b-a) .$
+	然后取 $ \Delta_{2} $ 的中点,\  继续进行下去,\  这时也有两种可能性. 一种可能是做了 有限次后,\  已经找到了  f  的零点,\  于是就可以结束. 另一种可能就是需要将上面 的二分法过程做无限次,\  从而归纳地得到闭区间套 $ \left\{\Delta_{n}\right\} ,\ $ 其中记 $ \Delta_{n}=\left[a_{n},\  b_{n}\right] ,\   \left|\Delta_{n}\right|=\frac{1}{2^{n-1}}(b-a) . $这个闭区间套的主要特征是对每个  n ,\  成立
+	$$f\left(a_{n}\right) f\left(b_{n}\right)<0 .$$
+	根据闭区间套定理,\  存在惟一的点$  \xi \in\left[a_{n},\  b_{n}\right] \forall n ,\ $ 而且有
+	$$a_{n} \uparrow \xi,\  \quad b_{n} \downarrow \xi .$$
+	在不等式中令 $ n \rightarrow \infty ,\  $并利用 $ f $ 在点$  \xi $ 连续,\  就得到
+	$$f^{2}(\xi) \leqslant 0,\ $$
+	因此只能是 $ f(\xi)=0 .$
+	
+	法2(用确界存在定理,\  并用 Lebesgue 方法构造数集和确界) 设 $ f \in   C[a,\  b] ,\ $ 对于条件  $f(a) f(b)<0  $不妨设 $ f(a)>0,\  f(b)<0 .$ 否则可以对于  $-f $ 做下 去.
+	定义数集
+	$$F=\{x \in[a,\  b] \mid f(x)>0\} .$$
+	由于 $ f(a)>0 ,\  $因此 $ a \in F ,\ $即 $ F  $为非空数集.
+	从  $F  $的定义可见它有上界 $ b ,\  $因此根据确界存在定理,\  存在
+	$$\xi=\sup F \leqslant b .$$
+	存在数列$ \left\{x_{n}\right\} \subset F ,\  $使得$  \lim\limits_{n \rightarrow \infty} x_{n}=\xi . $根据数集  $F$  的定义,\  对每个 $ n $ 成立不等式  $f\left(x_{n}\right)>0 . $令 $ n \rightarrow \infty ,\ $并 利用$  f $ 在点$  \xi  $处连续,\  就得到
+	$$f(\xi) \geqslant 0 .$$
+	最后只需要证明 $ f(\xi)>0  $是不可能的.
+	用反证法. 若 $ f(\xi)>0 ,\  $则$  \xi<b . $从连续函数的保号性定理,\  存在  $\delta>0 ,\ $ 使得 $ O_{\delta}(\xi) \subset[a,\  b] ,\ $ 且$  f$  在邻域  $O_{\delta}(\xi)  $上处处大于 $0 . $于是有
+	$$f\left(\xi+\frac{\delta}{2}\right)>0,\ $$
+	这表明有
+	$$\xi+\frac{\delta}{2} \in F,\ $$
+	因此与 $ \xi=\sup F  $矛盾. 这就证明了只能有  $f(\xi)=0 .$
+	
+	法3(用有限覆盖定理) 设  $f \in C[a,\  b] . $从 $ f(a) f(b)<0 $ 开始. 用反证法. 设 在定理条件满足时$  f  $在$  [a,\  b]  $没有零点. 对于$  [a,\  b]  $中的每个点$  x ,\  $由于 $ f(x) \neq 0 ,\ $ 根据连续函数的局部保号性定理 (见定理 5.1),\  存在点 $ x $ 的一个邻域  $O_{\delta}(x) ,\  $使得 $ f$  在邻域  $O_{\delta}(x)  $上严格大于 $0 ,\  $或严格小于 $0$(即严格保号). 若 $ x=a $ (或$  x=b$  ),\  则将 邻域改为它与 $ [a,\  b]  $的交集. 当然这里邻域的半径  $\delta  $一般与点 $ x $ 有关.
+	对$  [a,\  b]  $中的每个点都这样做,\  就得到  $[a,\  b]  $的一个开覆盖. 根据有限覆盖定理,\  在这个开覆盖中存在有限子集,\  即有限个开区间,\  它们的并仍然覆盖$  [a,\  b] .$
+	以下只考虑覆盖 $ [a,\  b]  $的这有限个开区间,\  并作如下处理.
+	从区间左端点  $a  $开始. 将有限个开区间中覆盖点 $ a  $的某个开区间记为  $O_{1} $( 若 不惟一则任取其一个). 由于 $f$  在  $O_{1} $ 上保号,\  $ f(a) f(b)<0 ,\  $因此 $O_{1}$ 的右端点必小 于点$  b .$ 又由于  $O_{1} $ 的端点不属于开区间  $O_{1} ,\ $ 因此在有限个开区间中一定存在覆盖  $O_{1} $ 的右端点的一个开区间,\  记为  $O_{2} . $由于 $ f  $在$  O_{1} $ 和 $ O_{2} $ 上分别保号,\  而这两个开 区间有非空交,\  因此  $f$  在它们的并集 $ O_{1} \cup O_{2} $ 上保号. 然后再观察  $O_{2} $ 的右端点,\  依 此类推进行下去.
+	由于覆盖 $ [a,\  b]  $一共只有有限个开区间,\  有限次后一定会覆盖点 $ b ,\ $ 而且发现  $f$  在  $[a,\  b]  $上保号,\  这与$  f(a) f(b)<0 $ 的条件矛盾.
+\end{proof}
+\newpage
+\begin{definition}[压缩映射的定义]
+	设函数$f$在区间$[a,\ b]$上定义,\ $f([a,\ b])\subset[a,\ b],\ $并存在一个常数$k,\ $满足$0<k<1,\ $使得对一切$x,\ y\in[a,\ b]$成立不等式$|f(x)-f(y)|\leqslant k|x-y|,\ $则称$f$是$[a,\ b]$上的一个压缩映射,\ 称常数$k$为压缩常数.
+\end{definition}
+\begin{proposition}[压缩映射原理]
+	设$f$是$[a,\ b]$上的一个压缩映射,\ 则
+	\begin{enumerate}
+		\item $f$在$[a,\ b]$中存在唯一的不动点$\xi=f(\xi);$
+		\item 由任何初始值$a_0\in[a,\ b]$和递推公式$a_{n+1}=f(a_n),\ n\in\mathbf{N}^+$生成的数列$\{a_n\}$一定收敛于$\xi.$
+		\item 成立估计式$|a_n-\xi|\leqslant\frac{k}{1-k}|a_n-a_{n-1}|$和$|a_n-\xi|\leqslant\frac{k^n}{1-k}|a_1-a_0|$(即事后估计和先验估计).
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	(在这个证明中不需要函数$f$的连续性概念.)由于$f([a,\ b])\subset[a,\ b],\ $因此$\{a_n\}$必在$[a,\ b]$中,\ 根据Cauchy收敛准则估计
+	$$\begin{aligned}
+		|a_n-a_{n+p}|&\leqslant k|a_{n-1}-a{n+p-1}|\leqslant k^2|a_{n-2}-a{n+p-2}|\\
+		&\leqslant\cdots\leqslant k^n|a_0-a_p|\leqslant k^n(b-a).
+	\end{aligned}$$
+	可见对$\varepsilon>0,\ $只要取$N=[\ln(\varepsilon/(b-a))/\ln k],\ $当$n>N$和$p\in\mathbf{N}^+$时,\ 就有$|a_n-a_{n+p}|<\varepsilon.$因此$\{a_n\}$是基本数列,\ 从而收敛.记其极限为$\xi\in[a,\ b].$为了证明这个$\xi$是$f$的不动点.需要研究第二个数列$\{f(a_n)\}.$从不等式$|f(a_n)-f(\xi)|\leqslant k|a_n-\xi|$和$\lim\limits_{n\rightarrow\infty}a_n=\xi$可见,\ 数列$\{f(a_n)\}$收敛于$f(\xi).$\\
+	在$a_{n+1}=f(a_n)$两边令$n\rightarrow\infty,\ $就得到$\xi=f(\xi).$因此$\xi$是$f$的不动点.\\
+	如果$f$在$[a,\ b]$内还有不动点$\eta,\ $即$\eta=f(\eta),\ $则就有$|\xi-\eta|=|f(\xi)-f(\eta)|\leqslant k|\xi-\eta|.$由于$0<k<1,\ $就只能有$\eta=\xi.$因此$f$在$[a,\ b]$内的不动点是唯一的.这样就证明了命题的1和2.\\
+	命题之3可从估计式:
+	$$|a_n-\xi|=|f(a_{n-1})-f(\xi)|\leqslant k|a_{n-1}-\xi|\leqslant k(|a_{n-1}-a_n|+|a_n-\xi|)$$
+	得到:
+	$$|a_n-\xi|\leqslant\frac{k}{1-k}|a_n-a_{n-1}|.$$
+	又由上式出发,\ 利用$|a_j-a_{j-1}|\leqslant|a_{j-1}-a_{j-2}|$就可以如下得到3的后一个式子:
+	$$|a_n-\xi|\leqslant \frac{k^2}{1-k}|a_{n-1}-a_{n-2}|\leqslant\cdots\leqslant\frac{k^n}{1-k}|a_1-a_0|.$$
+\end{proof}
+\newpage
+\begin{example}
+	覆盖定理在$\mathbf Q$中不成立.
+\end{example}
+\begin{solution}
+	将在有理数的范围内构造一个开覆盖,\ 它将区间$[0,\ 2]$中的每一个有理数都覆盖住,\ 但在这个开覆盖中的任何一个有限子集却做不到这点,\ 为清楚起见,\ 用$J=[0,\ 2]\cap\mathbf Q$表示开覆盖的覆盖对象.
+	
+	任取点$x\in J\subset\mathbf Q.$由于$x\neq\sqrt{2},\ $可以取到有理数$r_x,\ $使$\sqrt{2}\notin(x-r_x,\ x+r_x)$成立,\ (例如取$r_x\in(0,\ |x-\sqrt{2}|\cap\mathbf{Q})$即可.)这样就得到$J$中的一个开覆盖
+	$$\{(x-r_x,\ x+r_x)|x\in J,\ r_x\in \mathbf{Q}\}.$$
+	可以证明:在这个开覆盖中的任何有限子集都不能覆盖$J.$
+	
+	任取上述开覆盖中的一个有限子集
+	$$(x_1-r_{x_1},\ x_1+r_{x_1}),\ \cdots,\ (x_n-r_{x_n},\ x_n+r_{x_n}),\ $$
+	先考察其中的一个开区间.由于它不含有$\sqrt{2},\ $同时区间的端点,\ 都是有理数,\ 因此它们的并也不会包含和$\sqrt{2}$充分接近的有理数.又由于只取有限个开区间,\ 因此它们的并也不会含有$\sqrt{2}$以及和$\sqrt{2}$充分接近的有理数.具体来说,\ 令$\delta_i=\max\{x_i-r_{x_i}-\sqrt{2},\ \sqrt{2}-x_i-r_{x_i}\},\ i=1,\ \cdots,\ n,\ $再令$\delta=\min\{\delta_1,\ \cdots,\ \delta_n\},\ $则在上述开覆盖中的这个有限子集不能覆盖$J$中满足$|\sqrt{2}-r|<\delta$的有理数$r.$
+\end{solution}
+\newpage
+\begin{example}
+	用Lebesgue方法证明覆盖定理.
+\end{example}
+\begin{proof}
+	设闭区间$[a,\ b]$有一个开覆盖$\{\mathcal{O}_\alpha\}.$定义数集
+	$$A=\{x\geqslant a|\text{区间}[a,\ x]\text{在}\{\mathcal{O}_\alpha\}\text{存在有限子覆盖} \}$$
+	从区间的左端点$x=a$开始,\ 由于在开覆盖$\{\mathcal{O}_\alpha\}$中当然有一个开区间覆盖$a,\ $因此$a$及其右侧充分邻近的点均在数集$A$中.这保证了数集$A$的定义可见,\ 如果$x\in A,\ $则整个区间$[a,\ x]\subset A.$因此如果$A$无上界,\ 则$b\in A,\ $这就是说区间$[a,\ b]$在开覆盖$\{\mathcal{O}_\alpha\}$中存在有限子覆盖.
+	
+	如果$A$有上界,\ 用确界存在定理,\ 得到$\xi=\sup A.$这时可见每个满足$x<\xi$的$x$都在$A$中,\ 事实上从$\xi=\sup A$和上确界为最小上界的定义,\ 在$x<\xi$时,\ 存在$y\in A,\ $使得$x<y.$由于$[a,\ y]$在$\{\mathcal{O}_\alpha\}$中存在有限开覆盖,\ 所以$[a,\ x]\subset[a,\ y]$更没有问题,\ 这就是说$x\in A.$
+	
+	因此只要说明$b<\xi,\ $就知道$b\in A,\ $即$[a,\ b]$在$\{\mathcal{O}_\alpha\}$中存在有限开覆盖.
+	
+	用反证法,\ 如果$\xi\leqslant b,\ $则$\xi\in[a,\ b],\ $因此在开覆盖$\{\mathcal{O}_\alpha\}$中有一个开区间$\mathcal{O}_{\alpha_0}$覆盖$\xi.$于是可以在这个开区间中找到$a_0$和$b_0,\ $使它满足条件$a_0<\xi<b_0.$由上面的论证可知道$a_0\in A.$这就是说区间$[a,\ a_0]$在开覆盖$\{\mathcal{O}_\alpha\}$中存在有限子覆盖.向这恶鬼有限子覆盖再加上一个开区间$\{\mathcal{O}_{\alpha_0}\},\ $就称为区间$[a,\ b_0]$的覆盖,\ 所以得到$b_0\in A.$这与$\xi=\sup A$矛盾.
+\end{proof}
+\newpage
+\begin{example}
+	设  $y_{n}=x_{n}+2 x_{n+1},\  n \in \mathbf{N}^{+} .$ 证明: 若  $\left\{y_{n}\right\} $ 收敛,\  则  $\left\{x_{n}\right\} $ 也收敛.
+\end{example}
+\begin{proof}
+	由于  $\left\{y_{n}\right\} $ 收敛,\  因此它有界. 取正数 $ M>0 $ 使同时成立  $\left|x_{1}\right| \leqslant M $ 和$  \left|y_{n}\right| \leqslant M,\  n \in \mathbf{N}^{+} .$ 将递推公式改写为  $x_{n+1}=\frac{1}{2} y_{n}-\frac{1}{2} x_{n} ,\ $ 则有
+	$$\left|x_{n+1}\right| \leqslant \frac{1}{2}\left|y_{n}\right|+\frac{1}{2}\left|x_{n}\right|.$$
+	因此,\  用数学归纳法可以知道  $\left|x_{n}\right| \leqslant M $ 对每个  $n$  成立. 即数列$  \left\{x_{n}\right\} $ 有界.
+	
+	记$  \varlimsup_{n \rightarrow \infty} x_{n}=A,\  \varliminf_{n \rightarrow \infty} x_{n}=B$  和 $ \lim _{n \rightarrow \infty} y_{n}=C ,\ $ 则它们都是有限数. 只要证明 $ A=B . $在  $x_{n}=y_{n}-2 x_{n+1}$  两边分别取上极限和下极限,\  由于$  \left\{y_{n}\right\} $ 收敛,\  可以 得到等式$ A=C-2 B$  和  $B=C-2 A ,\  $由此推出$  A=B .$
+\end{proof}
+\newpage
+\begin{example}
+	设正数列$  \left\{a_{n}\right\}$  满足条件$  a_{n+m} \leqslant a_{n} a_{m},\  \forall n,\  m \in \mathbf{N}^{+} ,\ $ 则有
+	$$\lim _{n \rightarrow \infty} \frac{\ln a_{n}}{n}=\inf _{n \geqslant 1}\left\{\frac{\ln a_{n}}{n}\right\} .$$
+\end{example}
+\begin{proof}
+	令 $ \alpha=\inf _{n \geqslant 1}\left\{\frac{\ln a_{n}}{n}\right\} ,\  $有
+	\begin{equation}
+		\alpha \leqslant \varliminf_{n \rightarrow \infty} \frac{\ln a_{n}}{n} .\label{1.5.2}
+	\end{equation}
+	又从 $ \alpha  $为下确界 (即最大下界) 可见,\  对  $\varepsilon>0 ,\  $存在  $N ,\  $使得 		
+	$$\frac{\ln a_{N}}{N}<\alpha+\varepsilon .$$		
+	固定这个$  N ,\  $可以将每个正整数  $n  $写为  $n=m N+k ,\  $其中$  0 \leqslant k<N . $从题设条 件,\  有不等式 		
+	$$a_{n}=a_{m N+k} \leqslant a_{N}^{m} a_{k},\ $$
+	取对数后可以得到
+	$$\frac{\ln a_{n}}{n} \leqslant \frac{m}{n} \ln a_{N}+\frac{1}{n} \ln a_{k} \leqslant \frac{m N}{n}(\alpha+\varepsilon)+\frac{1}{n} \ln a_{k} .$$
+	在这个不等式两边令  $n \rightarrow \infty ,\ $右边第一项中有极限
+	$$\lim _{n \rightarrow \infty} \frac{m N}{n}=1 ,\ $$
+	而 $ a_{k}$  最多只取$ N  $个值,\  因此右边的极限是 $ \alpha+\varepsilon . $左边的极限虽然不知道是否存 在,\  但可利用上极限的保不等式性质 ,\  在不等式两边取上极限,\  从而 得到
+	$$\varlimsup_{n \rightarrow \infty} \frac{\ln a_{n}}{n} \leqslant \alpha+\varepsilon .$$
+	由于 $ \varepsilon>0  $的任意性,\  就得到
+	$$\varlimsup_{n \rightarrow \infty} \frac{\ln a_{n}}{n} \leqslant \alpha .$$
+	将这个不等式与\eqref{1.5.2}合并,\  可见 $ \lim\limits_{n \rightarrow \infty} \frac{\ln a_{n}}{n} $ 一定有意义,\  且等于$  \alpha .$
+\end{proof}
+\begin{note}
+	注 1 上述结论的意思是: 当 $ \alpha $ 为有限数时数列$  \left\{\frac{\ln a_{n}}{n}\right\} $ 一定收玫,\  以$  \alpha $为 极限,\  而当  $\alpha=-\infty$  时,\  这个数列一定是负无穷大量.\\
+	注 2 又由此可见,\  在正数列满足条件$  a_{n+m} \leqslant a_{n} a_{m},\  \forall n,\  m \in \mathbf{N}^{+}$ 时,\  极限  $\lim\limits_{n \rightarrow \infty} \sqrt[n]{a_{n}} $ 一定存在.\\
+	注 3 与此等价的命题是: 设 $ \left\{a_{n}\right\}$  满足条件$ a_{n+m} \leqslant a_{n}+a_{m},\  \forall n,\  m \in \mathbf{N}^{+} ,\  $则有
+	$$\lim\limits_{n\rightarrow\infty}\frac{a_n}{n}=\inf\limits_{n\geqslant 1}\left\{\frac{a_n}{n}\right\}.$$
+\end{note}
+\newpage
+\begin{problem}
+	对每个正整数$n,\ $用$x_n$表示方程$x+x^2+\cdots+x^n=1$在闭区间$[0,\ 1]$中的根,\ 求$\lim\limits_{n\rightarrow\infty}x_n.$
+\end{problem}
+\begin{solution}
+	先证$x_n>x_{n+1},\ $若$x_{n}\leqslant x_{n+1}$可得
+	$$1=x_n+x_n^2+\cdots+x_n^n\leqslant x_{n+1}+x_{n+1}^2+\cdots+x_{n+1}^n<x_{n+1}+x_{n+1}^2+\cdots+x_{n+1}^n+x_{n+1}^{n+1}=1$$
+	$\Rightarrow 1<1$矛盾.\\
+	故$x_n>x_{n+1}$且$\{x_n\}$有界,\ 故$\{x_n\}$极限存在,\ 又因$x_n<1$且$\frac{x_n(1-x_n^n)}{1-x_n}=1\Rightarrow x_n=\frac{1-x_n}{1-x_n^n}$\\
+	令$n\rightarrow\infty$得$\lim\limits_{n\rightarrow\infty}x_n=1-\lim\limits_{n\rightarrow\infty}x_n\Rightarrow\lim\limits_{n\rightarrow\infty}x_n=\frac{1}{2}.$
+\end{solution}
+\newpage
+\begin{problem}
+	设$\{x_n\}$单调递增,\ 
+	$$\lim_{n\rightarrow\infty}\frac{x_1+x_2+\cdots+x_n}{n}=a,\ $$
+	证明:$\{x_n\}$收敛于$a.$
+\end{problem}
+\begin{proof}
+	令$\sigma_n=\frac{x_1+x_2+\cdots+x_n}{n},\ $由$\{a_n\}$的单调递增性质$a_1\leqslant a_2\leqslant \cdots\leqslant a_n,\ $故
+	$$\sigma_n=\frac{x_1+x_2+\cdots+x_n}{n}\leqslant\frac{na_n}{n}=a_n$$
+	另一方面,\ 令$n$固定$,\ m>n,\ $有
+	$$\begin{aligned}
+		\sigma_m&=\frac{a_1+a_2+\cdots+a_n+a_{n+1}+\cdots+a_m}{m}\\
+		&=\frac{n}{m}\sigma_n+\frac{a_{n+1}+\cdots+a_m}{m}\\
+		&\geqslant\frac{n}{m}\sigma_n+\frac{a_{n}+\cdots+a_n}{m}=\frac{n}{m}\sigma_n+\frac{m-n}{m}a_n
+	\end{aligned}$$
+	令$m\rightarrow\infty,\ $得$a>0+a_n=a_n.$于是
+	$$\sigma_n\leqslant a_n\leqslant a$$
+	由夹挤定理可知$\lim\limits_{n\rightarrow\infty}a_n=a=\lim\limits_{n\rightarrow\infty}\sigma_n.$
+\end{proof}
+\newpage
+\begin{problem}
+	设$\{a_n\}$为正数列,\ 且收敛于$A,\ $证明:
+	$$\lim\limits_{n\rightarrow\infty}(a_1a_2\cdots a_n)^{\frac{1}{n}}=A.$$
+\end{problem}
+\begin{proof}
+	若$A=0,\ $则有
+	$$0\leqslant(a_1a_2\cdots a_n)^{\frac{1}{n}}\leqslant\frac{a_1+a_2+\cdots+a_n}{n}$$
+	已知
+	$$\lim_{n\rightarrow\infty}\frac{a_1+a_2+\cdots+a_n}{n}=\lim_{n\rightarrow\infty}a_n=A$$
+	所以由夹挤定理,\ 有$\lim\limits_{n\rightarrow}(a_1a_2\cdots a_n)^{\frac{1}{n}}=0=A,\ $若$A\neq 0,\ $则对任意$0<\varepsilon<A,\ $存在$N\in\mathbb N^*,\ $对任何$n>N,\ $都有
+	$$A-\frac{\varepsilon}{2}<a_n<A+\frac{\varepsilon}{2}.$$
+	则对$(a_1a_2\cdots a_n)^{\frac{1}{n}}$进行放缩,\ 有
+	$$(a_1a_2\cdots a_N)^{\frac{1}{n}}\left(A-\frac{\varepsilon}{2}\right)^{\frac{n-N}{n}}\leqslant(a_1a_2\cdots a_n)^{\frac{1}{n}}\leqslant\frac{a_1+a_2+\cdots+a_n}{n}$$
+	可知左侧极限为$A-\frac{\varepsilon}{2},\ $右侧极限为$A,\ $故存在$N_0\in\mathbb N^*,\ $使得当$n>N_0$时
+	$$A-\frac{\varepsilon}{2}-\frac{\varepsilon}{2}<(a_1a_2\cdots a_N)^{\frac{1}{n}}\left(A-\frac{\varepsilon}{2}\right)^{\frac{n-N}{n}}\leqslant(a_1a_2\cdots a_n)^{\frac{1}{n}}\leqslant\frac{a_1+a_2+\cdots+a_n}{n}<A+\varepsilon.$$
+	取$N'=\max\{N,\ N_0\},\ $则当$n>N'$时,\ 有
+	$$A-\varepsilon<(a_1a_2\cdots a_n)^{\frac{1}{n}}<A+\varepsilon$$
+	这说明了$(a_1a_2\cdots a_n)^{\frac{1}{n}}\rightarrow A(n\rightarrow\infty).$
+\end{proof}
+\newpage
+\begin{problem}
+	设数列$\{a_n\}$满足条件$0<a_1<1$和$a_{n+1}=a_n(1-a_n)(n\geqslant 1),\ $证明:$\lim\limits_{n\rightarrow\infty}na_n=1.$
+\end{problem}
+\begin{proof}
+	有如下结论: $设  0<x_{1}<1 / q ,\ $ 其中$  0<q \leqslant 1$  并且 $ x_{n+1}=x_{n}\left(1-q x_{n}\right),\  n \in \mathbb{N}^{*} ,\ $ 则
+	$$\lim\limits_{n \rightarrow \infty} n x_{n}=1 / q$$
+	取  $q=1 ,\  $即为本题所要证明的.下面我们证明上述结论.
+	用数学归纳法说明$  0<x_{n}<1 / q . n=1  $时,\  有 $ 0<x_{1}<1 / q ,\ $ 假设  $0<x_{n-1}<1 / q ,\ $ 则  $x_{n}=x_{n-1}\left(1-q x_{n-1}\right)<x_{n-1}<q ,\  $同时可以知道 $ x_{n}>0 ,\ $ 则 $ 0<x_{n}<1 / q  $成 立,\  则同时有
+	\begin{equation}
+		\frac{x_{n}}{x_{n-1}}=1-q x_{n-1}<1,\ \label{1.5.3}
+	\end{equation}
+	即 $ \left\{x_{n}\right\}$  严格递减,\  而 $ \left\{x_{n}\right\} $ 又有下界 $0 ,\  $故设$  \lim\limits_{n \rightarrow \infty} x_{n}=x ,\  $对递推式两侧同时令 $ n \rightarrow \infty ,\ $ 可以得到
+	$$x=x(1-q x) \Rightarrow x=0$$
+	则  $\left\{x_{n}\right\}  $严格递减趋于 $0 ,\  $那么对式\eqref{1.5.3}两侧同时令  $n \rightarrow \infty $ 就可以得到
+	$$\lim\limits_{n \rightarrow \infty} \frac{x_{n}}{x_{n-1}}=1$$
+	又因为 $ \left\{1 / x_{n}\right\} $ 严格递增趋于$  +\infty ,\ $ 则要求$  n x_{n}$  极限即求 $ n /\left(1 / x_{n}\right)$  的极限,\  可以使 用 Stolz 定理,\  因为
+	$$\lim\limits_{n \rightarrow \infty} \frac{n-(n-1)}{\frac{1}{x_{n}}-\frac{1}{x_{n-1}}}=\lim\limits_{n \rightarrow \infty} \frac{x_{n} x_{n-1}}{x_{n-1}-x_{n}}=\lim\limits_{n \rightarrow \infty} \frac{x_{n} x_{n-1}}{q x_{n-1}^{2}}=\lim\limits_{n \rightarrow \infty} \frac{x_{n}}{q x_{n-1}}=\frac{1}{q}$$
+	所以  $\lim\limits_{n \rightarrow \infty} n x_{n}=1 / q $
+\end{proof}
+\newpage
+\begin{problem}
+	设$\lim\limits_{n\rightarrow\infty}a_n=\alpha,\ \lim\limits_{n\rightarrow\infty}b_n=\beta,\ $证明:
+	$$\lim\limits_{n\rightarrow\infty}\frac{a_1b_n+a_2b_{n-1}+\cdots+a_nb_1}{n}=\alpha\beta.$$
+\end{problem}
+\begin{proof}
+	令 $ \alpha=a,\  \beta=b ,\ $ 先对要求的式子做一下处理:
+	\begin{align}
+		0 & \leqslant\left|\frac{a_{1} b_{n}+a_{2} b_{n-1}+\cdots+a_{n} b_{1}}{n}-a b\right|\notag \\
+		& \leqslant\left|\frac{a_{1} b_{n}+a_{2} b_{n-1}+\cdots+a_{n} b_{1}}{n}-a \frac{b_{1}+b_{2}+\cdots+b_{n}}{n}\right|+\left|a \frac{b_{1}+b_{2}+\cdots+b_{n}}{n}-a b\right|\label{1.5.4}
+	\end{align}
+	我们知道$  \lim\limits_{n \rightarrow \infty}\left(\frac{b_{1}+b_{2}+\cdots+b_{n}}{n}-b\right)=0 ,\ $ 则
+	$$\lim\limits_{n \rightarrow \infty}\left|a \frac{b_{1}+b_{2}+\cdots+b_{n}}{n}-a b\right|=0$$
+	再考虑不等式\eqref{1.5.4}最后一部分加号前的一项,\  记为 $ c_{n} ,\ $ 因为数列 $ \left\{b_{n}\right\}$  收敛,\  故$  \left\{b_{n}\right\}$  有界,\  即存在 $ M \geqslant 0 ,\ $ 使得  $\left|b_{n}\right| \leqslant M ,\ $ 则
+	$$\begin{aligned}
+		c_{n} & =\frac{\left|b_{1}\left(a_{n}-a\right)+b_{2}\left(a_{n-1}-a\right)+\cdots+b_{n}\left(a_{1}-a\right)\right|}{n} \\
+		& \leqslant M \frac{\left|a_{n}-a\right|+\left|a_{n-1}-a\right|+\cdots+\left|a_{1}-a\right|}{n}
+	\end{aligned}$$
+	因为 $ \left\{a_{n}-a\right\} $ 为无穷小,\  则可知  $\left\{\left|a_{n}-a\right|\right\} $ 为无穷小,\  即
+	$$\lim _{n \rightarrow \infty} \frac{\left|a_{n}-a\right|+\left|a_{n-1}-a\right|+\cdots+\left|a_{1}-a\right|}{n}=0$$
+	故有  $c_{n} \rightarrow 0(n \rightarrow \infty) ,\  $则对不等式\eqref{1.5.4} 使用夹挤定理可知$  \left|\frac{a_{1} b_{n}+a_{2} b_{n}-1+\cdots+a_{n} b_{1}}{n}-a b\right| $ 是无穷小,\  得证.
+\end{proof}
+\newpage
+\begin{problem}
+	设$k\in\mathbf{N}^+,\ $证明:
+	$$\frac{k}{n+k}<\ln\left(1+\frac{k}{n}\right)<\frac{k}{n}$$
+\end{problem}
+\begin{proof}
+	令$a_n=\left(1+\frac{k}{n}\right)^n,\ b_n=\left(1+\frac{k}{n}\right)^{n+k}$\\
+	因为
+	$$\left(1+\frac{k}{n}\right)^n<\left(\frac{1+n\cdot(1+k/n)}{n+1}\right)^{n+1}<\left(1+\frac{k}{n+1}\right)^{n+1}$$
+	所以$\{a_n\}$严格递增,\ 因为
+	$$\left(\frac{n}{n+k}\right)^{n+k}<\left(\frac{1+(n+k)\cdot\frac{n}{n+k}}{n+k+1}\right)^{n+k+1}<\left(1+\frac{n+1}{n+k+1}\right)^{n+k+1}$$
+	所以$\{b_n\}$严格递减,\ 又$\lim\limits_{n\rightarrow\infty}a_n=\mathrm{e}^k$且
+	$$\lim\limits_{n\rightarrow\infty}\left(1+\frac{k}{n}\right)^{n+k}=\lim\limits_{n\rightarrow\infty}\left(1+\frac{k}{n}\right)^{n}\lim\limits_{n\rightarrow\infty}\left(1+\frac{k}{n}\right)^{k}=\mathrm{e}^k$$
+	所以有$\{a_n\}$严格递增趋于$\mathrm{e}^k,\ \{b_n\}$严格递减趋于$\mathrm{e}^k,\ $则有
+	$$\left(1+\frac{k}{n}\right)^{n}<\mathrm{e}^k<\left(1+\frac{k}{n}\right)^{n+k}$$
+	对不等式取对数有
+	$$n\ln\left(1+\frac{k}{n}\right)<k<(n+k)\ln\left(1+\frac{k}{n}\right)$$
+	再同时取倒数及移项可以得到
+	$$\frac{k}{n+k}<\ln\left(1+\frac{k}{n}\right)<\frac{k}{n}$$
+	即题中不等式得证.
+\end{proof}
+\newpage
+\begin{problem}
+	\begin{enumerate}
+		\item 设参数$b>4,\ x_1=\frac{1}{2},\ x_{n+1}=bx_n(1-x_n),\ n\in\mathbf{N}^+.$证明:$\{x_n\}$发散.
+		\item 设$x_1=b,\ x_{n+1}=\frac{1}{2}(x_n^2+1).$问:$b$取何值时数列$\{x_n\}$收敛,\ 并求其极限.
+		\item 设$x_0=a,\ x_n=1+bx_{n-1},\ n\in\mathbf{N}^+.$试求出使该数列收敛的$a,\ b$的所有值.
+		\item 设$\{x_n\}$为正数列,\ 且满足$x_{n+1}+\frac{1}{x_n}<2,\ n\in\mathbf{N}^+.$证明$\{x_n\}$收敛,\ 并求其极限.
+	\end{enumerate}
+\end{problem}
+\begin{solution}
+	\begin{enumerate}
+		\item $x_1=\frac{1}{2},\ x_2=\frac{b}{4}>1\Rightarrow x_3<0\Rightarrow x_4<0$归纳可知$x_n<0(n\geqslant 3)\Rightarrow \frac{x_{n+1}}{x_n}=b(1-x_n)>b(n\geqslant 3)$
+		$$\begin{aligned}
+			&\Rightarrow x_{n+1}<bx_n\Rightarrow x_{n+1}<\cdots<b^{n-2}x_3\\
+			&\Rightarrow\lim\limits_{n\rightarrow\infty}x_n=-\infty
+		\end{aligned}$$
+		\item 当$|b|\leqslant 1$时,\ $\{x_n\}$收敛$,\ x_{n+1}=\frac{1}{2}(x_n^2+1)\geqslant x_n\Rightarrow\{x_n\}$单增,\ $|b|\leqslant 1$归纳可知$x_n\leqslant 1\Rightarrow\lim\limits_{n\rightarrow\infty}x_n=1$\\
+		若$|b|>1$时,\ $x_2=\frac{1+b^2}{2}>1,\ $若$\{x_n\}$收敛,\ $\{x_n\}$单增且$\lim\limits_{n\rightarrow\infty}x_n=1$又由于$x_2\leqslant x_n\Rightarrow x_2\leqslant 1$矛盾.
+		\item \begin{enumerate}
+			\item 若$b=1,\ $则$x_n=x_{n-1}+1=\cdots=x_0+n.$这说明$\{x_n\}$是发散数列.若$b=-1,\ $则$x_{2n+1}-x_{2n-1}=0=x_{2n}-x_{2n-2}(n\in\mathbf{N}).$这说明$x_0=x_1$即$x_1=-x_0+1$或$x_0=\frac{1}{2}$时,\ $\{x_n\}$收敛.
+			\item 若$b\neq\pm 1,\ $则由题设可知$x_{n+1}-x_n=b^{n-1}(x_2-x_1).$这说明$x_{n+1}=\sum\limits_{k=1}^{n}(x_{k+1}-x_k)+x_1=(x_2-x_1)\sum\limits_{k=1}^{n}b^{k-1}+a_1.$注意到$(a_2-a_1)=(b-1)a_1+1.$故有
+			$$x_{n+1}=(x_2-x_1)(1-b^n)/(1-b)+x_1=b^n\left(x_1+\frac{1}{b-1}\right)-\frac{1}{b-1}$$
+			由此知,\ 若$|b|>1,\ $则$\{x_n\}$发散;若$|b|<1,\ $则$\{x_n\}$收敛.
+		\end{enumerate}
+		\item 由题设知$x_{n+1}+1/x_n<2\leqslant x_n+1/x_n,\ $这说明$\{x_n\}$是有界递减数列,\ $\{x_n\}$收敛,\ 进一步,\ 若令$\lim\limits_{n\rightarrow\infty}x_n=a,\ $则$2\leqslant a+\frac{1}{a}\leqslant 2,\ $即$a=1.$
+	\end{enumerate}
+\end{solution}
+\begin{note}
+	\begin{itemize}
+		\item $\sqrt[n]{n!}\geqslant\sqrt{n},\ \forall n$[数学归纳法或其他可证]
+		\item $\sqrt[n]{n!}>\frac{n}{3},\ \forall n$[数学归纳法或其他]
+		\item 观察$\frac{1}{\sqrt[n]{n!}}<\varepsilon\Leftrightarrow\frac{(1/\varepsilon)^n}{n!}<1,\ $可得$\lim\limits_{n\rightarrow\infty}\frac{c^n}{n!}=0,\ \forall c>0.$
+		\item $\frac{1}{\sqrt[n]{n!}}=\sqrt[n]{1\cdot\frac{1}{2}\cdot\cdots\cdot\frac{1}{n}}<\frac{1+\frac{1}{2}+\cdots+\frac{1}{n}}{n}$
+		\item 从$\lim\limits_{n\rightarrow\infty}\frac{n}{\sqrt[n]{n!}}=\mathrm{e}$可得,\ $\left\{\frac{1}{\sqrt[n]{n!}}\right\}$作为无穷小量与$\frac{\mathrm{e}}{n}$等价.
+	\end{itemize}
+\end{note}
+$a_n=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots+(-1)^{n-1}\frac{1}{n}$\\
+Catalan恒等式:
+$$\begin{aligned}
+	a_{2n}&=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots+\frac{1}{2n-1}-\frac{1}{2n}\\
+	&=(1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\cdots+\frac{1}{2n-1}+\frac{1}{2n})-2(\frac{1}{2}+\frac{1}{4}+\cdots+\frac{1}{2n})\\
+	&=(1+\frac{1}{2}+\cdots+\frac{1}{2n-1}+\frac{1}{2n})-(1+\frac{1}{2}+\cdots+\frac{1}{n})\\
+	&=\frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n}
+\end{aligned}$$
+\newpage
+\begin{problem}
+	\begin{enumerate}
+		\item 设$A>0,\ x_1>0,\ x_{n+1}=\frac{1}{2}\left(x_n+\frac{A}{x_n}\right),\ n\in\mathbf{N}^+,\ $证明:$\lim\limits_{n\rightarrow\infty}x_n=\sqrt{A}.$
+		\item 设$A>0,\ x_1>0,\ x_{n+1}=\frac{x_n(x_n^2+3A)}{3x_n^2+A},\ n\in\mathbf{N}^+,\ $证明:$\{x_n\}$收敛于$\sqrt{A}.$
+	\end{enumerate}
+\end{problem}
+\begin{solution}
+	\begin{enumerate}
+		\item 由
+		$$\begin{aligned}
+			x-1-\sqrt{A}&=\frac{1}{2}\left(x_0+\frac{a}{x_0}\right)-\sqrt{A}=\frac{1}{2x_0}(x_0^2+A-2x_0\sqrt{A})\\
+			&=\frac{1}{2x_0}(x_0-\sqrt{A})^2\geqslant 0
+		\end{aligned}$$
+		得
+		$$0\leqslant x_2-\sqrt{A}=\frac{1}{2}(x_1-\sqrt{A})\frac{(x_1-\sqrt{A}}{x_1}\leqslant\frac{1}{2}(x_1-\sqrt{A})$$
+		可得
+		$$\begin{aligned}
+			0&\leqslant x_n-\sqrt{A}\leqslant\frac{1}{2}(x_{n-1}-\sqrt{A})\leqslant\frac{1}{2^2}(x_{n-2}-\sqrt{A})\leqslant\cdots\\
+			&\leqslant\frac{1}{2^{n-1}}(x_1-\sqrt{A})
+		\end{aligned}$$
+		可见$\lim\limits_{n\rightarrow\infty}x_n=\sqrt{A}.$
+		\item 
+		$$\begin{aligned}
+			x_{n+1}-\sqrt{A}&=\frac{x_n^3+3Ax_n-3x_n^2\sqrt{A}-A^{\frac{3}{2}}}{3x_n^2+A}\\
+			&=\frac{(x_n-\sqrt{A})^3}{3x_n^2+A}
+		\end{aligned}$$
+		若$x_1\geqslant \sqrt{A},\ \Rightarrow x_n\geqslant\sqrt{A}$则
+		$$\frac{x_{n+1}}{x_n}=\frac{x_n^2+3A}{3x_n^2+A}=\frac{1}{3}\left(1+\frac{8A}{3x_n^2+A}\right)\leqslant 1$$
+		$\Rightarrow\{x_n\}$的极限存在且易知$\lim\limits_{n\rightarrow\infty}x_n=\sqrt{A}.$\\
+		若$x_1<\sqrt{A}\Rightarrow 0<x_n<\sqrt{A}$则
+		$$\frac{x_{n+1}}{x_n}=\frac{x_n^2+3A}{3x_n^2+A}=\frac{1}{3}\left(1+\frac{8A}{3x_n^2+A}\right)> 1$$
+		$\Rightarrow\{x_n\}$的极限存在且易知$\lim\limits_{n\rightarrow\infty}x_n=\sqrt{A}.$
+	\end{enumerate}
+\end{solution}

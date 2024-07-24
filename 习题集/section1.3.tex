@@ -1,0 +1,292 @@
+\section{周民强-数学分析习题演练}
+	\begin{problem}
+		设$f(x)$是定义在$\mathbb{R}$上的不减函数,\ 且满足$f(x+1)=f(x)+1,\ $定义函数列$f_n(x)=f^{(n)}(x)-x,\ \qquad n=1,\ 2,\ \cdots.$\\
+		证明:对一切$x,\ y\in \mathbb{R},\ $有$\left|f_n(x)-f_n(y)\right|<1.$
+	\end{problem}
+	
+	\begin{solution}
+		首先证明:$f_n(x+1)=f_n(x),\ $即$f_n(x)$是以1为周期的周期函数,\ 事实上,\ 当$n=1$时,\ 有
+		$$f_1(x+1)=f(x+1)-(x+1)=f(x)-x=f_1(x).$$
+		设$f_k(x+1)=f_k(x)+1,\ $即$f^{(k)}(x+1)-(x+1)=f^{(k)}(x)-x.$所以
+		$$f^{(k)}(x+1)=f^{(k)}(x)+1,\ $$
+		从而
+		$$f^{(k+1)}(x+1)=f(f^{(k)}(x+1))=f(f^{(k)}(x)+1)=f(f^{(k)}(x))+1=f^{(k+1)}(x)+1.$$
+		于是
+		$$f_{k+1}(x+1)=f^{(k+1)}(x+1)-(x+1)=f^{(k+1)}(x)-x=f_{k+1}(x).$$
+		由上述结论可见,\ 只需就$x,\ y\in \left[0,\ 1\right]$来证明命题即可.
+		
+		设存在$x_0,\ y_0\in\left[0,\ 1\right],\ $使$f(x_0)-f(y_0)\ge 1.$\\
+		$[\text{若}f(x_0)-f_(y_0)\le -1,\ \text{交换}x_0,\ y_0\text{的位置即可}]$,\ 因$f(x)$不减,\ 故$f^{(n)}(x)=f_n(x)+x$不减.从而
+		$$f_n(1)+1\ge f_n(x_0)+x_0,\  \quad f_n(y_0)+y_0\ge f_n(0)=f_n(1).$$
+		故
+		$$x_0-1\le f_n(1)-f_n(x_0)\le y_0+f_n(y_0)-f_n(x_0)\left[\text{两个不等式由上面的两个分别推出}\right].$$
+		又有$f(x_0)-f(y_0)\ge 1,\ $取第一项和第三项放缩有$$x_0 - 1\le y_0 -1,\ $$
+		即$$x_0\le y_0.$$
+		从而$$x_0+f(x_0)\le y_0 + f(y_0).\left[\text{由于}f^{(n)}(x)=f_n(x)+x\text{不减}.\right]$$
+		即$$1\le f_n(x_0)-f_n(y_0)\le y_0-x_0\le 1.$$\\
+		故只能$x_0=0,\ y_0=1.$于是,\ $f_n(x_0)-f_n(y_0)=f_n(0)-f_n(1)=0,\ $矛盾. 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		证明以下命题:
+		\begin{itemize}
+			\item[1]若$f$在$\left(0,\ \infty\right)$上严格上凸,\ $f(0)=0,\ $则
+			$$f(x_1+x_2)<f(x_1)+f(x_2),\ \quad x_1,\ x_2\in \left(0,\ \infty\right).$$
+			\item[2]设$f(x)$在$\left(0,\ \infty\right)$上是下凸的,\ 且$\lim\limits_{x\rightarrow0^+}f(x)=0,\ $则$\frac{f(x)}{x}$在$\left(0,\ \infty\right)$上递增.
+			\item[3]设$\frac{f(x)}{x}$在$\left(0,\ \infty\right)$上递减,\ 则有
+			$$f(x_1+x_2)\le f(x_1)+f(x_2),\ \quad x_1,\ x_2\in \left(0,\ \infty\right).$$
+			\item[4]设$f(x)$在$\left(0,\ \infty\right)$上是下凸的,\ 且有
+			$$f(x_1+x_2)\le f(x_1)+f(x_2),\ \quad x_1,\ x_2\in \left(0,\ \infty\right).$$
+			则$\frac{f(x)}{x}$在$\left(0,\ \infty\right)$上递减.
+		\end{itemize}
+	\end{problem}
+	
+	\begin{solution}
+		\begin{itemize}
+			\item[1]容易得出连接点$(0,\ 0)$与$(x_1+x_2,\ f(x_1+x_2))$的直线 $f(x_1+x_2)=k(x_1+x_2),\ $又由$f(x_1)>kx_1,\ f(x_2)>kx_2,\ $故证毕.
+			\item[2]设$0<x_1<x_2<\infty.$若$0<x<x_1,\ $则有$x_1=\frac{x_2-x_1}{x_2-x}x+\frac{x_1-x}{x_2-x}x_2,\ $由$f(x)$的凸性,\ 可知
+			$$f(x_1)\le \frac{x_2-x_1}{x_2-x}f(x)+\frac{x_1-x}{x_2-x}f(x_2).$$
+			令$x\rightarrow0^+,\ $即得$f(x_1)\le \frac{x_1}{x_2}f(x_2),\ $证毕.
+			\item[3]只需注意对$x_1,\ x_2\ge 0$有
+			$$f(x_1+x_2)\le x_1\frac{f(x_1+x_2)}{x_1+x_2}+x_2\frac{f(x_1+x_2)}{x_1+x_2}\le f(x_1)+f(x_2).$$
+			\item[4]设$0<x_1<x_2,\ $且令$p=\frac{x_1}{x_2},\ q=1-p,\ $则
+			\begin{align*}
+				f(x_2)&=f(px_1+q(x_1+x_2))\le pf(x_1)+qf(x_1+x_2)\\
+				&\le pf(x_1)+q\left[f(x_1)+f(x_2)\right]=f(x_1) +\left(1-\frac{x_1}{x_2}\right)f(x_2).
+			\end{align*}
+			从而可知$\frac{f(x_2)}{x_2}\le \frac{f(x_1)}{x_1}.$
+		\end{itemize} 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		求下列数列$\left\{a_n\right\}$之极限:
+		
+		(1)$a_{n+1}=2+\frac{1}{a_n}$\quad (2)$a_{n+1}=\frac{b}{a_n}-1(b>0,\ a_1<0).$ 
+	\end{problem}
+	
+	\begin{solution}
+		(1)如果$\left\{a_n\right\}$是收敛列,\ 那么令$\lim\limits_{n\rightarrow\infty}a_n=a,\ $就有$a^2-2a-1=0$或$a=\frac{(2\pm\sqrt{8})}{2}.$注意到$a_n>0(n\in N),\ $故应有$a=1+\sqrt{2}.$从而计算$h_n=a_n-(\sqrt{2}+1).$得$h_{n+1}=a_{n+1}-(\sqrt{2}+1)=1-\sqrt{2}+\frac{1}{a_n}=1-\sqrt{2}+\frac{1}{\sqrt{2}+1+h_n}=\frac{1-\sqrt{2}}{\sqrt{2}+1+h_n}h_n,\ $
+		$$\left|h_{n+1}\right|\le\left|h_n\right|\left|\frac{1-\sqrt{2}}{\sqrt{2}}\right|\le\frac{\left|h_n\right|}{2}\le\cdots\le\frac{\left|h_1\right|}{2^n}\qquad n\in N.$$
+		由此可知$\lim\limits_{n\rightarrow\infty}h_n=0,\ $即$\lim\limits_{n\rightarrow\infty}a_n=\sqrt{2}+1.$
+		
+		(2)如果$\left\{a_n\right\}$是收敛列,\ 那么令$\lim\limits_{n\rightarrow\infty}a_n=a,\ $则由$a^2+a-b=0,\ $可知$a=\frac{-1\pm\sqrt{1+4b}}{2}.$令$\alpha=\frac{-1+\sqrt{1+4b}}{2},\ \beta=\frac{-1-\sqrt{1+4b}}{2}.$有
+		\begin{align*}
+			a_{n+1}-\alpha&=\frac{b}{a_n}-1-\alpha=\frac{b-a_n-\alpha a_n}{a_n}\\
+			&=\frac{b-(1+\alpha)(a_n-\alpha)-\alpha(1+\alpha)}{a_n}=\frac{-(1+\alpha)(a_n-\alpha)}{a_n}.
+		\end{align*}
+		注意到$\alpha+\beta=-1,\ $故得$a_{n+1}-\alpha=\frac{\beta(a_n-\alpha)}{a_n}.$
+		类似地,\ 可推$a_{n+1}-\alpha=\frac{\beta(a_n-\alpha)}{a_n}.$从而有
+		$$\frac{a_{n+1}-\beta}{a_{n+1}-\alpha}=\frac{\alpha}{\beta}\frac{a_n-\beta}{a_n-\alpha}=\cdots=\left(\frac{\alpha}{\beta}\right)^n\frac{a_1-\beta}{a_1-\alpha}.$$
+		因为$\left|\frac{\alpha}{\beta}\right|=\frac{\alpha}{1+\alpha}<1,\ $所以$\left(\frac{\alpha}{\beta}\right)^n\rightarrow0\quad(n\rightarrow\infty),\ $最后得
+		$$\lim\limits_{n\rightarrow\infty}a_n=\beta=\frac{-1-\sqrt{1+4b}}{2}.$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		计算下列数列极限:
+		$$\text{(1)}\lim\limits_{n\rightarrow\infty}\sum\limits_{k=1}^{n}\left(\sqrt{1+\frac{k}{n^2}}-1\right)\qquad\text{(2)}\lim\limits_{n\rightarrow\infty}\sum\limits_{k=1}^{n}\left(\sqrt[3]{1+\frac{k^2}{n^3}}-1\right)$$
+	\end{problem}
+	
+	\begin{solution}
+		(1)在下述几何-算术平均不等式
+		$$1+\frac{x}{2+x}=\frac{2}{\frac{1}{1+x}+1}\le\sqrt{(1+x)\cdot 1}\le\frac{1+x+1}{2}=1+\frac{x}{2}(x>-1)$$
+		中,\ 令$x=\frac{k}{n^2}(k=1,\ 2,\ \cdots,\ n),\ $可得
+		$$\sum\limits_{k=1}^{n}\frac{\frac{k}{n^2}}{2+\frac{k}{n^2}}\le\sum\limits_{k=1}^{n}\left(\sqrt{1+\frac{k}{n^2}}-1\right)\le\sum\limits_{k=1}^{n}\frac{k}{2n^2},\ $$
+		$$\frac{n(n+1)}{2(2n^2+n)}=\frac{\sum\limits_{k=1}^{n}k}{2n^2+n}\le\sum\limits_{k=1}^{n}\frac{k}{2n^2+k}\le a_n\le \frac{n(n+1)}{4n^2},\ $$
+		由此易得$a_n\rightarrow\frac{1}{4}(n\rightarrow\infty).$\\
+		(2)在下述几何-算术平均不等式$(x>-1)$
+		$$1+\frac{x}{2x+3}=\frac{3}{\frac{1}{(1+x)}+1+1}\le\sqrt[3]{(1+x)\cdot1\cdot1}\le\frac{1+x+1+1}{3}=1+\frac{x}{3},\ $$
+		中,\ 令$x=\frac{k^2}{n^3}(k=1,\ 2,\ \cdots,\ n),\ $可得
+		$$\sum\limits_{k=1}^{n}\frac{\frac{k^2}{n^3}}{3+\frac{2k^2}{n^3}}\le\sum\limits_{k=1}^{n}\sqrt[3]{1+\frac{k^2}{n^3}-1}\le\sum\limits_{k=1}^{n}\frac{k^2}{3n^3}.$$
+		注意到
+		$$\sum\limits_{k=1}^{n}\frac{\frac{k^2}{n^3}}{3+\frac{2k^2}{n^3}}=\sum\limits_{k=1}^{n}\frac{k^2}{3n^3+2k^2}\ge\sum\limits_{k=1}^{n}\frac{k^2}{3n^3+2n^2}=\frac{n(n+1)(2n+1)}{6(3n^3+2n^2)},\ $$
+		$$\sum\limits_{k=1}^{n}\frac{k^2}{3n^3}=\frac{n(n+1)(2n+1)}{18n^3},\ \qquad a_n\rightarrow\frac{1}{9}(n\rightarrow\infty).$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		试求下列数列$\left\{a_n\right\}$的极限$\lim\limits_{n\rightarrow\infty}a_n:$
+		
+		(1)$a_n=\sum\limits_{k=0}^{n}\arctan\left(\frac{1}{k^2+k+1}\right).$\qquad(2)$a_n=\sum\limits_{k=1}^{n}\frac{1}{2^k}\tan\left(\frac{b}{2^k}\right)(b\neq k\pi).$
+	\end{problem}
+	
+	\begin{solution}
+		(1)应用公式$\tan(a-b)=\frac{\tan a- \tan b}{1+\tan a\cdot \tan b},\ $可知
+		$$\arctan u-\arctan v =\arctan\left(\frac{u-v}{1+uv}\right).$$
+		现在令$b_k=\arctan k,\ $我们有
+		$$\tan(b_{k+1}-b_k)=\frac{\tan b_{k+1}-\tan b_k}{1+\tan b_{k+1}\cdot\tan b_k}=\frac{k+1-k}{1+k(k+1)}=\frac{1}{k^2+k+1}.$$
+		从而得到
+		\begin{align*}
+			a_n&=\sum\limits_{k=0}^{n}\arctan\left[\tan(b_{k+1}-b_k)\right]=\sum\limits_{k=0}^{n}(b_{k+1}-b_k)\\
+			&=b_{n+1}-b_0=\arctan(n+1)\rightarrow\frac{\pi}{2}\qquad(n\rightarrow\infty).
+		\end{align*}
+		
+		(2)注意$\tan x=\frac{1}{\tan x}-\frac{1-\tan ^2x}{\tan x}=\frac{1}{\tan x}-2\frac{1}{\tan (2x)}=\cot x-2\cot(2x),\ $故知
+		$$\frac{1}{2^n}\tan\left(\frac{b}{2^n}\right)=\frac{1}{2^n}\cot\left(\frac{b}{2^n}\right)-\frac{1}{2^{n-1}}\cot\left(\frac{b}{2^{n-1}}\right).$$
+		由此可得$a_n=\frac{1}{2^n}\cot\left(\frac{b}{2^n}\right)-\cot b.$注意到$\lim\limits_{x\rightarrow0}x\cot (bx)=\frac{1}{b},\ $故有$\lim\limits_{n\rightarrow\infty}a_n=\lim\limits_{n\rightarrow\infty}\frac{1}{2^n}\cot\left(\frac{b}{2^n}\right)-\cot b=\frac{1}{b}-\cot b.$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		试求下列数列  $\left\{a_{n}\right\}  $之极限:\\
+		(1) $ a_{n+1}=2+\frac{1}{a_{n}}\left(a_{1}>0\right)$\\
+		(2) $ a_{n+1}=\frac{A}{a_{n}}-1\left(A>0,\  a_{1}<0\right) .$
+	\end{problem}
+	
+	\begin{solution}
+		(1) 如果 $ \left\{a_{n}\right\}  $是收敛列,\  那么令  $\lim\limits_{n \rightarrow \infty} a_{n}=a ,\ $ 就有  $a^{2}-2 a-1=0 $ 或 $ a=(2 \pm   \sqrt{8}) / 2 . $注意到 $ a_{n}>0(n \in \mathbf{N}) ,\ $ 故应有  $a=1+\sqrt{2} . $从而计算  $h_{n}=a_{n}-(\sqrt{2}+1) ,\  $得  $h_{n+1}=a_{n+1}-(\sqrt{2}+1)=1-\sqrt{2}+\frac{1}{a_{n}}=1-\sqrt{2}+\frac{1}{\sqrt{2}+1+h_{n}}=\frac{1-\sqrt{2}}{\sqrt{2}+1+h_{n}} h_{n} ,\ $
+		$$\left|h_{n+1}\right| \leqslant\left|h_{n}\right|\left|\frac{1-\sqrt{2}}{\sqrt{2}}\right| \leqslant \frac{\left|h_{n}\right|}{2} \leqslant \cdots \leqslant \frac{\left|h_{1}\right|}{2^{n}} \quad(n \in \mathbf{N}) .$$
+		由此知 $ \lim\limits _{n \rightarrow \infty} h_{n}=0 ,\  $即  $\lim\limits\limits_{n \rightarrow \infty} a_{n}=\sqrt{2}+1 .$
+		~\\
+		
+		(2) 如果$  \left\{a_{n}\right\}  $是收敛列,\  且设$  a_{n} \rightarrow a(n \rightarrow \infty) ,\ $ 则由 $ a^{2}+a-b=0 ,\  $可知$  a= 
+		(-1 \pm \sqrt{1+4 b}) / 2 .$ 令 $ \alpha=\frac{-1+\sqrt{1+4 b}}{2},\  \beta=\frac{-1-\sqrt{1+4 b}}{2} . $我们有 $$
+		\begin{aligned}
+			a_{n+1}-\alpha&=\frac{b}{a_{n}}-1-\alpha=\frac{b-a_{n}-\alpha a_{n}}{a_{n}}\\
+			&	=\frac{b-(1+\alpha)\left(a_{n}-\alpha\right)-\alpha(1+\alpha)}{a_{n}}=\frac{-(1+\alpha)\left(a_{n}-\alpha\right)}{a_{n}} .
+		\end{aligned}$$
+		
+		注意到  $\alpha+\beta=-1 ,\  $故得  $a_{n+1}-\alpha=\beta\left(a_{n}-\alpha\right) / a_{n} .$
+		
+		类似地,\  可推知 $ a_{n+1}-\beta=\alpha\left(a_{n}-\beta\right) / a_{n} .$ 从而有
+		$$\frac{a_{n+1}-\beta}{a_{n+1}-\alpha}=\frac{\alpha}{\beta} \frac{a_{n}-\beta}{a_{n}-\alpha}=\cdots=\left(\frac{\alpha}{\beta}\right)^{n} \frac{a_{1}-\beta}{a_{1}-\alpha} .$$
+		因为$ |\alpha / \beta|=\alpha /(1+\alpha)<1 ,\  $所以 $ (\alpha / \beta)^{n} \rightarrow 0(n \rightarrow \infty) ,\ $ 最后得
+		
+		$$\lim\limits_{n \rightarrow \infty} a_{n}=\beta=(-1-\sqrt{1+4 b}) / 2$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		试写出下述数列 $ \left\{a_{n}\right\} $ 的最简解析表达式:\\
+		(1)$  a_{n}=\prod_{k=1}^{n}\left(1+\frac{1}{b_{k}}\right)\left(n \in \mathbf{N},\  b_{1}=1,\  b_{k+1}=k\left(1+b_{k}\right)\right) .$\\
+		(2)$  a_{n}=\prod_{k=1}^{n}\left(1-\frac{1}{n(n+1) / 2}\right)(n \in \mathbf{N}) .$\\
+		(3)$  a_{n}=\prod_{k=1}^{n}\left(1-\frac{1}{(n+1)^{2}}\right)(n \in \mathbf{N}) .$\\
+		(4)$  a_{n}=\prod_{k=1}^{n}\left(2^{2^{n-1}}+1\right) / 2^{2^{n-1}}(n \in \mathbf{N}) .$\\
+	\end{problem}
+	
+	\begin{solution}
+		(1) 注意 $ b_{k+1}=k+k(k-1)+\cdots+k(k-1)(k-2) \cdots 2 \cdot 1 ,\ $ 故知  $a_{n}=\left(1+b_{n}\right) / n  !  =1+   1+1 / 2 !+1 / 3 !+\cdots+1 / n !(n \in \mathbf{N}) .$\\
+		(2) 注意$$  1-\frac{1}{k(k+1) / 2}=\frac{(k-1)(k+2)}{k(k+1)} ,\ $$故知 $$ a_{n}=\frac{1 \cdot 4}{2 \cdot 3} \cdot \frac{2 \cdot 5}{3 \cdot 4} \cdot \frac{3 \cdot 6}{4 \cdot 5} \cdots \frac{(n-1)(n-2)}{n(n+1)}=\frac{1}{3} \frac{n+2}{n} \quad(n \in \mathbf{N}) . $$\\
+		(3) 注意  $$1-\frac{1}{(k+1)^{2}}=\frac{k^{2}+2 k}{(k+1)^{2}}=\frac{k}{k+1} \cdot \frac{k+2}{k+1} ,\ $$ 故知 $$ a_{n}=\prod_{k=1}^{n} \frac{k}{k+1} \cdot \frac{k+2}{k+1}=\frac{1}{2} \cdot \frac{3}{2} \cdot \frac{2}{3} \cdot \frac{4}{3} \cdots \frac{n+1}{n} \cdot \frac{n}{n+1} \cdot \frac{n+2}{n+1}=\frac{1}{2} \frac{n+2}{n+1} \quad(n \in \mathbf{N}) .$$\\
+		(4) 注意$$  \left(2^{2^{n-1}}+1\right) / 2^{2^{n-1}}=1+1 / 2^{2^{n-1}} ,\ $$ 故知  $$a_{n}=\prod_{k=1}^{n}\left(1-\frac{1}{2^{2^{k-1}}}\right)(n \in \mathbf{N}) .$$
+		
+		$$
+		\begin{aligned}
+			\left(1-\frac{1}{2}\right) a_{n}&=\prod_{k=1}^{n}\left(1+\frac{1}{2^{2^{k-1}}}\right)\left(1-\frac{1}{2}\right)=\prod_{k=2}^{n}\left(1+\frac{1}{2^{2^{k-1}}}\right)\left(1-\frac{1}{2^{2}}\right)\\
+			&=\prod_{k=3}^{n}\left(1+\frac{1}{2^{2^{k-1}}}\right)\left(1-\frac{1}{2^{4}}\right)=\cdots=\left(1-\frac{1}{2^{2^{n}}}\right) \quad(n \in \mathbf{N}) .
+		\end{aligned}$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		求解以下数列的极限\\
+		(1)$a_n=\sum\limits_{k=0}^{n}\arctan\left(\frac{1}{k^2+k+1}\right)$\\
+		(2)$a_n=\sum\limits_{k=1}^{n}\frac{1}{2^k}\tan\left(\frac{b}{2^k}\right)\left(b\neq k\pi\right).$
+	\end{problem}
+	
+	\begin{solution}
+		(1)应用公式  $\tan (a-b)=\frac{\tan a-\tan b}{1+\tan a \cdot \tan b} ,\  $可知
+		$$\arctan u-\arctan v=\arctan \left(\frac{u-v}{1+u v}\right) .$$
+		现在令 $ b_{k}=\arctan k ,\  $我们有
+		$$\tan \left(b_{k+1}-b_{k}\right)=\frac{\tan b_{k+1}-\tan b_{k}}{1+\tan b_{k+1} \cdot \tan b_{k}}=\frac{k+1-k}{1+k(k+1)}=\frac{1}{k^{2}+k+1} .$$
+		从而可得
+		$$\begin{aligned}
+			a_{n} &=\sum_{k=0}^{n} \arctan \left[\tan \left(b_{k+1}-b_{k}\right)\right]=\sum_{k=0}^{n}\left(b_{k+1}-b_{k}\right) \\
+			&=b_{n+1}-b_{0}=\arctan (n+1) \rightarrow \pi / 2 \quad(n \rightarrow \infty)
+		\end{aligned}$$\\
+		(2) 注意  $\tan x=\frac{1}{\tan x}-\frac{1-\tan ^{2} x}{\tan x}=\frac{1}{\tan x}-2 \frac{1}{\tan (2 x)}=\cot x-2 \cot (2 x) ,\  $故知
+		$$\frac{1}{2^n}\tan\left(\frac{b}{2^n}\right)=\frac{1}{2^n}\cot\left(\frac{b}{2^n}\right)-\frac{1}{2^{n-1}}\cot\left(\frac{b}{2^{n-1}}\right)$$
+		由此可得  $a_{n}=\frac{1}{2^{n}} \cot \left(\frac{b}{2^{n}}\right)-\cot b .$ 注 意 到  $\lim\limits_{x \rightarrow 0} x \cot (b x)=\frac{1}{b} ,\  $故 有  $\lim\limits _{n \rightarrow \infty} a_{n}=   \lim\limits_{n \rightarrow \infty} \frac{1}{2^{n}} \cot \left(\frac{b}{2^{n}}\right)-\cot b=\frac{1}{b}-\cot b . $ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		试证明下列命题:\\
+		(1) 若 $ \left\{a_{n}+a_{n+1}\right\},\ \left\{a_{n}+a_{n+2}\right\}  $均为收敛列,\  则  $\left\{a_{n}\right\}$  是收敛列.\\
+		(2) 设  $\lambda>0,\  a_{n+1}=a_{n}\left(2-\lambda a_{n}\right)(n \in \mathbf{N}) .$ 若  $a_{1},\  a_{2}>0 ,\  $则 $ \lim\limits _{n \rightarrow} a_{n}=1 / \lambda .$\\
+		(3) 若  $a_{n+1}=\alpha a_{n}+(1-\alpha) a_{n-1}(0<\alpha<1) ,\  $则  $\lim\limits\limits_{n \rightarrow \infty} a_{n}=\left[(1-\alpha) a_{1}+a_{2}\right] /(2-\alpha) .$
+	\end{problem}
+	
+	\begin{solution}
+		(1)只需注意表达式
+		$$a_{n+1}=\left\{\left(a_{n+1}+a_{n+2}\right)+\left[\left(a_{n}+a_{n+1}\right)-\left(a_{n}+a_{n+2}\right)\right]\right\} / 2.$$
+		(2) (i) 由题设知 $ a_{2}=a_{1}\left(2-\lambda a_{1}\right)>0 ,\  $故  $2-\lambda a_{1}>0,\ 1-\lambda a_{1}>-1 . $又由  $\lambda a_{1}>  0 ,\ $ 可知  $1-\lambda a_{1}<1 .$ 即  $\left|1-\lambda a_{1}\right|<1 .$\\
+		(ii) 因为我们有  $(n \in \mathbf{N})$
+		$$\begin{array}{l}
+			a_{n+1}=\frac{1}{\lambda}-\left(\frac{1}{\sqrt{\lambda}}-\sqrt{\lambda} a_{n}\right)^{2}=\frac{1}{\lambda}-\frac{\left(1-\lambda a_{n}\right)^{2}}{\lambda},\  \\
+			\lambda a_{n+1}=1-\left(1-\lambda a_{n}\right)^{2},\  \\
+			\left(1-\lambda a_{n+1}\right)=\left(1-\lambda a_{n}\right)^{2}=\cdots=\left(1-\lambda a_{1}\right)^{2^{n}}
+		\end{array}$$
+		所以根据 (i) 可得  $\lim\limits _{n \rightarrow \infty}\left(1-\lambda a_{n+1}\right)=0,\ \lim\limits _{n \rightarrow \infty} a_{n+1}=1 / \lambda .$\\
+		(3) 因为由题设知  $a_{n+1}-a_{n}=(\alpha-1)\left(a_{n}-a_{n-1}\right) ,\ $ 所以我们有
+		$$\begin{array}{l}
+			a_{n+1}-a_{n}=(\alpha-1)^{n-1}\left(a_{2}-a_{1}\right),\  \\
+			a_{n+1}-a_{1}=\sum\limits_{k=1}^{n}\left(a_{k+1}-a_{k}\right)=\left(a_{2}-a_{1}\right) \sum\limits_{k=1}^{n}(\alpha-1)^{k-1} .
+		\end{array}$$
+		从而可得$\lim\limits_{n\rightarrow\infty}a_n=\lim\limits_{n\rightarrow\infty}\left(\frac{a_2-a_1}{2-\alpha}+a_1\right)=\frac{a_2+(1-\alpha)a_1}{2-\alpha}.$
+	\end{solution}
+	\newpage
+	\begin{problem}
+		试求下述数列  $\left\{a_{n}\right\}$  的敛散性:\\
+		(1)$a_{n}=4^{n}\left(1-b_{n}\right)\left(b_{n+1}=\sqrt{\left(1+b_{n}\right) / 2},\ -1<b_{1}<1\right) .$\\
+		(2)$a_{n+1}=a_{1}\left(1-a_{n}-b_{n}\right)+a_{n}\left(b_{n+1}=b_{1}\left(1-a_{n}-b_{n}\right)+b_{n}\left(a_{1},\  b_{1} \in(0,\ 1)\right)\right) .$\\
+		(3)$a_{n}=\frac{b_{n}+b_{n}^{2}+\cdots+b_{n}^{m}-m}{b_{n}-1} \quad\left(b_{n} \neq 1,\  b_{n} \rightarrow 1(n \rightarrow \infty)\right) .$
+	\end{problem}
+	
+	\begin{solution}
+		(1) 令  $b_{1}=\cos \theta(0<\theta<\pi) ,\ $ 则  $b_{2}=\cos (\theta / 2) ,\ $
+		$$b_{3}=\sqrt{\left(1+\cos \frac{\theta}{2}\right) / 2}=\cos \frac{\theta}{4},\  \cdots,\  b_{n}=\cos \frac{\theta}{2^{n}},\  \cdots .$$
+		从而可知
+		$$\begin{array}{c}
+			a_{n}=4^{n}\left(1-\cos \left(\theta / 2^{n}\right)\right)=\frac{4^{n}\left(1-\cos \left(\theta / 2^{n}\right)\right)\left(1+\cos \left(\theta / 2^{n}\right)\right)}{1+\cos \left(\theta / 2^{n}\right)} \\
+			=\frac{4^{n} \sin ^{2}\left(\theta / 2^{n}\right)}{1+\cos \left(\theta / 2^{n}\right)}=\frac{\theta^{2}}{1+\cos \left(\theta / 2^{n}\right)} \cdot\left(\frac{\sin \left(\theta / 2^{n}\right)}{\theta / 2^{n}}\right)^{2},\  \\
+			\lim\limits_{n \rightarrow \infty} a_{n}=\theta^{2} / 2=\left(\arccos b_{1}\right)^{2} / 2 .
+		\end{array}$$\\
+		(2) 记  $c_{n}=a_{n}+b_{n}(n \in \mathbf{N}) ,\ $ 我们有
+		$$\begin{array}{c}
+			a_{n+1}+b_{n+1}=\left(a_{1}+b_{1}\right)\left[1-\left(a_{n}+b_{n}\right)\right]+\left(a_{n}+b_{n}\right),\  \\
+			c_{n+1}=c_{1}\left(1-c_{n}\right)+c_{n},\  \quad c_{n}=1-\left(1-c_{1}\right)^{n}(n \in \mathbf{N}) .
+		\end{array}$$
+		从而知  $a_{n}=a_{1}\left[1-\left(1-c_{1}\right)^{n}\right] / c_{1},\  b_{n}=\left[1-\left(1-c_{1}\right)^{n}\right] / c_{1} ,\ $ 故得
+		$\lim\limits_{n \rightarrow \infty} a_{n}=a_{1} /\left(a_{1}+b_{1}\right),\  \quad \lim\limits_{n \rightarrow\infty} b_{n}=b_1 /\left(a_{1}+b_{1}\right) .$\\
+		(3)注意等式
+		$$\begin{aligned}
+			a_{n}&=\frac{1}{b_{n}-1}\left[\left(b_{n}-1\right)+\left(b_{n}^{2}-1\right)+\cdots+\left(b_{n}^{m}-1\right)\right]\\
+			&=1+(b_n+1)+(b^2_n+b_n+1)+\cdots+(b^{m-1}_n+b^{m-2}_n+\cdots+1),\ 
+		\end{aligned}$$
+		故有$\lim\limits_{n\rightarrow\infty}a_n=1+2+\cdots+m=m(m+1)/2.$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$  k  $是正整数,\  试定$  b  $值,\  使得满足  $\left(a_{n+1}+a_{n-1}\right) / 2=b a_{n}(n \geqslant 2)  $的 数列  $\left\{a_{n}\right\}  $有周期$  k ,\  $即$  a_{n + k}=a_{n}(n \in \mathbf{N}) .$
+	\end{problem}
+	
+	\begin{solution}
+		采用矩阵表示,\ 我们有 $ \left(\begin{array}{c}a_{n+1} \\ a_{n}\end{array}\right)=A\left(\begin{array}{c}a_{n} \\ a_{n-1}\end{array}\right),\  A=\left(\begin{array}{cc}2 b & -1 \\ 1 & 0\end{array}\right) . $从而只需指 出 $ A^{k}=\left(\begin{array}{ll}1 & 0 \\ 0 & 1\end{array}\right) .$
+		
+		因为$  A $的特征多项式为  $\lambda^{2}-2 b \lambda+1 ,\ $ 所以$  A  $的特征值为$  b \pm \sqrt{b^{2}-1} . $注意到$  A^{k}=\left(\begin{array}{ll}1 & 0 \\ 0 & 1\end{array}\right) $ 的必要条件是: $ A  $的特征值为单位的第 $ k $ 次根
+		$$b=\cos (2 \pi j / k) \quad(j=0,\ 1,\  \cdots,\ [k / 2]) .$$
+		此时,\  若 $ 0<j<k / 2  (\text{即}  -1<b<1  ),\ $ 则  $A$  的特征值不同 ($A$对角化),\  即 $ A^{k}=   \left(\begin{array}{ll}1 & 0 \\ 0 & 1\end{array}\right) .$ 若 $ b=+1 $ 或  $-1 ,\ $ 则  $A$  的特征值不互异. $ A $ 有 Jordan 标准型:  $\left(\begin{array}{ll}1 & 1 \\ 0 & 1\end{array}\right) $ 或  $\left(\begin{array}{rr}-1 & 1 \\ 0 & -1\end{array}\right) .$ 从而有  $A^{k}=\left(\begin{array}{ll}1 & 0 \\ 0 & 1\end{array}\right) .$
+	\end{solution}
+	\newpage
+	\begin{problem}
+		试证明下列命题:
+		
+		(1) 若  $\left\{a_{n}\right\}$  满足 $ \lim\limits _{n \rightarrow}\left(a_{n}-a_{n-2}\right)=0 ,\ $ 则  $\lim\limits_{n \rightarrow \infty}\left(a_{n}-a_{n-1}\right) / n=0 .$
+		
+		(2) 设  $\lim\limits _{n \rightarrow \infty} a_{n}=a,\  \lim\limits _{n \rightarrow} b_{n}=b ,\ $ 则
+		$$\lim\limits_{n \rightarrow \infty}c_n=a b \quad\left(c_{n}=\left(a_{1} b_{n}+a_{2} b_{n-1}+\cdots+a_{n} b_{1}\right) / n\right) .$$
+		
+		(3) 对  $\left\{a_{n}\right\}$  令  $S_{n}=\sum\limits_{k=1}^{n} a_{k},\  \sigma_{n}=\sum\limits_{k=1}^{n} S_{k} / n(n \in \mathbf{N}) .$ 若  $\lim\limits_{n \rightarrow \infty} \sigma_{n}=\sigma ,\ $ 则  $\lim\limits _{n \rightarrow \infty} a_{n} / n=0 .$
+	\end{problem}
+	
+	\begin{solution}
+		(1) (i) 记  $b_{n}=a_{n}+a_{n-1} ,\ $ 则  $\lim\limits _{n \rightarrow \infty}\left(b_{n}-b_{n-1}\right)=\lim\limits _{n \rightarrow \infty}\left(a_{n}-a_{n-2}\right)=0 .$ 由此可 知  $\lim\limits_{n \rightarrow \infty}\left(a_{n}+a_{n-1}\right) / n=\lim\limits _{n \rightarrow \infty} b_{n} / n=0 .$\\
+		(ii) 再令  $c_{n}=(-1)^{n} a_{n} ,\ $ 则由题设知  $\lim\limits _{n \rightarrow \infty}\left(c_{n}-c_{n-2}\right)=0 .$ 从而根据 (i) 可得  $\lim\limits_{n \rightarrow \infty}\left(c_{n}+c_{n-1}\right) / n=0,\  \lim\limits_{n \rightarrow \infty}\left(a_{n}-a_{n-1}\right) / n=0 .$
+		
+		(2) 记  $a_{n}=a+\alpha_{n},\  b_{n}=b+\beta_{n}\left(n \in \mathbf{N} ; \alpha_{n} \rightarrow 0,\  \beta_{n} \rightarrow 0(n \rightarrow \infty)\right) ,\ $ 则
+		$c_{n}=a b+a \frac{\beta_{1}+\cdots+\beta_{n}}{n}+b \frac{\alpha_{1}+\cdots \pm \alpha_{n}}{n}+\frac{\alpha_{1} \beta_{n}+\alpha_{2} \beta_{n-1}+\cdots+\alpha_{n} \beta_{1}}{n} 
+		=a b+\gamma_{n}^{(1)}+\gamma_{n}^{(2)}+\gamma_{n}^{(3)} .$
+		易知  $\lim\limits_{n \rightarrow \infty} \gamma_{n}^{(1)}=0=\lim\limits \limits_{n \rightarrow \infty}\gamma_{n}^{(2)} .$ 又假定  $\left|\alpha_{n}\right| \leqslant M(n \in \mathbf{N}) ,\ $ 则
+		$$\lim\limits_{n \rightarrow \infty}\left|\gamma_{n}^{(3)}\right| \leqslant \lim\limits_{n \rightarrow \infty} M \frac{\left|\beta_{1}\right|+\cdots+\left|\beta_{n}\right|}{n}=0 .$$
+		由此即可得证.
+		
+		(3) 由题设知  $n \sigma_{n}=\sum\limits_{k=1}^{n} S_{k} ,\ $ 故可得
+		$$S_{n}=n \sigma_{n}-(n-1) \sigma_{n-1},\  \quad S_{n} / n=\sigma_{n}-(n-1) \sigma_{n-1} / n .$$
+		由此知  $\lim\limits _{n \rightarrow \infty} S_{n} / n=0 ,\ $ 从而又有
+		$$\lim\limits _{n \rightarrow \infty} \frac{a_{n}}{n}=\lim\limits _{n \rightarrow \infty} \frac{S_{n}-S_{n-1}}{n}=\lim\limits _{n \rightarrow \infty}\left(\frac{S_{n}}{n}-\frac{n-1}{n} \frac{S_{n-1}}{n}\right)=0 .$$ 
+	\end{solution}

@@ -1,0 +1,3607 @@
+\section{丘维声-高等代数}
+\begin{problem}
+	设数域$  K  $上$  m \times n $ 矩阵  $\boldsymbol{H} $ 的列向量组组 $\boldsymbol{\alpha}_{1},\  \boldsymbol{a}_{2} ,\ \cdots,\ \boldsymbol{\alpha}_n,\ $\\
+	证明:$\boldsymbol{H}$的任意$s$列$  (s \leqslant \min \{m,\  n\})$  都线性无关当且仅当:齐次线性方程组
+	\begin{equation}
+		x_{1} \boldsymbol{\alpha}_{1}+x_{2} \boldsymbol{\alpha}_{2}+\cdots+x_{n} \boldsymbol{\alpha}_{n}=\mathbf{0}\label{1.6.1}
+	\end{equation}
+	的任一非零解的非零分量的数目大于 $ s.$ 
+\end{problem}
+\begin{proof}
+	必要性.设 $ \boldsymbol{H}  $的任意  $s$  列都线性无关.假如齐次线性方程组 \eqref{1.6.1} 的一个非零解$  \boldsymbol{\eta}$  为
+	$$\boldsymbol{\eta}=\left(0,\  \cdots,\  0,\  c_{i_{1}},\  0,\  \cdots,\  0,\  c_{i_{l}},\  0,\  \cdots,\  0\right)^{\prime},\ $$
+	其中 $ c_{i_{1}},\  \cdots,\  c_{i} $全不为 $0 ,\ $ 且$  l \leqslant s ,\ $ 则
+	$$c_{i_{1}} \boldsymbol{\alpha}_{i_{1}}+\cdots+c_{i} \boldsymbol{\alpha}_{i_{l}}=\mathbf{0},\ $$
+	从而$\boldsymbol{\alpha}_{i_{l}},\ \cdots,\ \boldsymbol{\alpha}_{i_{l}}$线性相关.于是$\boldsymbol{H}$d的包含第$i_1,\ \cdots,\ i_l$列的任意$s$列都线性相关,\ 这与假设矛盾,\ 因此方程组\ref{1.6.1}的任一非零解的非零分量的数目大于$  s .$
+	充分性.设方程组\ref{1.6.1}的任一非零解的非零分量的数目大于  $s.$假如  $\boldsymbol{H} $ 有  $s $ 个列向 量  $\boldsymbol{\alpha}_{i_{1}},\  \boldsymbol{\alpha}_{i_{2}},\  \cdots,\  \boldsymbol{\alpha}_{i_{s}} $ 线性相关,\  则有不全为$ 0 $的数 $ k_{1},\  k_{2},\  \cdots,\  k_{s} $ 使得
+	$$k_1\boldsymbol{\alpha}_{i_{1}}+k_2\boldsymbol{\alpha}_{i_{2}}+\cdots+k_s\boldsymbol{\alpha}_{i_{s}}=\mathbf{0,\ }$$
+	从而
+	$$\boldsymbol{\eta}=(0,\ \cdots,\ 0,\ k_1,\ 0,\ \cdots,\ 0,\ k_s,\ 0,\ \cdots,\ 0)'$$
+	是方程组\ref{1.6.1}的一个非零解,\ 它的非零分量数目小于或等于$s.$与假设矛盾,\ 因此$\boldsymbol{H}$的任意$s$列都线性相关.
+\end{proof}
+\newpage
+\begin{problem}
+	设数域  $K$  上的$  n$  级矩阵
+	$$\boldsymbol{A}=\left(\begin{array}{cccc}
+		a_{11} & a_{12} & \cdots & a_{1 n} \\
+		a_{21} & a_{22} & \cdots & a_{2 n} \\
+		\vdots & \vdots & & \vdots \\
+		a_{n 1} & a_{n 2} & \cdots & a_{n n}
+	\end{array}\right)$$
+	满足
+	$$\left|a_{i i}\right|>\sum_{\substack{j=1 \\ j \neq i}}^{n}\left|a_{i j}\right|,\  \quad i=1,\ 2,\  \cdots,\  n .$$
+	证明: $ \boldsymbol{A}$  的列向量组$  \boldsymbol{\alpha}_{1},\  \boldsymbol{\alpha}_{2},\  \cdots,\  \boldsymbol{\alpha}_{n} $ 的秩等于 $ n.$
+\end{problem}
+\begin{proof}
+	只需证明  $\boldsymbol{\alpha}_{1},\  \boldsymbol{\alpha}_{2},\  \cdots,\  \boldsymbol{\alpha}_{n}$  线性无关.
+	假如  $\boldsymbol{\alpha}_{1},\  \boldsymbol{\alpha}_{2},\  \cdots,\  \boldsymbol{\alpha}_{n} $ 线性相关,\  则在$  K$  中有一组不全为 $0$ 的数  $k_{1},\  k_{2},\  \cdots,\  k_{n} ,\  $使得
+	$$k_{1} \boldsymbol{\alpha}_{1}+k_{2} \boldsymbol{\alpha}_{2}+\cdots+k_{n} \boldsymbol{\alpha}_{n}=\mathbf{0},\ $$
+	不妨设  $\quad\left|k_{l}\right|=\max \left\{\left|k_{1}\right|,\ \left|k_{2}\right|,\  \cdots,\ \left|k_{n}\right|\right\}.$\\
+	在上式考虑第$  l $ 个分量的等式:
+	$$k_{1} a_{l 1}+k_{2} a_{l 2}+\cdots+k_{l} a_{ll}+\cdots+k_{n} a_{l n}=0,\ $$
+	从上式得
+	$$a_{l l}=-\frac{k_{1}}{k_{l}} a_{l 1}-\cdots-\frac{k_{l-1}}{k_{l}} a_{l,\  l-1}-\frac{k_{l+1}}{k_{l}} a_{l,\  l+1}-\cdots-\frac{k_{n}}{k_{l}} a_{b n}=-\sum_{\substack{j=1 \\ j \neq l}}^{n}\frac{k_j}{k_l}a_{lj}$$
+	从上式得
+	$$|a_{ll}|\leqslant\sum_{\substack{j=1 \\ j \neq l}}\frac{|k_j|}{|k_l|}|a_{lj}|\leqslant\sum_{\substack{j=1 \\ j \neq l}}|a_{lj}|$$
+\end{proof}
+\newpage
+\begin{problem}
+	设  $n$  个方程的 $ n $ 元齐次线性方程组的系数矩阵$  \boldsymbol{A} $ 的行列式等于 $0 ,\  $并且 $ \boldsymbol{A}  $的  $(k,\  l) $ 元的代数余子式  $\boldsymbol{A}_{k l} \neq 0 .$证明:
+	$$\boldsymbol{\eta}=\left(\begin{array}{c}
+		\boldsymbol{A}_{k 1} \\
+		\boldsymbol{A}_{k 2} \\
+		\vdots \\
+		\boldsymbol{A}_{k n}
+	\end{array}\right)$$
+	是这个齐次线性方程组的一个基础解系.
+\end{problem}
+\begin{proof}
+	由于  $\boldsymbol{A}_{k l} \neq 0 ,\  $因此  $\boldsymbol{A} $ 有一个  $n-1$  阶子式不为$ 0,\ $ 又由于 $ |\boldsymbol{A}|=0 ,\  $因此  $\operatorname{rank}(\boldsymbol{A})=   n-1 ,\ $从而这个齐次线性方程组的解空间 $ W  $的维数为
+	$$\operatorname{dim}W=n-\operatorname{rank}(\boldsymbol{A})=n-(n-1)=1.$$
+	考虑这个齐次线性方程组的第  $i $ 个方程:
+	$$a_{i1}x_+a_{i2}x_2+\cdots+a_{in}x_n=0.$$
+	当$  i \neq k$  时,\ 有
+	$$a_{i 1} A_{k 1}+a_{i 2} A_{k 2}+\cdots+a_{in} A_{kn}=0 $$
+	当 $ i=k$ 时,\  有 
+	$$ a_{k 1} A_{k 1}+a_{k 2} A_{k 2}+\cdots+a_{m} A_{m}=|\boldsymbol{A}|=0 ; $$
+	因此 $ \boldsymbol{\eta}=\left(A_{k1},\  A_{k 2},\  \cdots,\  A_{kn}\right)^{\prime} $ 是这个齐次线性方程组的一个解.
+	由于 $ A_{kl} \neq 0 ,\  $因此 $ \boldsymbol{\eta}  $是非 零解,\  从而 $ \boldsymbol{\eta}  $线性无关.由于$  \operatorname{dim} W=1 ,\  $
+	因此  $\boldsymbol{\eta}$  是$  W$  的一个基,\  即 $ \boldsymbol{\eta}$  是这个齐次线性方程组的一个基础解系.
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ n-1$  个方程的 $ n$  元齐次线性方程组的系数矩阵为  $\boldsymbol{B} ,\ $ 把 $ \boldsymbol{B}  $划去第  $j $ 列得到 的 $ n-1 $ 阶子式记作  $D_{j} ,\  $令
+	$$\boldsymbol{\eta}=\left(\begin{array}{c}
+		D_{1} \\
+		-D_{2} \\
+		\vdots \\
+		(-1)^{n-1} D_{n}
+	\end{array}\right)$$
+	证明: (1)  $\eta$  是这个齐次线性方程组的一个解;
+	(2)如果  $\boldsymbol{\eta} \neq \mathbf{0} ,\  $那么  $\boldsymbol{\eta}  $是这个齐次线性方程组的一个基础解系.
+\end{problem}
+\begin{proof}
+	证明 (1) 在所给的齐次线性方程组的下面添上一个方程:
+	$$0 x_{1}+0 x_{2}+\cdots+0 x_{n}=0,\ $$
+	得到  $n$  个方程的  $n $ 元齐次线性方程组,\  其系数矩阵  $\boldsymbol{A}=\left(\begin{array}{c}\boldsymbol{B} \\ \mathbf{0}\end{array}\right) . $$ \boldsymbol{A}  $的  $(n,\  j)  $元的代数余子式 $ A_{n j} $ 为
+	$$A_{n j}=(-1)^{n+j} D_{j},\  \quad j=1,\ 2,\  \cdots,\  n .$$
+	原齐次线性方程组的第 $ i  $个方程  $(i=1,\ 2,\  \cdots,\  n-1)$  为
+	$$b_{n} x_{1}+b_{i 2} x_{2}+\cdots+b_{i n} x_{n}=0 .$$
+	由于 $ |\boldsymbol{A}|  $的第$  i$  行  $(i \neq n)  $元素与第 $ n  $行相应元素的代数余子式的乘积之和为$ 0 ,\  $因此
+	$$b_{n} A_{n 1}+b_{i 2} A_{n 2}+\cdots+b_{n} A_{n n}=0,\  \quad i=1,\ 2,\  \cdots,\  n-1.$$
+	由此得出,\  $ \left(D_{1},\ -D_{2},\  \cdots,\ (-1)^{n-1} D_{n}\right)^{\prime}  $是原齐次线性方程组的一个解. 有 $ n-1  $行,\  因此  $\operatorname{rank}(\boldsymbol{B})=n-1 ,\ $ 从而齐次线性方程组的解空间  $W  $的维数为
+	$$\operatorname{dim} W=n-\operatorname{rank}(\boldsymbol{B})=n-(n-1)=1 .$$
+	由于 $ \boldsymbol{\eta}=\left(D_{1},\ -D_{2},\  \cdots,\ (-1)^{n-1} D_{n}\right)^{\prime}  $是原齐次线性方程组的一个非零解,\  因此  $\boldsymbol{\eta}$  是  $W $ 的 一个基,\ 即$ \boldsymbol{\eta} $ 是原齐次线性方程组的一个基础解系.
+\end{proof}
+\newpage
+\begin{problem}
+	设  $\boldsymbol{A}_{1}  $是$  s \times n$  矩阵  $\boldsymbol{A}=\left(a_{i j}\right)$  的前  $s-1 $ 行组成的子矩阵.证明:如果以  $\boldsymbol{A}_{1} $ 为 系数矩阵的齐次线侏方程组的解都是方程
+	$$a_{s1} x_{1}+a_{s2} x_{2}+\cdots+a_{sn} x_{n}=0$$
+	的解,\ 那么 $ \boldsymbol{A} $ 的第 $ s$  行可以由  $\boldsymbol{A}  $的前 $ s-1$  行线性表出.
+\end{problem}
+\begin{proof}
+	由已知条件立即得出: 以 $ \boldsymbol{A}_{1}  $为系数矩阵的齐次线性方程组和以 $ \boldsymbol{A} $ 为系数矩 阵的齐次线性方程组同解,\  即它们的解空间相等,\  记为 $ W .$从  $\operatorname{dim} W=n-\operatorname{rank}\left(\boldsymbol{A}_{1}\right) ,\   \operatorname{dim} W=n-\operatorname{rank}(\boldsymbol{A}) $ 得出  :$ \operatorname{rank}\left(\boldsymbol{A}_{1}\right)=\operatorname{rank}(\boldsymbol{A}) .$
+	
+	设 $\boldsymbol{A} $ 的行向量组为 $ \boldsymbol{\gamma}_1,\  \cdots,\  \boldsymbol{\gamma}_{s-1},\  \boldsymbol{\gamma}_{s}  .$由于 $ \operatorname{rank}\left\langle\boldsymbol{\gamma}_{1},\  \cdots,\  \boldsymbol{\gamma}_{s-1}\right\rangle=\operatorname{rank}\left(\boldsymbol{A}_{1}\right)=\operatorname{rank}(\boldsymbol{A})=\operatorname{rank}\{\boldsymbol{\gamma}_{1},\  $ $\cdots,\  \boldsymbol{\gamma}_{s-1},\ \boldsymbol{\gamma}_s\},\ $可得$\boldsymbol{\gamma}_s$可以由  $\gamma_{1},\  \cdots,\ \boldsymbol{\gamma}_{s-1}$线性表出,\  即 $ \boldsymbol{A} $ 的第 $ s$  行可以由它的前$  s-1  $行线性表出.
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ \boldsymbol{A}=\left(a_{i j}\right) $ 是  $s \times n $ 矩阵,\   $\operatorname{rank}(\boldsymbol{A})=r.$以$  \boldsymbol{A}  $为系数矩阵的齐次线性方程组的 一个基础解系为
+	$$\boldsymbol{\eta}_{1}=\left(\begin{array}{c}
+		b_{11} \\
+		b_{12} \\
+		\vdots \\
+		b_{1 n}
+	\end{array}\right),\  \boldsymbol{\eta}_{2}=\left(\begin{array}{c}
+		b_{21} \\
+		b_{22} \\
+		\vdots \\
+		b_{2 n}
+	\end{array}\right),\  \cdots,\  \boldsymbol{\eta}_{n-r}=\left(\begin{array}{c}
+		b_{n-r,\ 1} \\
+		b_{n-r .2} \\
+		\vdots \\
+		b_{n-r,\  n}
+	\end{array}\right)$$
+	设  $\boldsymbol{B}$  是以 $ \boldsymbol{\eta}_{1}^{\prime},\  \boldsymbol{\eta}_{2}^{\prime},\  \cdots,\  \boldsymbol{\eta}_{n-r}^{\prime} $ 为行向量组的  $(n-r) \times n $ 矩阵.试求以 $ \boldsymbol{B}  $为系数矩阵的齐次线 性方程组的一个基础解系.
+\end{problem}
+\begin{solution}
+	由于 $ \boldsymbol{B}  $的行向量组 $ \boldsymbol{\eta}_{1}^{\prime},\  \boldsymbol{\eta}_{2}^{\prime},\  \cdots,\  \boldsymbol{\eta}_{n-r}^{\prime}$  线性无关,\  因此  $\operatorname{rank}(\boldsymbol{B})=n-r ,\  $从而以$  \boldsymbol{B}$  为 系数矩阵的齐次线性方程组的解空间 $ W $ 的维数为
+	$$\operatorname{dim} W=n-(n-r)=r.$$
+	由于  $\boldsymbol{\eta} ,\  $是以  $\boldsymbol{A}  $为系数矩阵的齐次线性方程组的一个解,\  因此对于 $ i \in\{1,\ 2,\  \cdots,\  s\} ,\ $ 有
+	$$a_{i 1} b_{j 1}+a_{i 2} b_{j 2}+\cdots+a_{i n} b_{j n}=0,\ $$
+	其中$ j=1,\ 2,\  \cdots,\  n-r.$由此看出
+	$$\left(a_{i 1},\  a_{i 2},\  \cdots,\  a_{i n}\right)^{\prime}$$
+	是以  $B  $为系数矩阵的齐次线性方程组的一个解.取 $  \boldsymbol{A} $ 的行向量组的一个极大线性无关 组  $\boldsymbol{\gamma}_{i_{1}},\  \cdots,\  \boldsymbol{\gamma}_{i_{r}} ,\ $ 则由上述结论得,\   $\boldsymbol{\gamma}_{i_{1}}^{\prime},\  \cdots,\  \boldsymbol{\gamma}_{i_{r}}^{\prime} $ 都是以 $ \boldsymbol{B} $ 为系数矩阵的齐次线性方程组的解. 由于  $\operatorname{dim} W=r ,\  $因此  $\boldsymbol{\gamma}_{i_{1}}^{\prime},\  \cdots,\  \boldsymbol{\gamma}_{i_{r}}^{\prime}  $是  $W$  的一个基,\ 即 $ \boldsymbol{A}  $的行向量组的一个极大线性无关组 取转置后,\  是以,\  $ \boldsymbol{B}  $为系数矩阵的齐次线性方程组的一个基础解系.
+\end{solution}
+\newpage
+\begin{problem}
+	设$  A  $是数域$  K $ 上一个 $ s \times n  $矩阵,\ 证明: 如果 $ A $ 的秩为  $r ,\  $那么$  A  $的行向量组 的一个极大线性无关组与 $ A $ 的列向量组的一个极大线性无关组交叉位置的元素按原来 的排法组成的 $ r  $阶子式不等于 $0.$
+\end{problem}
+\begin{proof}
+	设 $ \boldsymbol{\gamma}_{i_{1}},\  \boldsymbol{\gamma}_{i_{2}},\  \cdots,\  \boldsymbol{\gamma}_{i_{r}}  $是$  A $ 的行向量组  $\boldsymbol{\gamma}_{1},\  \boldsymbol{\gamma}_{2},\  \cdots,\  \boldsymbol{\gamma}_{s}  $的一个极大线性无关组,\   $\boldsymbol{\alpha}_{j_{1}} ,\   \boldsymbol{\alpha}_{j_{2}},\  \cdots,\  \boldsymbol{\alpha}_{j_{r}} $ 是 $A  $的列向量组  $\boldsymbol{\alpha}_{1},\  \boldsymbol{\alpha}_{2},\  \cdots,\  \boldsymbol{\alpha}_{n}$  的一个极大线性无关组,\ 令
+	$$A_{1}=\left(\begin{array}{c}
+		\boldsymbol{\gamma}_{i_{1}} \\
+		\boldsymbol{\gamma}_{i_{2}} \\
+		\vdots \\
+		\boldsymbol{\gamma}_{i_{r}}
+	\end{array}\right),\ $$
+	则  $\operatorname{rank}\left(A_{1}\right)=r. A_{1}  $的列向量记作  $\tilde{\boldsymbol{\alpha}}_{1},\  \tilde{\boldsymbol{\alpha}}_{2},\  \cdots,\  \tilde{\boldsymbol{\alpha}}_{n} ,\  $它们是 $ \boldsymbol{\alpha}_{1},\  \boldsymbol{\alpha}_{2},\  \cdots,\  \boldsymbol{\alpha}_{n} $ 的缩短组.由于  $A  $的每一列  $\boldsymbol{\alpha}_{l} $ 可以由$  \boldsymbol{\alpha}_{j_{1}},\  \boldsymbol{\alpha}_{j_{2}},\  \cdots,\  \boldsymbol{\alpha}_{j_{r}} $ 线性表出,\  因此 $ \boldsymbol{A}_{1} $ 的每一列  $\tilde{\boldsymbol{\alpha}}_{l}  $可以由 $ \tilde{\boldsymbol{\alpha}}_{j_{1}},\  \tilde{\boldsymbol{\alpha}}_{j_{2}},\  \cdots,\  \tilde{\boldsymbol{\alpha}}_{j_{r}} $ 线性表出.由于  $\operatorname{rank}\left(A_{1}\right)=r ,\  $因此  $\tilde{\boldsymbol{\alpha}}_{j_{1}},\  \tilde{\boldsymbol{\alpha}}_{j_{2}},\  \cdots,\  \tilde{\boldsymbol{\alpha}}_{j_{r}}  $是$  \boldsymbol{A}_{1}  $的列向量组的一个极大线性无 关组.从而由  $\tilde{\boldsymbol{\alpha}}_{j_{1}},\  \tilde{\boldsymbol{\alpha}}_{j_{2}},\  \cdots,\  \tilde{\boldsymbol{\alpha}}_{j_{r}}$  组成的子矩阵 $ A_{2} $ 的行列式不等于 $0.$即
+	$$A\left(\begin{array}{llll}
+		i_{1},\  & i_{2},\  & \cdots,\  & i_{r} \\
+		j_{1},\  & j_{2},\  & \cdots,\  & j_{r}
+	\end{array}\right) \neq 0 .$$
+\end{proof}
+\newpage
+\begin{problem}
+	证明:斜对称矩阵的秩是偶数
+\end{problem}
+\begin{proof}
+	设  $n$  级斜对称矩阵  $A$  的行向量组为  $\boldsymbol{\gamma}_{1},\  \boldsymbol{\gamma}_{2},\  \cdots \boldsymbol{\gamma}_{n}.$则$  A^{\prime} $ 的列向量组为 $ \boldsymbol{\gamma}_{1}^{\prime},\  \boldsymbol{\gamma}_{2}^{\prime} ,\   \cdots,\  \boldsymbol{\gamma}_{n}^{\prime} .$由于 $ A^{\prime}=-A ,\ $ 因此  $A  $的列向量组为  $-\boldsymbol{\gamma}_{1}^{\prime},\ -\boldsymbol{\gamma}_{2}^{\prime},\  \cdots,\ -\boldsymbol{\gamma}_{n}^{\prime}  .设  \operatorname{rank}(A)=r .$取 $ A$  的行向量组的一个极大线性无关组  $\gamma_{i_{1}},\  \boldsymbol{\gamma}_{i_{2}},\  \cdots,\  \boldsymbol{\gamma}_{i_{r}} ,\  $则 $ -\boldsymbol{\gamma}_{i_{1}}^{\prime},\ -\boldsymbol{\gamma}_{i_{2}}^{\prime},\  \cdots,\ -\boldsymbol{\gamma}_{i_{r}}^{\prime}  $是 $ A $ 的列向量 组的一个极大线性无关组.据上题的结论,\  得
+	$$A\left(\begin{array}{llll}
+		i_{1},\  & i_{2},\  & \cdots,\  & i_{r} \\
+		i_{1},\  & i_{2},\  & \cdots,\  & i_{r}
+	\end{array}\right) \neq 0 .$$
+	由于  $A\left(i_{u} ; i_{v}\right)=-A\left(i_{v} ; i_{u}\right),\  v,\  u \in\{1,\ 2,\  \cdots,\  r\} ,\  $因此上述  $r$  阶子式是一个 $ r  $级斜对称矩 阵的行列式.由于奇数级斜对称矩阵的行列式等于 $0 ,\  $因此  $r$  必为偶数.
+\end{proof}
+\newpage
+\begin{problem}
+	设$  A$ 是实数域上的 $ s \times n $ 矩阵,\  则
+	$$\operatorname{rank}\left(A^{\prime} A\right)=\operatorname{rank}\left(A A^{\prime}\right)=\operatorname{rank}(A) .$$
+\end{problem}
+\begin{proof}
+	法1如果能够证明 $ n$  元齐次线性方程组$  \left(A^{\prime} A\right) \boldsymbol{X}=\mathbf{0}  $与  $A \boldsymbol{X}=\mathbf{0}$  同解,\  那么它们 的解空间一致,\  从而由解空间的维数公式,\  得
+	$$n-\operatorname{rank}\left(A^{\prime} A\right)=n-\operatorname{rank}(A),\ $$
+	由此得出,\   $\operatorname{rank}\left(A^{\prime} A\right)=\operatorname{rank}(A) .$
+	现在来证明 $ \left(A^{\prime} A\right) \boldsymbol{X}=\mathbf{0}$ 与  $A \boldsymbol{X}=\mathbf{0} $ 同解.设  $\eta $ 是 $ A \boldsymbol{X}=\mathbf{0} $ 的任意一个解,\  则  $A \boldsymbol{\eta}=\mathbf{0} .$从而 $ \left(A^{\prime} A\right) \eta=\mathbf{0} ,\  $因此 $ \eta  $是 $ \left(A^{\prime} A\right) \boldsymbol{X}=\mathbf{0}  $的一个解.反之,\  设 $\boldsymbol{\delta} $ 是  $\left(A^{\prime} A\right) \boldsymbol{X}=\mathbf{0}  $的任意一个解,\  则
+	$$\left(A^{\prime} A\right) \boldsymbol{\delta}=\mathbf{0}.$$
+	上式两边左乘 $ \boldsymbol{\delta}^{\prime} ,\  $得
+	即
+	$$\begin{array}{l}
+		\boldsymbol{\delta}^{\prime} A^{\prime} A \boldsymbol{\delta}=\mathbf{0},\  \\
+		(A \boldsymbol{\delta})^{\prime} A \boldsymbol{\delta}=\mathbf{0} .
+	\end{array}$$
+	设 $ (A \boldsymbol{\delta})^{\prime}=\left(c_{1},\  c_{2},\  \cdots,\  c_{s}\right) ,\ $
+	由于 $ A $ 是实数域上的矩阵,\  因此 $ c_{1},\  c_{2},\  \cdots c_{s}  $都是实数.由 (1) 式得
+	$$c_{1}^{2}+c_{2}^{2}+\cdots+c_{s}^{2}=0 .$$
+	由此推出,\  $ c_{1}=c_{2}=\cdots=c_{s}=0 .$从而 $ A \boldsymbol{\delta}=\mathbf{0} .$即 $ \boldsymbol{\delta} $ 是 $ A \boldsymbol{X}=\mathbf{0}$  的一个解.因此  $\left(A^{\prime} A\right) \boldsymbol{X}=\mathbf{0} $ 与$  A \mathbf{X}=\mathbf{0}$ 同解.于是
+	$$\operatorname{rank}\left(A^{\prime} A\right)=\operatorname{rank}(A)$$
+	由这个结论立即得出
+	$$\operatorname{rank}\left(A A^{\prime}\right)=\operatorname{rank}\left[\left(A^{\prime}\right)^{\prime}\left(A^{\prime}\right)\right]=\operatorname{rank}\left(A^{\prime}\right)=\operatorname{rank}(A) .$$
+	法2设  $\operatorname{rank}(A)=r ,\ $ 则  $r \leqslant \min \{s,\  n\}. A A^{\prime}  $的任一$  r  $级主子式为
+	$$\begin{aligned}
+		A A^{\prime}\left(\begin{array}{l}
+			i_{1},\  i_{2},\  \cdots,\  i_{r} \\
+			i_{1},\  i_{2},\  \cdots,\  i_{r}
+		\end{array}\right) & =\sum_{1 \leqslant v_{1}<v_{2}<\cdots<v_{r} \leqslant n} A\left(\begin{array}{l}
+			i_{1},\  i_{2},\  \cdots,\  i_{r} \\
+			v_{1},\  v_{2},\  \cdots,\  v_{r}
+		\end{array}\right) A^{\prime}\left(\begin{array}{l}
+			v_{1},\  v_{2},\  \cdots,\  v_{r} \\
+			i_{1},\  i_{2},\  \cdots,\  i_{r}
+		\end{array}\right) \\
+		& =\sum_{1 \leqslant v_{1}<v_{2}<\cdots<v_{r} \leqslant n}\left[A\left(\begin{array}{l}
+			i_{1},\  i_{2},\  \cdots,\  i_{r} \\
+			v_{1},\  v_{2},\  \cdots,\  v_{r}
+		\end{array}\right)\right]^{2} .
+	\end{aligned}$$
+	由于$  A  $有一个 $ r$  阶子式不为$ 0 ,\  $因此$  A A^{\prime}  $有一个  $r  $阶主子式不为$ 0. $从而$  \operatorname{rank}\left(A A^{\prime}\right) \geqslant r  .$ 又由于  $\operatorname{rank}\left(A A^{\prime}\right) \leqslant \operatorname{rank}(A)=r ,\ $
+	因此 $ \operatorname{rank}\left(A A^{\prime}\right)=r=\operatorname{rank}(A) .$
+	从而  $\operatorname{rank}\left(A^{\prime} A\right)=\operatorname{rank}\left[\left(A^{\prime}\right)\left(A^{\prime}\right)^{\prime}\right]=\operatorname{rank}\left(A^{\prime}\right)=\operatorname{rank}(A) .$
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ A  $是复数域上  $n  $级循环矩阵,\  它的第一行为  $\left(a_{1},\  a_{2},\  \cdots,\  a_{n}\right) ,\  $求  $|A| .$
+\end{problem}
+\begin{solution}
+	法一 令  $w=\mathrm{e}^{\frac{2 \pi}{n}\text{i}} ,\ $ 设
+	$$f(x)=a_{1}+a_{2} x+a_{3} x^{2}+\cdots+a_{n} x^{n-1} .$$
+	任给$  i \in\{0,\ 1,\  \cdots,\  n-1\} ,\ $
+	$$\begin{array}{l}
+		|A|=\left|\begin{array}{ccccc}
+			a_{1} & a_{2} & a_{3} & \cdots & a_{n} \\
+			a_{n} & a_{1} & a_{2} & \cdots & a_{n-1} \\
+			\vdots & \vdots & \vdots & & \vdots \\
+			a_{2} & a_{3} & a_{4} & \cdots & a_{1}
+		\end{array}\right| \\
+		=\left|\begin{array}{cccc}
+			f\left(w^{i}\right) & a_{2} & \cdots & a_{n} \\
+			w^{i} f\left(w^{i}\right) & a_{1} & \cdots & a_{n-1} \\
+			\vdots & \vdots & & \vdots \\
+			w^{i(n-1)} f\left(w^{i}\right) & a_{3} & \cdots & a_{1}
+		\end{array}\right|=f\left(w^{i}\right)\left|\begin{array}{cccc}
+			1 & a_{2} & \cdots & a_{n} \\
+			w^{j} & a_{1} & \cdots & a_{n-1} \\
+			\vdots & \vdots & & \vdots \\
+			w^{i(n-1)} & a_{3} & \cdots & a_{1}
+		\end{array}\right| . \\
+	\end{array}$$
+	因此 $ |A|  $有因子 $ f\left(w^{i}\right),\  i=0,\ 1,\  \cdots,\  n-1 .$由于  $|A|$  中$  a_{1}$  的幂指数至多是  $n ,\ $ 且  $a_{1}^{n}  $的系数 为 $1 ,\ $ 因此
+	$$|A|=\prod_{i=0}^{\pi-1} f\left(w^{i}\right)$$
+	法二 令$  w=\mathrm{e}^{\frac{2\pi}{n}\mathrm{i}} ,\  $设  $f(x)=a_{1}+a_{2} x+a_{3} x^{2}+\cdots+a_{n} x^{n-1} ,\ $令
+	$$B=\left(\begin{array}{ccccc}
+		1 & 1 & 1 & \cdots & 1 \\
+		1 & w & w^{2} & \cdots & w^{n-1} \\
+		1 & w^{2} & w^{4} & \cdots & w^{2(n-1)} \\
+		\vdots & \vdots & \vdots & & \vdots \\
+		1 & w^{n-1} & w^{2(n-1)} & \cdots & w^{(n-1)(n-1)}
+	\end{array}\right)$$
+	则
+	$$
+	\begin{aligned}
+		|A B| & =\left|\left(\begin{array}{ccccc}
+			a_{1} & a_{2} & a_{3} & \cdots & a_{n} \\
+			a_{n} & a_{1} & a_{2} & \cdots & a_{n-1} \\
+			\vdots & \vdots & \vdots & & \vdots \\
+			a_{2} & a_{3} & a_{4} & \cdots & a_{1}
+		\end{array}\right)\left(\begin{array}{ccccc}
+			1 & 1 & 1 & \cdots & 1 \\
+			1 & w & w^{2} & \cdots & w^{n-1} \\
+			\vdots & \vdots & \vdots & & \vdots \\
+			1 & w^{n-1} & w^{2(n-1)} & \cdots & w^{(m-1)(n-1)}
+		\end{array}\right)\right|\\
+		& =\left|\begin{array}{ccccc}
+			f(1) & f(w) & f\left(w^{2}\right) & \cdots & f\left(w^{n-1}\right) \\
+			f(1) & w f(w) & w^{2} f\left(w^{2}\right) & \cdots & w^{n-1} f\left(w^{n-1}\right) \\
+			\vdots & \vdots & \vdots & & \vdots \\
+			f(1) & w^{n-1} f(w) & w^{2(n-1)} f\left(w^{2}\right) & \cdots & w^{(n-1)(n-1)} f\left(w^{n-1}\right)
+		\end{array}\right|\\
+		& =f(1) f(w) f\left(w^{2}\right) \cdots f\left(w^{n-1}\right)\left|\begin{array}{ccccc}
+			1 & 1 & 1 & \cdots & 1 \\
+			1 & w & w^{2} & \cdots & w^{n-1} \\
+			\vdots & \vdots & \vdots & & \vdots \\
+			1 & w^{n-1} & w^{2(n-1)} & \cdots & a^{(n-1)(n-1)}
+		\end{array}\right| \\
+		& =\prod\limits_{i=0}^{n-1} f\left(w^{i}\right)|B| . \\
+	\end{aligned}
+	$$
+	又由于  $|A B|=|A||B| ,\  $且  $|B| \neq 0 ,\ $ 因此
+	$$|A|=\prod_{i=0}^{\pi-1} f\left(w^{i}\right)$$
+\end{solution}
+\newpage
+\begin{problem}
+	设$  A  $是一个  $n \times m $ 矩阵,\  $ m \geqslant n-1 .$求 $ A A^{\prime} $ 的 $ (1,\ 1) $ 元的代数余子式.
+\end{problem}
+\begin{solution}
+	$ A A^{\prime}  $是 $ n$  级矩阵,\ $  A A^{\prime}  $的$  (1,\ 1) $ 元的余子式是 $ A A^{\prime}$ 的一个 $ n-1 $ 阶子式.由于 $ n-1 \leqslant m ,\ $因此
+	$$\begin{aligned}
+		A A^{\prime}\left(\begin{array}{l}
+			2,\ 3,\  \cdots,\  n \\
+			2,\ 3,\  \cdots,\  n
+		\end{array}\right) & =\sum_{1 \leqslant v_{1}<\cdots<v_{n-1} \leqslant m} A\left(\begin{array}{l}
+			2,\ 3,\  \cdots,\  n \\
+			v_{1},\  v_{2},\  \cdots,\  v_{n-1}
+		\end{array}\right) A^{\prime}\left(\begin{array}{l}
+			v_{1},\  v_{2},\  \cdots,\  v_{n-1} \\
+			2,\ 3,\  \cdots,\  n
+		\end{array}\right) \\
+		& =\sum_{1 \leqslant v_{1}<\cdots<v_{n-1} \leqslant m}\left[A\left(\begin{array}{l}
+			2,\ 3,\  \cdots,\  n \\
+			v_{1},\  v_{2},\  \cdots,\  v_{n-1}
+		\end{array}\right)\right]^{2} .
+	\end{aligned}$$
+	又由于$  (-1)^{1+1}=1 ,\ $ 因此 $ A A^{\prime} $的 $ (1,\ 1)  $元的代数余子式等于 $ A  $的第一行元素的余子式的 平方和.
+\end{solution}
+\newpage
+\begin{problem}
+	设 $ A  $是一个 $ n \times m  $矩阵,\   $m \geqslant n-1 ,\ $ 并且$  A  $的每一列元素的和都为 $0 .$证明: $ A A^{\prime}  $的所有元素的代数余子式都相等.
+\end{problem}
+\begin{solution}
+	$A A^{\prime} $ 的 $ (i,\  j) $ 元的代数余子式为
+	$$\begin{array}{l}
+		(-1)^{i+j} A A^{\prime}\left(\begin{array}{l}
+			1,\  \cdots,\  i-1,\  i+1,\  \cdots,\  n \\
+			1,\  \cdots,\  j-1,\  j+1,\  \cdots,\  n
+		\end{array}\right) \\
+		=(-1)^{i+j} \sum_{1 \leqslant v_{1}<\cdots<v_{n-1} \leqslant m} A\left(\begin{array}{l}
+			1,\  \cdots,\  i-1,\  i+1,\  \cdots,\  n \\
+			v_{1},\  v_{2},\  \cdots,\  v_{n-1}
+		\end{array}\right) A^{\prime}\left(\begin{array}{l}
+			v_{1},\  v_{2},\  \cdots,\  v_{n-1} \\
+			1,\  \cdots,\  j-1,\  j+1,\  \cdots,\  n
+		\end{array}\right) \\
+		=(-1)^{i+j} \sum_{1 \leqslant v_{1}<\cdots<v_{n-1} \leqslant m} A\left(\begin{array}{l}
+			1,\  \cdots,\  i-1,\  i+1,\  \cdots,\  n \\
+			v_{1},\  v_{2},\  \cdots,\  v_{n-1}
+		\end{array}\right) A\left(\begin{array}{l}
+			1,\  \cdots,\  j-1,\  j+1,\  \cdots,\  n \\
+			v_{1},\  v_{2},\  \cdots,\  v_{n-1}
+		\end{array}\right)
+	\end{array}$$
+	计算
+	$$	A\left(\begin{array}{l}
+		1,\  \cdots,\  i-1,\  i+1,\  \cdots,\  n \\
+		v_{1},\  v_{2},\  \cdots,\  v_{n-1}
+	\end{array}\right)=\left|\begin{array}{cccc}
+		a_{1 v_{1}} & a_{1 v_{2}} & \cdots & a_{1 v_{n-1}} \\
+		\vdots & \vdots & & \vdots \\
+		a_{i-1,\  v_{1}} & a_{i-1,\  v_{2}} & \cdots & a_{i-1,\  v_{n-1}} \\
+		a_{i+1,\  v_{1}} & a_{i+1,\  v_{2}} & \cdots & a_{i+1,\  v_{n-1}} \\
+		\vdots & \vdots & & \vdots \\
+		a_{m_{1}} & a_{m v_{2}} & \cdots & a_{n n_{n-1}}
+	\end{array}\right|$$
+	$$\begin{array}{l}
+		=(-1)^{i+1} A\left(\begin{array}{l}
+			2,\ 3,\  \cdots,\  n \\
+			v_{1},\  v_{2},\  \cdots,\  v_{n-1}
+		\end{array}\right) . \\
+	\end{array}$$
+	因此 $ A A^{\prime} $ 的 $ (i,\  j) $ 元的代数余子式为
+	$$\begin{aligned}
+		& (-1)^{i+j} \sum_{1 \leqslant v_{1}<\cdots<v_{n-1} \leqslant m}(-1)^{i+1} A\left(\begin{array}{l}
+			2,\ 3,\  \cdots,\  n \\
+			v_{1},\  v_{2},\  \cdots,\  v_{n-1}
+		\end{array}\right)(-1)^{j+1} A\left(\begin{array}{l}
+			2,\ 3,\  \cdots,\  n \\
+			v_{1},\  v_{2},\  \cdots,\  v_{n-1}
+		\end{array}\right) \\
+		= & \sum_{1 \leqslant v_{1}<\cdots<v_{n-1} \leqslant m}\left[A\left(\begin{array}{l}
+			2,\ 3,\  \cdots,\  n \\
+			v_{1},\  v_{2},\  \cdots,\  v_{n-1}
+		\end{array}\right)\right]^{2} .
+	\end{aligned}$$
+	据上题的结果,\  上式右端等于  $A A^{\prime}  $的  $(1,\ 1)$  元的代数余子式.这证明了  $A A^{\prime}  $的所有元素 的代数余子式都相等.
+\end{solution}
+\newpage
+\begin{problem}
+	设$\boldsymbol{A},\ \boldsymbol{B}$分别是数域$K$上的$n\times m,\ m\times n$矩阵.证明:如果$\boldsymbol{I}_n-\boldsymbol{AB}$可逆,\ 那么$\boldsymbol{I}_m-\boldsymbol{BA}$也可逆;并且求$(\boldsymbol{I}_m-\boldsymbol{BA})^{-1}.$
+\end{problem}
+\begin{proof}
+	设法找到$m$级矩阵$\boldsymbol{X},\ $使得$(\boldsymbol{I}_m-\boldsymbol{BA})$
+	$$(\boldsymbol{I}_m+\boldsymbol{X})=\boldsymbol{I}_m.$$
+	由上式得
+	$$-\boldsymbol{BA}+\boldsymbol{X}-\boldsymbol{BAX}=\boldsymbol{0},\ $$
+	即
+	$$\boldsymbol{X}-\boldsymbol{BAX}=\boldsymbol{BA}.$$
+	令$\boldsymbol{X}=\boldsymbol{BYA},\ $其中$\boldsymbol{Y}$是待定的$n$级矩阵.\\
+	代入上式,\ 得
+	$$\boldsymbol{BYA}-\boldsymbol{BABYA}=\boldsymbol{BA},\ $$
+	即
+	$$\boldsymbol{B}(\boldsymbol{Y}-\boldsymbol{ABY})\boldsymbol{A}=\boldsymbol{BA}.$$
+	如果能找到$\boldsymbol{Y}$使得$\boldsymbol{Y}-\boldsymbol{ABY}=\boldsymbol{I}_n,\ $那么上式成立,\ 由于$\boldsymbol{Y}-\boldsymbol{ABY}=\boldsymbol{I}_n$等价于$(\boldsymbol{I}_n-\boldsymbol{AB})\boldsymbol{Y}=\boldsymbol{I}_n,\ $而已知条件中$\boldsymbol{I}_n-\boldsymbol{AB}$可逆,\ 因此$\boldsymbol{Y}=(\boldsymbol{I}_n-\boldsymbol{AB})^{-1}.$由此受到启发,\ 有
+	$$\begin{aligned}
+		&(\boldsymbol{I}_m-\boldsymbol{BA})[\boldsymbol{I}_m+\boldsymbol{B}(\boldsymbol{I}_n-\boldsymbol{AB})^{-1}\boldsymbol{A}]\\
+		&=\boldsymbol{I}_m+\boldsymbol{B}(\boldsymbol{I}_n-\boldsymbol{AB})^{-1}\boldsymbol{A}-\boldsymbol{BA}-\boldsymbol{BAB}(\boldsymbol{I}_n-\boldsymbol{AB})^{-1}\boldsymbol{A}\\
+		&=\boldsymbol{I}_m-\boldsymbol{BA}+\boldsymbol{B}[(\boldsymbol{I}_n-\boldsymbol{AB})^{-1}-\boldsymbol{AB}(\boldsymbol{I}_n-\boldsymbol{AB})^{-1}]\boldsymbol{A}\\
+		&=\boldsymbol{I}_m-\boldsymbol{BA}+\boldsymbol{B}[(\boldsymbol{I}_n-\boldsymbol{AB})(\boldsymbol{I}_n-\boldsymbol{AB})^{-1}]\boldsymbol{A}\\
+		&=\boldsymbol{I}_m-\boldsymbol{BA}+\boldsymbol{B}\boldsymbol{I}_n\boldsymbol{A}\\
+		&=\boldsymbol{I}_m,\ 
+	\end{aligned}$$
+	因此$\boldsymbol{I}_m-\boldsymbol{BA}$可逆,\ 并且
+	$$(\boldsymbol{I}_m-\boldsymbol{BA})^{-1}=\boldsymbol{I}_m+\boldsymbol{B}(\boldsymbol{I}_n-\boldsymbol{AB})^{-1}\boldsymbol{A}.$$
+\end{proof}
+\newpage
+\begin{problem}
+	方阵$\boldsymbol{A}$如果满足$\boldsymbol{A}^2=\boldsymbol{I},\ $那么称$\boldsymbol{A}$是对合矩阵.设$\boldsymbol{A},\ \boldsymbol{B}$都是数域$K$上的$n$级矩阵,\ 证明:\\
+	(1)如果$\boldsymbol{A},\ \boldsymbol{B}$都是对合矩阵,\ 且$|\boldsymbol{A}|+|\boldsymbol{B}|=0,\ $那么$\boldsymbol{A}+\boldsymbol{B},\ \boldsymbol{I}+\boldsymbol{AB}$都不可逆;\\
+	(2)如果$\boldsymbol{B}$是对合矩阵,\ 且$|\boldsymbol{B}|=-1,\ $那么$\boldsymbol{I}+\boldsymbol{B}$不可逆.
+\end{problem}
+\begin{proof}
+	(1)由于$\boldsymbol{A}^2=\boldsymbol{I},\ $因此$|\boldsymbol{A}^2|=|\boldsymbol{I}|,\ $那么$|\boldsymbol{A}|^2=1.$由此得出,\ $|\boldsymbol{A}|=\pm 1.$由已知条件,\ 不妨设$|\boldsymbol{A}|=1,\ |\boldsymbol{B}|=-1.$由于
+	$$|\boldsymbol{A}||\boldsymbol{A}+\boldsymbol{B}|=|\boldsymbol{A}(\boldsymbol{A}+\boldsymbol{B})|=|\boldsymbol{A}^2+\boldsymbol{AB}|=|\boldsymbol{I}+\boldsymbol{AB}|,\ $$
+	$$|\boldsymbol{A+B}||\boldsymbol{B}|=|(\boldsymbol{A}+\boldsymbol{B})\boldsymbol{B}|=|\boldsymbol{AB}+\boldsymbol{B}^2|=|\boldsymbol{AB}+\boldsymbol{I}|,\ $$
+	因此
+	$$|\boldsymbol{A+B}|=|\boldsymbol{A}||\boldsymbol{A+B}|=|\boldsymbol{A+B}||\boldsymbol{B}|=-|\boldsymbol{A+B}|,\ $$
+	从而
+	$$|\boldsymbol{A+B}|=0,\ $$
+	于是
+	$$|\boldsymbol{I}+\boldsymbol{AB}|=|\boldsymbol{A+B}|=0,\ $$
+	所以$\boldsymbol{A+B},\ \boldsymbol{I}+\boldsymbol{AB}$都不可逆.\\
+	(2)取$\boldsymbol{A}=\boldsymbol{I}.$则$|\boldsymbol{A}|+|\boldsymbol{B}|=0.$由(1)可得出$\boldsymbol{I}+\boldsymbol{B}$不可逆.
+\end{proof}
+\begin{note}
+	$n$级可逆矩阵组成的集合对于矩阵的加法不封闭.
+\end{note}
+\newpage
+\begin{problem}
+	设$\boldsymbol{A},\ \boldsymbol{B}$分别是$s\times n,\ n\times m$矩阵.证明:若$\boldsymbol{AB}=\boldsymbol{0},\ $则$\operatorname{rank}(\boldsymbol{A})+\operatorname{rank}(\boldsymbol{B})\leqslant n.$
+\end{problem}
+\begin{proof}
+	若$\boldsymbol{A}=\boldsymbol{0},\ $则显然结论成立,\ 下面设$\boldsymbol{A}\neq \boldsymbol{0}.$\\
+	设$\boldsymbol{B}$的列向量组是$\boldsymbol{\beta}_1,\ \boldsymbol{\beta}_2,\ \cdots,\ \boldsymbol{\beta}_m,\ $由于$\boldsymbol{AB}=\boldsymbol{0},\ $因此$\boldsymbol{\beta}_j$属于$\boldsymbol{Ax}=\boldsymbol{0}$的解空间$W,\ j=1,\ 2,\ \cdots,\ m,\ $于是有
+	$$\operatorname{rank}(\boldsymbol{B})=\operatorname{dim}<\boldsymbol{\beta}_1,\ \boldsymbol{\beta}_2,\ \cdots,\ \boldsymbol{\beta}_m>\leqslant\operatorname{dim}W=n-\operatorname{rank}(\boldsymbol{A}),\ $$
+	即
+	$$\operatorname{rank}(\boldsymbol{A})+\operatorname{\boldsymbol{B}}\leqslant n.$$
+\end{proof}
+\newpage
+\begin{problem}
+	证明Sylvester秩不等式:设$\boldsymbol{A},\ \boldsymbol{B}$分别是$s\times n,\ n\times m$矩阵,\ 则
+	$$\operatorname{rank}(\boldsymbol{AB})\geqslant\operatorname{rank}(\boldsymbol{A})+\operatorname{rank}(\boldsymbol{B})-n.$$
+\end{problem}
+\begin{proof}
+	只需证$n+\operatorname{rank}(\boldsymbol{AB})\geqslant\operatorname{rank}(\boldsymbol{A})+\operatorname{rank}(\boldsymbol{B}).$
+	首先我们有
+	$$n+\operatorname{rank}(\boldsymbol{AB})=\operatorname{rank}\begin{pmatrix}
+		\boldsymbol{I}_n&\boldsymbol{0}\\
+		\boldsymbol{0}&\boldsymbol{AB}
+	\end{pmatrix}.$$
+	做分块矩阵的初等行(列)变换:
+	
+	$$\begin{aligned}\begin{pmatrix}
+			\boldsymbol{I}_n & \boldsymbol{0}\\
+			\boldsymbol{0}   & \boldsymbol{AB}
+		\end{pmatrix}
+		&\xrightarrow{2+\boldsymbol{A}\cdot 1}\begin{pmatrix}
+			\boldsymbol{I}_n & \boldsymbol{0}\\
+			\boldsymbol{A}   & \boldsymbol{AB}
+		\end{pmatrix}
+		\xrightarrow[2+1\cdot(-\boldsymbol{B})]{}\begin{pmatrix}
+			\boldsymbol{I}_n & -\boldsymbol{B}\\
+			\boldsymbol{A}   & \boldsymbol{0}
+		\end{pmatrix}\\
+		&\xrightarrow[2\cdot(-\boldsymbol{I}_m)]{}\begin{pmatrix}
+			\boldsymbol{I}_n & \boldsymbol{B}\\
+			\boldsymbol{A}   & \boldsymbol{0}
+		\end{pmatrix}
+		\xrightarrow[(1,\ 2)]{}\begin{pmatrix}
+			\boldsymbol{B}   &\boldsymbol{I}_n\\
+			\boldsymbol{0}   &\boldsymbol{A}
+		\end{pmatrix}.
+	\end{aligned}$$
+	根据分块矩阵的初等行(列)变换不改变矩阵的秩,\ 得
+	$$\operatorname{rank}\begin{pmatrix}
+		\boldsymbol{I}_n & \boldsymbol{0}\\
+		\boldsymbol{0}   & \boldsymbol{AB}
+	\end{pmatrix}=\operatorname{rank}\begin{pmatrix}
+		\boldsymbol{B}   & \boldsymbol{I}_n\\
+		\boldsymbol{0}   & \boldsymbol{A}
+	\end{pmatrix}\geqslant\operatorname{rank}(\boldsymbol{B})+\operatorname{rank}(\boldsymbol{A}),\ $$
+	因此
+	$$\operatorname{rank}(\boldsymbol{AB})\geqslant\operatorname{rank}(\boldsymbol{A})+\operatorname{rank}(\boldsymbol{B})-n.$$
+\end{proof}
+\newpage
+\begin{problem}
+	如果数域$K$上$n$级矩阵$\boldsymbol{A}$满足$\boldsymbol{A}^2=\boldsymbol{A},\ $那么称$\boldsymbol{A}$是幂等矩阵.证明:数域$K$上$n$级矩阵$\boldsymbol{A}$是幂等矩阵当且仅当
+	$$\operatorname{rank}(\boldsymbol{A})+\operatorname{rank}(\boldsymbol{I}-\boldsymbol{A})=n.$$
+\end{problem}
+\begin{proof}
+	$n$级矩阵$\boldsymbol{A}$是幂等矩阵$\Longleftrightarrow\boldsymbol{A}^2=\boldsymbol{A}\Longleftrightarrow\boldsymbol{A}-\boldsymbol{A}^2=\boldsymbol{0}\Longleftrightarrow\operatorname{rank}(\boldsymbol{A}-\boldsymbol{A}^2)=0.$由于
+	$$\begin{aligned}
+		\begin{pmatrix}
+			\boldsymbol{A} & \boldsymbol{0}\\
+			\boldsymbol{0} & \boldsymbol{I-A}
+		\end{pmatrix}&\xrightarrow[]{(2)+(1)}
+		\begin{pmatrix}
+			\boldsymbol{A} & \boldsymbol{0}\\
+			\boldsymbol{A} & \boldsymbol{I-A}
+		\end{pmatrix}\xrightarrow[(2)+(1)]{}
+		\begin{pmatrix}
+			\boldsymbol{A} & \boldsymbol{A}\\
+			\boldsymbol{A} & \boldsymbol{I}
+		\end{pmatrix}\\
+		&\xrightarrow[]{(1)+(-\boldsymbol{A}\cdot (2)}
+		\begin{pmatrix}
+			\boldsymbol{A}-\boldsymbol{A}^2& \boldsymbol{0}\\
+			\boldsymbol{A} 				   & \boldsymbol{I}
+		\end{pmatrix}\xrightarrow[(1)+(2)\cdot (-\boldsymbol{A})]{}
+		\begin{pmatrix}
+			\boldsymbol{A}-\boldsymbol{A}^2& \boldsymbol{0}\\
+			\boldsymbol{0} 				   & \boldsymbol{I}
+		\end{pmatrix}
+	\end{aligned}$$
+	因此
+	$$\operatorname{rank}\begin{pmatrix}
+		\boldsymbol{A} & \boldsymbol{0}\\
+		\boldsymbol{0} & \boldsymbol{I-A}
+	\end{pmatrix}=\operatorname{rank}\begin{pmatrix}
+		\boldsymbol{A}-\boldsymbol{A}^2& \boldsymbol{0}\\
+		\boldsymbol{0} 				   & \boldsymbol{I}
+	\end{pmatrix},\ $$
+	从而
+	$$\operatorname{rank}(\boldsymbol{A})+\operatorname{rank}(\boldsymbol{I-A})=\operatorname{rank}(\boldsymbol{A}-\boldsymbol{A}^2)+n,\ $$
+	由此得出,\ $n$级矩阵$\boldsymbol{A}$是幂等矩阵$\Longleftrightarrow\operatorname{rank}(\boldsymbol{A}-\boldsymbol{A}^2)=0\Longleftrightarrow\operatorname{rank}(\boldsymbol{A})+\operatorname{rank}(\boldsymbol{I-A})=n.$
+\end{proof}
+\newpage
+\begin{problem}
+	设  $A  $是实数域上的  $s \times n $ 矩阵,\  证明:对于任意 $ \boldsymbol{\beta} \in K^{3} ,\  $线性方程组 $ A^{\prime} A \boldsymbol{X}=A^{\prime} \boldsymbol{\beta} $ 一 定有解.
+\end{problem}
+\begin{proof}
+	只需证增广矩阵  $\left(A^{\prime} A,\  A^{\prime} \boldsymbol{\beta}\right) $ 与系数矩阵 $ A^{\prime} A $ 的秩相等.由于 $ A  $是实数域上 的矩阵,\  因此 $ \operatorname{rank}\left(A^{\prime} A\right)=\operatorname{rank}\left(A^{\prime}\right) .$从而
+	$$\operatorname{rank}\left(A^{\prime} A,\  A^{\prime} \boldsymbol{\beta}\right)=\operatorname{rank}\left(A^{\prime}(A,\  \boldsymbol{\beta})\right) \leqslant \operatorname{rank}\left(A^{\prime}\right)=\operatorname{rank}\left(A^{\prime} A\right) .$$
+	又由于  $\operatorname{rank}\left(A^{\prime} A\right) \leqslant \operatorname{rank}\left(A^{\prime} A,\  A^{\prime} \boldsymbol{\beta}\right) ,\ $ 因此
+	$$\operatorname{rank}\left(A^{\prime} A,\  A^{\prime} \boldsymbol{\beta}\right)=\operatorname{rank}\left(A^{\prime} A\right) .$$
+	从而线性方程组 $ A^{\prime} A \boldsymbol{X}=A^{\prime} \boldsymbol{\beta} $ 有解.
+\end{proof}
+\newpage
+\begin{problem}
+	设  $A$  是 $ n$  级矩阵  $(n \geqslant 2) ,\  $证明:
+	$$\left|A^{*}\right|=|A|^{n-1} \text {. }$$
+\end{problem}
+\begin{proof}
+	若 $ A=0 ,\ $ 则结论显然成立下设 $ A \neq 0 .$我们知道,\  $ A A^{*}=|A| I .$
+	若 $ |A| \neq 0 ,\ $ 则$  |A|\left|A^{*}\right|=|A|^{n} .$从而  $\left|A^{*}\right|=|A|^{n-1} .$
+	若$  |A|=0 ,\  $则 $ A A^{*}=0 .$故
+	$$\operatorname{rank}(A)+\operatorname{rank}\left(A^{*}\right) \leqslant n . $$
+	从而
+	$$\operatorname{rank}\left(A^{*}\right) \leqslant n-\operatorname{rank}(A)<n .$$
+	因此  $\left|A^{*}\right|=0  .$从而结论成立.
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ A  $是  $n  $级矩阵 $ (n \geqslant 2) ,\  $证明:
+	$$\operatorname{rank}\left(A^{*}\right)=\left\{\begin{array}{ll}
+		n,\  & \text { 当 } \operatorname{rank}(A)=n,\  \\
+		1,\  & \text { 当 } \operatorname{rank}(A)=n-1,\  \\
+		0,\  & \text { 当 } \operatorname{rank}(A)<n-1 .
+	\end{array}\right.$$
+\end{problem}
+\begin{proof}
+	若 $ \operatorname{rank}(A)=n ,\ $ 则$  |A| \neq 0 .$从而  $\left|A^{*}\right| \neq 0 .$于是 $ \operatorname{rank}\left(A^{*}\right)=n .$
+	若 $ \operatorname{rank}(A)=n-1 ,\  $则  $A $ 有一个 $ n-1  $阶子式不等于$ 0 .$从而 $ A  $有一个元素的代数余 子式不等于 $0 .$于是 $ A^{*} \neq 0$  由于$  |A|=0 ,\  $据上题的证明得
+	$$\operatorname{rank}\left(A^{*}\right) \leqslant n-\operatorname{rank}(A)=n-(n-1)=1 .$$
+	由于$  A^{*} \neq 0 ,\ $ 因此  $\operatorname{rank}\left(A^{*}\right)=1 .$
+	若 $ \operatorname{rank}(A)<n-1 ,\  $则$  A $ 的所有 $ n-1  $阶子式都等于$ 0 ,\ $ 从而  $A^{*}=0 .$于是 $ \operatorname{rank}\left(A^{*}\right)=0 .$
+\end{proof}
+\newpage
+\begin{problem}
+	设  $A $ 是 $ n  $级矩阵  $(n \geqslant 2).$证明:\\
+	(1) 当$ n \geqslant 3$ 时,\   $\left(A^{*}\right)^{*}=|A|^{n-2} A ;$\\
+	(2) 当  $n=2  $时,\ $  \left(A^{*}\right)^{*}=A .$
+\end{problem}
+\begin{proof}
+	(1) 设  $n \geqslant 3 .$若 $ |A| \neq 0 ,\  $则  $\left|A^{*}\right|=|A|^{n-1} .$由于  $A^{*}\left(A^{*}\right)^{*}=\left|A^{*}\right| I .$
+	因此  $\left(A^{*}\right)^{*}=\left|A^{*}\right|\left(A^{*}\right)^{-1}=|A|^{n-1} \frac{1}{|A|} A=|A|^{n-2} A .$
+	若  $|A|=0 ,\  $则据上题的结果得 $ \operatorname{rank}\left(A^{*}\right) \leqslant 1<n-1 .$
+	因此 $ \left(A^{*}\right)^{*}=0 .$ 于是结论也成立.\\
+	(2) 设  $n=2 .$此时
+	$$A=\left(\begin{array}{ll}
+		a & b \\
+		c & d
+	\end{array}\right),\  A^{*}=\left(\begin{array}{rr}
+		d & -b \\
+		-c & a
+	\end{array}\right)$$
+	因此
+	$$\left(A^{*}\right)^{*}=\left(\begin{array}{ll}
+		a & b \\
+		c & d
+	\end{array}\right)=A$$
+\end{proof}
+\newpage
+\begin{problem}
+	设
+	$$A=\left(\begin{array}{ll}
+		A_{1} & A_{2} \\
+		A_{3} & A_{4}
+	\end{array}\right),\ $$
+	其中 $ A_{1}$  是$  r$  级可逆矩阵,\   $A_{4} $ 是  $s  $级矩阵.问: 还应满足什么条件,\  $ A  $才可逆,\  当  $A$ 可逆 时,\  求 $ A^{-1}  .$
+\end{problem}
+\begin{solution}
+	作分块矩 阵的初等行变换:
+	从而
+	$$\left(\begin{array}{ll}
+		A_{1} & A_{2} \\
+		A_{3} & A_{4}
+	\end{array}\right) \stackrel{\left((2)+\left(-A_{3} A^{-1}\right) \cdot (1)\right.}{\longrightarrow}\left(\begin{array}{cc}
+		A_{1} & A_{2} \\
+		0 & A_{4}-A_{3} A_{1}^{-1} A_{2}
+	\end{array}\right) .$$
+	$$\left(\begin{array}{cc}
+		I_{r} & 0 \\
+		-A_{3} A_{1}^{-1} & I_{s}
+	\end{array}\right)\left(\begin{array}{ll}
+		A_{1} & A_{2} \\
+		A_{3} & A_{4}
+	\end{array}\right)=\left(\begin{array}{cc}
+		A_{1} & A_{2} \\
+		0 & A_{4}-A_{3} A_{1}^{-1} A_{2}
+	\end{array}\right) .$$
+	两边取行列式,\ 得
+	$$\left|I_{r}\right|\left|I_{s}\right||A|=\left|A_{1}\right|\left|A_{4}-A_{3} A_{1}^{-1} A_{2}\right| .$$
+	由此得出,\  再满足 $ A_{4}-A_{3} A_{1}^{-1} A_{2} $ 可逆的条件,\  则$  A $ 可逆.当 $ A  $可逆时,\ 
+	$$\begin{aligned}
+		A^{-1} & =\left(\begin{array}{ll}
+			A_{1} & A_{2} \\
+			A_{3} & A_{4}
+		\end{array}\right)^{-1}=\left(\begin{array}{cc}
+			A_{1} & A_{2} \\
+			0 & A_{4}-A_{3} A_{1}^{-1} A_{2}
+		\end{array}\right)^{-1} \left(\begin{array}{cc}
+			I_{r} & 0 \\
+			-A_{3} A_{1}^{-1} & I_{s}
+		\end{array}\right) \\
+		& =\left(\begin{array}{cc}
+			A_{1}^{-1} & -A_{1}^{-1} A_{2}\left(A_{4}-A_{3} A_{1}^{-1} A_{2}\right)^{-1} \\
+			0 & \left(A_{4}-A_{3} A_{1}^{-1} A_{2}\right)^{-1}
+		\end{array}\right)\left(\begin{array}{cc}
+			I_{r} & 0 \\
+			-A_{3} A_{1}^{-1} & I_{3}
+		\end{array}\right) \\
+		& =\left(\begin{array}{cc}
+			A_{1}^{-1}+A_{1}^{-1} A_{2}\left(A_{4}-A_{3} A_{1}^{-1} A_{2}\right)^{-1} A_{3} A_{1}^{-1} & -A_{1}^{-1} A_{2}\left(A_{4}-A_{3} A_{1}^{-1} A_{2}\right)^{-1} \\
+			-\left(A_{4}-A_{3} A_{1}^{-1} A_{2}\right)^{-1} A_{3} A_{1}^{-1} & \left(A_{4}-A_{3} A_{1}^{-1} A_{2}\right)^{-1}
+		\end{array}\right) .
+	\end{aligned}$$
+\end{solution}
+\newpage
+\begin{problem}
+	设  $A ,\ B ,\  C,\  D  $都是数域 $ K  $上的$  n$  级矩阵,\ 且$  A C=C A .$证明:
+	$$\left|\begin{array}{ll}
+		A & B \\
+		C & D
+	\end{array}\right|=|A D-C B|.$$
+\end{problem}
+\begin{proof}
+	当  $|\boldsymbol{A}| \neq 0 $ 时,\  可以作下述分块矩阵的初等行变换:
+	$$\left(\begin{array}{ll}
+		A & B \\
+		C & D
+	\end{array}\right) \stackrel{(2)+\left(-C A^{-1}\right) \cdot (1)}{\longrightarrow}\left(\begin{array}{cc}
+		A & B \\
+		0 & D-C A^{-1} B
+	\end{array}\right) .$$
+	从而
+	$$\left(\begin{array}{cc}
+		I & 0 \\
+		-C A^{-1} & I
+	\end{array}\right)\left(\begin{array}{ll}
+		A & B \\
+		C & D
+	\end{array}\right)=\left(\begin{array}{cc}
+		A & B \\
+		0 & D-C A^{-1} B
+	\end{array}\right) .$$
+	两边取行列式,\  得
+	$$|I||I|\left|\begin{array}{ll}
+		A & B \\
+		C & D
+	\end{array}\right|=|A|\left|D-C A^{-1} B\right| .$$
+	于是
+	$$\left|\begin{array}{ll}
+		A & B \\
+		C & D
+	\end{array}\right|=\left|A\left(D-C A^{-1} B\right)\right|=\left|A D-A C A^{-1} B\right|=|A D-C B| .$$
+	当  $|A|=0 $ 时,\  令
+	$$A(t)=A-t I,\ $$
+	则 $ |A(t)|=|A-t I|  $是  $t$  的 $ n$  次多项式,\  记作$  f(t) .$显然有  $f(0)=|A|=0 .$因为  $n  $次多 项式 $ f(t)  $在数域  $K $ 中的根至多有  $n $ 个,\  所以存在  $\delta>0 ,\  $使得 $ \forall t \in(0-\delta,\  0+\delta) ,\  $并且  $t \neq 0 ,\ $ 都有 $ f(t) \neq 0 ,\ $ 即 $|A(t)| \neq 0 .$由于 $ A C=C A ,\ $因此
+	$$A(t) C=(A-t I) C=A C-t C=C A-t C=C(A-t I)=C A(t) .$$
+	由上一段刚证得的结果得,\  当 $ t \in(0-\delta,\  0+\delta)$  且 $ t \neq 0$ 时,\  有
+	$$\left|\begin{array}{cc}
+		A(t) & B \\
+		C & D
+	\end{array}\right|=|A(t) D-C B| .$$
+	令  $t \rightarrow 0 ,\ $ 在上式两边取极限,\  得
+	$$\left|\begin{array}{ll}
+		A & B \\
+		C & D
+	\end{array}\right|=|A D-C B| .$$
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ A  $是数域  $K $ 上$ 2$级矩阵,\  证明: 如果  $|A|=1 ,\ $ 那么  $A$  可以表示成  $1^{\circ} $ 型初等 矩阵  $P(i,\  j(k)) $ 的乘积 (即 $ A $ 可以表示成形如  $I+k E_{i j}  $的矩阵的乘积,\  其中  $i \neq j $ ).
+\end{problem}
+\begin{proof}
+	先看一个特殊情形,\  设
+	$$A=\left(\begin{array}{cc}
+		a & 0 \\
+		0 & a^{-1}
+	\end{array}\right) .$$
+	若 $ a=1 ,\ $ 则 $ A=I ,\ $ 已符合要求.下面设 $ a \neq 1 .$
+	$$\begin{array}{c}
+		\left(\begin{array}{cc}
+			a & 0 \\
+			0 & a^{-1}
+		\end{array}\right) \xrightarrow{(2)+(1) \cdot a^{-1}}
+		\left(\begin{array}{cc}
+			a & 0 \\
+			1 & a^{-1}
+		\end{array}\right) \xrightarrow[(2)+(1)\cdot\left(1-a^{-1}\right)]{}
+		\left(\begin{array}{cc}
+			a & a-1 \\
+			1 & 1
+		\end{array}\right) \\
+		\xrightarrow{(1)+(2) \cdot(1-a)}\left(\begin{array}{ll}
+			1 & 0 \\
+			1 & 1
+		\end{array}\right) \xrightarrow{(2)+(1)\cdot(-1)}\left(\begin{array}{ll}
+			1 & 0 \\
+			0 & 1
+		\end{array}\right) .
+	\end{array}$$
+	因此
+	$$P(2,\ 1(-1)) P(1,\ 2(1-a)) P\left(2,\ 1\left(a^{-1}\right)\right)\left(\begin{array}{cc}
+		a & 0 \\
+		0 & a^{-1}
+	\end{array}\right) P\left(1,\ 2\left(1-a^{-1}\right)\right)=I .$$
+	从而
+	$$\begin{aligned}
+		\left(\begin{array}{cc}
+			a & 0 \\
+			0 & a^{-1}
+		\end{array}\right) & =P\left(2,\ 1(-a)^{-1}\right) P(1,\ 2(a-1)) P(2,\ 1(1)) P\left(1,\ 2\left(a^{-1}-1\right)\right) \\
+		& =\left(I-a^{-1} E_{21}\right)\left(I+(a-1) E_{12}\right)\left(I+E_{21}\right)\left(I+\left(a^{-1}-1\right) E_{12}\right) .
+	\end{aligned}$$
+	现在看一般情形,\  设
+	$$A=\left(\begin{array}{ll}
+		a & b \\
+		c & d
+	\end{array}\right),\ $$
+	其中 $ |A|=a d-b c=1 .$
+	若$  a \neq 0 ,\ $ 则
+	$$\left(\begin{array}{ll}
+		a & b \\
+		c & d
+	\end{array}\right)\xrightarrow{(2)+(1)\left(-c a^{-1}\right)}\left(\begin{array}{cc}
+		a & b \\
+		0 & d-c a^{-1} b
+	\end{array}\right)\xrightarrow{(1)+(2)(-b a)}\left(\begin{array}{cc}
+		a & 0 \\
+		0 & a^{-1}
+	\end{array}\right)$$
+	利用上面证得结果,\   $A $ 可以表示成 $ 1^{\circ} $ 型初等矩阵的乘积.
+	若 $ a=0 ,\  $则 $ c \neq 0 .$从而
+	$$\left(\begin{array}{ll}
+		a & b \\
+		c & d
+	\end{array}\right)\xrightarrow{(1)+(2)}\left(\begin{array}{cc}
+		c & b+d \\
+		c & d
+	\end{array}\right),\ $$
+	利用刚刚证得的结果,\  $ A $ 可以表示成  $1^{\circ} $ 型初等矩阵的乘积.
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ A  $是  $n$  级矩阵,\ 行标和列标都为$  1,\ 2,\  \cdots,\  k  $的子式称为$  A $ 的  $k $ 阶顺序主子 式,\ $  k=1,\ 2,\  \cdots,\  n .$证明: 如果 $ A $ 的所有顺序主子式都不等于$ 0 ,\ $ 那么存在 $ n $ 级下三角矩 阵 $ B ,\ $ 使得 $ B A $ 为上三角矩阵.
+\end{problem}
+\begin{proof}
+	证明 $ n=1  $时,\  命题显然为真.
+	假设对于 $ n-1 $ 级矩阵,\ 命题为真.下面看$  n $ 级矩阵 $ A=\left(a_{i j}\right) $ 的情形.设  $A $ 的所有 顺序主子式都不等于 $0.$把 $ A $ 写成分块矩阵的形式:
+	$$A=\left(\begin{array}{cc}
+		A_{1} & \boldsymbol{\alpha} \\
+		\boldsymbol{\beta} & a_{n n}
+	\end{array}\right),\ $$
+	其中$  A_{1} $ 是 $ n-1  $级矩阵.由于 $ A_{1}  $的所有顺序主子式是 $ A $ 的 $ 1,\ 2,\  \cdots,\  n-1  $阶顺序主子 式,\  因此对  $A_{1} $ 可以用归纳假设,\  有 $ n-1$  级下三角矩阵 $ B_{1} ,\  $使得  $B_{1} A_{1} $ 为上三角矩阵.
+	$$\left(\begin{array}{cc}
+		A_{1} & \boldsymbol{\alpha} \\
+		\boldsymbol{\beta} & a_{n n}
+	\end{array}\right) \xrightarrow{(2)+\left(-\boldsymbol{\beta} A_{1}^{-1}\right) \cdot(1)}\left(\begin{array}{cc}
+		A_{1} & \boldsymbol{\alpha} \\
+		\mathbf{0} & a_{n n}-\boldsymbol{\beta} A_{1}^{-1} \boldsymbol{\alpha}
+	\end{array}\right) .$$
+	于是
+	$$\left(\begin{array}{cc}
+		I_{n-1} & \mathbf{0} \\
+		-\boldsymbol{\beta A _ { 1 } ^ { - 1 }} & 1
+	\end{array}\right)\left(\begin{array}{cc}
+		A_{1} & \boldsymbol{\alpha} \\
+		\boldsymbol{\beta} & a_{n n}
+	\end{array}\right)=\left(\begin{array}{cc}
+		A_{1} & \boldsymbol{\alpha} \\
+		\mathbf{0} & a_{n n}-\boldsymbol{\beta} A_{1}^{-1} \boldsymbol{\alpha}
+	\end{array}\right) .$$
+	令
+	$$B=\left(\begin{array}{cc}
+		B_{1} & \mathbf{0} \\
+		\mathbf{0} & 1
+	\end{array}\right)\left(\begin{array}{cc}
+		I_{n-1} & \mathbf{0} \\
+		-\boldsymbol{\beta} A_{1}^{-1} & 1
+	\end{array}\right)=\left(\begin{array}{ll}
+		B_{1} & \mathbf{0} \\
+		-\boldsymbol{\beta A}_{1}^{-1} & 1
+	\end{array}\right),\ $$
+	则 $ B $ 为下三角矩阵,\  且 
+	$$ B A=\left(\begin{array}{cc}B_{1} A_{1} & B_{1} \boldsymbol{\alpha} \\ \mathbf{0} & a_{n n}-\boldsymbol{\beta} A_{1}^{-1} \boldsymbol{\alpha}\end{array}\right) ,\ $$
+	于是  $B A $ 为上三角矩阵.
+	由数学归纳法原理,\  对一切正整数$  n ,\  $命题为真.
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ A $ 是实数域上的$  n $ 级矩阵,\  证明: 如果 $ A $ 可逆,\  那么$  A  $可以唯一地分解成正 交矩阵  $T$  与主对角元都为正数的上三角矩阵 $ B $ 的乘积: $ A=T B.$
+\end{problem}
+\begin{proof}
+	先证可分解性.由于 $ A $ 可逆,\  因此$  A  $的列向量组 $ \boldsymbol{\alpha}_{1},\  \boldsymbol{\alpha}_{2},\  \cdots,\  \boldsymbol{\alpha}_{n} $ 线性无关. 经过施密特正交化可得到与 $ \boldsymbol{\alpha}_{1},\  \boldsymbol{\alpha}_{2},\  \cdots,\  \boldsymbol{\alpha}_{n} $ 等价的正交向量组  $\boldsymbol{\beta}_{1},\  \boldsymbol{\beta}_{2},\  \cdots,\  \boldsymbol{\beta}_{n}.$可得到:
+	记
+	$$\begin{array}{l}
+		\boldsymbol{\alpha}_{1}=\boldsymbol{\beta}_{1},\  \\
+		\boldsymbol{\alpha}_{2}=\frac{\left(\boldsymbol{\alpha}_{2},\  \boldsymbol{\beta}_{1}\right)}{\left(\boldsymbol{\beta}_{1},\  \boldsymbol{\beta}_{1}\right)} \boldsymbol{\beta}_{1}+\boldsymbol{\beta}_{2},\  \\
+		\cdots \quad \cdots \\
+		\boldsymbol{\alpha}_{n}=\sum_{j=1}^{n-1} \frac{\left(\boldsymbol{\alpha}_{n},\  \boldsymbol{\beta}_{j}\right)}{\left(\boldsymbol{\beta}_{j},\  \boldsymbol{\beta}_{j}\right)} \boldsymbol{\beta}_{j}+\boldsymbol{\beta}_{n} . \\
+	\end{array}$$
+	$$b_{j i}=\frac{\left(\boldsymbol{\alpha}_{i},\  \boldsymbol{\beta}_{j}\right)}{\left(\boldsymbol{\beta}_{j},\  \boldsymbol{\beta}_{j}\right)},\  \quad i=2,\ 3,\  \cdots,\  n ; \quad j=1,\ 2,\  \cdots,\  i-1 .$$
+	再对每个  $\boldsymbol{\beta}_{i} $ 单位化,\  即令
+	$$\boldsymbol{\eta}_{i}=\frac{1}{\left|\boldsymbol{\beta}_{i}\right|} \boldsymbol{\beta}_{i},\  \quad i=1,\ 2,\  \cdots,\  n .$$
+	则
+	$$
+	\begin{aligned}
+		\boldsymbol{A}&=\left(\boldsymbol{\alpha}_{1},\  \boldsymbol{\alpha}_{2},\  \cdots,\  \boldsymbol{\alpha}_{n}\right)\\
+		&=\left(\boldsymbol{\beta}_{1},\  \boldsymbol{\beta}_{2},\  \cdots,\  \boldsymbol{\beta}_{n}\right)\left(\begin{array}{cccc}
+			1 & b_{12} & \cdots & b_{1 n} \\
+			0 & 1 & \cdots & b_{2 n} \\
+			\vdots & \vdots & & \vdots \\
+			0 & 0 & \cdots & 1
+		\end{array}\right) \\
+		&=\left(\boldsymbol{\eta}_{1},\  \boldsymbol{\eta}_{2},\  \cdots,\  \boldsymbol{\eta}_{n}\right)\left(\begin{array}{cccc}
+			\left|\boldsymbol{\beta}_{1}\right| & 0 & \cdots & 0 \\
+			0 & \left|\boldsymbol{\beta}_{2}\right| & \cdots & 0 \\
+			\vdots & \vdots & & \vdots \\
+			0 & 0 & \cdots & \left|\boldsymbol{\beta}_{n}\right|
+		\end{array}\right)\left(\begin{array}{cccc}
+			1 & b_{12} & \cdots & b_{1 n} \\
+			0 & 1 & \cdots & b_{2 n} \\
+			\vdots & \vdots & & \vdots \\
+			0 & 0 & \cdots & 1
+		\end{array}\right) \\
+		&=\left(\boldsymbol{\eta}_{1},\  \boldsymbol{\eta}_{2},\  \cdots,\  \boldsymbol{\eta}_{n}\right)\left(\begin{array}{cccc}
+			\left|\boldsymbol{\beta}_{1}\right| & b_{12}\left|\boldsymbol{\beta}_{1}\right| & \cdots & b_{1 n}\left|\boldsymbol{\beta}_{1}\right| \\
+			0 & \left|\boldsymbol{\beta}_{2}\right| & \cdots & b_{2 n}\left|\boldsymbol{\beta}_{2}\right| \\
+			\vdots & \vdots & & \vdots \\
+			0 & 0 & \cdots & \left|\boldsymbol{\beta}_{n}\right|
+		\end{array}\right)=T B,\ 
+	\end{aligned}
+	$$
+	其中  $T=\left(\boldsymbol{\eta}_{1},\  \boldsymbol{\eta}_{2},\  \cdots,\  \boldsymbol{\eta}_{n}\right) ,\ $
+	$$B=\left(\begin{array}{cccc}
+		\left|\boldsymbol{\beta}_{1}\right| & b_{12}\left|\boldsymbol{\beta}_{1}\right| & \cdots & b_{1 n}\left|\boldsymbol{\beta}_{1}\right| \\
+		0 & \left|\boldsymbol{\beta}_{2}\right| & \cdots & b_{2 n}\left|\boldsymbol{\beta}_{2}\right| \\
+		\vdots & \vdots & & \vdots \\
+		0 & 0 & \cdots & \left|\boldsymbol{\beta}_{n}\right|
+	\end{array}\right) .$$
+	显然$  T  $是正交矩阵,\  $ B $ 是主对角元都为正数的上三角矩阵.
+	再证唯一性.假如  $A $ 还有一种分解方式:
+	$$A=T_{1} B_{1},\ $$
+	其中 $ T_{1} $是正交矩阵,\ $  B_{1}  $是主对角元都为正数的上三角矩阵.则
+	$$\begin{array}{c}
+		T B=T_{1} B_{1} . \\
+		T_{1}^{-1} T=B_{1} B^{-1} .
+	\end{array}$$
+	$$\text { 从而 } \quad T_{1}^{-1} T=B_{1} B^{-1} \text {. }$$
+	左边 $ T_{1}^{-1} T$  是正交矩阵,\  右边 $ B_{1} B^{-1}$ 是主对角元都为正数的上三角矩阵.得,\   $T_{1}^{-1} T $ (即  $B_{1} B^{-1}$  ) 是对角矩阵,\  且主对角元为 $1 ,\  $那就是单位矩阵$  I .$因此
+	$$T_{1}^{-1} T=B_{1} B^{-1}=I .$$
+	由此得出
+	$$T=T_{1},\  \quad B=B_{1} .$$
+\end{proof}
+\newpage
+\begin{problem}
+	决定所有的$ 2 $级正交矩阵.
+\end{problem}
+\begin{solution}
+	设  $A=\left(a_{i j}\right) $ 是$ 2$ 级正交矩阵.则 $ A^{-1}=A^{\prime} ,\ $即
+	$$\frac{1}{|A|}\left(\begin{array}{rc}
+		a_{22} & -a_{12} \\
+		-a_{21} & a_{11}
+	\end{array}\right)=\left(\begin{array}{ll}
+		a_{11} & a_{21} \\
+		a_{12} & a_{22}
+	\end{array}\right) .$$
+	由于 $ |A|=1 $ 或 $ -1 .$因此分两种情形:\\
+	情形 1:$|A|=1 .$此时有
+	$$a_{22}=a_{11},\  \quad a_{21}=-a_{12} .$$
+	由于 $ a_{11}^{2}+a_{21}^{2}=1 ,\ $ 因此在平面直角坐标系  $O x y $ 中,\  点  $P\left(a_{11},\  a_{21}\right) $ 在单位圆 $ x^{2}+y^{2}=1 $ 上.据三角函数的定义,\  得
+	$$a_{11}=\cos \theta,\  \quad a_{21}=\sin \theta,\  \quad \theta \in \mathbf{R} .$$
+	于是
+	$$A=\left(\begin{array}{rr}
+		\cos \theta & -\sin \theta \\
+		\sin \theta & \cos \theta
+	\end{array}\right),\  \quad \theta \in \mathbf{R} .$$
+	容易直接验证,\ 所求出的  $A $ 是正交矩阵.\\
+	情形 2:$ \quad|A|=-1.$此时有
+	$$a_{22}=-a_{11},\  \quad a_{21}=a_{12} .$$
+	由于 $ a_{11}^{2}+a_{21}^{2}=1 ,\  $因此同情形 1 的理由得
+	$$a_{11}=\cos \theta,\  \quad a_{21}=\sin \theta .$$
+	于是
+	$$A=\left(\begin{array}{cr}
+		\cos \theta & \sin \theta \\
+		\sin \theta & -\cos \theta
+	\end{array}\right),\  \theta \in \mathbf{R} .$$
+	容易直接验证,\ 所求出的 $ A  $是正交矩阵.
+	综上所述,\  2 级正交矩阵有且只有下列两种类型:
+	$$\left(\begin{array}{rr}
+		\cos \theta & -\sin \theta \\
+		\sin \theta & \cos \theta
+	\end{array}\right),\ \left(\begin{array}{rr}
+		\cos \theta & \sin \theta \\
+		\sin \theta & -\cos \theta
+	\end{array}\right),\  \quad \theta \in \mathbf{R} .$$
+\end{solution}
+\newpage
+\begin{problem}
+	设 $ A $ 是 $ n$  级正交矩阵,\ 证明:\\
+	(1) 如果  |A|=1 ,\  那么  A  的每一个元素等于它自己的代数余子式;\\
+	(2) 如果  |A|=-1 ,\  那么  A  的每一个元素等于它自己的代数余子式乘以  -1 .\\
+\end{problem}
+\begin{proof}
+	由于$  A $ 是正交矩阵,\  因此$  A^{\prime}=A^{-1}=\frac{1}{|A|} A^{*} .$于是当 $ 1 \leqslant i,\  j \leqslant n $ 时,\  有
+	$$A(i ; j)=A^{\prime}(j ; i)=\frac{1}{|A|} A^{*}(j ; i)=\frac{1}{|A|} A_{i j} .$$
+	(1) 如果$  |A|=1 ,\  $那么由上式得,\  $ A(i ; j)=A_{i j} .$\\
+	(2) 如果 $ |A|=-1 ,\ $ 那么由上式得,\  $ A(i ; j)=-A_{i j} .$
+\end{proof}
+\begin{problem}
+	设 $ A $ 是实数域上的$  n  $级矩阵证明:\\
+	(1) 如果 $ |A|=1 ,\ $ 且  $A $ 的每一个元素等于它自己的代数余子式,\  那么 $ A $ 是正交矩阵;\\
+	(2) 如果 $ |A|=-1 ,\ $ 且  $A $ 的每一个元素等于它自己的代数余子式乘以 $ -1 ,\ $ 那么  $A  $是 正交矩阵.
+\end{problem}
+\begin{proof}
+	(1) 由于 $ A^{-1}=\frac{1}{|A|} A^{*} ,\  $因此当 $ |A|=1 $ 时,\  据已知条件得
+	$$A^{-1}(j ; i)=A^{*}(j ; i)=A_{i j}=A(i ; j)=A^{\prime}(j ; i),\ $$
+	其中 $ 1 \leqslant i,\  j \leqslant n .$因此$  A^{-1}=A^{\prime} .$于是  $A $ 是正交矩阵.\\
+	(2) 当 $ |A|=-1  $时,\  据已知条件得
+	$$A^{-1}(j ; i)=-A^{\cdot} \cdot(j ; i)=-A_{i j}=A(i ; j)=A^{\prime}(j ; i),\ $$
+	其中$  1 \leqslant i,\  j \leqslant n .$因此 $ A^{-1}=A^{\prime} .$从而 $ A $ 是正交矩阵.
+\end{proof}
+\begin{problem}
+	设 $ A $ 是实数域上的$  n  $级矩阵证明:\\
+	(1) 如果 $ |A|=1 ,\ $ 且  $A $ 的每一个元素等于它自己的代数余子式,\  那么 $ A $ 是正交矩阵;\\
+	(2) 如果 $ |A|=-1 ,\ $ 且  $A $ 的每一个元素等于它自己的代数余子式乘以 $ -1 ,\ $ 那么  $A  $是 正交矩阵.
+\end{problem}
+\begin{proof}
+	(1) 由于 $ A^{-1}=\frac{1}{|A|} A^{*} ,\  $因此当 $ |A|=1 $ 时,\  据已知条件得
+	$$A^{-1}(j ; i)=A^{*}(j ; i)=A_{i j}=A(i ; j)=A^{\prime}(j ; i),\ $$
+	其中 $ 1 \leqslant i,\  j \leqslant n .$因此$  A^{-1}=A^{\prime} .$于是  $A $ 是正交矩阵.\\
+	(2) 当 $ |A|=-1  $时,\  据已知条件得
+	$$A^{-1}(j ; i)=-A^{\cdot} \cdot(j ; i)=-A_{i j}=A(i ; j)=A^{\prime}(j ; i),\ $$
+	其中$  1 \leqslant i,\  j \leqslant n .$因此 $ A^{-1}=A^{\prime} .$从而 $ A $ 是正交矩阵.
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ U $ 是欧几里得空间$  \mathbf{R}^{n}  $的一个子空间.令
+	$$\begin{array}{ll}
+		\mathcal{P}_{U}: & \mathbf{R}^{n} \longrightarrow \mathbf{R}^{n} \\
+		& \boldsymbol{\alpha} \longmapsto \boldsymbol{\alpha}_{1},\ 
+	\end{array}$$
+	其中  $\boldsymbol{\alpha}_{1} \in U ,\  $并且 $ \boldsymbol{\alpha}-\boldsymbol{\alpha}_{1} \in U^{\perp} ,\ $ 则称 $ \mathcal{P}_{U} $ 是 $ \mathbf{R}^{n} $ 在 $ U $ 上的正交投影,\  把 $ \boldsymbol{\alpha}_{1}  $称为向量$  \boldsymbol{\alpha}  $在 $ U $ 上的正交投影.证明:对于 $ \boldsymbol{\alpha} \in \mathbf{R}^{n},\  \boldsymbol{\alpha}_{1} \in U $ 是 $ \boldsymbol{\alpha} $ 在$  U  $上的正交投影当且仅当
+	$$\left|\boldsymbol{\alpha}-\boldsymbol{\alpha}_{1}\right| \leqslant|\boldsymbol{\alpha}-\boldsymbol{\gamma}|,\  \forall \boldsymbol{\gamma} \in U .$$
+\end{problem}
+\begin{proof}
+	必要性.设 $ \boldsymbol{\alpha}_{1} \in U  $是  $\boldsymbol{\alpha} $ 在  $U  $上的正交投影,\  则 $ \boldsymbol{\alpha}-\boldsymbol{\alpha}_{1} \in U^{\perp} .$从而 $ \forall \boldsymbol{\gamma} \in U ,\  $有
+	$$\left(\boldsymbol{\alpha}-\boldsymbol{\alpha}_{1}\right) \perp\left(\boldsymbol{\alpha}_{1}-\boldsymbol{\gamma}\right) .$$
+	于是
+	$$\begin{array}{l}
+		|\boldsymbol{\alpha}-\boldsymbol{\gamma}|^{2}=\left|\boldsymbol{\alpha}-\boldsymbol{\alpha}_{1}+\boldsymbol{\alpha}_{1}-\boldsymbol{\gamma}\right|^{2}=\left(\boldsymbol{\alpha}-\boldsymbol{\alpha}_{1}+\boldsymbol{\alpha}_{1}-\boldsymbol{\gamma},\  \boldsymbol{\alpha}-\boldsymbol{\alpha}_{1}+\boldsymbol{\alpha}_{1}-\boldsymbol{\gamma}\right) \\
+		=\left(\boldsymbol{\alpha}-\boldsymbol{\alpha}_{1},\  \boldsymbol{\alpha}-\boldsymbol{\alpha}_{1}\right)-2\left(\boldsymbol{\alpha}-\boldsymbol{\alpha}_{1},\  \boldsymbol{\alpha}_{1}-\boldsymbol{\gamma}\right)+\left(\boldsymbol{\alpha}_{1}-\boldsymbol{\gamma},\  \boldsymbol{\alpha}_{1}-\boldsymbol{\gamma}\right) \\
+		=\left|\boldsymbol{\alpha}-\boldsymbol{\alpha}_{1}\right|^{2}+\left|\boldsymbol{\alpha}_{1}-\boldsymbol{\gamma}\right|^{2} \geqslant\left|\boldsymbol{\alpha}-\boldsymbol{\alpha}_{1}\right|^{2} \\
+		|\boldsymbol{\alpha}-\boldsymbol{\gamma}| \geqslant\left|\boldsymbol{\alpha}-\boldsymbol{\alpha}_{1}\right| .
+	\end{array}$$
+	从而
+	$$|\boldsymbol{\alpha}-\boldsymbol{\gamma}|\geqslant|\boldsymbol{\alpha}-\boldsymbol{\alpha}_1|$$
+	充分性.设 $ \left|\boldsymbol{\alpha}-\boldsymbol{\alpha}_{1}\right| \leqslant|\boldsymbol{\alpha}-\boldsymbol{\gamma}| \quad \forall \boldsymbol{\gamma} \in U  .$\\
+	假设 $ \boldsymbol{\delta} $ 是 $ \boldsymbol{\alpha} $ 在 $ U $ 上的正交投影,\  则根据刚才证得的必要性得,\  $ |\boldsymbol{\alpha}-\boldsymbol{\delta}| \leqslant\left|\boldsymbol{\alpha}-\boldsymbol{\alpha}_{1}\right| .$从而
+	$$|\boldsymbol{\alpha}-\boldsymbol{\delta}|=\left|\boldsymbol{\alpha}-\boldsymbol{\alpha}_{1}\right| \text {. }$$
+	由于 $ \boldsymbol{\alpha}-\boldsymbol{\delta} \in U^{\perp},\  \boldsymbol{\delta}-\boldsymbol{\alpha}_{1} \in U ,\ $ 因此 $ (\boldsymbol{\alpha}-\boldsymbol{\delta}) \perp\left(\boldsymbol{\delta}-\boldsymbol{\alpha}_{1}\right) .$同上理,\  得
+	$$\left|\boldsymbol{\alpha}-\boldsymbol{\alpha}_{1}\right|^{2}=\left|\boldsymbol{\alpha}-\boldsymbol{\delta}+\boldsymbol{\delta}-\boldsymbol{\alpha}_{1}\right|^{2}=|\boldsymbol{\alpha}-\boldsymbol{\delta}|^{2}+\left|\boldsymbol{\delta}-\boldsymbol{\alpha}_{1}\right|^{2} .$$
+	由此得出,\ $  \left|\boldsymbol{\delta}-\boldsymbol{\alpha}_{1}\right|^{2}=0  .$因此 $ \boldsymbol{\delta}=\boldsymbol{\alpha}_{1} ,\ $ 即 $ \boldsymbol{\alpha}_{1} $ 是 $ \boldsymbol{\alpha} $ 在  U  上的正交投影.
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ A  $是实数域上的一个$  m \times n  $矩阵,\  $ m>n,\  \boldsymbol{\beta} \in \mathbf{R}^{m} .$如果 $ \boldsymbol{X}_{0} \in \mathbf{R}^{n}  使得  \left|\boldsymbol{\beta}-A \boldsymbol{X}_{0}\right|^{2} \leqslant|\boldsymbol{\beta}-A \boldsymbol{X}|^{2},\  \forall \boldsymbol{X} \in \mathbf{R}^{n} ,\  $那么称$  \boldsymbol{X}_{0} $ 是线性方程组$  A \boldsymbol{X}=\boldsymbol{\beta} $ 的最小二乘解.证 明: $ \boldsymbol{X}_{0}  是  A \boldsymbol{X}=\boldsymbol{\beta}  $的最小二乘解当且仅当 $ \boldsymbol{X}_{0} $ 是线性方程组
+	$$A^{\prime} A \boldsymbol{X}=A^{\prime} \boldsymbol{\beta}$$
+	的解.
+\end{problem}
+\begin{proof}
+	用  $U $ 表示矩阵 $ A $ 的列空间,\  $ U=\left\langle\boldsymbol{\alpha}_{1},\  \boldsymbol{\alpha}_{2},\  \cdots,\  \boldsymbol{\alpha}_{n}\right\rangle ,\ $ 则 $ \boldsymbol{X}_{0} $ 是 $ A \boldsymbol{X}=\boldsymbol{\beta} $ 的最小 二乘解 $ \quad \Longleftrightarrow\left|\boldsymbol{\beta}-A \boldsymbol{X}_{0}\right|^{2} \leqslant|\boldsymbol{\beta}-A \boldsymbol{X}|^{2},\  \forall \boldsymbol{X} \in \mathbf{R}^{n} $
+	$$\begin{array}{l}
+		\Longleftrightarrow\left|\boldsymbol{\beta}-A \boldsymbol{X}_{0}\right| \leqslant|\boldsymbol{\beta}-A \boldsymbol{X}|,\  \forall \boldsymbol{X} \in \mathbf{R}^{n} \\
+		\Longleftrightarrow\left|\boldsymbol{\beta}-A \boldsymbol{X}_{0}\right| \leqslant|\boldsymbol{\beta}-\boldsymbol{\gamma}|,\  \forall \boldsymbol{\gamma} \in U \\
+		\Longleftrightarrow A \boldsymbol{X}_{0} \text { 是 } \boldsymbol{\beta} \text { 在 } U \text { 上的正交投影 } \\
+		\Longleftrightarrow \boldsymbol{\beta}-A \mathbf{X}_{0} \in U^{\perp} \\
+		\Longleftrightarrow\left(\boldsymbol{\beta}-A \boldsymbol{X}_{0},\  \boldsymbol{\alpha}_{i}\right)=0,\  i=1,\ 2,\  \cdots,\  n \\
+		\Longleftrightarrow \boldsymbol{\alpha}_{i}{ }^{\prime}\left(\boldsymbol{\beta}-A \boldsymbol{X}_{0}\right)=0,\  i=1,\ 2,\  \cdots,\  n \\
+		\Longleftrightarrow A^{\prime}\left(\boldsymbol{\beta}-\boldsymbol{A} \mathbf{X}_{0}\right)=0 \\
+		\Longleftrightarrow A^{\prime} A \boldsymbol{X}_{0}=A^{\prime} \boldsymbol{\beta} \\
+		\Longleftrightarrow \boldsymbol{X}_{0} \text { 是 } A^{\prime} A \boldsymbol{X}=A^{\prime} \boldsymbol{\beta} \text { 的解. } \\
+	\end{array}$$
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ A $ 是实数域上$  m \times n $ 列满秩矩阵,\  $ m>n .$ $ A$  的列空间记作$  U .$记 $ \mathcal{P}_{A}=   A\left(A^{\prime} A\right)^{-1} A^{\prime} .$令
+	$$\mathcal{P}_{A}(\boldsymbol{X})=P_{A} \boldsymbol{X},\  \forall \boldsymbol{X} \in \mathbf{R}^{m} .$$
+	证明:$  \mathcal{P}_{A} $ 是  $\mathbf{R}^{m} $ 在 $ U $ 上的正交投影.
+\end{problem}
+\begin{proof}
+	设 $ A $ 的列向量组是 $ \boldsymbol{\alpha}_{1},\  \boldsymbol{\alpha}_{2},\  \cdots,\  \boldsymbol{\alpha}_{n}  .$任取$  \boldsymbol{X} \in \mathbf{R}^{m}  .$
+	先证 $ \mathcal{P}_{A} \boldsymbol{X} \in U .$由于 $ \left(A^{\prime} A\right)^{-1} A^{\prime} \mathbf{X} $ 是 $ n \times 1  $矩阵,\  因此可设 $ \left(A^{\prime} A\right)^{-1} A^{\prime} \boldsymbol{X}=\left(c_{1},\  c_{2},\  \cdots,\  c_{n}\right)^{\prime} .$ 从而
+	$$\begin{aligned}
+		P_{\boldsymbol{A}} \boldsymbol{X} & =A\left(A^{\prime} A\right)^{-1} A^{\prime} \boldsymbol{X}=\left(\boldsymbol{\alpha}_{1},\  \boldsymbol{\alpha}_{2},\  \cdots,\  \boldsymbol{\alpha}_{n}\right)\left(\begin{array}{c}
+			c_{1} \\
+			c_{2} \\
+			\vdots \\
+			c_{n}
+		\end{array}\right) \\
+		& =c_{1} \boldsymbol{\alpha}_{1}+c_{2} \boldsymbol{\alpha}_{2}+\cdots+c_{n} \boldsymbol{\alpha}_{n} \in U .
+	\end{aligned}$$
+	再证 $ \boldsymbol{X}-\mathcal{P}_{A} \boldsymbol{X} \in U^{\perp} ,\  $即要证$  \left(I-\mathcal{P}_{A}\right) \boldsymbol{X} \in U^{\perp} .$由于
+	$$\begin{aligned}
+		\left(\begin{array}{c}
+			\boldsymbol{\alpha}_{1}{ }^{\prime} \\
+			\boldsymbol{\alpha}_{2}{ }^{\prime} \\
+			\vdots \\
+			\boldsymbol{\alpha}_{n}{ }^{\prime}
+		\end{array}\right)\left(I-\mathcal{P}_{A}\right) \boldsymbol{X} & =A^{\prime}\left[I-A\left(A^{\prime} A\right)^{-1} A^{\prime}\right] \boldsymbol{X} \\
+		& =\left[A^{\prime}-A^{\prime} A\left(A^{\prime} A\right)^{-1} A^{\prime}\right] \boldsymbol{X}=0 \mathbf{X}=0,\ 
+	\end{aligned}$$
+	因此  $\boldsymbol{\alpha}_{j}{ }^{\prime}\left(I-\mathcal{P}_{A}\right) \boldsymbol{X}=0,\  j=1,\ 2,\  \cdots,\  n  .$从而 $ \left(I-\mathcal{P}_{A}\right) \boldsymbol{X} \in U^{\perp}.$ \\
+	综上所述,\  $ \mathcal{P}_{A}  $是 $ \mathbf{R}^{n} $ 在 $ U $ 上的正交投影.
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ A  $是数域  $K $ 上  $s \times n  $矩阵,\  证明:  $A $ 的秩为$  r $ 当且仅当存在数域  $K$  上 $ s \times r  $列 满秩矩阵  $B $ 与 $ r \times n $ 行满秩矩阵 $ C ,\ $ 使得 $ A=B C .$
+\end{problem}
+\begin{proof}
+	必要性.设  $A  $的秩为 $ r ,\  $则存在数域$  K $ 上 $ s $ 级,\ $n$  级可逆矩阵  $P,\ Q ,\ $ 使得
+	$$\begin{array}{l}
+		A=P\left(\begin{array}{cc}
+			I_{r} & 0 \\
+			0 & 0
+		\end{array}\right) Q=\left(P_{1},\  P_{2}\right)\left(\begin{array}{cc}
+			I_{r} & 0 \\
+			0 & 0
+		\end{array}\right)\left(\begin{array}{c}
+			Q_{1} \\
+			Q_{2}
+		\end{array}\right)^{\gamma} \\
+		=\left(P_{1},\  0\right)\left(\begin{array}{l}
+			Q_{1} \\
+			Q_{2}
+		\end{array}\right)=P_{1} Q_{1} \\
+	\end{array}$$
+	由于$  P  $是可逆矩阵,\  因此 $ P$  的列向量组线性无关.从而$  P_{1} $ 的列向量组线性无关.于是 $ \operatorname{rank}\left(P_{1}\right)=r ,\ $ 即$  P_{1} $ 是 $ s \times r $ 列满秩矩阵.类似地可证  $\operatorname{rank}\left(Q_{1}\right)=r ,\  $因此$  Q_{1}  $是 $ r \times n  $行满 秩矩阵.令  $B=P_{1},\  C=Q_{1} ,\ $ 即得 $ A=B C .$\\
+	充分性.设 $ A=B C ,\  $其中 $ B  $是 $ s \times r $ 列满秩矩阵,\ $  C  $是 $ r \times n $ 行满秩矩阵.由于 
+	$$ \operatorname{rank}(B C) \leqslant \operatorname{rank}(B)=r ,\ $$  $$\operatorname{rank}(B C) \geqslant \operatorname{rank}(B)+\operatorname{rank}(C)-r=r ,\ $$
+	因此 $ \operatorname{rank}(B C)=r ,\ $ 即  $\operatorname{rank}(A)=r .$
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ B_{1},\  B_{2}$  都是数域  $K $ 上$  s \times r $ 列满秩矩阵,\  证明:存在数域  $K $ 上 $ s $ 级可逆矩阵  $P ,\ $ 使得
+	$$B_{2}=P B_{1} .$$
+\end{problem}
+\begin{proof}
+	由于 $ B_{1}  $是 $ s \times r$  列满秩矩阵,\  因此
+	$$B_{1} \xrightarrow{\text { 初等行变换 }}\left(\begin{array}{l}
+		I_{r} \\
+		0
+	\end{array}\right).$$
+	从而存在 $ s$  级可逆矩阵  $P_{1} ,\ $ 使得
+	$$P_{1} B_{1}=\left(\begin{array}{l}
+		I_{r} \\
+		0
+	\end{array}\right) .$$
+	同理,\  存在 $ s $ 级可逆矩阵 $ P_{2} ,\ $ 使得
+	从而
+	$$P_{2} B_{2}=\left(\begin{array}{l}
+		I_{r} \\
+		0
+	\end{array}\right) .$$
+	于是$  B_{1}=\left(P_{1}^{-1} P_{2}\right) B_{2} .$
+	令  $P=P_{1}^{-1} P_{2} ,\  $则 $ P  $是  $s$  级可逆矩阵,\  使得 $ B_{1}=P B_{2} .$
+\end{proof}
+\newpage
+\begin{problem}
+	设$  A  $是实数域上的  $n$  级对称矩阵,\  且 $ A $ 的秩为  $r(r>0) .$证明:\\
+	(1) $ A$  至少有一个  $r $ 阶主子式不为 $0 ;$\\
+	(2) $ A$  的所有不等于 $0$ 的 $ r$  阶主子式都同号.
+\end{problem}
+\begin{proof}
+	(1) 设$  A  $的行向量组为$  \boldsymbol{\gamma}_{1},\  \boldsymbol{\gamma}_{2},\  \cdots,\  \boldsymbol{\gamma}_{n} ,\  $则 $ A^{\prime} $ 的列向量组是  $\boldsymbol{\gamma}_{1}^{\prime}{ }_{1},\  \boldsymbol{\gamma}_{2}^{\prime},\  \cdots,\  \boldsymbol{\gamma}_{n}^{\prime} .$由 于 $ A^{\prime}=A ,\ $ 因此 $ A$  的列向量组为 $ {\gamma_{1}}_{1},\  \gamma_{\gamma^{\prime}},\  \cdots,\  \gamma_{n}^{\prime}.$取 $ A $ 的行向量组的一个极大线性无关 组$  \boldsymbol{\gamma}_{i_{1}},\  \boldsymbol{\gamma}_{i_{2}},\  \cdots,\  \boldsymbol{\gamma}_{i_{r}} ,\ $ 则  $\boldsymbol{\gamma}_{i_{1}}{ }^{\prime},\  \boldsymbol{\gamma}_{i_{2}}{ }^{\prime},\  \cdots,\  \boldsymbol{\gamma}_{i_{r}}{ }^{\prime} $ 是  $A $ 的列向量组的一个极大线性无关组.有
+	$$A\left(\begin{array}{c}
+		i_{1},\  i_{2},\  \cdots,\  i_{r} \\
+		i_{1},\  i_{2},\  \cdots,\  i_{r}
+	\end{array}\right) \neq 0 .$$
+	(2) 由于 $ \operatorname{rank}(A)=r ,\ $ 因此存在 $ n $级可逆矩阵  $P,\  Q ,\ $ 使
+	$$A=P\left(\begin{array}{ll}
+		I_{r} & 0 \\
+		0 & 0
+	\end{array}\right) Q .$$
+	由于  $A^{\prime}=A ,\ $ 因此
+	$$Q^{\prime}\left(\begin{array}{cc}
+		I_{r} & 0 \\
+		0 & 0
+	\end{array}\right) P^{\prime}=P\left(\begin{array}{cc}
+		I_{r} & 0 \\
+		0 & 0
+	\end{array}\right) Q .$$
+	从而
+	$$P^{-1} Q^{\prime}\left(\begin{array}{cc}
+		I_{r} & 0 \\
+		0 & 0
+	\end{array}\right)=\left(\begin{array}{cc}
+		I_{r} & 0 \\
+		0 & 0
+	\end{array}\right) Q\left(P^{\prime}\right)^{-1} .$$
+	代入得
+	$$P^{-1} Q^{\prime}=\left(\begin{array}{ll}
+		H_{1} & H_{2} \\
+		H_{3} & H_{4}
+	\end{array}\right) .$$
+	$$ \left(\begin{array}{ll}H_{1} & 0 \\ H_{3} & 0\end{array}\right)=\left(\begin{array}{cc}H_{1}^{\prime} & H^{\prime}{ }_{3} \\ 0 & 0\end{array}\right) .$$
+	由上式得,\ 
+	$$H^{\prime}{ }_{1}=H_{1},\  H_{3}=0 .$$
+	从而
+	$$Q^{\prime}=P\left(\begin{array}{cc}
+		H_{1} & H_{2} \\
+		0 & H_{4}
+	\end{array}\right)$$
+	于是
+	$$A=P\left(\begin{array}{cc}
+		I_{r} & 0 \\
+		0 & 0
+	\end{array}\right)\left(\begin{array}{cc}
+		H_{1}{ }^{\prime} & 0 \\
+		H_{2}{ }^{\prime} & H_{4}{ }^{\prime}
+	\end{array}\right) P^{\prime}=P\left[\left(\begin{array}{cc}
+		H_{1}{ }^{\prime} & 0 \\
+		0 & 0
+	\end{array}\right) P^{\prime}\right]$$
+	因此$  r=\operatorname{rank}(A)=\operatorname{rank}\left(\begin{array}{cc}H_{1}{ }^{\prime} & 0 \\ 0 & 0\end{array}\right)=\operatorname{rank}\left(H_{1}{ }^{\prime}\right)=\operatorname{rank}\left(H_{1}\right) .$
+	从而 $ H_{1}  $是可逆的  $r $ 级对称矩阵.
+	对于矩阵$  A $ 的分解式可得
+	$$A\left(\begin{array}{l}
+		k_{1},\  k_{2},\  \cdots,\  k_{r} \\
+		k_{1},\  k_{2},\  \cdots,\  k_{r}
+	\end{array}\right)=\sum_{1 \leqslant v_{1}<\cdots<v_{r} \leqslant n} P\left(\begin{array}{l}
+		k_{1},\  k_{2},\  \cdots,\  k_{r} \\
+		u_{1},\  v_{2},\  \cdots,\  v_{r}
+	\end{array}\right)\left[\left(\begin{array}{cc}
+		H_{1}{ }^{\prime} & 0 \\
+		0 & 0
+	\end{array}\right) P^{\prime}\right]\left(\begin{array}{l}
+		v_{1},\  v_{2},\  \cdots,\  v_{r} \\
+		k_{1},\  k_{2},\  \cdots,\  k_{r}
+	\end{array}\right)$$
+	$$\begin{array}{l}
+		=\sum\limits_{1 \leqslant v_{1}<\cdots<v_{r} \leqslant n} P\left(\begin{array}{l}
+			k_{1},\  k_{2},\  \cdots,\  k_{r} \\
+			v_{1},\  v_{2},\  \cdots,\  v_{r}
+		\end{array}\right) \sum\limits_{1 \leqslant \mu_{1}<\cdots<\mu_{r} \leqslant n}\left(\begin{array}{cc}
+			H_{1}{ }^{\prime} & 0 \\
+			0 & 0
+		\end{array}\right)\left(\begin{array}{l}
+			v_{1},\  v_{2},\  \cdots,\  v_{r} \\
+			\mu_{1},\  \mu_{2},\  \cdots,\  \mu_{r}
+		\end{array}\right) P^{\prime}\left(\begin{array}{l}
+			\mu_{1},\  \mu_{2},\  \cdots,\  \mu_{r} \\
+			k_{1},\  k_{2},\  \cdots,\  k_{r}
+		\end{array}\right) \\
+		=\sum\limits_{1 \leqslant v_{1}<\cdots<v_{r} \leqslant n} P\left(\begin{array}{l}
+			k_{1},\  k_{2},\  \cdots,\  k_{r} \\
+			v_{1},\  v_{2},\  \cdots,\  v_{r}
+		\end{array}\right)\left(\begin{array}{cc}
+			H_{1}{ }^{\prime} & 0 \\
+			0 & 0
+		\end{array}\right)\left(\begin{array}{l}
+			u_{1},\  v_{2},\  \cdots,\  v_{r} \\
+			1,\ 2,\  \cdots,\  r
+		\end{array}\right) P^{\prime}\left(\begin{array}{l}
+			1,\ 2,\  \cdots,\  r \\
+			k_{1},\  k_{2},\  \cdots,\  k_{r}
+		\end{array}\right) \\
+		=P\left(\begin{array}{l}
+			k_{1},\  k_{2},\  \cdots,\  k_{r} \\
+			1,\ 2,\  \cdots,\  r
+		\end{array}\right)\left|H_{1}{ }^{\prime}\right| P^{\prime}\left(\begin{array}{l}
+			1,\ 2,\  \cdots,\  r \\
+			k_{1},\  k_{2},\  \cdots,\  k_{r}
+		\end{array}\right) \\
+		=\left[P\left(\begin{array}{l}
+			k_{1},\  k_{2},\  \cdots,\  k_{r} \\
+			1,\ 2,\  \cdots,\  r
+		\end{array}\right)\right]^{2}\left|H^{\prime}_{1}\right|
+	\end{array}$$
+	由上式看出,\   $A  $的任一不等于$ 0$ 的 $ r $ 阶主子式都与 $ \left|H_{1}{ }^{\prime}\right| $ 同号.
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ A,\  B $ 分别是 $ s \times n ,\  n \times m  $矩阵,\  证明:
+	$\operatorname{rank}(A B)=\operatorname{rank}(A)+\operatorname{rank}(B)-n $ 充分必要条件是
+	$$\left(\begin{array}{ll}
+		A & 0 \\
+		I_{n} & B
+	\end{array}\right) \stackrel{\text { 相似 }}{\sim}\left(\begin{array}{cc}
+		A & 0 \\
+		0 & B
+	\end{array}\right) .$$
+\end{problem}
+\begin{proof}
+	作分块矩阵的初等行 (列) 变换:
+	$$\begin{array}{c}
+		\left(\begin{array}{cc}
+			A B & 0 \\
+			0 & I_{n}
+		\end{array}\right) \xrightarrow{(1+A \cdot(2)}\left(\begin{array}{cc}
+			A B & A \\
+			0 & I_{n}
+		\end{array}\right) \xrightarrow[(1)+(2)(-B)]{}\left(\begin{array}{cc}
+			0 & A \\
+			-B & I_{n}
+		\end{array}\right) \\
+		\qquad \xrightarrow[(1),\ (2)]{}\left(\begin{array}{cc}
+			A & 0 \\
+			I_{n} & -B
+		\end{array}\right) \xrightarrow[(2)\left(-I_{n}\right)]{}
+		\left(\begin{array}{cc}
+			A & 0 \\
+			I_{n} & B
+		\end{array}\right) .
+	\end{array}$$
+	因此
+	$$\operatorname{rank}\left(\begin{array}{cc}
+		A B & 0 \\
+		0 & I_{n}
+	\end{array}\right)=\operatorname{rank}\left(\begin{array}{cc}
+		A & 0 \\
+		I_{n} & B
+	\end{array}\right) .$$
+	从而
+	$$
+	\begin{aligned}
+		&\operatorname{rank}(A B)=\operatorname{rank}(A)+\operatorname{rank}(B)-n \\
+		\Longleftrightarrow& \operatorname{rank}\left(\begin{array}{cc}
+			A B & 0 \\
+			0 & I_{n}
+		\end{array}\right)=\operatorname{rank}\left(\begin{array}{cc}
+			A & 0 \\
+			0 & B
+		\end{array}\right) \\
+		\Longleftrightarrow& \operatorname{rank}\left(\begin{array}{cc}
+			A & 0 \\
+			I_{n} & B
+		\end{array}\right)=\operatorname{rank}\left(\begin{array}{cc}
+			A & 0 \\
+			0 & B
+		\end{array}\right) \\
+		\Longleftrightarrow&\begin{pmatrix}
+			A   & 0\\
+			I_n & B
+		\end{pmatrix}\stackrel{\text{相似}}{\sim}\begin{pmatrix}
+			A & 0\\
+			0 & B
+		\end{pmatrix}.
+	\end{aligned}$$
+\end{proof}
+\newpage
+\begin{problem}
+	设  $A  $是数域 $ K  $上 $ s \times n $ 非零矩阵,\  则矩阵方程
+	$$A X A=A$$
+	一定有解.如果 $ \operatorname{rank}(A)=r ,\ $ 并且
+	\begin{equation}
+		A=P\left(\begin{array}{ll}
+			I_{r} & 0 \\
+			0 & 0
+		\end{array}\right) Q,\ \label{1.6.2}
+	\end{equation}
+	其中 $ P,\  Q $ 分别是  $K $ 上$  s $ 级,\ $ n$  级可逆矩阵,\  那么矩阵方程的通解为
+	$$X=Q^{-1}\left(\begin{array}{ll}
+		I_{r} & B \\
+		C & D
+	\end{array}\right) P^{-1}.$$
+	其中  $B,\  C,\  D $ 分别是数域 $ K $ 上任意的$  r \times(s-r),\ (n-r) \times r,\ (n-r) \times(s-r)  $矩阵.
+\end{problem}
+\begin{proof}
+	如果$  X=G  $是矩阵方程的一个解,\  则
+	$$A G A=A .$$
+	把$\eqref{1.6.2}$式代人上式,\ 得
+	\begin{equation}
+		P\left(\begin{array}{cc}
+			I_{r} & 0 \\
+			0 & 0
+		\end{array}\right) Q G P\left(\begin{array}{cc}
+			I_{r} & 0 \\
+			0 & 0
+		\end{array}\right) Q=P\left(\begin{array}{cc}
+			I_{r} & 0 \\
+			0 & 0
+		\end{array}\right) Q,\ 
+	\end{equation}
+	上式两边左乘 $ P^{-1} ,\ $ 右乘 $ Q^{-1} ,\  $得
+	\begin{equation}
+		\left(\begin{array}{ll}
+			I_{r} & 0 \\
+			0 & 0
+		\end{array}\right) Q G P\left(\begin{array}{ll}
+			I_{r} & 0 \\
+			0 & 0
+		\end{array}\right)=\left(\begin{array}{ll}
+			I_{r} & 0 \\
+			0 & 0
+		\end{array}\right) .\label{1.6.3}
+	\end{equation}
+	把  $Q G P $ 写成分块矩阵的形式:
+	\begin{equation}
+		Q G P=\left(\begin{array}{ll}
+			H & B \\
+			C & D
+		\end{array}\right),\ \label{1.6.4}
+	\end{equation}
+	代人$\eqref{1.6.3}$式得
+	$$\left(\begin{array}{ll}
+		I_{r} & 0 \\
+		0 & 0
+	\end{array}\right)\left(\begin{array}{ll}
+		H & B \\
+		C & D
+	\end{array}\right)\left(\begin{array}{ll}
+		I_{r} & 0 \\
+		0 & 0
+	\end{array}\right)=\left(\begin{array}{cc}
+		I_{r} & 0 \\
+		0 & 0
+	\end{array}\right),\ $$
+	即
+	$$\left(\begin{array}{ll}
+		H & 0 \\
+		0 & 0
+	\end{array}\right)=\left(\begin{array}{ll}
+		I_{r} & 0 \\
+		0 & 0
+	\end{array}\right) .$$
+	由此得出,\   $H=I_{r} .$于是从$\eqref{1.6.4}$式推出
+	\begin{equation}
+		G=Q^{-1}\left(\begin{array}{ll}
+			I_{r} & B \\
+			C & D
+		\end{array}\right) P^{-1} .\label{1.6.5}
+	\end{equation}
+	下面我们来证: 对于任意的 $ r \times(s-r),\ (n-r) \times r,\ (n-r) \times(s-r) $ 矩阵 $ B,\  C,\  D ,\ $ 由$\eqref{1.6.5}$式给出的 $ G  $确实是矩阵方程 $ A X A=A $ 的解.用  $G $ 代替 $ X $ 后,\  方程的左边为
+	$$\begin{aligned}
+		A G A & =P\left(\begin{array}{ll}
+			I_{r} & 0 \\
+			0 & 0
+		\end{array}\right) Q Q^{-1}\left(\begin{array}{ll}
+			I_{r} & B \\
+			C & D
+		\end{array}\right) P^{-1} P\left(\begin{array}{ll}
+			I_{r} & 0 \\
+			0 & 0
+		\end{array}\right) Q \\
+		& =P\left(\begin{array}{ll}
+			I_{r} & 0 \\
+			0 & 0
+		\end{array}\right)\left(\begin{array}{ll}
+			I_{r} & B \\
+			C & D
+		\end{array}\right)\left(\begin{array}{ll}
+			I_{r} & 0 \\
+			0 & 0
+		\end{array}\right) Q \\
+		& =P\left(\begin{array}{ll}
+			I_{r} & 0 \\
+			0 & 0
+		\end{array}\right) Q=A .
+	\end{aligned}$$
+	而矩阵方程的右边也是 $ A ,\  $因此  $G$  是矩阵方程的解.这样就证明了矩阵方程 $ A X A=X  $一定有解,\  并且求出了它的通解的形式.
+\end{proof}
+\begin{definition}
+	设 $ A $ 是数域  $K$  上  $s \times n $ 矩阵,\ 矩阵方程 $ A X A=A $ 的每一个解都称为$  A  $的一 个广义逆矩阵,\  简称为 $ A  $的广义逆,\  用$  A^{-} $表示$  A $ 的任意一个广义逆.
+\end{definition}
+\begin{theorem}
+	(非齐次线性方程组的解的结构定理) 非齐次线性方程组 $ A \boldsymbol{X}=\boldsymbol{\beta}$  有解时,\  它 的通解为
+	$$\boldsymbol{X}=A^{-} \boldsymbol{\beta} \text {. }$$
+\end{theorem}
+\begin{proof}
+	设 $ \gamma  $是  $A \boldsymbol{X}=\boldsymbol{\beta} $ 的一个解,\  则 $ A \boldsymbol{\gamma}=\boldsymbol{\beta} $
+	$$A=P\left(\begin{array}{ll}
+		I_{r} & 0 \\
+		0 & 0
+	\end{array}\right) Q,\ $$
+	其中$  P ,\ Q  $分别是数域 $ K $ 上  $s $ 级$,\   n$  级可逆矩阵.则
+	\begin{equation}
+		\left(\begin{array}{cc}
+			I_{r} & 0 \\
+			0 & 0
+		\end{array}\right) \boldsymbol{Q \gamma}=P^{-1} \boldsymbol{\beta} .\label{1.6.6}
+	\end{equation}
+	为了求  $\gamma  $的表达式,\  先求 $ Q \gamma $ 的表达式.把 $ Q \gamma,\  P^{-1} \boldsymbol{\beta}$  写成分块矩阵的形式:
+	$$Q \boldsymbol{\gamma}=\left(\begin{array}{l}
+		\boldsymbol{Y}_{1} \\
+		\mathbf{Y}_{2}
+	\end{array}\right),\  \quad P^{-1} \boldsymbol{\beta}=\left(\begin{array}{l}
+		\boldsymbol{Z}_{1} \\
+		\boldsymbol{Z}_{2}
+	\end{array}\right).$$
+	代人$\eqref{1.6.6}$式得
+	$$\left(\begin{array}{ll}
+		I_{r} & 0 \\
+		0 & 0
+	\end{array}\right)\left(\begin{array}{l}
+		\boldsymbol{Y}_{1} \\
+		\boldsymbol{Y}_{2}
+	\end{array}\right)=\left(\begin{array}{l}
+		\boldsymbol{Z}_{1} \\
+		\boldsymbol{Z}_{2}
+	\end{array}\right) .$$
+	由此得出,\ $  \boldsymbol{Y}_{1}=\boldsymbol{Z}_{1},\  \boldsymbol{0}=\boldsymbol{Z}_{2} .$
+	还需要写出 $ Y_{2}$  的表达式.由于$  \boldsymbol{\beta} \neq \mathbf{0} ,\ $ 因此 $ P^{-1} \boldsymbol{\beta} \neq \mathbf{0} .$从而 $ \boldsymbol{Z}_{1} \neq \mathbf{0}  .$设 $ \boldsymbol{Z}_{1}=   \left(k_{1},\  \cdots,\  k_{r}\right)^{\prime} ,\ $ 其中 $ k_{i} \neq 0 .$在  $A^{-} $的表达式中,\  取  $C$  为
+	\begin{equation}
+		C=\left(0,\  \cdots,\  0,\  k_{i}^{-1} \mathbf{Y}_{2},\  0,\  \cdots,\  0\right) .\label{1.6.7}
+	\end{equation}
+	则
+	$$\boldsymbol{CZ}_1=\left(\mathbf{0},\  \cdots,\  \mathbf{0},\  k_{i}^{-1} \boldsymbol{Y}_{2},\  \mathbf{0},\  \cdots,\  \mathbf{0}\right)\left(\begin{array}{c}
+		k_{1} \\
+		\vdots \\
+		k_{i} \\
+		\vdots \\
+		k_{r}
+	\end{array}\right)=\boldsymbol{Y}_{2} .$$
+	于是
+	$$\boldsymbol{Q\gamma}=\left(\begin{array}{l}
+		\boldsymbol{Y}_{1} \\
+		\boldsymbol{Y}_{2}
+	\end{array}\right)=\left(\begin{array}{l}
+		\boldsymbol{Z}_{1} \\
+		C \boldsymbol{Z}_{1}
+	\end{array}\right)=\left(\begin{array}{ll}
+		I_{r} & 0 \\
+		C & 0
+	\end{array}\right)\left(\begin{array}{l}
+		\boldsymbol{Z}_{1} \\
+		\mathbf{0}
+	\end{array}\right)$$
+	由此得出
+	$$\boldsymbol{\gamma}=Q^{-1}\left(\begin{array}{ll}
+		I_{r} & 0 \\
+		C & 0
+	\end{array}\right)\left(\begin{array}{l}
+		\boldsymbol{Z}_{1} \\
+		\mathbf{0}
+	\end{array}\right)=Q^{-1}\left(\begin{array}{ll}
+		I_{r} & 0 \\
+		C & 0
+	\end{array}\right) P^{-1} \boldsymbol{\beta}=A^{-} \boldsymbol{\beta},\ $$
+	其中  $A^{-} $的表达式中,\  $ B=0,\  D=0,\  C$  由$\eqref{1.6.7}$式给出.这证明了线性方程组$   \boldsymbol{AX}=\boldsymbol{\beta}  $的 任意一个解  $\boldsymbol{\gamma} $ 可以写出
+	$$\boldsymbol{\gamma}=A^{-} \boldsymbol{\beta} .$$
+	反之,\  对于任意的 $ A^{-} ,\ $ 由于 $ A \boldsymbol{X}=\boldsymbol{\beta} $ 有解,\  得,\   $\boldsymbol{\beta}=A A^{-} \boldsymbol{\beta} ,\  $因此 $ A^{-} \boldsymbol{\beta}  是  A \boldsymbol{X}=\boldsymbol{\beta}  $的解.
+	综上所述得,\   $A \boldsymbol{X}=\boldsymbol{\beta}  $有解时,\  它的通解是
+	$$\boldsymbol{X}=A^{-} \boldsymbol{\beta} .$$
+	其中  $A^{-} $是  $A  $的任意一个广义逆.
+\end{proof}
+\begin{definition}
+	设  $A$  是复数域上  $s \times n $ 矩阵,\  矩阵方程组
+	$$\left\{\begin{array}{l}
+		A X A=A,\  \\
+		X A X=X,\  \\
+		(A X)^{*}=A X,\  \\
+		(X A)^{*}=X A,\ 
+	\end{array}\right.$$
+	称为  $A $ 的 Penrose 方程组,\  它的解称为 $ A $ 的 Moore-Penrose 广义逆,\  记作  $A^{+}$.方程组中  $(A X)^{*} $ 表示把$  A X  $的每个元素取共轭复数得到的矩阵再转置.
+\end{definition}
+\begin{theorem}
+	如果  $A $ 是复数域上 $ s \times n $ 非零矩阵,\  $ A $ 的 Penrose 方程组总是有解,\  并且它 的解唯一.设 $ A=B C ,\  $其中$  B ,\  C$  分别是列满秩与行满秩矩阵,\  则 Penrose 方程组的唯一 解是
+	\begin{equation}
+		X=C^{*}\left(C C^{*}\right)^{-1}\left(B^{*} B\right)^{-1} B^{*} .\label{1.6.8}
+	\end{equation}
+\end{theorem}
+\begin{proof}
+	把$\eqref{1.6.8}$式代人 Penrose 方程组的每一个方程,\  验证每一个方程都变成恒等式:
+	$$\begin{aligned}
+		A X A & =(B C) C^{*}\left(C C^{*}\right)^{-1}\left(B^{*} B\right)^{-1} B^{*}(B C)=B C=A,\  \\
+		X A X & =C^{*}\left(C C^{*}\right)^{-1}\left(B^{*} B\right)^{-1} B^{*}(B C) C^{*}\left(C C^{*}\right)^{-1}\left(B^{*} B\right)^{-1} B^{*} \\
+		& =C^{*}\left(C C^{*}\right)^{-1}\left(B^{*} B\right)^{-1} B^{*}=X,\  \\
+		(A X)^{*} & =X^{*} A^{*}=B\left(B^{*} B\right)^{-1}\left(C C^{*}\right)^{-1} C C^{*} B^{*} \\
+		& =B\left(B^{*} B\right)^{-1} B^{*}=B\left(C C^{*}\right)\left(C C^{*}\right)^{-1}\left(B^{*} B\right)^{-1} B^{*}=A X,\  \\
+		(X A)^{*} & =A^{*} X^{*}=C^{*} B^{*} B\left(B^{*} B\right)^{-1}\left(C C^{*}\right)^{-1} C \\
+		& =C^{*}\left(C C^{*}\right)^{-1} C=C^{*}\left(C C^{*}\right)^{-1}\left(B^{*} B\right)^{-1}\left(B^{*} B\right) C=X A .
+	\end{aligned}$$
+	因此 $\eqref{1.6.8}$ 式的确是 Penrose 方程组的解.
+	下面证解的唯一性.设 $ X_{1} $ 和 $ X_{2} $ 都是 Penrose 方程组的解.则
+	$$\begin{aligned}
+		X_{1}&=X_{1} A X_{1}=X_{1}\left(A X_{2} A\right) X_{1}=X_{1}\left(A X_{2}\right)\left(A X_{1}\right)\\
+		&=X_{1}\left(A X_{2}\right)^{*}\left(A X_{1}\right)^{*}=X_{1}\left(A X_{1} A X_{2}\right)^{*}=X_{1} X_{2}^{*}\left(A X_{1} A\right)^{*} \\
+		&=X_{1} X_{2}^{*} A^{*}=X_{1}\left(A X_{2}\right)^{*}=X_{1} A X_{2}=X_{1}\left(A X_{2} A\right) X_{2} \\
+		&=\left(X_{1} A\right)\left(X_{2} A\right) X_{2}=\left(X_{1} A\right)^{*}\left(X_{2} A\right)^{*} X_{2}=\left(X_{2} A X_{1} A\right)^{*} X_{2} \\
+		&=\left(X_{2} A\right)^{*} X_{2}=X_{2} A X_{2}=X_{2} .
+	\end{aligned}$$
+	这证明了 Penrose 方程组的解的唯一性.\\
+	设 $ X_{0} $ 是零矩阵的 Moore-Penrose 广义逆,\ 则
+	$$X_{0}=X_{0} 0 X_{0}=0.$$
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ A,\  B $ 分别是数域 $ K $ 上  $s \times n,\  s \times m $ 非零矩阵,\  证明: 矩阵方程 $ A X=B $ 有解的 充分必要条件是
+	$$B=A A^{-} B,\ $$
+	在有解时,\  它的通解为
+	$$X=A^{-} B+\left(I_{n}-A^{-} A\right) W,\ $$
+	其中  $W$  是任意  $n \times m$  矩阵,\  $ A^{-} $是 $ A$  的任意取定的一个广义逆.
+\end{problem}
+\begin{proof}
+	必要性.设 $ A X=B $ 有解$  X=G ,\  $则  $A G=B .$因为 $ A=A A^{-} A ,\ $ 所以
+	$$B=A G=A A^{-} A G=A A^{-} B .$$
+	充分性.设  $B=A A^{-} B ,\ $ 则  $A^{-} B $ 是 $ A X=B $ 的解.
+	任意取定  $A $ 的一个广义逆 $ A^{-} ,\  $则对于任意  $n \times m $ 矩阵  $W ,\ $ 有
+	$$A\left(I_{n}-A^{-} A\right) W=\left(A-A A^{-} A\right) W=(A-A) W=0 .$$
+	因此  $\left(I_{n}-A^{-} A\right) W $ 是 $ A X=0 $ 的解.\\
+	反之,\  设  $H $ 是 $ A X=0  $的解,\  则
+	$$\left(I_{n}-A^{-} A\right) H=H-A^{-} A H=H.$$
+	综上所述,\  $ \left(I_{n}-A^{-} A\right) W $ 是 $ A X=0  $的通解.于是  $A^{-} B+\left(I_{n}-A^{-} A\right) W  $是  $A X=B $ 的通解.
+\end{proof}
+\newpage
+\begin{problem}
+	设$  A ,\ B  $分别是数域  $K $ 上 $ s \times n ,\  n \times s $ 矩阵.证明:
+	$$\operatorname{rank}(A-A B A)=\operatorname{rank}(A)+\operatorname{rank}\left(I_{n}-B A\right)-n .$$
+\end{problem}
+\begin{proof}
+	据Sylvester 秩不等式得
+	$$\operatorname{rank}(A-A B A)=\operatorname{rank}\left[A\left(I_{n}-B A\right)\right] \geqslant \operatorname{rank}(A)+\operatorname{rank}\left(I_{n}-B A\right)-n .$$
+	下面只要证:$ \operatorname{rank}(A-A B A)+n \leqslant \operatorname{rank}(A)+\operatorname{rank}\left(I_{n}-B A\right) .$
+	$$\begin{array}{c}
+		\left(\begin{array}{cc}
+			A & 0 \\
+			0 & I_{n}-B A
+		\end{array}\right) \xrightarrow{(2)+B \cdot \text { (1) }}\left(\begin{array}{cc}
+			A & 0 \\
+			B A & I_{n}-B A
+		\end{array}\right) \xrightarrow{(2)+(1)} \\
+		\left(\begin{array}{cc}
+			A & A \\
+			B A & I_{n}
+		\end{array}\right) \xrightarrow{(1)+(-A) \cdot(2)}\left(\begin{array}{cc}
+			A-A B A & 0 \\
+			B A & I_{n}
+		\end{array}\right) .
+	\end{array}$$
+	于是
+	$$\begin{aligned}
+		\operatorname{rank}(A)+\operatorname{rank}\left(I_{n}-B A\right) & =\operatorname{rank}\left(\begin{array}{cc}
+			A & 0 \\
+			0 & I_{n}-B A
+		\end{array}\right)=\operatorname{rank}\left(\begin{array}{cc}
+			A-A B A & 0 \\
+			B A & I_{n}
+		\end{array}\right) \\
+		& \geqslant \operatorname{rank}(A-A B A)+\operatorname{rank}\left(I_{n}\right) \\
+		& =\operatorname{rank}(A-A B A)+n .
+	\end{aligned}$$
+	因此 
+	$$\quad \operatorname{rank}(A-A B A) =\operatorname{rank}(A)+\operatorname{rank}\left(I_{n}-B A\right)-n .$$
+\end{proof}
+\begin{problem}
+	设  $A $ 是数域  $K $ 上  $s \times n $ 矩阵,\  证明:  $B$  是 $ A$  的一个广义逆的充分必要条件是
+	$$\operatorname{rank}(A)+\operatorname{rank}\left(I_{n}-B A\right)=n .$$
+\end{problem}
+\begin{proof}
+	由上题的结论立即得到
+	$$\begin{aligned}
+		B \text { 是 } A \text { 的一个广义逆 } & \Longleftrightarrow A B A=A \\
+		& \Longleftrightarrow \operatorname{rank}(A-A B A)=0 \\
+		& \Longleftrightarrow \operatorname{rank}(A)+\operatorname{rank}\left(I_{n}-B A\right)=n .
+	\end{aligned}$$
+\end{proof}
+\newpage
+\begin{problem}
+	设  $A$  是数域 $ K  $上 $ s \times n $ 非零矩阵,\  证明:
+	$$\operatorname{rank}\left(A^{-} A\right)=\operatorname{rank}(A) .$$
+\end{problem}
+\begin{proof}
+	设 $ \operatorname{rank}(A)=r ,\  $则存在$  s $ 级$,\ n  $级可逆矩阵$  P,\  Q ,\ $ 使得
+	$$A=P\left(\begin{array}{ll}
+		I_{r} & 0 \\
+		0 & 0
+	\end{array}\right) Q .$$
+	从而
+	$$A^{-}=Q^{-1}\left(\begin{array}{ll}
+		I_{r} & B \\
+		C & D
+	\end{array}\right) P^{-1} .$$
+	于是
+	$$A^{-} A=Q^{-1}\left(\begin{array}{ll}
+		I_{r} & B \\
+		C & D
+	\end{array}\right) P^{-1} P\left(\begin{array}{cc}
+		I_{r} & 0 \\
+		0 & 0
+	\end{array}\right) Q=Q^{-1}\left(\begin{array}{ll}
+		I_{r} & 0 \\
+		C & 0
+	\end{array}\right) Q .$$
+	因此
+	$$ \operatorname{rank}\left(A^{-} A\right)=\operatorname{rank}\left(\begin{array}{ll}I_{r} & 0 \\ C & 0\end{array}\right) \geqslant \operatorname{rank}\left(I_{r}\right)=r .$$
+	又有
+	$$\operatorname{rank}(A^-A)\leqslant\operatorname{rank}(A)=r.$$
+	从而  
+	$$\operatorname{rank}\left(A^{-} A\right)=r=\operatorname{rank}(A) .$$
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ A ,\ B ,\  C$  分别是数域$  K $ 上  $s \times n,\  l \times m,\  s \times m $ 非零矩阵,\  证明: 存在  $A $ 的一个 广义逆 $ A^{-} $和 $ B $ 的一个广义逆 $ B^{-} ,\ $ 使得
+	$$\operatorname{rank}\left(\begin{array}{ll}
+		A & C \\
+		0 & B
+	\end{array}\right)=\operatorname{rank}(A)+\operatorname{rank}(B)+\operatorname{rank}\left[\left(I_{s}-A A^{-}\right) C\left(I_{m}-B^{-} B\right)\right] .$$
+\end{problem}
+\begin{proof}
+	设  $\operatorname{rank}(A)=r,\  \operatorname{rank}(B)=t . $则
+	$$A=P_{1}\left(\begin{array}{ll}
+		I_{r} & 0 \\
+		0 & 0
+	\end{array}\right) Q_{1},\  \quad B=P_{2}\left(\begin{array}{ll}
+		I_{t} & 0 \\
+		0 & 0
+	\end{array}\right) Q_{2},\ $$
+	其中 $ P_{1} ,\  Q_{1} ,\  P_{2} ,\  Q_{2} $ 分别是  $s $ 级$,\  n$  级$,\   l$  级  $,\ m$  级可逆矩阵.于是
+	$$A^{-}=Q_{1}^{-1}\left(\begin{array}{ll}
+		I_{r} & G_{1} \\
+		H_{1} & D_{1}
+	\end{array}\right) P_{1}^{-1},\  \quad B^{-}=Q_{2}^{-1}\left(\begin{array}{cc}
+		I_{t} & G_{2} \\
+		H_{2} & D_{2}
+	\end{array}\right) P_{2}^{-1} .$$
+	取 $ G_{1}=0,\  H_{2}=0 ,\ $则
+	$$A A^{-}=P_{1}\left(\begin{array}{cc}
+		I_{r} & 0 \\
+		0 & 0
+	\end{array}\right) P_{1}^{-1},\  \quad B^{-} B=Q_{z}^{-1}\left(\begin{array}{ll}
+		I_{t} & 0 \\
+		0 & 0
+	\end{array}\right) Q_{z} .$$
+	$$\begin{aligned}
+		&\left(I_{s}-A A^{-}\right) C\left(I_{m}-B^{-} B\right)=\left[I_{s}-P_{1}\left(\begin{array}{cc}
+			I_{r} & 0 \\
+			0 & 0
+		\end{array}\right) P_{1}^{-1}\right] C\left[I_{m}-Q_{2}^{-1}\left(\begin{array}{cc}
+			I_{t} & 0 \\
+			0 & 0
+		\end{array}\right) Q_{2}\right] \\
+		&=P_{1}\left(\begin{array}{cc}
+			0 & 0 \\
+			0 & I_{s-r}
+		\end{array}\right) P_{1}^{-1} C Q_{2}^{-1}\left(\begin{array}{cc}
+			0 & 0 \\
+			0 & I_{m-1}
+		\end{array}\right) Q_{2} .
+	\end{aligned}$$
+	令  
+	$$\quad P_{1}^{-1} C Q_{2}^{-1}=\left(\begin{array}{ll}
+		C_{1} & C_{2} \\ 
+		C_{3} & C_{4}
+	\end{array}\right) ,\ $$
+	则 
+	$$ \left(I_{s}-A A^{-}\right) C\left(I_{m}-B^{-} B\right)=P_{1}
+	\left(\begin{array}{cc}
+		0 & 0 \\ 
+		0 & C_{4}
+	\end{array}\right) Q_{2} .$$
+	于是 
+	$$ \operatorname{rank}\left[\left(I_{s}-A A^{-}\right) C\left(I_{m}-B^{-} B\right)\right]=\operatorname{rank}\left(C_{4}\right) ,\ $$
+	$$\begin{pmatrix}
+		P_1^{-1} & 0\\
+		0        & P_2^{-1}
+	\end{pmatrix}
+	\begin{pmatrix}
+		A & C\\
+		0 & B
+	\end{pmatrix}
+	\begin{pmatrix}
+		Q_1^{-1} & 0\\
+		0 		 & Q_2^{-1}
+	\end{pmatrix}=
+	\begin{pmatrix}
+		I_r & 0 & C_1 & C_2\\
+		0   & 0 & C_3 & C_4\\
+		0   & 0 & I_t & 0\\
+		0   & 0 & 0   & 0
+	\end{pmatrix}
+	\xrightarrow[]{\text{分块矩阵的初等行(列)变换}}
+	\begin{pmatrix}
+		I_r & 0 & 0   & 0\\
+		0   & 0 & I_t & 0\\
+		0   & 0 & 0   & C_4\\
+		0   & 0 & 0   & 0
+	\end{pmatrix}$$
+	因此
+	$$\begin{aligned}
+		\operatorname{rank}\left(\begin{array}{ll}
+			A & C \\
+			0 & B
+		\end{array}\right) & =r+t+\operatorname{rank}\left(C_{4}\right) \\
+		& =\operatorname{rank}(A)+\operatorname{rank}(B)+\operatorname{rank}\left[\left(I_{s}-A A^{-}\right) C\left(I_{m}-B^{-} B\right)\right] .
+	\end{aligned}$$
+\end{proof}
+\newpage
+\begin{problem}
+	证明: 如果数域  $K$  上的 $ n $ 级矩阵 $ A ,\  B$  满足  $A B-B A=A ,\ $ 那么  $A $ 不可逆.
+\end{problem}
+\begin{proof}
+	假如  $A $ 可逆,\  则在 $ A B-B A=A $ 两边左乘 $ A^{-1} ,\ $ 得
+	$$B-A^{-1} B A=I .$$
+	于是  $\operatorname{tr}\left(B-A^{-1} B A\right)=\operatorname{tr}(I)=n  .$ 又有
+	$$\operatorname{tr}\left(B-A^{-1} B A\right)=\operatorname{tr}(B)-\operatorname{tr}\left(A^{-1} B A\right)=\operatorname{tr}(B)-\operatorname{tr}(B)=0,\ $$
+	矛盾.因此 $ A $ 不可逆.
+\end{proof}
+\begin{problem}
+	证明: 如果实数域上的 $ n $ 级矩阵  $A$  与  $B $ 不相似,\  那么把它们看成复数域上的 矩阵后仍然不相似.
+\end{problem}
+\begin{proof}
+	假如把  $A $ 与$  B  $看成复数域上的矩阵后它们相似,\  则存在复数域上的  $n $ 级可逆 矩阵  $U ,\ $ 使得 $ U^{-1} A U=B  .$设  $U=P+\mathrm{i} Q ,\  $其中 $ P ,\  Q  $都是实数域上的矩阵.想构造一个 实数域上的  $n $ 级可逆矩阵.为此任给实数  $t ,\  $考虑行列式$  |P+t Q| ,\  $它是 $ t $ 的至多 $ n $ 次的 多项式.由于数域  $K $ 上的  $n$  次多项式在 $ K  $中至多有$  n  $个根,\ 因此存在实数 $ t_{0} ,\ $ 使得 $ \left|P+t_{0} Q\right| \neq 0 .$令 $ S=P+t_{0} Q ,\ $ 则  $S$  是实数域上的  $n$  级 可逆矩阵.
+	由于 $ U^{-1} A U=B ,\ $ 因此 $ A U=U B .$从而
+	$$A(P+\mathrm{i} Q)=(P+\mathrm{i} Q) B .$$
+	由此得出$,\   A P=P B,\  A Q=Q B .$因此
+	$$A S=A\left(P+t_{0} Q\right)=A P+t_{0} A Q=P B+t_{0} Q B=S B .$$
+	于是 $ S^{-1} A S=B .$这表明实矩阵  $A$  与 $ B$  相似,\  与已知条件矛盾.
+\end{proof}
+\newpage
+\begin{proposition}
+	设  $\lambda_{1}  $是数域$  K $ 上$  n$  级矩阵 $ A $ 的一个特征值,\  则  $\lambda_{1} $ 的几何重数不超过它的 代数重数.
+\end{proposition}
+\begin{proof}
+	设$A$的属于特征值$\lambda_1$的特征子空间$W_1$的维数为$r.$在$W_1$中取一个基$\boldsymbol{\alpha}_1,\ \boldsymbol{\alpha}_r,\ \cdots,\  \boldsymbol{\alpha}_{r} ,\  $把它扩充为 $ K^{n} $ 的一个基$  \boldsymbol{\alpha}_{1},\  \boldsymbol{\alpha}_{2},\  \cdots,\  \boldsymbol{\alpha}_{r},\  \boldsymbol{\beta}_{1},\  \cdots,\  \boldsymbol{\beta}_{n-r} .$令
+	$$P=\left(\boldsymbol{\alpha}_{1},\  \boldsymbol{\alpha}_{2},\  \cdots,\  \boldsymbol{\alpha}_{r},\  \boldsymbol{\beta}_{1},\  \cdots,\  \boldsymbol{\beta}_{n-r}\right),\ $$
+	则 $ P$  是  $K$  上的  $n$  级可逆矩阵,\ 并且有
+	$$\begin{array}{l} 
+		P^{-1} A P= P^{-1}\left(A \boldsymbol{\alpha}_{1},\  A \boldsymbol{\alpha}_{2},\  \cdots,\  A \boldsymbol{\alpha}_{r},\  A \boldsymbol{\beta}_{1},\  \cdots,\  A \boldsymbol{\beta}_{n-r}\right) \\
+		=\left(\lambda_{1} P^{-1} \boldsymbol{\alpha}_{1},\  \lambda_{1} P^{-1} \boldsymbol{\alpha}_{2},\  \cdots,\  \lambda_{1} P^{-1} \boldsymbol{\alpha}_{r},\  P^{-1} A \boldsymbol{\beta}_{1},\  \cdots,\  P^{-1} A \boldsymbol{\beta}_{n-r}\right) . \\
+		I=P^{-1} P=\left(P^{-1} \boldsymbol{\alpha}_{1},\  P^{-1} \boldsymbol{\alpha}_{2},\  \cdots,\  P^{-1} \boldsymbol{\alpha}_{r},\  P^{-1} \boldsymbol{\beta}_{1},\  \cdots,\  P^{-1} \boldsymbol{\beta}_{n-r}\right),\  \\
+		\boldsymbol{\varepsilon}_{1}=P^{-1} \boldsymbol{\alpha}_{1},\  \boldsymbol{\varepsilon}_{2}=P^{-1} \boldsymbol{\alpha}_{2},\  \cdots,\  \boldsymbol{\varepsilon}_{r}=P^{-1} \boldsymbol{\alpha}_{r} . \\
+		P^{-1} A P=\left(\lambda_{1} \boldsymbol{\varepsilon}_{1},\  \lambda_{1} \boldsymbol{\varepsilon}_{2},\  \cdots,\  \lambda_{1} \boldsymbol{\varepsilon}_{r},\  P^{-1} A \boldsymbol{\beta}_{1},\  \cdots,\  P^{-1} A \boldsymbol{\beta}_{n-r}\right) \\
+		=\left(\begin{array}{cc}
+			\lambda_{1} I_{r} & B \\
+			0 & C
+		\end{array}\right) .
+	\end{array}$$
+	由于相似的矩阵有相等的特征多项式,\  因此
+	$$\begin{aligned}
+		|\lambda I-A| & =\left|\begin{array}{cc}
+			\lambda I_{r}-\lambda_{1} I_{r} & -B \\
+			0 & \lambda I_{n-r}-C
+		\end{array}\right| \\
+		& =\left|\lambda I_{r}-\lambda_{1} I_{r}\right|\left|\lambda I_{n-r}-C\right| \\
+		& =\left(\lambda-\lambda_{1}\right)^{r}\left|\lambda I_{n-r}-C\right| .
+	\end{aligned}$$
+	从而 $ \lambda_{1} $ 的代数重数大于或等于  r ,\  即 $ \lambda_{1} $ 的代数重数大于或等于$  \lambda_{1}  $的几何重数.
+\end{proof}
+\newpage
+\begin{problem}
+	证明: 幂零矩阵一定有特征值,\  并且它的特征值一定是$0.$
+\end{problem}
+\begin{proof}
+	设  $A $ 是数域 $ K $ 上的 $ n $ 级幂零矩阵,\  其幂零指数为  $l. $ 则 $ A^{l}=0 .$于是 $ |A|^{l}=0 .$从而 $ |A|=0 .$因此得出
+	$$|0 I-A|=|-A|=(-1)^{n}|A|=0 .$$
+	因此 $0 $是  $A $ 的一个特征值.\\
+	设$  \lambda_{1} $ 是 $ A  $的一个特征值.则存在 $ \boldsymbol{\alpha} \in K^{n} $ 且  $\boldsymbol{\alpha} \neq 0 ,\ $ 使得 $ A \boldsymbol{\alpha}=\lambda_{1} \boldsymbol{\alpha}  .$两边左乘 $ A$  得,\  $ A^{2} \boldsymbol{\alpha}   =A\left(\lambda_{1} \boldsymbol{\alpha}\right)=\lambda_{1}(A \boldsymbol{\alpha})=\lambda_{1}^{2} \boldsymbol{\alpha} .$继续这个过程,\  可得到 $ A^{l} \boldsymbol{\alpha}=\lambda_{1}^{l} \boldsymbol{\alpha}.$由于 $ A^{l}=0 ,\ $ 因此 $ \lambda_{1}^{l} \boldsymbol{\alpha}=0 . $由于  $\boldsymbol{\alpha} \neq 0 ,\  $因此 $ \lambda_{1}^{l}=0.$从而  $\lambda_{1}=0  .$
+\end{proof}
+\newpage
+\begin{problem}
+	证明: 幂等矩阵一定有特征值,\  并且它的特征值是 $1$ 或者 $0.$
+\end{problem}
+\begin{proof}
+	设  $A  $是数域  $K$  上的 $ n  $级幂等矩阵.如果$  \lambda_{0} $ 是 $ A $ 的特征值,\  那么有 $ \boldsymbol{\alpha} \in K^{n} $ 且$  \boldsymbol{\alpha} \neq 0 ,\  $使得  $A \boldsymbol{\alpha}=\lambda_{0} \boldsymbol{\alpha} .$两边左乘  $A ,\  $得$  A^{2} \boldsymbol{\alpha}=A \lambda_{0} \boldsymbol{\alpha}=\lambda_{0}^{2} \boldsymbol{\alpha}  .$由于 $ A^{2}=A ,\ $ 因此  $A \boldsymbol{\alpha}=   \lambda_{0}^{2} \boldsymbol{\alpha} .$于是  $\lambda_{0} \boldsymbol{\alpha}=\lambda_{0}^{2} \boldsymbol{\alpha} .$从而$  \left(\lambda_{0}-\lambda_{0}^{2}\right) \boldsymbol{\alpha}=0 .$由于  $\boldsymbol{\alpha} \neq 0 ,\  $因此$  \lambda_{0}-\lambda_{0}^{2}=0.$由此推出  $\lambda_{0}=0$  或  $\lambda_{0}=1.$
+	设  $\operatorname{rank}(A)=r  .$若  $r=0 ,\  $则 $ A=0 ,\ $ 此时 $0 $是  $A $ 的特征值,\  $1 $不是  $A  $的特征值.若 $ r=n ,\  $则  $A=I ,\  $此时$ 1$ 是  $A$  的特征值,\  但 $0$ 不是  $A$  的特征值.若 $ 0<r<n ,\ $ 则  $A $ 不满秩,\  从而$  |A|=0 ,\  $因此  $|0 I-A|=|-A|=(-1)^{n}|A|=0 .$于是 $0$ 是$  A$  的一个特征值.由于$  A $ 是幂 等矩阵,\ $ \operatorname{rank}(I-A)=n-\operatorname{rank}(A)<n .$从而$  |I-A|=0 ,\ $ 于是$ 1$ 也 是$  A  $的一个特征值.
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ A $ 是数域$  K $ 上的 $ n  $级可逆矩阵,\  证明:\\
+	(1) 如果  $A$  有特征值,\  那么  $A$  的特征值不等于 $0 ;$\\
+	(2) 如果  $\lambda_{0}$  是 $ A  $的一个  $l $ 重特征值,\  那么  $\lambda_{0}^{-1}  $是  $A^{-1} $ 的一个 $ l $ 重特征值.
+\end{problem}
+\begin{proof}
+	(1) 由于 $ A  $是 $ n$  级可逆矩阵,\  因此
+	$$|0 I-A|=|-A|=(-1)^{n}|A| \neq 0 .$$
+	从而 $0$ 不是 $ A$  的特征值.这表明: 如果 $ A  $有特征值,\  那么 $ A $ 的特征值不等于 0.\\
+	(2) 设 $ \lambda_{0}  $是 $ A  $的一个 $ l$  重特征值,\  则 $ \lambda_{0}$  是 $ A  $的特征多项式 $ |\lambda I-A| $ 的一个  $l$  重根,\  于 是有
+	$$|\lambda I-A|=\left(\lambda-\lambda_{0}\right)^{t} g(\lambda),\ $$
+	其中$  g(\lambda)  $是 $ n-\lambda  $次多项式,\  且 $ g(\lambda)$  不含因式  $\left(\lambda-\lambda_{0}\right) .$
+	把 $ g(\lambda)  $在复数域中因式分解,\  则上式成为
+	$$|\lambda I-A|=\left(\lambda-\lambda_{0}\right)^{t}\left(\lambda-\lambda_{1}\right)^{l_{1}} \cdots\left(\lambda-\lambda_{m}\right)^{\prime_{m}},\ $$
+	其中  $\lambda_{1},\  \cdots,\  \lambda_{m}  $是两两不等的复数,\  且它们都不等于  $\lambda_{0},\  l_{1}+\cdots+l_{m}=n-l. $
+	$\lambda $ 用  $\frac{1}{\lambda} $ 代人,\ 上式的左端展开成  $\lambda $ 的多项式后,\  从上式得
+	$$\left|\frac{1}{\lambda} I-A\right|=\left(\frac{1}{\lambda}-\lambda_{0}\right)^{\prime}\left(\frac{1}{\lambda}-\lambda_{1}\right)^{t_{1}} \cdots\left(\frac{1}{\lambda}-\lambda_{m}\right)^{2} .$$
+	从而 $ A^{-1}$  的特征多项式 $ \left|\lambda I-A^{-1}\right| $ 为
+	$$\begin{aligned}
+		\left|\lambda I-A^{-1}\right| & =\left|A^{-1}(-\lambda)\left(\frac{1}{\lambda} I-A\right)\right|=(-1)^{n} \lambda^{n}\left|A^{-1}\right|\left|\frac{1}{\lambda} I-A\right| \\
+		& =(-1)^{n} \lambda^{n}\left|A^{-1}\right|\left(\frac{1}{\lambda}-\lambda_{0}\right)^{\prime}\left(\frac{1}{\lambda}-\lambda_{1}\right)^{l_{1}} \cdots\left(\frac{1}{\lambda}-\lambda_{m}\right)^{t_{m}} \\
+		& =\left|A^{-1}\right|\left(-1+\lambda_{0} \lambda\right)^{t}\left(-1+\lambda_{1} \lambda\right)^{t_{1}} \cdots\left(-1+\lambda_{m} \lambda\right)^{t_{m}} \\
+		& =\left|A^{-1}\right| \lambda_{0}^{\prime} \lambda_{1}^{\lambda_{1}} \cdots \lambda_{m}^{\prime} m\left(\lambda-\frac{1}{\lambda_{0}}\right)^{t}\left(\lambda-\frac{1}{\lambda_{1}}\right)^{t_{1}} \cdots\left(\lambda-\frac{1}{\lambda_{m}}\right)^{l_{m}} .
+	\end{aligned}$$
+	因此 $ \frac{1}{\lambda_{0}}  $是 $ A^{-1} $ 的特征多项式的  $l$  重根.从而  $\frac{1}{\lambda_{0}}  $是$  A^{-1}  $的  $l  $重特征值.
+\end{proof}
+\newpage
+\begin{problem}
+	设  $A $ 是数域 $ K$  上的 $ n $ 级矩阵,\  证明: 如果  $\lambda_{0} $ 是 $ A  $的  $l $ 重特征值,\  那么  $\lambda_{0}^{2}$  是 $ A^{2} $ 的至少  $l $ 重特征值.
+\end{problem}
+\begin{proof}
+	设 $ \lambda_{0} $ 是  $A$  的  $l$  重特征值,\ 则
+	$$|\lambda I-A|=\left(\lambda-\lambda_{0}\right)^{l} g(\lambda),\ $$
+	其中 $ g(\lambda) $ 是 $ n-l  $次多项式,\  且 $ g(\lambda) $ 不含因式 $ \left(\lambda-\lambda_{0}\right) .$
+	把  $g(\lambda)$  在复数域中因式分解,\  则上式成为
+	\begin{equation}
+		|\lambda I-A|=\left(\lambda-\lambda_{0}\right)^{l}\left(\lambda-\lambda_{1}\right)^{l_{1}} \cdots\left(\lambda-\lambda_{m}\right)^{l_{m}} ,\ \label{1.6.9}
+	\end{equation}
+	其中 $ \lambda_{1},\  \cdots,\  \lambda_{m}  $是两两不等的复数,\  且它们都不等于  $\lambda_{0},\  l_{1}+\cdots+l_{m}=n-l.$ 
+	$\lambda $ 用$  -\lambda  $代人,\  把$\eqref{1.6.9}$式左端展开成  $\lambda $ 的多项式后,\  从$\eqref{1.6.9}$ 式得
+	$$|-\lambda I-A|=\left(-\lambda-\lambda_{0}\right)^{l}\left(-\lambda-\lambda_{1}\right)^{l_{1}} \cdots\left(-\lambda-\lambda_{m}\right)^{l_{m}} ,\ $$
+	于是有
+	\begin{equation}
+		|\lambda I+A|=\left(\lambda+\lambda_{0}\right)^{l}\left(\lambda+\lambda_{1}\right)^{l_{1}} \cdots\left(\lambda+\lambda_{m}\right)^{l_{m}} .\label{1.6.10}
+	\end{equation}
+	把$\eqref{1.6.9}$式与$\eqref{1.6.10}$式相乘,\ 得
+	$$\left|\lambda^{2} I-A^{2}\right|=\left(\lambda^{2}-\lambda_{0}^{2}\right)^{l}\left(\lambda^{2}-\lambda_{1}^{2}\right)^{l_1} \cdots\left(\lambda_{2}-\lambda_{m}^{2}\right)^{l_m}  .$$
+	$\lambda^{2} $ 用  $\lambda $ 代人,\  把上式左端展开成  $\lambda $ 的多项式后,\  从上式得
+	$$\left|\lambda I-A^{2}\right|=\left(\lambda-\lambda_{0}^{2}\right)^{l}\left(\lambda-\lambda_{1}^{2}\right)^{l_{1}} \cdots\left(\lambda-\lambda_{m}^{2}\right)^{l_m} .$$
+	从 上式看出$,\   \lambda_{0}^{2} $ 是$  A^{2}$  的特征多项式 $ \left|\lambda I-A^{2}\right| $ 的至少  $l$  重根,\  从而$  \lambda_{0}^{2}  $是  $A^{2}  $的至少  $l $ 重特 征值.
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ A $ 是一个  $n$  级正交矩阵,\  证明:\\
+	(1)如果  $A$  有特征值,\  那么它的特征值是 $1$ 或 $ -1 ;$\\
+	(2) 如果  $|A|=-1 ,\  $那么 $ -1$  是  $A $ 的一个特征值;\\
+	(3) 如果 $ |A|=1 $,\  且  $n $ 是奇数,\ 那么 $1$ 是$  A$  的一个特征值.
+\end{problem}
+\begin{proof}
+	(1)如果  $\lambda_{0} $ 是正交矩阵 $ A $ 的一个特征值,\  那么在 $ \mathbf{R}^{n}  $中存在 $ \boldsymbol{\alpha} \neq \mathbf{0} ,\ $ 使得 $ A \boldsymbol{\alpha}=   \lambda_{0} \boldsymbol{\alpha} .$此式两边取转置得,\  $ \boldsymbol{\alpha}^{\prime} A^{\prime}=\lambda_{0} \boldsymbol{\alpha}^{\prime}  .$把这两个式子相乘,\  得
+	$$\left(\boldsymbol{\alpha}^{\prime} A^{\prime}\right)(A \boldsymbol{\alpha})=\left(\lambda_{0} \boldsymbol{\alpha}^{\prime}\right)\left(\lambda_{0} \boldsymbol{\alpha}\right) .$$
+	由此得出,\   $\boldsymbol{\alpha}^{\prime} \boldsymbol{\alpha}=\lambda_{0}^{2} \boldsymbol{\alpha}^{\prime} \boldsymbol{\alpha} ,\  $即  $\left(\lambda_{0}^{2}-1\right) \boldsymbol{\alpha}^{\prime} \boldsymbol{\alpha}=0 ,\  $由于 $ \boldsymbol{\alpha} \neq \boldsymbol{0} ,\ $ 因此 $ \boldsymbol{\alpha}^{\prime} \boldsymbol{\alpha} \neq 0 . $从而  $\lambda_{0}^{2}-1=0 .$于 是  $\lambda_{0}=\pm 1. $\\
+	(2)如果正交矩阵 $ A $ 的行列式 $ |A|=-1 ,\ $ 那么
+	$$|-I-A|=\left|A\left(-A^{\prime}-I\right)\right|=|A|\left|(-A-I)^{\prime}\right|=-|-I-A| .$$
+	于是 $ 2|-I-A|=0  .$从而  $|-I-A|=0  .$因此 $ -1 $ 是  $A $ 的一个特征值.\\
+	(3) 如果  $|A|=1 ,\ $ 且 $ n $ 是奇数,\ 那么
+	$$|I-A|=\left|A\left(A^{\prime}-I\right)\right|=|A|\left|-(I-A)^{\prime}\right|=(-1)^{n}|I-A|=-|I-A| .$$
+	于是 $ 2|I-A|=0 .$从而 $ |I-A|=0  .$因此 $1 $是  $A  $的一个特征值.
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ A ,\  B $ 分别是数域 $ K $ 上 $ s \times n ,\  n \times s  $矩阵.证明:\\
+	(1) $ A B $ 与  $B A$  有相同的非零特征值,\  并且重数相同;\\
+	(2)如果  $\boldsymbol{\alpha}  $是 $ A B  $的属于非零特征值  $\lambda_{0}$  的一个特征向量,\ 那么 $ B \boldsymbol{\alpha}  $是 $ B A$  的属于特 征值  $\lambda_{0} $ 的一个特征向量.
+\end{problem}
+\begin{proof}
+	(1)
+	\begin{equation}
+		\begin{aligned}
+			\lambda^{n}\left|\lambda I_{s}-A B\right| & =\lambda^{n}\left|\lambda\left(I_{s}-\frac{1}{\lambda} A B\right)\right|=\lambda^{n} \lambda^{s}\left|I_{s}-\left(\frac{1}{\lambda} A\right) B\right| \\
+			& =\lambda^{n} \lambda^{s}\left|I_{n}-B\left(\frac{1}{\lambda} A\right)\right|=\lambda^{s}\left|\lambda I_{n}-B A\right| .\label{1.6.11}
+		\end{aligned}
+	\end{equation}
+	因此得出,\ $  K $ 中的非零数 $ \lambda_{0}  $是 $ A B  $的特征值当且仅当  $\lambda_{0}$  是 $ B A  $的特征值.从而 $ A B$  与 $ B A $ 有相同的非零特征值.
+	设  $\lambda_{0} \neq 0  $是  $A B $ 的$  l $ 重特征值,\  把 $ A B  $的特征多项式  $\left|\lambda I_{s}-A B\right| $ 在复数域中因式分解,\  得
+	\begin{equation}
+		\left|\lambda I_{s}-A B\right|=\left(\lambda-\lambda_{0}\right)^{l}\left(\lambda-\lambda_{1}\right)^{l_{1}} \cdots\left(\lambda-\lambda_{s-1}\right)^{l_{s-1}} ,\ \label{1.6.12}
+	\end{equation}
+	其中 $ \lambda_{0},\  \lambda_{1},\  \cdots,\  \lambda_{s-1}  两两不等,\   l+l_{1}+\cdots+l_{s-1}=s.$
+	把$\eqref{1.6.12}$式代入$\eqref{1.6.11}$式,\  得
+	$$\lambda^{n}\left(\lambda-\lambda_{0}\right)^{l}\left(\lambda-\lambda_{1}\right)^{l_{1}} \cdots\left(\lambda-\lambda_{s-1}\right)^{t_{s-1}}=\lambda^{s}\left|\lambda I_{n}-B A\right| .$$
+	由此得出,\  $ \lambda_{0}$  是 $ B A  $的特征多项式  $\left|\lambda I_{n}-B A\right|  $的  $l $ 重根,\  因此 $ \lambda_{0}$  是 $ B A $ 的 $ l  $重特征值.
+	同理,\ 若 $ \lambda_{0} \neq 0 $ 是 $ B A  $的 $ l  $重特征值,\ 则 $ \lambda_{0}$  也是  $A B$  的$  l$  重特征值.\\
+	(2)设  $\boldsymbol{\alpha}$  是 $ A B $ 的属于非零特征值  $\lambda_{0} $ 的一个特征向量,\  则 $ (A B) \boldsymbol{\alpha}=\lambda_{0} \boldsymbol{\alpha} .$此式两边左 乘  $B ,\  $得
+	$$(B A)(B \boldsymbol{\alpha})=\lambda_{0}(B \boldsymbol{\alpha}).$$
+	假如 $ B \boldsymbol{\alpha}=0 ,\ $ 则 $ \lambda_{0} \boldsymbol{\alpha}=(A B) \boldsymbol{\alpha}=\mathbf{0}  .$这与 $ \lambda_{0} \neq 0  $且  $\boldsymbol{\alpha} \neq 0  $矛盾.因此 $ B \boldsymbol{\alpha} \neq 0.\eqref{1.6.12}$式表明  $B \boldsymbol{\alpha} $ 是 $ B A  $的属于特征值  $\lambda_{0}$  的一个特征向量.
+\end{proof}
+\newpage
+\begin{problem}
+	用  $J $ 表示元素全为$ 1$ 的$  n $ 级矩阵.求数域  $K $ 上 $ n$  级矩阵 $ J $ 的全部特征值和 特征向量.
+\end{problem}
+\begin{solution}
+	$J=\mathbf{1}_{n} \mathbf{1}_{n}^{\prime} ,\  $其中  $\mathbf{1}_{n} $ 表示元素全为 $1$ 的 $ n $ 维列向量.据上题的结论,\ $J$  与 $ \mathbf{1}_{n}^{\prime} \mathbf{1}_{n}=(n) $ 有相同的非零特征值.由于$ 1 $级矩阵 $ (n) $ 的特征值只有一个:  $n ,\ $ 且它的重数为 $1 ,\  $因此  $J $ 的非 零特征值只有一个:  $n ,\  $且它的重数为 $1 .$由于  $(1) $ 是 $ (n)  $的属于$  n  $的一个特征向量,\  因此,\  $ \mathbf{1}_{n}(1)=\mathbf{1}_{n}  $是 $ J $ 的属于  $n $ 的一个特征向量.由于 $ J $ 的特征值  $n  $的几何重数不超过它的代数重 数 $1 ,\ $ 因此  $J $ 的属于 $ n  $的特征子空间的维数为 $1.$从而  $J $ 的属于  $n $ 的所有特征向量组成的集 合是
+	$$\left\{k \mathbf{1}_{n} \mid k \in K \text { 且 } k \neq 0\right\} .$$
+	由于  $|J|=0 ,\ $ 因此 $0 $是  $J$  的一个特征值.显然  $J $ 的秩为$ 1 ,\  $因此齐次线性方程组  $(0 I-A) \boldsymbol{X}=\mathbf{0}  $的解空间的维数等于  $n-1 .$容易求出这个方程组的一般解为
+	$$x_{1}=-x_{2}-x_{3}-\cdots-x_{n},\ $$
+	其中 $ x_{2},\  x_{3},\  \cdots,\  x_{n} $ 是自由末知量.于是它的一个基础解系是
+	$$\boldsymbol{\eta}_{1}=\left(\begin{array}{r}
+		1 \\
+		-1 \\
+		0 \\
+		\vdots \\
+		0
+	\end{array}\right),\  \boldsymbol{\eta}_{2}=\left(\begin{array}{r}
+		1 \\
+		0 \\
+		-1 \\
+		0 \\
+		\vdots \\
+		0
+	\end{array}\right),\  \cdots,\  \boldsymbol{\eta}_{n-1}=\left(\begin{array}{r}
+		1 \\
+		0 \\
+		\vdots \\
+		0 \\
+		-1
+	\end{array}\right) .$$
+	从而 $ J $ 的属于特征值 $0 $的所有特征向量组成的集合是
+	$$\left\{k_{1} \boldsymbol{\eta}_{1}+k_{2} \boldsymbol{\eta}_{2}+\cdots+k_{n-1} \boldsymbol{\eta}_{n-1} \mid k_{1},\  k_{2},\  \cdots,\  k_{n-1} \in K \text {,\  且它们不全为 } 0\right\}.$$
+\end{solution}
+\newpage
+\begin{problem}
+	求复数域上 $ n  $级循环移位矩阵 $ \boldsymbol{C}=\left(\boldsymbol{\varepsilon}_{n},\  \boldsymbol{\varepsilon}_{1},\  \boldsymbol{\varepsilon}_{2},\  \cdots,\  \boldsymbol{\varepsilon}_{n-1}\right) $ 的全部特征值和特征 向量.
+\end{problem}
+\begin{solution}
+	$C $ 的特征多项式  $|\lambda I-C| $ 为
+	$$\begin{array}{l}
+		\left|\begin{array}{rcrrrr}
+			\lambda & -1 & 0 & \cdots & 0 & 0 \\
+			0 & \lambda & -1 & \cdots & 0 & 0 \\
+			\vdots & \vdots & \vdots & & \vdots & \vdots \\
+			0 & 0 & 0 & \cdots & \lambda & -1 \\
+			-1 & 0 & 0 & \cdots & 0 & \lambda
+		\end{array}\right|=\lambda\left|\begin{array}{rrrrr}
+			\lambda & -1 & \cdots & 0 & 0 \\
+			\vdots & \vdots & & \vdots & \vdots \\
+			0 & 0 & \cdots & \lambda & -1 \\
+			0 & 0 & \cdots & 0 & \lambda
+		\end{array}\right|+(-1)(-1)^{n+1}(-1)^{n-1} \\
+		=\lambda^{n}-1 .
+	\end{array}$$
+	于是  $n  $级循环移位矩阵  $C $ 的全部特征值是 $ 1,\  \xi,\  \cdots,\  \xi^{n-1} ,\ $ 其中 $ \xi=\mathrm{e}^{\frac{\mathrm{i} \pi}{n}}. $
+	对于非负整数 $ m(0 \leqslant m<n) ,\ $ 有
+	$$C\left(\begin{array}{c}
+		1 \\
+		\xi^{m} \\
+		\xi^{2 m} \\
+		\vdots \\
+		\xi^{(n-1) m}
+	\end{array}\right)=\left(\begin{array}{c}
+		\xi^{m} \\
+		\xi^{2 m} \\
+		\vdots \\
+		\xi^{(n-1) m} \\
+		1
+	\end{array}\right)=\xi^{m}\left(\begin{array}{c}
+		1 \\
+		\xi^{m} \\
+		\vdots \\
+		\xi^{(n-2) m} \\
+		\xi^{(n-1) m}
+	\end{array}\right) .$$
+	因此 $ C $ 的属于特征值 $ \xi^{m}$  的所有特征向量组成的集合是
+	$$\left\{k\left(1,\  \xi^{m},\  \xi^{2 m},\  \cdots,\  \xi^{(n-1) m}\right)^{\prime} \mid k \in \mathbf{C} \text { 且 } k \neq 0\right\} .$$
+\end{solution}
+\newpage
+\begin{problem}
+	设  $f(x)=a_{0}+a_{1} x+\cdots+a_{m} x^{m}  $是数域$  K $ 上一个多项式.证明: 如果 $ \lambda_{0}  $是 $ K $ 上$  n$  级矩阵  $A$  的一个特征值,\  且  $\boldsymbol{\alpha}$  是  $A $ 的属于 $ \lambda_{0}  $的一个特征向量,\  那么  $f\left(\lambda_{0}\right) $ 是矩阵$  f(A) $ 的一个特征值,\  且  $\boldsymbol{\alpha} $ 是  $f(A) $ 的属于 $ f\left(\lambda_{0}\right)$  的一个特征向量.
+\end{problem}
+\begin{proof}
+	由已知条件得,\   $A \boldsymbol{\alpha}=\lambda_{0} \boldsymbol{\alpha} .$于是
+	$$\begin{aligned}
+		f(A) \boldsymbol{\alpha} & =\left(a_{0} I+a_{1} A+\cdots+a_{m} A^{m}\right) \boldsymbol{\alpha} \\
+		& =a_{0} \boldsymbol{\alpha}+a_{1} A \boldsymbol{\alpha}+\cdots+a_{m} A^{m} \boldsymbol{\alpha} \\
+		& =a_{0} \boldsymbol{\alpha}+a_{1} \lambda_{0} \boldsymbol{\alpha}+\cdots+a_{m} \lambda_{0}^{m} \boldsymbol{\alpha} \\
+		& =\left(a_{0}+a_{1} \lambda_{0}+\cdots+a_{m} \lambda_{0}^{m}\right) \boldsymbol{\alpha}=f\left(\lambda_{0}\right) \boldsymbol{\alpha} .
+	\end{aligned}$$
+	因此  $f\left(\lambda_{0}\right)$  是 $ f(A) $ 的一个特征值,\   $\boldsymbol{\alpha} $ 是  $f(A)$  的属于  $f\left(\lambda_{0}\right) $ 的一个特征向量.
+\end{proof}
+\begin{problem}
+	求复数域上  $n $ 级循环矩阵
+	$$A=\left(\begin{array}{ccccc}
+		a_{1} & a_{2} & a_{3} & \cdots & a_{n} \\
+		a_{n} & a_{1} & a_{2} & \cdots & a_{n-1} \\
+		\vdots & \vdots & \vdots & & \vdots \\
+		a_{2} & a_{3} & a_{4} & \cdots & a_{1}
+	\end{array}\right)$$
+	的全部特征值和特征向量.
+\end{problem}
+\begin{solution}
+	$$A=a_{1} I+a_{2} C+\cdots+a_{n} C^{n-1},\ $$
+	其中 $ C$  是 $ n$  级循环移位矩阵.令
+	$$f(x)=a_{1}+a_{2} x+\cdots+a_{n} x^{n-1},\  \quad \xi=\mathrm{e}^{\mathrm{i} \frac{2 \pi}{n}},\ $$
+	$A=f(C) $ 的全部特征值是 $ f\left(\xi^{m}\right),\  m=0,\ 1,\ 2,\  \cdots,\  n-1 ;  A  $的属于特征值  $f\left(\xi^{m}\right) $ 的所有特征向量组成的集合是
+	$$\left\{k\left(1,\  \xi^{m},\  \xi^{2 m},\  \cdots,\  \xi^{(n-1) m}\right)^{\prime} \mid k \in \mathbf{C} \text { 且 } k \neq 0\right\} .$$
+\end{solution}
+\newpage
+\begin{problem}
+	复数域上的  $n$  级矩阵
+	$$A=\left(\begin{array}{cccccc}
+		0 & 1 & 0 & \cdots & 0 & 0 \\
+		0 & 0 & 1 & \cdots & 0 & 0 \\
+		\vdots & \vdots & \vdots & & \vdots & \vdots \\
+		0 & 0 & 0 & \cdots & 0 & 1 \\
+		-a_{0} & -a_{1} & -a_{2} & \cdots & -a_{n-2} & -a_{n-1}
+	\end{array}\right)$$
+	称为 Frobenius 矩阵,\  $ n \geqslant 2 .$求  $A $ 的特征多项式和全部特征向量.
+\end{problem}
+\begin{solution}
+	$$|\lambda I-A|=\left|\begin{array}{cccccc}
+		\lambda & -1 & 0 & \cdots & 0 & 0 \\
+		0 & \lambda & -1 & \cdots & 0 & 0 \\
+		\vdots & \vdots & \vdots & & \vdots & \vdots \\
+		0 & 0 & 0 & \cdots & \lambda & -1 \\
+		a_{0} & a_{1} & a_{2} & \cdots & a_{n-2} & \lambda+a_{n-1}
+	\end{array}\right|.$$
+	$$|\lambda I-A|=\lambda^{n}+a_{n-1} \lambda^{n-1}+\cdots+a_{1} \lambda+a_{0} .$$
+	设 $ \lambda_{1},\  \lambda_{2},\  \cdots,\  \lambda_{n} $ 是$  |\lambda I-A|  $的全部复根.对于  $1 \leqslant i \leqslant n ,\  $有
+	$$A\left(\begin{array}{c}
+		1 \\
+		\lambda_{i} \\
+		\lambda_{i}^{2} \\
+		\vdots \\
+		\lambda_{i}^{n-1}
+	\end{array}\right)=\left(\begin{array}{c}
+		\lambda_{i} \\
+		\lambda_{i}^{2} \\
+		\vdots \\
+		\lambda_{i}^{n-1} \\
+		-a_{0}-a_{1} \lambda_{i}-\cdots-a_{n-1} \lambda_{i}^{n-1}
+	\end{array}\right)=\lambda_{i}\left(\begin{array}{c}
+		1 \\
+		\lambda_{i} \\
+		\lambda_{i}^{2} \\
+		\vdots \\
+		\lambda_{i}^{n-1}
+	\end{array}\right),\ $$
+	因此  $\left(1,\  \lambda_{i},\  \lambda_{i}^{2},\  \cdots,\  \lambda_{i}^{n-1}\right)^{\prime}  $是  $A$  的属于特征值$  \lambda_{i} $ 的一个特征向量.由于
+	$$\left(\lambda_{i} I-A\right)\left(\begin{array}{l}
+		1,\ 2,\  \cdots,\  n-1 \\
+		2,\ 3,\  \cdots,\  n
+	\end{array}\right)=(-1)^{n-1} \neq 0,\ $$
+	而  $\left|\lambda_{i} I-A\right|=0 ,\ $ 因此$  \operatorname{rank}\left(\lambda_{i} I-A\right)=n-1 .$从而齐次线性方程组  $\left(\lambda_{i} I-A\right) \boldsymbol{X}=\mathbf{0} $ 的解空 间的维数为 $ n-(n-1)=1  .$于是  $A$  的属于特征值 $ \lambda_{i}$  的所有特征向量组成的集合是
+	$$\left\{k\left(1,\  \lambda_{i},\  \lambda_{i}^{2},\  \cdots,\  \lambda_{i}^{n-1}\right)^{\prime} \mid k \in \mathbf{C} \text { 且 } k \neq 0\right\} .$$
+\end{solution}
+\begin{note}
+	求 $ A$  的属于特征值 $ \lambda_{i}  $的全部特征向量的方法二:
+	由于  $\left|\lambda_{i} I-A\right|=0,\ \left(\lambda_{i} I-A\right)\left(\begin{array}{l}1,\ 2,\  \cdots,\  n-1 \\ 2,\ 3,\  \cdots,\  n\end{array}\right)=(-1)^{n-1} \neq 0 ,\ $
+	即  $\lambda_{i} I-A  $的 $ (n,\  1)  $元的代数余子式不等于 $0 ,\  $
+	$$\boldsymbol{\eta}=\left(\left(\lambda_{i} I-A\right)_{n 1},\ \left(\lambda_{i} I-A\right)_{n 2},\  \cdots,\ \left(\lambda_{i} I-A\right)_{m}\right)^{\prime}$$
+	是齐次线性方程组  $\left(\lambda_{i} I-A\right) \boldsymbol{X}=\mathbf{0} $ 的一个基础解系,\  其中 $ \left(\lambda_{i} I-A\right)_{n j}  $是 $ \left(\lambda_{i} I-A\right)  的  (n,\  j)  元的 代数余子式,\   j=1,\ 2,\  \cdots,\  n  .$容易计算得出,\   $\left(\lambda_{i} I-A\right)_{n 1}=1,\ \left(\lambda_{i} I-A\right)_{n 2}=\lambda_{i},\  \cdots,\ \left(\lambda_{i} I-A\right)_{m}=   \lambda_{i}^{n-1}  .$因此 $ \boldsymbol{\eta}=\left(1,\  \lambda_{i},\  \lambda_{i}^{2},\  \cdots,\  \lambda_{i}^{n-1}\right)^{\prime} .$从而  $A $ 的属于  $\lambda_{i}  $的所有特征向量组成的集合是
+	$$\left\{k\left(1,\  \lambda_{i},\  \lambda_{i}^{2},\  \cdots,\  \lambda_{i}^{n-1}\right)^{\prime} \mid k \in \mathbf{C} \text { 且 } k \neq 0\right\} .$$
+\end{note}
+\newpage
+\begin{problem}
+	斐波那契 (Fibonacci) 数列是
+	$$0,\ 1,\ 1,\ 2,\ 3,\ 5,\ 8,\ 13,\  \cdots$$
+	它满足下列递推公式:
+	$$a_{n+2}=a_{n+1}+a_{n},\  \quad n=0,\ 1,\ 2,\  \cdots$$
+	以及初始条件  $a_{0}=0,\  a_{1}=1 .$求 Fibonacci 数列的通项公式,\  并且求 
+	$ \lim\limits_{n \rightarrow +\infty} \frac{a_{n}}{a_{n+1}}  .$
+\end{problem}
+\begin{solution}
+	令
+	$$\boldsymbol{\alpha}_{n}=\left(\begin{array}{l}
+		a_{n+1} \\
+		a_{n}
+	\end{array}\right),\  \quad n=0,\ 1,\ 2,\  \cdots$$
+	则
+	\begin{equation}
+		\left(\begin{array}{l}
+			a_{n+2} \\
+			a_{n+1}
+		\end{array}\right)=\left(\begin{array}{ll}
+			1 & 1 \\
+			1 & 0
+		\end{array}\right)\left(\begin{array}{c}
+			a_{n+1} \\
+			a_{n}
+		\end{array}\right) .\label{1.6.13}
+	\end{equation}
+	令
+	$$A=\left(\begin{array}{ll}
+		1 & 1 \\
+		1 & 0
+	\end{array}\right),\ $$
+	则$\eqref{1.6.13}$式可写成
+	$$\boldsymbol{\alpha}_{n+1}=A \boldsymbol{\alpha}_{n}.$$
+	从上式得出 
+	\begin{equation}
+		\boldsymbol{\alpha}_{n}=A^{n} \boldsymbol{\alpha}_{0} .\label{1.6.14}
+	\end{equation}
+	于是为了求 Fibonacci 数列的通项公式就只要去计算 $ A^{n} .$可利用$  A $ 的相似标准形来简化$  A^{n}  $的计算.把 $ A $ 看成实数域上的矩阵.
+	$$|\lambda I-A|=\lambda^{2}-\lambda-1=\left(\lambda-\frac{1+\sqrt{5}}{2}\right)\left(\lambda-\frac{1-\sqrt{5}}{2}\right) .$$
+	于是  $A  $有两个不同的特征值: $ \lambda_{1}=\frac{1+\sqrt{5}}{2},\  \lambda_{2}=\frac{1-\sqrt{5}}{2} ,\  $从而 $ A $ 可对角化.则 从而
+	$$\begin{aligned}
+		A^{n} & =P\left(\begin{array}{cc}
+			\lambda_{1} & 0 \\
+			0 & \lambda_{2}
+		\end{array}\right)^{n} P^{-1}=\left(\begin{array}{cc}
+			\lambda_{2} & \lambda_{2} \\
+			1 & 1
+		\end{array}\right)\left(\begin{array}{cc}
+			\lambda_{1}^{n} & 0 \\
+			0 & \lambda_{2}^{n}
+		\end{array}\right) \frac{1}{\sqrt{5}}\left(\begin{array}{rr}
+			1 & -\lambda_{2} \\
+			-1 & \lambda_{1}
+		\end{array}\right) \\
+		& =\frac{1}{\sqrt{5}}\left(\begin{array}{cc}
+			\lambda_{1}^{n+1} & \lambda_{2}^{n+1} \\
+			\lambda_{1}^{n} & \lambda_{2}^{n}
+		\end{array}\right)\left(\begin{array}{rr}
+			1 & -\lambda_{2} \\
+			-1 & \lambda_{1}
+		\end{array}\right) .
+	\end{aligned}$$
+	从 $\eqref{1.6.14}$ 式及初始条件,\  得
+	$$\left(\begin{array}{l}
+		a_{n+1} \\
+		a_{n}
+	\end{array}\right)=A^{n}\left(\begin{array}{l}
+		1 \\
+		0
+	\end{array}\right) .$$
+	比较上式两边的第 2 个分量,\  得
+	$$a_{n}=\frac{1}{\sqrt{5}}\left(\lambda_{1}^{n}-\lambda_{2}^{n}\right)=\frac{1}{\sqrt{5}}\left[\left(\frac{1+\sqrt{5}}{2}\right)^{n}-\left(\frac{1-\sqrt{5}}{2}\right)^{n}\right] .$$
+	上式就是 Fibonacci 数列的通项公式.
+	$$\lim\limits_{n \rightarrow \infty} \frac{a_{n}}{a_{n+1}}=\frac{1}{\lambda_{1}}=\frac{\sqrt{5}-1}{2} \approx 0.618 .$$
+\end{solution}
+\newpage
+\begin{problem}
+	设 $ A ,\ B $ 分别是数域  $K $ 上  $n $ 级$,\  m$  级矩阵,\  它们分别有 $ n $ 个$,\   m $ 个不同的特征 值.设 $ f(\lambda) $ 是  $A $ 的特征多项式,\  且  $f(B)$  是可逆矩阵.证明: 对任意 $ n \times m $ 矩阵$  C ,\  $都 有矩阵
+	$$G=\left(\begin{array}{ll}
+		A & C \\
+		0 & B
+	\end{array}\right)$$
+	可对角化.
+\end{problem}
+\begin{proof}
+	$$\begin{aligned}
+		|\lambda I-G| & =\left|\begin{array}{cc}
+			\lambda I_{n}-A & -C \\
+			0 & \lambda I_{m}-B
+		\end{array}\right|=\left|\lambda I_{n}-A\right|\left|\lambda I_{m}-B\right|,\  \\
+		& =\left(\lambda-\lambda_{1}\right)\left(\lambda-\lambda_{2}\right) \cdots\left(\lambda-\lambda_{n}\right)\left(\lambda-\mu_{1}\right)\left(\lambda-\mu_{2}\right) \cdots\left(\lambda-\mu_{m}\right) .
+	\end{aligned}$$
+	由已知条件知道,\  $ \lambda_{1},\  \lambda_{2},\  \cdots,\  \lambda_{n}  $两两不等,\  $ \mu_{1},\  \mu_{2},\  \cdots \mu_{m}  $两两不等.由于  $\mu_{j}  $是  $B $ 的特征值,\  因此$  f\left(\mu_{j}\right) $ 是  $f(B)  $的特征值 $,\ j=1,\ 2,\  \cdots,\  m  .$由于  $f(B) $ 是可逆矩阵,\  因此  $f\left(\mu_{j}\right) \neq 0 ,\   j=1,\ 2,\  \cdots,\  m . $从而  $\mu_{j}(j=1,\ 2,\  \cdots,\  m) $ 不是  $A$  的特征值.于是 $ (n+m)  $级矩阵 $ G  $有 $ n+m  $个不同的特征值.从而 $ G  $可对角化.
+\end{proof}
+\newpage
+\begin{theorem}
+	实对称矩阵一定正交相似于对角矩阵.
+\end{theorem}
+\begin{proof}
+	对实对称矩阵的级数  $n$  作数学归纳法.\\
+	$n=1 $ 时,\ $ (1)^{-1}(a)(1)=(a) ,\  $因此命题为真.
+	假设对于 $ n-1 $ 级的实对称矩阵命题为真,\  现在来看  $n $ 级实对称矩阵$A.$
+	由于实对称矩阵必有特征值,\  因此取  $A  $的一个特征值$  \lambda_{1} ,\  $属于  $\lambda_{1}$  的一个特征向量$  \boldsymbol{\eta}_{1} ,\  $且 $ \left|\boldsymbol{\eta}_{1}\right|=1  $.把 $ \boldsymbol{\eta}_{1}$  扩充成  $\mathbf{R}^{n} $ 的一个基,\  然后经过施密特正交化和单位化,\  可得到 $ \mathbf{R}^{n} $ 的一个标准正交基:  $\boldsymbol{\eta}_{1},\  \boldsymbol{\eta}_{2},\  \cdots,\  \boldsymbol{\eta}_{n} . $令
+	$$T_{1}=\left(\boldsymbol{\eta}_{1},\  \boldsymbol{\eta}_{2},\  \cdots,\  \boldsymbol{\eta}_{\boldsymbol{n}}\right),\ $$
+	则  $T_{1}$  是 $ n$  级正交矩阵.我们有
+	$$T_{1}^{-1} A T_{1}=T_{1}^{-1}\left(A \boldsymbol{\eta}_{1},\  A \boldsymbol{\eta}_{2},\  \cdots,\  A \boldsymbol{\eta}_{n}\right)=\left(T_{1}^{-1} \lambda_{1} \boldsymbol{\eta}_{1},\  T_{1}^{-1} A \boldsymbol{\eta}_{2},\  \cdots,\  T_{1}^{-1} A \boldsymbol{\eta}_{n}\right).$$
+	由于 $ T_{1}^{-1} T_{1}=I=\left(\boldsymbol{\varepsilon}_{1},\  \boldsymbol{\varepsilon}_{2},\  \cdots,\  \boldsymbol{\varepsilon}_{n}\right) ,\  $又有  $T_{1}^{-1} T_{1}=\left(T_{1}^{-1} \boldsymbol{\eta}_{1},\  T_{1}^{-1} \boldsymbol{\eta}_{2},\  \cdots,\  T_{1}^{-1} \boldsymbol{\eta}_{n}\right) ,\ $
+	因此 $ T_{1}^{-1} \boldsymbol{\eta}_{1}=\boldsymbol{\varepsilon}_{1} . $从而得到
+	$$T_{1}^{-1} A T_{1}=\left(\begin{array}{ll}
+		\lambda_{1} & \boldsymbol{\alpha} \\
+		\mathbf{0} & B
+	\end{array}\right) .$$
+	由于  $A$  是实对称矩阵,\  因此 $ T_{1}^{-1} A T_{1}$  也是实对称矩阵.由上式得,\  $ \boldsymbol{\alpha}=\mathbf{0} ,\  $且  $B $ 也是 实对称矩阵.于是对$  B $ 可以用归纳假设,\ 存在 $ n-1 $ 级正交矩阵$  T_{2} ,\ $ 使得
+	$$T_{2}^{-1} B T_{2}=\operatorname{diag}\left\{\lambda_{2},\  \cdots,\  \lambda_{n}\right\} .$$
+	令
+	$$T=T_{1}\left(\begin{array}{rr}
+		1 & \mathbf{0} \\
+		\mathbf{0} & T_{2}
+	\end{array}\right) .$$
+	则 $ T$  是正交矩阵,\  并且有
+	$$\begin{aligned}
+		T^{-1} A T & =\left(\begin{array}{cc}
+			1 & \mathbf{0} \\
+			\mathbf{0} & T_{2}
+		\end{array}\right)^{-1} T_{1}^{-1} A T_{1}\left(\begin{array}{cc}
+			1 & \mathbf{0} \\
+			\mathbf{0} & T_{2}
+		\end{array}\right)=\left(\begin{array}{cc}
+			1 & \mathbf{0} \\
+			\mathbf{0} & T_{2}^{-1}
+		\end{array}\right)\left(\begin{array}{cc}
+			\lambda_{2} & \mathbf{0} \\
+			\mathbf{0} & B
+		\end{array}\right)\left(\begin{array}{cc}
+			1 & \mathbf{0} \\
+			\mathbf{0} & T_{2}
+		\end{array}\right) \\
+		& =\left(\begin{array}{cc}
+			\lambda_{1} & \mathbf{0} \\
+			\mathbf{0} & T_{2}^{-1} B T_{2}
+		\end{array}\right)=\operatorname{diag}\left\{\lambda_{1},\  \lambda_{2},\  \cdots,\  \lambda_{n}\right\} .
+	\end{aligned}$$
+	根据数学归纳法原理,\  对于任意正整数  $n ,\ $ 命题为真.
+\end{proof}
+\newpage
+\begin{problem}
+	证明:如果  $A $ 是  $s \times n $ 实矩阵,\  那么  $A^{\prime} A $ 的特征值都是非负实数.
+\end{problem}
+\begin{proof}
+	法一: 由于 $ A^{\prime} A$  是 $ n$  级实对称矩阵,\  因此存在 $ n $ 级正交矩阵  T ,\  使得
+	$$T^{-1}\left(A^{\prime} A\right) T=\operatorname{diag}\left\{\lambda_{1},\  \lambda_{2},\  \cdots,\  \lambda_{n}\right\},\ $$
+	其中  $\lambda_{1},\  \lambda_{2},\  \cdots,\  \lambda_{n} $ 是$  A^{\prime} A$  的全部特征值,\  于是
+	$$\begin{aligned}
+		\lambda_{i} & =\left[(A T)^{\prime}(A T)\right](i ; i)=\sum_{k=1}^{n}\left[(A T)^{\prime}(i ; k)\right][(A T)(k ; i)] \\
+		& =\sum_{k=1}^{n}[(A T)(k ; i)]^{2} \geqslant 0 .
+	\end{aligned}$$
+	法二: 设 $ \lambda_{0}  $是 $ A^{\prime} A  $的一个特征值,\  则存在  $\boldsymbol{\alpha} \in \mathbf{R}^{n}$  且$  \boldsymbol{\alpha} \neq \mathbf{0} ,\  $使得 $ A^{\prime} A \boldsymbol{\alpha}=\lambda_{0} \boldsymbol{\alpha} .$两边 左乘  $\boldsymbol{\alpha}^{\prime} ,\  $得
+	$$\boldsymbol{\alpha}^{\prime} A^{\prime} A \boldsymbol{\alpha}=\lambda_{0} \boldsymbol{\alpha}^{\prime} \boldsymbol{\alpha} .$$
+	即  $(A \boldsymbol{\alpha})^{\prime}(A \boldsymbol{\alpha})=\lambda_{0} \boldsymbol{\alpha}^{\prime} \boldsymbol{\alpha} .$由于 $ \boldsymbol{\alpha} \neq \mathbf{0} ,\ $ 因此 $ \boldsymbol{\alpha}^{\prime} \boldsymbol{\alpha}=|\boldsymbol{\alpha}|^{2}>0 ,\ $ 从而
+	$$\lambda_{0}=\frac{(A \boldsymbol{\alpha})^{\prime}(A \boldsymbol{\alpha})}{\boldsymbol{\alpha}^{\prime} \boldsymbol{\alpha}}=\frac{(A \boldsymbol{\alpha},\  A \boldsymbol{\alpha})}{|\boldsymbol{\alpha}|^{2}} \geqslant 0$$
+\end{proof}
+\newpage
+\begin{problem}
+	证明: $ n $ 级实矩阵  $A $ 正交相似于一个上三角矩阵的充分必要条件是:  $A $ 的特征 多项式在复数域中的根都是实数.
+\end{problem}
+\begin{proof}
+	必要性.设 $ n$  级实矩阵$  A $ 正交相似于一个上三角矩阵 $ B=\left(b_{i j}\right) ,\  $则 $ |\lambda I-A|=|\lambda I-B|=\left(\lambda-b_{11}\right)\left(\lambda-b_{22}\right) \cdots\left(\lambda-b_{m n}\right) .$
+	这表明 $ |\lambda I-A|  $的根$  b_{11},\  b_{22},\  \cdots,\  b_{nn} $ 都是实数.\\
+	充分性.对实矩阵的级数作数学归纳法.$ n=1  $时,\  显然命题为真.假设对于 $ n-1 $ 级实矩阵命题为真,\  现在来看 $ n  $级实矩阵 $ A.$  由于  $A$  的特征多项式在复数域中的根都是 实数,\  因此可以取  $A $ 的一个特征值  $\lambda_{1} .$设 $ \boldsymbol{\eta}_{1} $ 是  $A $ 的属于  $\lambda_{1}$  的一个特征向量,\  且  $\left|\boldsymbol{\eta}_{1}\right|=1 .$ 把  $\boldsymbol{\eta}_{1} $ 扩充成  $\mathbf{R}^{n} $ 的一个基,\ 然后经过施密特正交化和单位化,\ 得到 $ \mathbf{R}^{n} $ 的一个标准正交基:$  \boldsymbol{\eta}_{1},\  \boldsymbol{\eta}_{2},\  \cdots,\  \boldsymbol{\eta}_{n} .$令 $ T_{1}=\left(\boldsymbol{\eta}_{1},\  \boldsymbol{\eta}_{2},\  \cdots,\  \boldsymbol{\eta}_{n}\right) ,\ $ 则 $ T_{1} $ 是正交矩阵.
+	$$T_{1}^{-1} A T_{1}=T_{1}^{-1}\left(A \boldsymbol{\eta}_{1},\  A \boldsymbol{\eta}_{2},\  \cdots,\  A \boldsymbol{\eta}_{n}\right)=\left(T_{1}^{-1} \lambda_{1} \boldsymbol{\eta}_{1},\  \boldsymbol{T}_{1}^{-1} A \boldsymbol{\eta}_{2},\  \cdots,\  \boldsymbol{T}_{1}^{-1} A \boldsymbol{\eta}_{n}\right) .$$
+	由于 $ T_{1}^{-1} T_{1}=I ,\  $因此  $T_{1}^{-1} \boldsymbol{\eta}_{1}=\boldsymbol{\varepsilon}_{1}  .$从而
+	$$T_{1}^{-1} A T_{1}=\left(\begin{array}{cc}
+		\lambda_{1} & \boldsymbol{\alpha} \\
+		\mathbf{0} & B
+	\end{array}\right) .$$
+	于是 $ |\lambda I-A|=\left(\lambda-\lambda_{1}\right)|\lambda I-B| .$因此  $n-1 $ 级实矩阵  $B $ 的特征多项式在复数域中的根都是实数.从而对  $B $ 可用归纳假设: 存在$  n-1 $ 级正交矩阵 $ T_{2} ,\ $ 使得 $ T_{2}^{-1} B T_{2}  $为上 三角矩阵.
+	令
+	$$T=T_{1}\left(\begin{array}{cc}
+		1 & \mathbf{0} \\
+		\mathbf{0} & T_{2}
+	\end{array}\right)$$
+	则  $T $ 是 $ n  $级正交矩阵,\  且
+	$$\begin{aligned}
+		T^{-1} A T & =\left(\begin{array}{cc}
+			1 & \mathbf{0}^{-1} \\
+			\mathbf{0} & T_{2}
+		\end{array}\right)^{-1} A T_{1}\left(\begin{array}{ll}
+			1 & \mathbf{0} \\
+			\mathbf{0} & T_{2}
+		\end{array}\right)=\left(\begin{array}{rr}
+			1 & \mathbf{0} \\
+			\mathbf{0} & T_{2}^{-1}
+		\end{array}\right)\left(\begin{array}{ll}
+			\lambda_{1} & \boldsymbol{\alpha} \\
+			\mathbf{0} & B
+		\end{array}\right)\left(\begin{array}{rr}
+			1 & \mathbf{0} \\
+			\mathbf{0} & T_{2}
+		\end{array}\right) \\
+		& =\left(\begin{array}{cc}
+			\lambda_{1} & \boldsymbol{\alpha} T_{2} \\
+			\mathbf{0} & T_{2}^{-1} B T_{2}
+		\end{array}\right) .
+	\end{aligned}$$
+	因此  $T^{-1} A T $ 是上三角矩阵.
+	据数学归纳法原理,\  对一切正整数 $ n ,\  $此命题为真.
+\end{proof}
+\newpage
+\begin{problem}
+	证明: 任一  $n$  级复矩阵一定相似于一个上三角矩阵.
+\end{problem}
+\begin{proof}
+	对复矩阵的级数 $ n $ 作数学归纳法. $ n=1 $ 时,\  显然命题为真,\  假设 $ n-1 $ 级复矩阵 一定相似于一个上三角矩阵.现在来看  $n $ 级复矩阵 $ A .$ 设  $\lambda_{1}  $是 $ n$  级复矩阵  $A $ 的一个特征 值,\   $\boldsymbol{\alpha}_{1}$  是属于 $ \lambda_{1} $ 的一个特征向量.把 $ \boldsymbol{\alpha}_{1}  $扩充成  $\mathbf{C}^{n}  $的一个基: $ \boldsymbol{\alpha}_{1},\  \boldsymbol{\alpha}_{2},\  \cdots,\  \boldsymbol{\alpha}_{n} .$令 $ P_{1}=   \left(\boldsymbol{\alpha}_{1},\  \boldsymbol{\alpha}_{2},\  \cdots,\  \boldsymbol{\alpha}_{n}\right) ,\  $则 $ P_{1}  $是  $n$  级可逆矩阵,\  且
+	$$P_{1}^{-1} A P_{1}=P_{1}^{-1}\left(A \boldsymbol{\alpha}_{1},\  A \boldsymbol{\alpha}_{2},\  \cdots,\  A \boldsymbol{\alpha}_{n}\right)=\left(P_{1}^{-1} \lambda_{1} \boldsymbol{\alpha}_{1},\  P_{1}^{-1} A \boldsymbol{\alpha}_{2},\  \cdots,\  P_{1}^{-1} A \boldsymbol{\alpha}_{n}\right) .$$
+	由于  $P_{1}^{-1} P_{1}=I ,\ $ 因此 $ P_{1}^{-1} \boldsymbol{\alpha}_{1}=\boldsymbol{\varepsilon}_{1}  .$从而
+	$$P_{1}^{-1} A P_{1}=\left(\begin{array}{cc}
+		\lambda_{1} & \boldsymbol{\alpha} \\
+		\boldsymbol{0} & B
+	\end{array}\right) .$$
+	对 $ n-1  $级复矩阵  $B $ 用归纳假设,\  有  $n-1 $ 级可逆矩阵  $P_{2} ,\  $使得  $P_{2}^{-1} B P_{2} $ 为上三角矩 阵.令
+	$$P=P_{1}\left(\begin{array}{ll}
+		1 & 0 \\
+		0 & P_{2}
+	\end{array}\right),\ $$
+	则  $P$  是  $n $ 级可逆矩阵,\  且
+	$$P^{-1} A P=\left(\begin{array}{ll}
+		1 & \mathbf{0} \\
+		\mathbf{0} & P_{2}
+	\end{array}\right)^{-1}\left(\begin{array}{cc}
+		\lambda_{1} & \boldsymbol{\alpha} \\
+		\mathbf{0} & B
+	\end{array}\right)\left(\begin{array}{cc}
+		1 & \mathbf{0} \\
+		\mathbf{0} & P_{2}
+	\end{array}\right)=\left(\begin{array}{cc}
+		\lambda_{1} & \boldsymbol{\alpha} P_{2} \\
+		\mathbf{0} & P_{2}^{-1} B P_{2}
+	\end{array}\right) .$$
+	因此 $ P^{-1} A P $ 是上三角矩阵.
+\end{proof}
+\newpage
+\begin{problem}
+	证明: 实数域上斜对称矩阵的特征多项式在复数域中的根是 $0 $或纯虚数.
+\end{problem}
+\begin{proof}
+	设$  A $ 是实数域上的$  n $ 级斜对称矩阵.  $\lambda_{0}  $是 $ A $ 的特征多项式 $ |\lambda I-A| $ 在复数 域中的一个根.把 $ A  $看成复矩阵,\  则 $ \lambda_{0} $ 是  $A$  的一个特征值.从而存在 $ \boldsymbol{\alpha} \in \mathbf{C}^{n} $ 且  $\boldsymbol{\alpha} \neq \mathbf{0} ,\  $使$  A \boldsymbol{\alpha}=\lambda_{0} \boldsymbol{\alpha} .$\\
+	由于 $ A $ 是实矤阵,\  因此从上式两边取共轪复数得,\ $  A \bar{\alpha}=\bar{\lambda}_{0} \overline{\boldsymbol{\alpha}} .$两边左乘 $ \boldsymbol{\alpha}^{\prime} ,\ $ 得
+	\begin{equation}
+		\boldsymbol{\alpha}^{\prime} A \overline{\boldsymbol{\alpha}}=\bar{\lambda}_{0} \boldsymbol{\alpha}^{\prime} \overline{\boldsymbol{\alpha}} .\label{1.6.15}
+	\end{equation}
+	由于  $A  $是斜对称矩阵,\  因此  $A^{\prime}=-A_{\text {a }}  $在  $A \boldsymbol{\alpha}=\lambda_{0} \boldsymbol{\alpha}$  两边取转㯰,\  得  $\boldsymbol{\alpha}^{\prime} A=-\lambda_{0} \boldsymbol{\alpha}^{\prime} .$两边 右乘 $ \bar{\alpha} ,\  $得
+	\begin{equation}
+		\boldsymbol{\alpha}^{\prime} \mathbf{A} \overline{\boldsymbol{\alpha}}=-\lambda_{0} \boldsymbol{\alpha}^{\prime} \overline{\boldsymbol{\alpha}} .\label{1.6.16}
+	\end{equation}
+	从$\eqref{1.6.15}$式和$\eqref{1.6.16}$ 式,\  得 $ \left(\bar{\lambda}_{0}+\lambda_{0}\right) \boldsymbol{\alpha}^{\prime} \overline{\boldsymbol{\alpha}}=0  .$ 由于  $\boldsymbol{\alpha} \neq \mathbf{0} ,\  $因此 $ \boldsymbol{\alpha}^{\prime} \overline{\boldsymbol{\alpha}} \neq 0.$从而 $ \bar{\lambda}_{0}=-\lambda_{0} .$因此  $\lambda_{0}$  等于$ 0 $或$  \lambda_{0} $ 是纯虚数.
+\end{proof}
+\newpage
+\begin{problem}
+	设  $A $ 是实数域上的 $ n $ 级斜对称矩阵.证明:
+	$$\left|\begin{array}{cc}
+		2 I_{n} & A \\
+		A & 2 I_{n}
+	\end{array}\right| \geqslant 2^{2 n} ,\ $$
+	等号成立当且仅当  $A=0 .$
+\end{problem}
+\begin{proof}
+	$$\left(\begin{array}{cc}2 I_{n} & A \\ A & 2 I_{n}\end{array}\right) \xrightarrow{(2)+\left(-\frac{1}{2} A\right) \cdot (1)}\left(\begin{array}{cc}2 I_{n} & A \\ 0 & 2 I_{n}-\frac{1}{2} A^{2}\end{array}\right).$$
+	于是
+	$$\left(\begin{array}{cc}
+		I_{n} & 0 \\
+		-\frac{1}{2} A & I_{n}
+	\end{array}\right)\left(\begin{array}{cc}
+		2 I_{n} & A \\
+		A & 2 I_{n}
+	\end{array}\right)=\left(\begin{array}{cc}
+		2 I_{n} & A \\
+		0 & 2 I_{n}-\frac{1}{2} A^{2}
+	\end{array}\right)$$
+	从而
+	$$\left|\begin{array}{cc}
+		2 I_{n} & A \\
+		A & 2 I_{n}
+	\end{array}\right|=
+	\left|2 I_{n}\right| \cdot\left|2 I_{n}-\frac{1}{2} A^{2}\right|=
+	2^{n} \cdot 2^{n}\left|I_{n}-\frac{1}{4} A^{2}\right|.$$
+	由于  $\left(A^{2}\right)^{\prime}=A^{\prime} A^{\prime}=(-A)(-A)=A^{2} ,\  $因此  $A^{2} $ 是实对称矩阵.据上题的结论,\  可设 $ A $ 的特征多项式在复数域中的全部根为 $ b_{1} \mathrm{i},\  b_{2} \mathrm{i},\  \cdots,\  b_{n} \mathrm{i} ,\ $ 其中  $b_{1},\  b_{2},\  \cdots,\  b_{n} $ 是实数.于是$  A^{2} $ 的
+	全部特征值为 $ -b_{1}^{2},\ -b_{2}^{2},\  \cdots,\ -b_{n}^{2}  .$从而$  I_{n}-\frac{1}{4} A^{2}  $的全部特征值是 $ 1+\frac{1}{4} b_{1}^{2},\  1+\frac{1}{4} b_{2}^{2},\  \cdots ,\   1+\frac{1}{4} b_{n}^{2}  .$由于  $I_{n}-\frac{1}{4} A^{2}  $是实对称矩阵,\  因此
+	$$I_{n}-\frac{1}{4} A^{2} \sim \operatorname{diag}\left\{1+\frac{1}{4} b_{1}^{2},\  1+\frac{1}{4} b_{2}^{2},\  \cdots,\  1+\frac{1}{4} b_{n}^{2}\right\} .$$
+	从而
+	\begin{equation}
+		\left|I_{n}-\frac{1}{4} A^{2}\right|=\left(1+\frac{1}{4} b_{1}^{2}\right)\left(1+\frac{1}{4} b_{2}^{2}\right) \cdots\left(1+\frac{1}{4} b_{n}^{2}\right) \geqslant 1 .\label{1.6.17}
+	\end{equation}
+	因此
+	\begin{equation}
+		\left|\begin{array}{cc}
+			2 I_{n} & A \\
+			A & 2 I_{n}
+		\end{array}\right| \geqslant 2^{2 n} .\label{1.6.18}
+	\end{equation}
+	从$\eqref{1.6.17}$式看出,\ $\eqref{1.6.18}$式的等号成立当且仅当  $b_{1}=b_{2}=\cdots=b_{n}=0  .$于是如果等号成 立,\  那么实对称矩阵 $ A^{2} $ 相似于 $ \operatorname{diag}\{0,\ 0,\  \cdots,\  0\}  .$从而  $A^{2}=0  .$由于 $ A$  是实数域上的斜 对称矩阵,\  因此  $A=0  .$反之,\  若 $ A=0 ,\  $则显然$\eqref{1.6.18} $式的等号成立.因此$\eqref{1.6.18}$式的等号成 立当且仅当  $A=0 .$
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ A $ 是  $n$  级实矩阵,\  证明: 如果 $ A$  的特征多项式在复数域中的根都是非负实 数,\  且  $A $ 的主对角元都是 $1 ,\  $那么 $ |A| \leqslant 1  .$
+\end{problem}
+\begin{proof}
+	由于  $n$  级实矩阵  $A  $的特征多项式在复数域中的根都是实数,\  可证$  A$  相似于一个上三角矩阵 $ B=\left(b_{i j}\right)  .$从而  $|A|=|B|=b_{11} b_{z z} \cdots b_{m} ,\  $且  $\operatorname{tr}(A)=\operatorname{tr}(B)  .$ 由于  $A $ 的主对角元都是 $1 ,\ $ 因此
+	$$b_{11}+b_{2 z}+\cdots+b_{m}=\operatorname{tr}(A)=n .$$
+	若 $ b_{11},\  b_{z 2},\  \cdots,\  b_{m}  $中有一个为$ 0 ,\ $ 则$  |A|=0 .$\\
+	若 $ b_{11},\  b_{22},\  \cdots,\  b_{m}  $都不为$ 0 ,\  $由于它们是  $A  $的特征多项式在复数域中的全部根,\  因此由 已知条件得,\  它们都为正数.从而
+	$$\sqrt[n]{b_{11} b_{22} \cdots b_{m}} \leqslant \frac{b_{11}+b_{22}+\cdots+b_{m}}{n}=1 .$$
+	由此得出,\  $ b_{11} b_{22} \cdots b_{m} \leqslant 1 ,\  $即 $ |A| \leqslant 1 .$
+\end{proof}
+\newpage
+\begin{problem}
+	设  $A $ 是数域 $ K $ 上的 $ n  $级矩阵,\  证明: $ A$  是斜对称矩阵当且仅当对于  $K^{n} $ 中任 一列向量  $\boldsymbol{\alpha} ,\  $有  $\boldsymbol{\alpha}^{\prime} A \boldsymbol{\alpha}=0 .$
+\end{problem}
+\begin{proof}
+	必要性.设  $A  $是斜对称矩阵,\  则 $ A^{\prime}=-A .$于是
+	$$\left(\boldsymbol{\alpha}^{\prime} A \boldsymbol{\alpha}\right)^{\prime}=\boldsymbol{\alpha}^{\prime} A^{\prime} \boldsymbol{\alpha}=-\boldsymbol{\alpha}^{\prime} A \boldsymbol{\alpha} .$$
+	又由于  $\boldsymbol{\alpha}^{\prime} A \boldsymbol{\alpha} $ 是 $1$ 级矩阵,\  因此 $ \left(\boldsymbol{\alpha}^{\prime} A \boldsymbol{\alpha}\right)^{\prime}=\boldsymbol{\alpha}^{\prime} A \boldsymbol{\alpha}  .$从而  $\boldsymbol{\alpha}^{\prime} A \boldsymbol{\alpha}=-\boldsymbol{\alpha}^{\prime} A \boldsymbol{\alpha} . $由此得出,\   $\boldsymbol{\alpha}^{\prime} A \boldsymbol{\alpha}=0 .$\\
+	充分性.设  $A $ 的列向量组是  $\boldsymbol{\alpha}_{1},\  \boldsymbol{\alpha}_{2},\  \cdots,\  \boldsymbol{\alpha}_{n}  .$由已知条件得
+	$$\begin{aligned}
+		0 & =\boldsymbol{\varepsilon}_{i}^{\prime} A \boldsymbol{\varepsilon}_{i}=\boldsymbol{\varepsilon}_{i}^{\prime}\left(\boldsymbol{\alpha}_{i}\right)=a_{i i},\  \quad i=1,\ 2,\  \cdots,\  n . \\
+		0 & =\left(\boldsymbol{\varepsilon}_{i}+\boldsymbol{\varepsilon}_{j}\right)^{\prime} A\left(\boldsymbol{\varepsilon}_{i}+\boldsymbol{\varepsilon}_{j}\right)=\left(\boldsymbol{\varepsilon}_{i}^{\prime}+\boldsymbol{\varepsilon}_{j}^{\prime}\right)\left(\boldsymbol{\alpha}_{i}+\boldsymbol{\alpha}_{j}\right) \\
+		& =a_{i i}+a_{i j}+a_{j i}+a_{j j}=a_{i j}+a_{j i},\  \quad i \neq j .
+	\end{aligned}$$
+	因此 $ A$  是斜对称矩阵.
+\end{proof}
+\newpage
+\begin{problem}
+	设
+	$$A=\left(\begin{array}{ll}
+		A_{1} & A_{2} \\
+		A_{3} & A_{4}
+	\end{array}\right)$$
+	是一个$  n $ 级对称矩阵,\  且 $ A_{1} $ 是$  r $ 级可逆矩阵.证明:
+	$$\begin{array}{l}
+		A \simeq\left(\begin{array}{cc}
+			A_{1} & 0 \\
+			0 & A_{4}-A_{2}^{\prime} A_{1}^{-1} A_{2}
+		\end{array}\right),\  \\
+		|A|=\left|A_{1}\right|\left|A_{4}-A_{2}^{\prime} A_{1}^{-1} A_{2}\right| \text {. } \\
+	\end{array}$$
+\end{problem}
+\begin{proof}
+	由于$  A $ 是对称矩阵,\  因此 $ A^{\prime}=A ,\ $ 即
+	$$\left(\begin{array}{ll}
+		A_{1}^{\prime} & A_{3}^{\prime} \\
+		A_{2}^{\prime} & A_{4}^{\prime}
+	\end{array}\right)=\left(\begin{array}{ll}
+		A_{1} & A_{2} \\
+		A_{3} & A_{4}
+	\end{array}\right) .$$
+	从而 $ A_{1},\  A_{4}$  都是对称矩阵,\  且$  A_{3}=A_{2}^{\prime} .$由于 $ A_{1}$  可逆,\  因此
+	$$\left(\begin{array}{ll}
+		A_{1} & A_{2} \\
+		A_{2}^{\prime} & A_{4}
+	\end{array}\right) \xrightarrow{(2)+(-A_2^{prime}A_1^{-1})}\left(\begin{array}{cc}
+		A_{1} & A_{2} \\
+		0 	  & A_{4}-A_{2}^{\prime} A_{1}^{-1} A_{2}
+	\end{array}\right)\xrightarrow[(2)+(1)\cdot(-A_1^{-1}A_2)]{}\left(\begin{array}{cc}
+		A_{1} & 0 \\
+		0 & A_{4}-A_{2}^{\prime} A_{1}^{-1} A_{2}
+	\end{array}\right).$$
+	$$\left(\begin{array}{cc}
+		I_{r} & 0 \\
+		-A_{2}^{\prime} A_{1}^{-1} & I_{n-r}
+	\end{array}\right)\left(\begin{array}{ll}
+		A_{1} & A_{2}^{\prime} \\
+		A_{3} & A_{4}
+	\end{array}\right)\left(\begin{array}{cc}
+		I_{r} & -A_{1}^{-1} A_{2} \\
+		0 & I_{n-r}
+	\end{array}\right)=\left(\begin{array}{cc}
+		A_{1} & 0 \\
+		0 & A_{4}-A_{2}^{\prime} A_{1}^{-1} A_{2}
+	\end{array}\right) .$$
+	由于 $ \left(-A_{1}^{-1} A_{2}\right)^{\prime}=-A_{2}^{\prime}\left(A_{1}^{-1}\right)^{\prime}=-A_{2}^{\prime}\left(A_{1}^{\prime}\right)^{-1}=-A_{2}^{\prime} A_{1}^{-1} ,\ $ 因此从上式得出
+	$$\begin{array}{c}
+		{\left(\begin{array}{ll}
+				A_{1} & A_{2} \\
+				A_{3} & A_{4}
+			\end{array}\right)\simeq\left(\begin{array}{cc}
+				A_{1} & 0 \\
+				0 & A_{4}-A_{2}^{\prime} A_{1}^{-1} A_{2}
+			\end{array}\right),\ } \\
+		|A|=\left|A_{1}\right|\left|A_{4}-A_{2}^{\prime} A_{1}^{-1} A_{2}\right| .
+	\end{array}$$
+\end{proof}
+\newpage
+\begin{problem}
+	证明:数域  $K$  上的斜对称矩阵一定合同于下述形式的分块对角矩阵:
+	$$\operatorname{diag}\left\{\left(\begin{array}{rr}
+		0 & 1 \\
+		-1 & 0
+	\end{array}\right),\  \cdots,\ \left(\begin{array}{rr}
+		0 & 1 \\
+		-1 & 0
+	\end{array}\right),\ (0),\  \cdots,\ (0)\right\} .$$
+\end{problem}
+\begin{proof}
+	对斜对称矩阵的级数  $n $ 作第二数学归纳法.
+	$n=1 $ 时$,\   (0) \simeq(0)  .$\\
+	$n=2  $时,\  设 $ a \neq 0 ,\  $则
+	$$\left(\begin{array}{cc}
+		0 & a \\
+		-a & 0
+	\end{array}\right) \stackrel{\left(\oplus \cdot a^{-1}\right.}{\longrightarrow}\left(\begin{array}{cc}
+		0 & 1 \\
+		-a & 0
+	\end{array}\right) \underset{\oplus \cdot a^{-1}}{\longrightarrow}\left(\begin{array}{rr}
+		0 & 1 \\
+		-1 & 0
+	\end{array}\right) .$$
+	得
+	$$\left(\begin{array}{cc}
+		0 & a \\
+		-a & 0
+	\end{array}\right) \simeq\left(\begin{array}{cc}
+		0 & 1 \\
+		-1 & 0
+	\end{array}\right) .$$
+	假设对于小于 $ n  $级的斜对称矩阵,\  命题为真.现在来看 $ n$  级斜对称矩阵  $A=\left(a_{i j}\right) .$ 情形  $1 A  $的左上角的 $2$ 级子矩阵  $A_{1} \neq 0 ,\ $ 则 $ A_{1} $ 可逆.把 $ A$  写成分块矩阵的形式:
+	$$A=\left(\begin{array}{ll}
+		A_{1} & A_{2} \\
+		A_{3} & A_{4}
+	\end{array}\right),\ $$
+	则
+	$$A^{\prime}=\left(\begin{array}{ll}
+		A_{1}^{\prime} & A_{3}^{\prime} \\
+		A_{2}^{\prime} & A_{4}^{\prime}
+	\end{array}\right) .$$
+	由于  $A^{\prime}=-A ,\ $ 因此 $ A_{1}^{\prime}=-A_{1},\  A_{4}^{\prime}=-A_{4},\  A_{3}=-A_{2}^{\prime} .$从而
+	$$\begin{array}{l} 
+		A=\left(\begin{array}{cc}
+			A_{1} & A_{2} \\
+			-A_{2}^{\prime} & A_{4}
+		\end{array}\right) \stackrel{\otimes+\left(A_{2}^{\prime} A_{1}^{-1}\right) \cdot \Phi}{\longrightarrow}\left(\begin{array}{cc}
+			A_{1} & A_{2} \\
+			0 & A_{4}+A_{2}^{\prime} A_{1}^{-1} A_{2}
+		\end{array}\right) \\
+		\stackrel{0+\Phi \cdot\left(-A_{1}^{-1} A_{2}\right)}{\longrightarrow}\left(\begin{array}{cc}
+			A_{1} & 0 \\
+			0 & A_{4}+A_{2}^{\prime} A_{1}^{-1} A_{2}
+		\end{array}\right) .
+	\end{array}$$
+	于是
+	$$\left(\begin{array}{cc}
+		I_{2} & 0 \\
+		A_{2}^{\prime} A_{1}^{-1} & I_{n-2}
+	\end{array}\right)\left(\begin{array}{cc}
+		A_{1} & A_{3} \\
+		-A_{2}^{\prime} & A_{4}
+	\end{array}\right)\left(\begin{array}{cc}
+		I_{2} & -A_{1}^{-1} A_{2} \\
+		0 & I_{n-2}
+	\end{array}\right)=\left(\begin{array}{cc}
+		A_{1} & 0 \\
+		0 & A_{4}+A_{2}^{\prime} A_{1}^{-1} A_{2}
+	\end{array}\right) .$$
+	由于  $\quad\left(-A_{1}^{-1} A_{2}\right)^{\prime}=-A_{2}^{\prime}\left(A_{1}^{-1}\right)^{\prime}=-A_{2}^{\prime}\left(A_{1}^{\prime}\right)^{-1}=-A_{2}^{\prime}\left(-A_{1}\right)^{-1}=A_{2}^{\prime} A_{1}^{-1} ,\ $ 因此从上式得出,\ 
+	由于  $A_{1} $是$ 2 $级斜对称矩阵,\  因此可用归纳假设,\  存在$ 2 $级可逆矩阵 $ C_{1} ,\  $使得
+	$$\begin{array}{l}
+		A_{1} \simeq\left(\begin{array}{cc}
+			0 & 1 \\
+			-1 & 0
+		\end{array}\right) . \\
+		C=\left(\begin{array}{cc}
+			C_{1} & 0 \\
+			0 & C_{2}
+		\end{array}\right) .
+	\end{array}$$
+	则  $C$  是 $ n $ 级可逆矩阵,\  且
+	$$\begin{aligned}
+		C^{\prime}\left(\begin{array}{cc}
+			A_{1} & 0 \\
+			0 & B
+		\end{array}\right) C & =\left(\begin{array}{cc}
+			C_{1}^{\prime} A_{1} C_{1} & 0 \\
+			0 & C_{2}^{\prime} B C_{2}
+		\end{array}\right) \\
+		& =\operatorname{diag}\left\{\left(\begin{array}{rr}
+			0 & 1 \\
+			-1 & 0
+		\end{array}\right),\ \left(\begin{array}{rr}
+			0 & 1 \\
+			-1 & 0
+		\end{array}\right),\  \cdots,\ \left(\begin{array}{rr}
+			0 & 1 \\
+			-1 & 0
+		\end{array}\right),\ (0),\  \cdots,\ (0)\right\} .
+	\end{aligned}$$
+	情形  2 $A_{1}=0 ,\ $但在 $ A$  的第$ 1 $行 (或第 $2$ 行) 中有$  a_{1 j} \neq 0 $ (或 $ a_{2 j} \neq 0 $ ).\\
+	若 $ a_{1} \neq 0 ,\  $则把 $ A $ 的第  $j $ 行加到第$ 2 行$上,\  接着把所得矩阵的第 $ j $ 列加到第$ 2$ 列上,\  得到的矩阵 $ G $ 的 $ (2,\ 1) $ 元为  $-a_{1 j},\ (1,\ 2)  $元为 $ a_{1 j},\ (1,\ 1)  $元和 $ (2,\ 2)  $元仍为 $0 .$得,\ 
+	$$A \simeq \operatorname{diag}\left\{\left(\begin{array}{rr}
+		0 & 1 \\
+		-1 & 0
+	\end{array}\right),\  \cdots,\ \left(\begin{array}{rr}
+		0 & 1 \\
+		-1 & 0
+	\end{array}\right),\ (0),\  \cdots,\ (0)\right\} .$$
+	若  $a_{2 j} \neq 0 ,\  $则把  $A $ 的第  $j $ 行加到第 $1$ 行上,\  接者把第  $j $ 列加到第 $1$ 列上,\  得到的矩阵 $ H  $属于情形 1.因此  $A $ 合同于所腰求的分块对角矩阵.\\
+	情形  3 $A_{1}=0,\  A_{2}=0  .$此时
+	$$A=\left(\begin{array}{cc}
+		0 & 0 \\
+		0 & A_{4}
+	\end{array}\right).$$
+	由于  $A_{4}$  是$  n-2  $级斜对称矩阵,\  因此可用归纳假设,\  存在$  n-2$  级可逆矩阵  $C_{3} ,\  $使得
+	$$C_{3}^{\prime} A_{6} C_{3}=\operatorname{diag}\left\{\left(\begin{array}{rr}
+		0 & 1 \\
+		-1 & 0
+	\end{array}\right),\  \cdots,\ \left(\begin{array}{rr}
+		0 & 1 \\
+		-1 & 0
+	\end{array}\right),\ (0),\  \cdots,\ (0)\right\}$$
+	$$\left(\begin{array}{lc}
+		0 & 0 \\
+		0 & A_{4}
+	\end{array}\right) \stackrel{((1),\ (2))}{\longrightarrow}\left(\begin{array}{cc}
+		0 & A_{4} \\
+		0 & 0
+	\end{array}\right) \underset{((1),\ (2))}{\longrightarrow}\left(\begin{array}{cc}
+		A_{4} & 0 \\
+		0 & 0
+	\end{array}\right) .$$
+	于是
+	$$\left(\begin{array}{cc}
+		0 & I_{n-2} \\
+		I_{2} & 0
+	\end{array}\right)\left(\begin{array}{cc}
+		0 & 0 \\
+		0 & A_{4}
+	\end{array}\right)\left(\begin{array}{cc}
+		0 & I_{2} \\
+		I_{n-2} & 0
+	\end{array}\right)=\left(\begin{array}{cc}
+		A_{4} & 0 \\
+		0 & 0
+	\end{array}\right) .$$
+	因此
+	$$\left(\begin{array}{cc}
+		0 & 0 \\
+		0 & A_{4}
+	\end{array}\right) \simeq\left(\begin{array}{cc}
+		A_{4} & 0 \\
+		0 & 0
+	\end{array}\right)$$
+	又有
+	$$\left(\begin{array}{cc}
+		C_{3} & 0 \\
+		0 & I_{2}
+	\end{array}\right)^{\prime}\left(\begin{array}{cc}
+		A_{4} & 0 \\
+		0 & 0
+	\end{array}\right)\left(\begin{array}{cc}
+		C_{3} & 0 \\
+		0 & I_{2}
+	\end{array}\right)=\left(\begin{array}{cc}
+		C_{3}^{\prime} A_{4} C_{3} & 0 \\
+		0 & 0
+	\end{array}\right)$$
+	因此
+	$$A \simeq \operatorname{diag}\left\{\left(\begin{array}{rr}
+		0 & 1 \\
+		-1 & 0
+	\end{array}\right),\  \cdots,\ \left(\begin{array}{rr}
+		0 & 1 \\
+		-1 & 0
+	\end{array}\right),\ (0),\  \cdots,\ (0),\ (0),\ (0)\right\}$$
+	根据第二数学归纳法原理,\ 对一切田整数  n ,\ 命题为真.
+\end{proof}
+\begin{note}
+	由于合同的矩阵有相等的秩,\ 斜对称矩阵的秩是 偶数.
+\end{note}
+\newpage
+\begin{problem}
+	设 $ n $ 级实对称矩阵  $A $ 的全部特征值按大小顺序排成: $ \lambda_{1} \geqslant \lambda_{2} \geqslant \cdots \geqslant \lambda_{n}  .$证 明:对于 $ \mathbf{R}^{n} $ 中任一非零列向量 $ \boldsymbol{\alpha} ,\ $都有
+	$$\lambda_{n} \leqslant \frac{\boldsymbol{\alpha}^{\prime} A \boldsymbol{\alpha}}{|\boldsymbol{\alpha}|^{2}} \leqslant \lambda_{1} .$$
+\end{problem}
+\begin{proof}
+	因为  $A  $是 $ n $ 级实对称矩阵,\  所以有$  n $ 级正交矩阵 $ T ,\ $ 使得 $ T^{-1} A T=   \operatorname{diag}\left\{\lambda_{1},\  \lambda_{2},\  \cdots,\  \lambda_{n}\right\}  .$任取  $\mathbf{R}^{n} $ 中一个非零列向量 $ \boldsymbol{\alpha} ,\ $ 设  $(T \boldsymbol{\alpha})^{\prime}=\left(b_{1},\  b_{2},\  \cdots,\  b_{n}\right) .$则
+	$$\begin{aligned}
+		\boldsymbol{\alpha}^{\prime} A \boldsymbol{\alpha} & =\boldsymbol{\alpha}^{\prime} T \operatorname{diag}\left\{\lambda_{1},\  \lambda_{2},\  \cdots,\  \lambda_{n}\right\} T^{-1} \boldsymbol{\alpha}=\left(T^{\prime} \boldsymbol{\alpha}\right)^{\prime} \operatorname{diag}\left\{\lambda_{1},\  \lambda_{2},\  \cdots,\  \lambda_{n}\right\}\left(T^{\prime} \boldsymbol{\alpha}\right) \\
+		& =\lambda_{1} b_{1}^{2}+\lambda_{2} b_{2}^{2}+\cdots+\lambda_{n} b_{n}^{2} \leqslant \lambda_{1}\left(b_{1}^{2}+b_{2}^{2}+\cdots+b_{n}^{2}\right) \\
+		& =\lambda_{1}\left|T^{\prime} \boldsymbol{\alpha}\right|^{2}=\lambda_{1}|\boldsymbol{\alpha}|^{2} .
+	\end{aligned}$$
+	同理
+	$$\boldsymbol{\alpha}^{\prime} A \boldsymbol{\alpha}=\lambda_{1} b_{1}^{2}+\lambda_{2} b_{2}^{2}+\cdots+\lambda_{n} b_{n}^{2}$$
+	因此
+	$$\lambda_{n} \leqslant \frac{\boldsymbol{\alpha}^{\prime} A \boldsymbol{\alpha}}{|\boldsymbol{\alpha}|^{2}} \leqslant \lambda_{1}$$
+\end{proof}
+\newpage
+\begin{theorem}
+	(惯性定理)  $n $ 元实二次型 $ \boldsymbol{X}^{\prime} A \boldsymbol{X} $ 的规范形是唯一的.
+\end{theorem}
+\begin{proof}
+	设  $n $ 元实二次型 $ \boldsymbol{X}^{\prime} A \boldsymbol{X} $ 的秩为  r  .假设 $ \boldsymbol{X}^{\prime} A \boldsymbol{X} $ 分别经过非退化线性替换 $ \boldsymbol{X}=C \boldsymbol{Y},\  \boldsymbol{X}=B \boldsymbol{Z} $ 变成两个规范形:
+	$$\begin{aligned}
+		\boldsymbol{X}^{\prime} A \boldsymbol{X} & =y_{1}^{2}+\cdots+y_{p}^{2}-y_{p+1}^{2}-\cdots-y_{r}^{2},\  \\
+		\boldsymbol{X}^{\prime} A \boldsymbol{X} & =z_{1}^{2}+\cdots+z_{q}^{2}-z_{q+1}^{2}-\cdots-z_{r}^{2} .
+	\end{aligned}$$
+	现在来证明 $ p=q ,\ $ 从而 $ \boldsymbol{X}^{\prime} A \boldsymbol{X} $ 的规范形唯一.
+	从上两式看出,\  经过非退化线性替换 $ \boldsymbol{Z}=\left(B^{-1} C\right) \boldsymbol{Y} ,\ $ 有
+	$$z_{1}^{2}+\cdots+z_{q}^{2}-z_{q+1}^{2}-\cdots-z_{r}^{2}=y_{1}^{2}+\cdots+y_{p}^{2}-y_{p+1}^{2}-\cdots-y_{r}^{2}$$
+	记 $ G=B^{-1} C=\left(g_{i j}\right) .$假如  $p>q ,\  $我们想找到变量$  y_{1},\  y_{2},\  \cdots,\  y_{n} $ 取的一组值,\  使得上式 右端大于 $0 ,\  $而左端小于或等于 $0,\ $从而产生矛盾.为此让 $ \boldsymbol{Y} $ 取下述列向量
+	$$\boldsymbol{\beta}=\left(k_{1},\  \cdots k_{p},\  0,\  \cdots,\  0\right),\ $$
+	其中 $ k_{1},\  \cdots,\  k_{p} $ 是待定的不全为 $0$ 的实数,\  使得变量 $ z_{1},\  \cdots,\  z_{q} $ 取的值全为 $0.$由于 $ \boldsymbol{Z}=G \boldsymbol{Y} ,\  $因此当 $ \boldsymbol{Y}  $取  $\boldsymbol{\beta} $ 时,\ 有
+	从而我们考虑齐次线性方程组:
+	$$\left\{\begin{array}{l}
+		g_{11} k_{1}+\cdots+g_{1 p} k_{p}=0,\  \\
+		g_{21} k_{1}+\cdots+g_{2 p} k_{p}=0,\  \\
+		\cdots \quad \cdots \quad \cdots \\
+		g_{q 1} k_{1}+\cdots+g_{q p} k_{p}=0 .
+	\end{array}\right.$$
+	由于 $ q<p ,\ $ 因此上面的齐次线性方程组有非零解.于是 $ k_{1},\  k_{2},\  \cdots,\  k_{p}  $可取到一组不全为 0 的 实数,\  使得 $ z_{1}=\cdots=z_{q}=0 .$此时 (5) 式左端的值小于或等于 0 ,\  而右端的值大于 0 ,\  矛盾. 因此 $ p \leqslant q. $同理可证  $q \leqslant p.$ 从而$  p=q .$
+\end{proof}
+\newpage
+\begin{problem}
+	证明: 一个$  n  $元实二次型可以分解成两个实系数 $1 $次齐次多项式的乘积当且 仅当它的秩等于 $2$ 且符号差为 $0 ,\ $ 或者它的秩等于$ 1 .$
+\end{problem}
+\begin{proof}
+	必要性.设$  n  $元实二次型
+	$$\boldsymbol{X}^{\prime} \mathbf{A} \boldsymbol{X}=\left(a_{1} x_{1}+a_{2} x_{2}+\cdots+a_{n} x_{n}\right)\left(b_{1} x_{1}+b_{2} x_{2}+\cdots+b_{n} x_{n}\right) .$$
+	其中  $a_{1},\  a_{2},\  \cdots,\  a_{n}$  不全为  $0 ; b_{1},\  b_{2},\  \cdots,\  b_{n} $ 不全为 $0 .$\\
+	情形  1:$\left(a_{2},\  a_{2},\  \cdots,\  a_{n}\right)  $与  $\left(b_{1},\  b_{2},\  \cdots,\  b_{n}\right) $ 线性相关.则 $ \left(b_{1},\  b_{2},\  \cdots,\  b_{n}\right)=k\left(a_{1},\  a_{2}\right. ,\   \left.\cdots,\  a_{n}\right) ,\ $ 且$  k \neq 0 .$\\
+	于是
+	设 $ a_{i} \neq 0. $令
+	$$\begin{array}{l}
+		\boldsymbol{X}^{\prime} A \boldsymbol{X}=k\left(a_{1} x_{1}+a_{2} x_{2}+\cdots+a_{n} x_{n}\right)^{2} \\
+		x_{j}=y_{j},\  \quad j=1,\ 2,\  \cdots,\  i-1,\  i+1,\  \cdots,\  n ; \\
+		x_{i}=\frac{1}{a_{i}} y_{i}-\frac{1}{a_{i}} \sum_{j \neq i} a_{j} y_{j} .
+	\end{array}$$
+	这是非退化线性替换,\ 且
+	$$\boldsymbol{X}^{\prime} A \boldsymbol{X}=k y_{i}^{2} .$$
+	这时 $ \boldsymbol{X}^{\prime} \mathbf{A X} $ 的秩等于$ 1 .$\\
+	情形  2:$\left(a_{1},\  a_{2},\  \cdots,\  a_{n}\right) $ 与 $ \left(b_{1},\  b_{2},\  \cdots,\  b_{n}\right) $ 线性无关.则这个向量组的秩为$ 2 ,\  $以它们 为行向量组的 $ 2 \times n $ 矩阵必有一个 $2 $阶子式不等于$ 0 ,\  $不妨设 $ \left|\begin{array}{ll}a_{1} & a_{2} \\ b_{1} & b_{2}\end{array}\right| \neq 0 .$令
+	则此公式的系数矩阵 $ C$  的行列式为
+	$$|C|=\left|\begin{array}{ll}
+		a_{1} & a_{2} \\
+		b_{1} & b_{2}
+	\end{array}\right| \neq 0 .$$
+	从而 $ C $ 可逆.于是令$  \boldsymbol{X}=C^{-1} \boldsymbol{Y} ,\ $ 则
+	$$\boldsymbol{X}^{\prime} A \boldsymbol{X}=y_{1} y_{2} .$$
+	再作非迟化线性替换:
+	$$\begin{array}{l}
+		y_{1}=z_{1}+z_{2},\  \\
+		y_{2}=z_{1}-z_{2},\  \\
+		y_{j}=z_{j},\  \quad j=3,\ 4,\  \cdots,\  n . \\
+		\boldsymbol{X}^{\prime} A \boldsymbol{X}=z_{1}^{2}-z_{2}^{2} .
+	\end{array}$$
+	则
+	因此$  \boldsymbol{X}^{\prime} A \boldsymbol{X} $ 的秩等于$ 2 ,\  $且符号差等于 $0.$\\
+	充分性.若$\boldsymbol{X}^{\prime} A \boldsymbol{X} $的秩等于$ 2$ 且符号差为$ 0,\  $则经过一个适当的非退化线性替换$,\ \boldsymbol{X}=\boldsymbol{C} \boldsymbol{Y} ,\  $有
+	$$\boldsymbol{X}^{\prime} A \boldsymbol{X}=y_{1}^{2}-y_{2}^{2} . $$
+	设 $ C^{-1}=\left(d_{i j}\right) $ 由于$ \boldsymbol{Y}=C^{-1} \boldsymbol{X},\ $因此
+	$$y_{1}=d_{11} x_{1}+d_{12} x_{2}+\cdots+d_{1 n} x_{n},\  $$
+	$$y_{2}=d_{21} x_{1}+d_{22} x_{2}+\cdots+d_{2 n} x_{n} .$$
+	且  $\left(d_{11},\  d_{12},\  \cdots,\  d_{1 n}\right) $ 与 $ \left(d_{21},\  d_{22},\  \cdots,\  d_{2 n}\right)  $线性无关.于是
+	$$\boldsymbol{X}^{\prime} A \boldsymbol{X}=\left[\left(d_{11}+d_{21}\right) x_{1}+\cdots+\left(d_{1 n}+d_{2 n}\right) x_{n}\right]\left[\left(d_{11}-d_{21}\right) x_{1}+\cdots+\left(d_{1 n}-d_{2 n}\right) x_{n}\right] $$
+	且 
+	$$\left(d_{11}+d_{21},\  \cdots,\  d_{1 n}+d_{2 n}\right) \neq 0,\ \left(d_{11}-d_{21},\  \cdots,\  d_{1 n}-d_{2 n}\right) \neq 0 .$$
+	因此 $ \boldsymbol{X}^{\prime} A \boldsymbol{X} $ 表示成了两个$ 1$ 次齐次多项式的乘积.
+	若$  \boldsymbol{X}^{\prime} A \boldsymbol{X} $ 的秩等于$ 1,\  $则经过一个适当的非退化线性替换$  \boldsymbol{X}=B \boldsymbol{Z} ,\ $ 有
+	$$\boldsymbol{X}^{\prime} A \boldsymbol{X}=k z_{1}^{2},\ $$
+	其中$  k=1 $ 或 $ -1.$由于$  z=B^{-1} \boldsymbol{X} ,\  $因此
+	$$ z_{1}=e_{1} x_{1}+e_{2} x_{2}+\cdots+e_{n} x_{n} ,\ $$
+	且 $ \left(e_{1},\  e_{2},\  \cdots,\  e_{n}\right) \neq 0  .$于是
+	$$\boldsymbol{X}^{\prime} A \boldsymbol{X}=k\left(e_{1} x_{1}+e_{2} x_{2}+\cdots+e_{n} x_{n}\right)^{2} .$$
+	从而 $ \boldsymbol{X}^{\prime} A \boldsymbol{X}$  表示成了两个$ 1 $次齐次系项式的乘积.
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ \boldsymbol{X}^{\prime} A \boldsymbol{X} $ 是一个  $n $ 元实二次型,\  证明: 如果 $ \mathbf{R}^{n} $ 中有列向量$  \boldsymbol{\alpha}_{1},\  \boldsymbol{\alpha}_{2} ,\  $使得  $\boldsymbol{\alpha}_{1}^{\prime} A \boldsymbol{\alpha}_{1}>0 ,\   \boldsymbol{\alpha}_{2}^{\prime} A \boldsymbol{\alpha}_{2}<0 ,\  $那么在 $ \mathbf{R}^{n}  中有非零列向量  \boldsymbol{\alpha}_{3} ,\  $使得  $\boldsymbol{\alpha}_{3}^{\prime} A \boldsymbol{\alpha}_{3}=0  .$
+\end{problem}
+\begin{proof}
+	作非退化线性替换 $ \boldsymbol{X}=\boldsymbol{C Y} ,\ $使得
+	$$\boldsymbol{X}^{\prime} A \boldsymbol{X}=y_{1}^{2}+\cdots+y_{p}^{2}-y_{p+1}^{2}-\cdots-y_{r}^{2},\ $$
+	其中$  r=\operatorname{rank}(A).$由于  $\boldsymbol{\alpha}_{1}^{\prime} A \boldsymbol{\alpha}_{1}>0 ,\ $ 因此$  \boldsymbol{X}^{\prime} A \boldsymbol{X}  $的正惯性指数$  p>0  .$由于$  \boldsymbol{\alpha}_{2}^{\prime} A \boldsymbol{\alpha}_{2}<0 ,\ $ 因 此 $ \boldsymbol{X}^{\prime} A \boldsymbol{X} $ 的负惯性指数 $ r-p>0 $ 即  $r>p.$于是可以让$  \boldsymbol{Y}  $取下述一列向量:
+	$$\boldsymbol{\beta}=\left(1,\ 0,\ \cdots,\ 1,\ 0,\ \cdots,\ 0\right)^{prime}.$$
+	令
+	$$\boldsymbol{\alpha}_3=C\boldsymbol{\beta}.$$
+	则 $$ \boldsymbol{\alpha}_{3}^{\prime} A \boldsymbol{\alpha}_{3}=1^{2}+0^{2}+\cdots+0^{2}-1^{2}-0^{2} \cdots-0^{2}=0 .$$
+\end{proof}
+\newpage
+\begin{problem}
+	设实二次型
+	$$f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right)=l_{1}^{2}+\cdots+l_{s}^{2}-l_{s+1}^{2}-\cdots-l_{s+u}^{2},\ $$
+	其中  $l_{i}(i=1,\ 2,\  \cdots,\  s+u)  $是  $x_{1},\  x_{2},\  \cdots,\  x_{n} $ 的 $1 $次齐次多项式.证明:$  f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right)$  的 正惯性指数  $p \leqslant s ,\  $负惯性指数  $q \leqslant u  .$
+\end{problem}
+\begin{proof}
+	由于 $ l_{i}(i=1,\ 2,\  \cdots,\  s+u) $ 是 $ x_{1},\  x_{2},\  \cdots,\  x_{n} $ 的 $1 $次齐次多项式,\  因此
+	$$\boldsymbol{L}=H \boldsymbol{X},\ $$
+	其中  $\boldsymbol{L}=\left(l_{1},\  l_{2},\  \cdots,\  l_{s+\mu},\  \cdots,\  l_{n}\right)^{\prime},\  l_{j}=0 ,\  $当  $j>s+u  .$
+	作非退化线性替换 $ \boldsymbol{X}=C \boldsymbol{Y} ,\ $ 使得
+	$$f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right)=y_{1}^{2}+\cdots+y_{p}^{2}-y_{p+1}^{2}-\cdots-y_{p+q}^{2} .$$
+	于是在 $ \boldsymbol{L}=H C \boldsymbol{Y}  $下,\  有
+	\begin{equation}
+		l_{1}^{2}+\cdots+l_{s}^{2}-l_{++1}^{2}-\cdots-l_{s+u}^{2}=y_{1}^{2}+\cdots+y_{p}^{2}-y_{p+1}^{2}-\cdots-y_{p+q}^{2} .\label{1.6.19}
+	\end{equation}
+	设 $ H C=\left(g_{i j}\right) .$假如  $p>s  .$让 $ \boldsymbol{Y} $ 取下述列向量 :
+	$$\boldsymbol{\beta}=\left(k_{1},\  \cdots,\  k_{p},\  0,\  \cdots,\  0\right)^{\prime},\ $$
+	其中 $ k_{1},\  \cdots,\  k_{p}  $是待定的不全为 0 的实数,\  使得 $ l_{1}=0,\  \cdots,\  l_{s}=0 .$由于 $ \boldsymbol{L}=(H C) \boldsymbol{Y} ,\  $因此当 $ \boldsymbol{Y} $ 取 $ \boldsymbol{\beta}  $时,\  有
+	$$\left\{\begin{array}{l}
+		l_{1}=g_{11} k_{1}+g_{12} k_{2}+\cdots+g_{1 p} k_{p},\  \\
+		l_{2}=g_{21} k_{1}+g_{22} k_{2}+\cdots+g_{2 p} k_{p},\  \\
+		\cdots \quad \cdots \quad \quad \cdots \quad \cdots \quad \cdots \\
+		l_{s}=g_{s 1} k_{1}+g_{s 2} k_{2}+\cdots+g_{s p} k_{p} .
+	\end{array}\right.$$
+	为此考虑齐次线性方程组
+	$$\left\{\begin{array}{l}
+		g_{11} k_{1}+g_{12} k_{2}+\cdots+g_{1 p} k_{p}=0,\  \\
+		g_{21} k_{1}+g_{22} k_{2}+\cdots+g_{2 p} k_{p}=0,\  \\
+		\cdots \quad \cdots \quad \cdots \quad \cdots \\
+		g_{s 1} k_{1}+g_{s 2} k_{2}+\cdots+g_{s p} k_{p}=0 .
+	\end{array}\right.$$
+	由于  $s<p ,\ $ 因此这个齐次线性方程组有非零解.从而 $ k_{1},\  \cdots,\  k_{p} $ 可取到一组不全为 0 的 数,\  使得 $ l_{1}=\cdots=l_{s}=0 . $此时$\eqref{1.6.19}$式左端小于或等于 $0 ,\ $ 而右端大于$ 0 ,\  $矛盾.因 此$,\   p \leqslant s .$
+	类似地,\  假如 $ q>u ,\  $可以证明 $ \boldsymbol{Y} $ 可取到一个列向量,\  使得$\eqref{1.6.19}$式右端小于 $0 ,\ $ 而左端 大于或等于$ 0 ,\  $矛盾.因此  $q \leqslant u .$
+\end{proof}
+\newpage
+\begin{problem}
+	$n$  级实对称矩阵组成的集合中,\  符号差为给定数 $ s $ 的合同类有多少个?
+\end{problem}
+\begin{proof}
+	由于秩  $r$  和符号差  $s  $确定后,\  正惯性指数 $ p  $就随之确定:  $p=\frac{s+r}{2} ,\ $ 因此秩和符 号差也是 $ n $ 级实对称矩阵组成的集合的一组完全不变量.从而当符号差 $ s  $为给定的数 后,\  秩  $r$  有多少种取法就有多少个合同类.\\
+	当 $ s<0  $时,\  设 $ s=-m ,\ $ 其中$  m $ 是正整数.由于正惯性指数  $p  $是非负整数,\  且 $ r=   2 p-s=2 p+m ,\ $ 因此  r  可取$  m,\  m+2,\  m+4,\  \cdots,\  m+2 l ,\  $其中 $ m+2 l=n $ 或$  n-1  .$于是 $ l=   \left\lfloor\frac{n-m}{2}\right\rfloor \mid=\left\lfloor\frac{n+s}{2}\right\rfloor ,\ $ 从而  $r$  的取法有  $1+l=1+\left\lfloor\frac{n+s}{2}\right\rfloor$  种,\  即当  $s<0$  时,\  符号差为  $s  $的合同 类有 $ 1+\left\lfloor\frac{n+s}{2}\right\rfloor$  个.\\
+	当$  s \geqslant 0 $ 时,\  由于 $p \leqslant r ,\ $ 因此  $r \geqslant s  .$从而  $r$  可以取  $s,\  s+2,\  s+4,\  \cdots,\  s+2 t ,\  $其中 $ s+2 t=n  $或  $n-1  .$于是  $r  $的取法有  $1+t=1+\left\lfloor\frac{n-s}{2}\right\rfloor$  种.即当 $ s \geqslant 0  $时,\  符号差为  $s  $的合同类有 $ 1+   \left\lfloor\frac{n-s}{2}\right\rfloor  $个.
+\end{proof}
+\newpage
+\begin{problem}
+	设二元实值函数$ F(x,\  y) $ 有一个稳定点  $\boldsymbol{\alpha}=\left(x_{0},\  y_{0}\right)$  (即 $ F(x,\  y) $ 在  $\left(x_{0},\  y_{0}\right) $ 处 的一阶偏导数全为 $0 $)  .设 $ F(x,\  y)  $在  $\left(x_{0},\  y_{0}\right) $ 的一个邻域里有 $3$ 阶连续偏导数.令
+	$$H=\left(\begin{array}{ll}
+		F_{x x}^{\prime \prime}\left(x_{0},\  y_{0}\right) & F_{x y}^{\prime \prime}\left(x_{0},\  y_{0}\right) \\
+		F_{x y}^{\prime \prime}\left(x_{0},\  y_{0}\right) & F_{y y}^{\prime \prime}\left(x_{0},\  y_{0}\right)
+	\end{array}\right) .$$
+	称 $ H$  是 $ F(x,\  y) $ 在  $\left(x_{0},\  y_{0}\right)$  处的何塞 (Hesse) 矩阵.如果 $ H  $是正定的,\  那么 $ F(x,\  y)  $在  $\left(x_{0},\  y_{0}\right)$  处达到极小值; 如果 $ H$  是负定的,\  那么 $ F(x,\  y) $在  $\left(x_{0},\  y_{0}\right) $ 处达到极大值.
+\end{problem}
+\begin{proof}
+	由于  $F(x,\  y) $ 在  $\left(x_{0},\  y_{0}\right)  $的邻域里有$ 3$ 阶连续偏导数,\  因此$  F(x,\  y)$  在 $ \left(x_{0},\  y_{0}\right) $ 可展开成泰勒级数:
+	$$\begin{aligned}
+		F\left(x_{0}+h,\  y_{0}+k\right)= & F\left(x_{0},\  y_{0}\right)+\left[h F_{x}^{\prime}\left(x_{0},\  y_{0}\right)+k F_{y}^{\prime}\left(x_{0},\  y_{0}\right)\right]+ \\
+		& \frac{1}{2}\left[h^{2} F_{x x}^{\prime \prime}\left(x_{0},\  y_{0}\right)+2 h k F_{x y}^{\prime \prime}\left(x_{0},\  y_{0}\right)+k^{2} F_{y y}^{\prime \prime}\left(x_{0},\  y_{0}\right)\right]+R \\
+		= & F\left(x_{0},\  y_{0}\right)+\frac{1}{2}\left(a h^{2}+2 b h k+c k^{2}\right)+R,\ 
+	\end{aligned}$$
+	其中 $ a=F_{x x}^{\prime \prime}\left(x_{0},\  y_{0}\right),\  b=F_{x y}^{\prime \prime}\left(x_{0},\  y_{0}\right),\  c=F_{y y}^{\prime \prime}\left(x_{0},\  y_{0}\right) .$
+	$$\begin{aligned}
+		R & =\frac{1}{6}\left[h^{3} F_{x x x}^{\prime \prime \prime}(z)+3 h^{2} k F_{x x y}^{\prime \prime \prime}(z)+3 h k^{2} F_{x y y}^{\prime \prime \prime}(z)+k^{3} F_{y y y}^{\prime \prime \prime}(z)\right],\  \\
+		\boldsymbol{z} & =\left(x_{0}+\theta h,\  y_{0}+\theta k\right),\  \quad 0<\theta<1 .
+	\end{aligned}$$
+	如果  $|h|,\ |k| $ 足够小,\  那么  $|R|<\frac{1}{2}\left|a h^{2}+2 b h k+c k^{2}\right|  .$从而$  F\left(x_{0}+h,\  y_{0}+k\right)-F\left(x_{0},\  y_{0}\right)  $将与 $ a h^{2}+2 b h k+c k^{2}$  同号.表达式
+	$$f(h,\  k)=a h^{2}+2 b h k+c k^{2}$$
+	是 $ h,\  k$  的实二次型,\  它的矩阵就是 $ H  .$如果  $H $ 是正定的,\  那么对于足够小的$  |h|,\ |k| ,\  $且 $ (h,\  k) \neq(0,\ 0) ,\ $ 有
+	$$F\left(x_{0}+h,\  y_{0}+k\right)-F\left(x_{0},\  y_{0}\right)>0,\ $$
+	这表明$  F(x,\  y) $ 在 $ \left(x_{0} y_{0}\right)$  处达到极小值.如果  $H$  是负定的,\  那么对于足够小的$  |h|,\ |k| ,\ $ 且$ (h,\  k) \neq(0,\ 0)$  有
+	$$F\left(x_{0}+h,\  y_{0}+k\right)-F\left(x_{0},\  y_{0}\right)<0,\ $$
+	这表明$  F(x,\  y)  $在  $\left(x_{0},\  y_{0}\right)$  处达到极大值.
+\end{proof}
+\newpage
+\begin{problem}
+	证明: 如果 $ A$ 是  $n $ 级正定矩阵$,\   B $ 是  $n$  级实对称矩阵,\  则存在一个  $n $ 级实可逆 矩阵$  C ,\  $使得 $ C^{\prime} A C  与  C^{\prime} B C  $都是对角矩阵.
+\end{problem}
+\begin{proof}
+	由于$  A$  是  $n $级正定矩阵.因此$  A \simeq I  .$从而存在$  n $ 级实可逆矩阵$  C_{1} ,\  $使 得  $C_{1}^{\prime} A C_{1}=I  .$
+	由于  $\left(C_{1}^{\prime} B C_{1}\right)^{\prime}=C_{1}^{\prime} B^{\prime} C_{1}=C_{1}^{\prime} B C_{1} ,\  $因此,\  $ C_{1}^{\prime} B C_{1}  $是  $n $ 级实对称矩阵.于是存在  $n  $级 正交矩阵 $ T ,\ $ 使得
+	$$T^{\prime}\left(C_{1}^{\prime} B C_{1}\right) T=T^{-1}\left(C_{1}^{\prime} B C_{1}\right) T=\operatorname{diag}\left\{\mu_{1},\  \mu_{2},\  \cdots,\  \mu_{n}\right\} .$$
+	令 $ C=C_{1} T ,\ $ 则  $C $ 是实可逆矩阵,\  且使得
+	$$\begin{array}{l}
+		C^{\prime} A C=\left(C_{1} T\right)^{\prime} A\left(C_{1} T\right)=T^{\prime}\left(C_{1}^{\prime} A C_{1}\right) T=T^{\prime} I T=I,\  \\
+		C^{\prime} B C=T^{\prime}\left(C_{1}^{\prime} B C_{1}\right) T=\operatorname{diag}\left\{\mu_{1},\  \mu_{2},\  \cdots,\  \mu_{n}\right\} .
+	\end{array}$$
+\end{proof}
+\newpage
+\begin{problem}
+	证明: 如果 $ A $ 是$  n  $级正定矩阵,\  $ B $ 是 $ n$  级半正定矩阵,\  那么
+	$$|A+B| \geqslant|A|+|B|,\ $$
+	等号成立当且仅当 $ B=0  .$
+\end{problem}
+\begin{proof}
+	据上题的证明过程可知,\  存在一个  $n$  级实可逆矩阵 $ C ,\ $ 使得
+	$$C^{\prime} A C=I,\  \quad C^{\prime} B C=\operatorname{diag}\left\{\mu_{1},\  \mu_{2},\  \cdots,\  \mu_{n}\right\}=D .$$
+	由于 $ B $ 半正定,\  因此  $\mu_{i} \geqslant 0,\  i=1,\ 2,\  \cdots,\ n  .$于是
+	$$\begin{aligned}
+		|A+B|= & \left|\left(C^{\prime}\right)^{-1} I C^{-1}+\left(C^{\prime}\right)^{-1} D C^{-1}\right|=\left|\left(C^{\prime}\right)^{-1}(I+D) C^{-1}\right| \\
+		= & \left|C^{-1}\right|^{2}\left(1+\mu_{1}\right)\left(1+\mu_{2}\right) \cdots\left(1+\mu_{n}\right) . 
+	\end{aligned}$$
+	$$|A|=\left|C^{-1}\right|^{2},\ |B|=\left|C^{-1}\right|^{2} \mu_{1} \mu_{2} \cdots \mu_{n} . $$
+	由于
+	$$\left(1+\mu_{1}\right)\left(1+\mu_{2}\right) \cdots\left(1+\mu_{n}\right) \geqslant 1+\mu_{1} \mu_{2} \cdots \mu_{n},\  $$
+	因此
+	$$|A+B| \geqslant\left|C^{-1}\right|^{2}\left(1+\mu_{1} \mu_{2} \cdots \mu_{n}\right)=|A|+|B|,\ $$
+	若等号成立,\  则  $\left(\mu_{1}+\mu_{2}+\cdots+\mu_{n}\right)+\left(\mu_{1} \mu_{2}+\cdots+\mu_{n-1} \mu_{n}\right)+\cdots+\mu_{2} \mu_{3} \cdots \mu_{n}=0 ,\  由此推出,\   \mu_{1}=\mu_{2}=\cdots=\mu_{n}=0  .$从而$  B=0  .$
+	显然,\  当 $ B=0  $时,\  等号成立.
+\end{proof}
+\newpage
+\begin{theorem}
+	任给 $ a,\  b \in \mathbf{Z},\  b \neq 0 ,\  $则存在唯一的一对整数 $ q,\  r ,\ $ 使得
+	$a=q b+r,\  \quad 0 \leqslant r<|b| .$
+\end{theorem}
+\begin{proof}
+	我们瞄准余数  $r=a-q b$  的形式和 $ r \geqslant 0  $的条件,\  考虑集合
+	$$S=\{a-k b \mid k \in \mathbf{Z},\  a-k b \geqslant 0\} .$$
+	首先要说明 $ S $ 非空集,\  从而商 $ q $ 才有可能存在.分两种情形: 若  $b>0 ,\  $则  $a-\left(-a^{2}\right) b   =a+a^{2} b \geqslant 0 ; $若 $ b<0 ,\ $ 则 $ a-a^{2} b \geqslant 0 .$因此$  S  $非空集.由于$  S $ 是自然数集的子集,\  因此 $ S $ 必有最小的数.设 $ S $ 中最小的数为  $a-q b ,\  $令 $ r=a-q b .$据集合$  S  $的定义得 $,\  r \geqslant 0  .$下面 还要证 $ r<|b| .$用反证法,\  假如 $ r \geqslant|b| ,\  $若 $ b>0 ,\  $则  $r-b \geqslant 0  .$从而
+	$$r-b=a-q b-b \geqslant 0,\ $$
+	即  $a-(q+1) b \geqslant 0 .$于是  $a-(q+1) b \in S ,\ $ 即 $ r-b \in S .$但是$  r-b<r ,\ $ 这与 $ r $ 是  $S $ 中最小 数矛盾.若$  b<0 ,\  $则 $ r+b \geqslant 0  .$于是  $r+b=a-q b+b \geqslant 0 ,\  $即 $ a-(q-1) b \geqslant 0  .$于是$  a-(q-1) b \in S ,\  $即  $r+b \in S  .$但是  $r+b<r  .$矛盾,\  所以  $r<|b|  .$存在性得证.\\
+	唯一性.假如还有整数  $q^{\prime},\  r^{\prime} ,\  $使得
+	$$a=q^{\prime} b+r^{\prime},\  \quad 0 \leqslant r^{\prime}<|b| ;$$
+	则 $ q b+r=q^{\prime} b+r^{\prime}  .$不妨设 $ r \leqslant r^{\prime}  .$于是
+	$$\left(q-q^{\prime}\right) b=r^{\prime}-r \geqslant 0 .$$
+	由于 $ 0 \leqslant r<|b|,\  0 \leqslant r^{\prime}<|b| ,\ $ 因此 $ r^{\prime}-r<|b|  .$从而
+	$$\left|q-q^{\prime}\right|=\frac{r^{\prime}-r}{|b|}<1 .$$
+	由此得出 $,\  q-q^{\prime}=0 ,\ $ 即 $ q=q^{\prime} ,\  $从而  $r=r^{\prime}  .$
+\end{proof}
+\newpage
+\begin{problem}
+	设  $d,\  n \in \mathbf{N}^{*} ,\  $则在  $K[x] $ 中$,\   x^{d}-1\left|x^{n}-1 \Longleftrightarrow d\right| n  .$
+\end{problem}
+\begin{proof}
+	充分性.设 $ d \mid n ,\ $ 则  $n=s d,\  s \in \mathbf{N}^{*}  .$显然有
+	$$x^{s}-1=(x-1)\left(x^{5-1}+x^{5-2}+\cdots+x+1\right) .$$
+	由于 $ K[x]  $可看成是 $ K  $的一个扩环,\  因此不定元 $ x $ 可用  $x^{d} $ 代人,\  从上式得
+	$$\left(x^{d}\right)^{s}-1=\left(x^{d}-1\right)\left(x^{d(s-1)}+x^{d(5-2)}+\cdots+x^{d}+1\right) .$$
+	由此得出
+	$$x^{d}-1 \mid x^{n}-1.$$
+	必要性.在整数环  $\mathbf{Z}$  中,\  作带余除法:
+	$$n=s d+r,\  \quad 0 \leqslant r<d,\ $$
+	假如 $ r \neq 0 ,\  $则
+	\begin{align}
+		x^{n}-1 & =x^{s d+r}-1 \nonumber\\
+		& =x^{sd} \cdot x^{r}-x^{r}+x^{r}-1 \nonumber\\
+		& =x^{r}\left(x^{sd}-1\right)+\left(x^{r}-1\right) .\label{1.6.20}
+	\end{align}
+	由充分性所证的结论得$,\   x^{d}-1 \mid x^{sd}-1  .$又由已知条件得$,\   x^{d}-1 \mid x^{n}-1  .$ 因此从\eqref{1.6.20}式得$,\   x^{d}-1\mid x^{r}-1  .$\\
+	由此推出$,\   d \leqslant r  .$\\
+	这与 $ r<d $ 矛盾.因此  $r=0 ,\  $从而  $d \mid n  .$
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ A \in M_{n}(K),\  f(x),\  g(x) \in K[x]  .$证明: 如果 $ d(x)$  是 $ f(x)$  与 $ g(x) $ 的一个 最大公因式,\  那么齐次线性方程组 $ d(A) \boldsymbol{X}=\mathbf{0} $ 的解空间$  W_{3}  $等于 $ f(A) \boldsymbol{X}=\mathbf{0}  $的解空间$  W_{1} $ 与 $ g(A) \boldsymbol{X}=\mathbf{0} $ 的解空间$  W_{2} $ 的交.
+\end{problem}
+\begin{proof}
+	存在  $u(x),\  v(x) \in K[x] ,\ $ 使得
+	$$d(x)=u(x) f(x)+v(x) g(x) .$$
+	由于$  K[A] $ 可看成是  $K$  的一个扩环,\  因此  $x$  可用 $ A $ 代人,\  从上式得
+	$$d(A)=u(A) f(A)+v(A) g(A) .$$
+	任取  $\boldsymbol{\eta} \in W_{1} \cap W_{2} ,\ $ 则  $f(A) \boldsymbol{\eta}=\mathbf{0}  $且 $ g(A) \boldsymbol{\eta}=\mathbf{0}  .$于是
+	$$d(A) \boldsymbol{\eta}=u(A) f(A) \boldsymbol{\eta}+v(A) g(A) \boldsymbol{\eta}=\boldsymbol{0} .$$
+	因此  $\boldsymbol{\eta} \in W_{3} ,\  从而  W_{1} \cap W_{2} \subseteq W_{3}  .$\\
+	设 
+	$$ f(x)=f_{1}(x) d(x),\  g(x)=g_{1}(x) d(x) .$$
+	则 $ x  $用 $ A  $代人,\  从上面两式得,\ 
+	$$f(A)=f_{1}(A) d(A),\  g(A)=g_{1}(A) d(A) .$$
+	任取  $\boldsymbol{\delta} \in W_{3} ,\ $ 则  $d(A) \boldsymbol{\delta}=\mathbf{0} ,\  $从而
+	$$f(A) \boldsymbol{\delta}=f_{1}(A) d(A) \boldsymbol{\delta}=\mathbf{0},\  \quad g(A) \boldsymbol{\delta}=g_{1}(A) d(A) \boldsymbol{\delta}=\mathbf{0} .$$
+	因此  $\boldsymbol{\delta} \in W_{1} \cap W_{2} ,\ $ 从而  $W_{3} \subseteq W_{1} \cap W_{2}  .$\\
+	综上所述得,\ 
+	$$W_{3}=W_{1} \cap W_{2} .$$
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ A \in M_{n}(K),\  f_{1}(x),\  f_{2}(x) \in K[x] ,\  $记 $ f(x)=f_{1}(x) f_{2}(x)  .$证明: 如果  $\left(f_{1}(x),\  f_{2}(x)\right)=1 ,\  $那么 $ f(A) \boldsymbol{X}=\mathbf{0}  $的任一个解可以唯一地表示成  $f_{1}(A) \boldsymbol{X}=\mathbf{0} $ 的一个 解与 $ f_{2}(A) \boldsymbol{X}=\mathbf{0} $ 的一个解的和.
+\end{problem}
+\begin{proof}
+	可表性.由于  $\left(f_{1}(x),\  f_{2}(x)\right)=1 ,\  $因此存在$  u(x),\  v(x) \in K[x] ,\ $ 使得  $u(x) f_{1}(x)+v(x) f_{2}(x)=1 .$
+	不定元 $ x  $用  $A  $代人,\  从上式得
+	$$u(A) f_{1}(A)+v(A) f_{2}(A)=I .$$
+	任取 $ f(A) \boldsymbol{X}=\boldsymbol{0} $ 的一个解$  \boldsymbol{\eta} ,\  $则  $f(A) \boldsymbol{\eta}=\mathbf{0} ,\ $ 从上式得
+	$$\boldsymbol{\eta}=I \boldsymbol{\eta}=u(A) f_{1}(A) \boldsymbol{\eta}+v(A) f_{2}(A) \boldsymbol{\eta} .$$
+	记  $\boldsymbol{\eta}_{1}=v(A) f_{2}(A) \boldsymbol{\eta},\  \boldsymbol{\eta}_{2}=u(A) f_{1}(A) \boldsymbol{\eta} ,\ $ 则 $ \boldsymbol{\eta}=\boldsymbol{\eta}_{2}+\boldsymbol{\eta}_{1}  .$
+	由于$  f(x)=f_{1}(x) f_{2}(x) ,\  $因此 $ f(A)=f_{1}(A) f_{2}(A) ,\  $从而
+	$$\begin{aligned}
+		f_{1}(A) \boldsymbol{\eta}_{1} & =f_{1}(A) v(A) f_{2}(A) \boldsymbol{\eta}=v(A) f_{1}(A) f_{2}(A) \boldsymbol{\eta} \\
+		& =v(A) f(A) \boldsymbol{\eta}=v(A) \boldsymbol{0}=\mathbf{0},\  \\
+		f_{2}(A) \boldsymbol{\eta}_{2} & =f_{2}(A) u(A) f_{1}(A) \boldsymbol{\eta} \\
+		& =u(A) f(A) \boldsymbol{\eta}=\mathbf{0} .
+	\end{aligned}$$
+	因此  $\boldsymbol{\eta}_{1},\  \boldsymbol{\eta}_{2}  分别是  f_{1}(A) \boldsymbol{X}=\mathbf{0},\  f_{2}(A) \boldsymbol{X}=\boldsymbol{0}$  的一个解.\\
+	唯一性.任取 $ f(A) \boldsymbol{X}=\boldsymbol{0} $ 的一个解$  \boldsymbol{\eta} ,\  $设
+	$$\boldsymbol{\eta}=\boldsymbol{\eta}_{1}+\boldsymbol{\eta}_{2},\  \quad \boldsymbol{\eta}=\boldsymbol{\delta}_{1}+\boldsymbol{\delta}_{2},\ $$
+	其中  $\boldsymbol{\eta}_{i} ,\ \boldsymbol{\delta}_{i}  $是$  f_{i}(A) \boldsymbol{X}=\mathbf{0}  $的解$,\   i=1,\ 2  .$则
+	$$\boldsymbol{\eta}_{1}-\boldsymbol{\delta}_{1}=\boldsymbol{\delta}_{2}-\boldsymbol{\eta}_{2} .$$
+	用 $ W_{i}$  表示 $ f_{i}(A) \boldsymbol{X}=\mathbf{0} $ 的解空间$,\   i=1,\ 2 ,\  $则  $\boldsymbol{\eta}_{1}-\boldsymbol{\delta}_{1} \in W_{1} \cap W_{2}  .$
+	由于 $ \left(f_{1}(x),\  f_{2}(x)\right)=1 ,\ $ 因此用上题的结论得,\  $ I \boldsymbol{X}=\boldsymbol{0} $ 的解空间$  W_{3}=W_{1} \cap W_{2}  .$显然$W_3=\{\boldsymbol{0}\},\ $因此$W_1\cap W_2=\{\boldsymbol{0}\}.$从而$\boldsymbol{\eta}_1-\boldsymbol{\delta}_1=\boldsymbol{0},\ $即$\boldsymbol{\eta}_1=\boldsymbol{\delta}_1.$于是$\boldsymbol{\eta}_2=\boldsymbol{\delta}_2.$
+\end{proof}
+\newpage
+\begin{problem}
+	证明: 在 $ K[x] $ 中,\  如果 $ (f(x),\  g(x))=1 ,\  $并且 $ \operatorname{deg} f(x)>0 ,\   \operatorname{deg} g(x)>0 ,\ $ 那 么在  K[x]  中存在唯一的一对多项式  $u(x),\  v(x) ,\ $ 使得
+	$$u(x) f(x)+v(x) g(x)=1,\ $$
+	且  $\operatorname{deg} u^{\prime}(x)<\operatorname{deg} g(x),\  \operatorname{deg} v(x)<\operatorname{deg} f(x)  .$
+\end{problem}
+\begin{proof}
+	由于 $ (f(x),\  g(x))=1 ,\ $ 因此存在 $ p(x),\  q(x) \in K[x] ,\  $使得
+	\begin{equation}
+		p(x) f(x)+q(x) g(x)=1 .\label{1.6.201}
+	\end{equation}
+	用  $g(x)  $去除  $p(x) ,\  $有  $h(x),\  r(x) \in K[x] ,\ $ 使得
+	\begin{equation}
+		p(x)=h(x) g(x)+r(x),\  \operatorname{deg} r(x)<\operatorname{deg} g(x) .\label{1.6.21}
+	\end{equation}
+	把\eqref{1.6.21}式代人\eqref{1.6.201}式,\  得
+	$$r(x) f(x)+[h(x) f(x)+q(x)] g(x)=1 .$$
+	令  $u(x)=r(x),\  v(x)=h(x) f(x)+q(x) ,\  $则上式成为
+	\begin{equation}
+		u(x) f(x)+v(x) g(x)=1,\ \label{1.6.22}
+	\end{equation}
+	其中 $ \operatorname{deg} u(x)=\operatorname{deg} r(x)<\operatorname{deg} g(x)  .$由于 $ \operatorname{deg} g(x)>0 ,\  $因此从\eqref{1.6.22}式看出 $ u(x) \neq 0  .$
+	假如$  \operatorname{deg} v(x) \geqslant \operatorname{deg} f(x) ,\  $则
+	$$\begin{aligned}
+		\operatorname{deg}[v(x) g(x)] & =\operatorname{deg} v(x)+\operatorname{deg} g(x) \geqslant \operatorname{deg} f(x)+\operatorname{deg} g(x) \\
+		& >\operatorname{deg} f(x)+\operatorname{deg} u(x)=\operatorname{deg}[u(x) f(x)] .
+	\end{aligned}$$
+	从而
+	$$\begin{aligned}
+		\operatorname{deg}[u(x) f(x)+v(x) g(x)] & =\operatorname{deg}[v(x) g(x)] \\
+		& \geqslant \operatorname{deg} f(x)+\operatorname{deg} g(x)>0 .
+	\end{aligned}$$
+	这与\eqref{1.6.22}式矛盾,\  因此$  \operatorname{deg} v(x)<\operatorname{deg} f(x)  .$存在性得证.\\
+	唯一性.假设 $ K[x] $ 中,\  还有一对多项式  $u_{1}(x),\  v_{1}(x) ,\  $使得
+	$$u_{1}(x) f(x)+v_{1}(x) g(x)=1,\ $$
+	且  $\operatorname{deg} u_{1}(x)<\operatorname{deg} g(x),\  \operatorname{deg} v_{1}(x)<\operatorname{deg} f(x) ,\  $则
+	$$\left[u_{1}(x)-u(x)\right] f(x)=\left[v(x)-v_{1}(x)\right] g(x) .$$
+	由于$  (f(x),\  g(x))=1 ,\ $ 因此从上式得
+	$$g(x) \mid\left[u_{1}(x)-u(x)\right] .$$
+	假如$  u_{1}(x)-u(x) \neq 0 ,\  $则  $\operatorname{deg} g(x) \leqslant \operatorname{deg}\left[u_{1}(x)-u(x)\right]<\operatorname{deg} g(x) ,\  $矛盾.因此 $ u_{1}(x)-u(x)=0 ,\ $ 从而$  v(x)-v_{1}(x)=0  .$ 即
+	$$u(x)=u_{1}(x),\  \quad v(x)=v_{1}(x) .$$
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ m,\  n \in \mathbf{N}^{*} ,\ $ 证明: 在 $ K[x]  $中,\ 
+	$$\left(x^{m}-1,\  x^{n}-1\right)=x^{(m,\  n)}-1 .$$
+\end{problem}
+\begin{proof}
+	当  $m=n$  时$,\   (m,\  n)=m ,\ $ 显然有
+	$$\left(x^{m}-1,\  x^{m}-1\right)=x^{m}-1 .$$
+	下面设$  m>n ,\ $ 对幂指数 $ m$  和 $ n $ 的最大值作第二数学归纳法.
+	当  $\max \{m,\  n\}=2  $时,\ $  m=2,\  n=1,\ (m,\  n)=1  .$
+	显然有  $\quad\left(x^{2}-1,\  x-1\right)=x-1 .$
+	假设幂指数的最大值小于$  m$  时,\  命题为真,\  现在来看$  \max \{m,\  n\}=m  $的情形.
+	$$\begin{aligned}
+		\left(x^{m}-1,\  x^{n}-1\right) & =\left(x^{m}-x^{m-n}+x^{m-n}-1,\  x^{n}-1\right) \\
+		& =\left(x^{m-n}\left(x^{n}-1\right)+x^{m-n}-1,\  x^{n}-1\right) .
+	\end{aligned}$$
+	由于 $$\{x^{m-n}(x^n-1)+x^{m-n}-1\text{与}x^n-1\text{的最大公因式}\}=\{x^n-1\text{与}x^{m-n}-1\text{的公因式}\}$$
+	因此  
+	$$\left(x^{m-n}\left(x^{n}-1\right)+x^{m-n}-1,\  x^{n}-1\right)=\left(x^{n}-1,\  x^{m-n}-1\right) .$$
+	由于 $ \max \{n,\  m-n\}<m ,\  $且 $ (n,\  m-n)=(m,\  n) ,\ $ 因此据归纳假设得
+	$$\left(x^{n}-1,\  x^{m-n}-1\right)=x^{(n,\  m-n)}-1=x^{(m,\  n)}-1 .$$
+	从而
+	$$\left(x^{m}-1,\  x^{n}-1\right)=x^{(m,\  n)}-1 .$$
+	据数学归纳法原理,\  对一切正整数 $ m,\  n ,\ $ 命题为真.
+\end{proof}
+\newpage
+\begin{problem}
+	设$  f(x),\  g(x) \in K[x],\  K[x]  $中一个多项式$  m(x) $ 称为$  f(x) $ 与  $g(x) $ 的一个最 小公倍式,\  如果\\
+	$1^{\circ} f(x)|m(x),\  g(x)| m(x);$\\
+	$2^{\circ} f(x)|u(x),\  g(x)| u(x) \Longrightarrow m(x) \mid u(x)  .$\\
+	(1) 证明:  $K[x]$  中任意两个多项式都有最小公倍式,\  并且 $ f(x) $ 与 $ g(x) $ 的最小公倍式 在相伴的意义下是唯一的;\\
+	(2) 用 $ [f(x),\  g(x)]$  表示首项系数是$ 1$ 的最小公倍式,\  证明: 如果  $f(x),\  g(x)  $的首项 系数都是 $1 ,\  $那么
+	$$[f(x),\  g(x)]=\frac{f(x) g(x)}{(f(x),\  g(x))} .$$
+\end{problem}
+\begin{proof}
+	(1)$ 0$ 与$ 0 $的公倍式只有$ 0 ,\ $从而 $0 $与 $0$ 的最小公倍式是 $0 .$
+	设 $ f(x),\  g(x)  $是  $K[x] $ 中不全为$ 0 $的多项式,\  则
+	$$f(x)=f_1(x)(f(x),\ g(x)),\ g(x)=g_1(x)(f(x),\ g(x)).$$
+	令
+	$$m(x)=f_1(x)g_1(x)(f(x),\ g(x))$$
+	则
+	$$f(x)\mid m(x),\ g(x)\mid m(x)$$
+	假设$  f(x)|u(x),\  g(x)| u(x) ,\  $则存在$  p(x),\  q(x) \in K[x] ,\  $使得
+	从而  
+	$$\quad p(x) f(x)=q(x) g(x) .$$
+	于是  	
+	$$\quad p(x) f_{1}(x)(f(x),\  g(x))=q(x) g_{1}(x)(f(x),\  g(x)) .$$
+	因此  
+	$$p(x) f_{1}(x)=q(x) g_{1}(x) .$$
+	由于  $\left(f_{1}(x),\  g_{1}(x)\right)=1 ,\  $因此 $ f_{1}(x) \mid q(x)  .$从而存在 $ h(x) \in K[x] ,\ $ 使得
+	$$q(x)=h(x) f_{1}(x) .$$
+	于是
+	$$u(x)=h(x) f_{1}(x) g(x)=h(x) m(x) .$$
+	因此  $m(x) \mid u(x)  .$从而 $ m(x) $ 是  $f(x) $ 与 $ g(x)  $的最小公倍式.\\
+	设 $ m_{1}(x),\  m_{2}(x) $ 都是  $f(x)  $与  $g(x) $ 的最小公倍式,\  则
+	$$m_1(x)\mid m_2(x),\ m_2(x)\mid m_1(x)$$
+	因此 $$ m_{1}(x) \sim m_{2}(x) .$$
+	(2) 设$  f(x) $ 与$  g(x)  $都是首项系数为$ 1$ 的多项式,\  则从第$ (1) $小题的证明可以看出
+	$$\begin{aligned}
+		{[f(x),\  g(x)] } & =f_{1}(x) g_{1}(x)(f(x) g(x)) \\
+		& =\frac{f(x) g(x)}{(f(x),\  g(x))} .
+	\end{aligned}$$
+\end{proof}
+\newpage
+\begin{problem}
+	在 $ K[x] $ 中,\  设 $ \left(f,\  g_{i}\right)=1,\  i=1,\ 2 ,\  $证明:
+	$$\left(f g_{1},\  g_{2}\right)=\left(g_{1},\  g_{2}\right).$$
+\end{problem}	
+\begin{proof}
+	证法一: 设  $g_{1}(x),\  g_{2}(x) $ 的标准分解式为
+	$$g_{1}(x)=b_{1} q_{1^{1}}^{r_{1}}(x) \cdots q_{m^{m}}^{r_{m}}(x) q_{m+1}^{r_{m+1}}(x) \cdots q_{t^{t}}^{r_{t}}(x),\ $$
+	$$g_{2}(x)=b_{2} q_{1}^{k_{1}}(x) \cdots q_{m_{m}^{\prime}}^{k_{m}}(x) u_{1}^{e_{1}}(x) \cdots u_{n^{n}}^{r^{\prime}}(x) .$$
+	由于$  \left(f,\  g_{i}\right)=1,\  i=1,\ 2 ,\  $因此  f(x)  的标准分解式为
+	$$f(x)=a p_{1}^{l_{1}}(x) p_{2}^{l_{2}}(x) \cdots p_{s}^{l_{s}^{s}}(x) .$$
+	其中 $ p_{i}(x)(i=1,\ 2,\  \cdots,\  s) $ 在$  g_{1}(x),\  g_{2}(x) $ 的标准分解式中不出现. 于是
+	$$\left(f g_{1},\  g_{2}\right)=q_{1}^{\min \left\{r_{1},\  k_{1}\right\}}(x) \cdots q_{m}^{\min \left\{r_{m},\  k_{m}\right\}}=\left(g_{1},\  g_{2}\right) .$$
+	证法二: 显然,\  若$  c_{1}(x) \mid g_{1}(x)  $$且  c_{1}(x) \mid g_{2}(x) ,\  $则 $ c_{1}(x) \mid f(x) g_{1}(x) $ 且$  c_{1}(x) \mid g_{2}(x)  .$ 反之,\  若$  c_{2}(x) \mid f(x) g_{1}(x) $ 且$  c_{2}(x) \mid g_{2}(x) ,\ $ 由于 $ \left(f,\  g_{i}\right)=1,\  i=1,\ 2 ,\ $ 因此 $ \left(f,\  g_{1} g_{2}\right)=1  .$ 于是存在 $ u(x),\  v(x) \in K[x] ,\ $ 使得$  u(x) f(x)+v(x) g_{1}(x) g_{2}(x)=1  .$从而
+	$$u(x) f(x) g_{1}(x)+v(x) g_{1}^{2}(x) g_{2}(x)=g_{1}(x) .$$
+	因此 $ c_{2}(x) \mid g_{1}(x)  .$由上述推出$,\   \left(f g_{1},\  g_{2}\right)=\left(g_{1},\  g_{2}\right)  .$
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ K $ 是数域,\  证明: $ K[x] $ 中一个$  n  $次 $ (n \geqslant 1)  $多项式  $f(x)  $能被它的导数整除的 充分必要条件是它与一个一次因式的$  n$  次幂相伴.
+\end{problem}
+\begin{proof}
+	充分性:设  $f(x)=a(c x+b)^{n} ,\  $则
+	$$f^{\prime}(x)=n a(c x+b)^{n-1} c .$$
+	从而
+	$$f^{\prime}(x) \mid f(x) .$$
+	必要性:设 $ f^{\prime}(x) \mid f(x) ,\  $则 $ \left(f(x),\  f^{\prime}(x)\right)=c f^{\prime}(x) ,\  $其中$  c^{-1}$  是 $ f^{\prime}(x)  $的首项系数. 由于用 $ \left(f(x),\  f^{\prime}(x)\right) $ 去除 $ f(x) $ 所得的商式  $g(x)$  与  $f(x) $ 有完全相同的不可约因式(不计 重数),\  且  $g(x) $ 没有重因式,\  因此
+	$$f(x)=\operatorname{cg}(x) f^{\prime}(x) .$$
+	由于$  \operatorname{deg} f(x)=n,\  \operatorname{deg} f^{\prime}(x)=n-1 ,\  $因此  $g(x)=a(x+b) .$
+	从而
+	$$f(x)=a(x+b)^{n} .$$
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ K $ 是一个数域$,\   f(x) \in K[x]  $且 $ f(x)  $的次数$  n $ 大于$ 0.$证明: 如果在  $K[x] $ 中$,\   f(x) \mid f\left(x^{m}\right),\  m$  是一个大于 $1$ 的整数,\  那么 $ f(x)  $的复根只能是 $0$ 或单位根.
+\end{problem}
+\begin{proof}
+	任取 $ f(x)$  的一个复根 $ c ,\  $则 $ f(c)=0  .$
+	由于在  $K[x]  $中$,\   f(x) \mid f\left(x^{m}\right) ,\  $因此存在$  h(x) \in K[x] ,\  $使得
+	\begin{equation}
+		f\left(x^{m}\right)=h(x) f(x) .\label{1.6.23}
+	\end{equation}
+	$x  $用 $ c $ 代人,\  从上式得 $ f\left(c^{m}\right)=h(c) f(c)=0  .$于是 $ c^{m}  $是 $ f(x) $ 的一个复根.\\
+	$x $ 用$  c^{m} $ 代人,\  从\eqref{1.6.23}式得$  f\left(c^{m^{2}}\right)=h\left(c^{m}\right) f\left(c^{m}\right)=0  .$于是 $ c^{m^{2}} $ 也是 $ f(x)  $的一个复根. 依次下去可得$,\   c,\  c^{m},\  c^{m^{2}},\  c^{m^{3}},\  \cdots $ 都是 $ f(x)  $的复根.把 $ f(x) $ 看成 $ \mathbf{C}[x] $ 中的多项式,\  由于 $ \operatorname{deg} f(x)=n ,\  $因此$  f(x)$  恰有  $n $ 个复根 (重根按重数计算).于是必存在正整数 $ j ,\ $ 使得 $ c^{m^{i}}=c^{m^{i}}$  对于某个正整数 $ i<j  .$由此得出 $ c^{m^{i}}\left(c^{m^{i}-m^{i}}-1\right)=0  .$因此 $ c^{m^{i}}=0  或  c^{m^{i}-m^{i}}=1  .$ 从而  $c=0  $或 $ c$  是单位根.
+\end{proof}
+\begin{note}
+	从证明过程可以看出,\  运用一元多项式环的通用性质才能把从 $ c $ 是 $ f(x)$  的复根推导出 $ c^{m},\  c^{m^{2}},\  c^{m^{3}},\  \cdots $ 都是 $ f(x) $ 的复根的道理讲清楚.否则,\  不仅道理说不 清楚,\  而且很容易产生差错.
+\end{note}
+\newpage
+\begin{problem}
+	设  $K$  是一个数域$,\   R $ 是一个有单位元的交换环,\  且 $ R  $可看成是  $K $ 的一个扩环,\  设 $ a \in R ,\ $ 令
+	$$J_{a}=\{f(x) \in K[x] \mid f(a)=0\},\ $$
+	设 $ J_{a} \neq\{0\} ,\  $证明:\\
+	(1)  $J_{a}$  中存在唯一的首一多项式 $ m(x) ,\  $使得
+	\begin{equation}
+		J_{a}=\{h(x) m(x) \mid h(x) \in K[x]\} ;\label{1.6.24}
+	\end{equation}
+	(2) 如果  $R $ 是无零因子环,\  那么第 $(1) $小题中的 $ m(x) $ 在 $ K[x]  $中不可约.
+\end{problem}
+\begin{proof}
+	(1) 在 $ J_{a}$  中取一个次数最低的首一多项式,\  记作$  m(x) ,\ $ 任取 $ f(x) \in J_{a} ,\ $ 在 $ K[x] $ 中,\  用 $ m(x)  $去除  $f(x) ,\ $ 作带余除法:
+	$$f(x)=h(x) m(x)+r(x),\  \operatorname{deg} r(x)<\operatorname{deg} m(x) .$$
+	假如$  r(x) \neq 0,\  x $ 用 $ a$  代人,\  从上式得
+	$$f(a)=h(a) m(a)+r(a) .$$
+	由此得出,\  $ r(a)=0 ,\  $从而$  r(x) \in J_{a} ,\  $这与 $ m(x) $ 的取法矛盾,\  因此$  r(x)=0  .$即 $ f(x)=   h(x) m(x) ,\  $从而\eqref{1.6.24}式成立.
+	设首一多项式  $m_{1}(x) $ 也使得
+	$$J_{a}=\left\{h(x) m_{1}(x) \mid h(x) \in K[x]\right\},\ $$
+	则 $ m(x) \mid m_{1}(x)  $且 $ m_{1}(x) \mid m(x)  .$从而 $ m(x) \sim m_{1}(x)  .$又由于它们首一,\  因此$  m(x)=m_{1}(x)  .$\\
+	(2)假如  $m(x)  $在 $ K[x] $ 中可约,\  则在 $ K[x] $ 中有
+	$$m(x)=m_{1}(x) m_{2}(x),\  \operatorname{deg} m_{i}(x)<\operatorname{deg} m(x),\  i=1,\ 2.$$
+	$x$  用  $a $ 代人,\  从上式得
+	$$m(a)=m_{1}(a) m_{2}(a) .$$
+	由于$  m(a)=0 ,\ $ 且 $ R $ 是无零因子环,\  因此 $ m_{1}(a)=0  $或者  $m_{2}(a)=0  .$从而$  m_{1}(x) \in J_{a} $ 或者$  m_{2}(x) \in J_{a} ,\  $这与$  m(x) $ 是 $ J_{a} $ 中次数最低的多项式矛盾.所以 $ m(x) $ 在 $ K[x] $ 中不可约.
+\end{proof}
+\newpage
+\begin{problem}
+	取  $K $ 为复数域 $ \mathbf{C} ,\  $取  $R$  为$  \mathbf{C}[A] ,\  $其中
+	$$A=\left(\begin{array}{cc}
+		1 & -1 \\
+		1 & 1
+	\end{array}\right).$$
+	$$求  J_{A}  中次数最低的首一多项式  m(x)  .$$
+\end{problem}
+\begin{solution}
+	$$A^{2}=\left(\begin{array}{cc}1 & -1 \\ 1 & 1\end{array}\right)\left(\begin{array}{cc}1 & -1 \\ 1 & 1\end{array}\right)=\left(\begin{array}{cc}0 & -2 \\ 2 & 0\end{array}\right) 
+	=2\left(\begin{array}{cc}
+		0 & -1 \\
+		1 & 0
+	\end{array}\right)=2(A-I) .$$
+	因此
+	$$\begin{array}{c}
+		A^{2}-2 A+2 I=0 . \\
+		f(x)=x^{2}-2 x+2,\  \\
+		(A)=A^{2}-2 A+2 I=0 .
+	\end{array}$$
+	则  $f(A)=A^{2}-2 A+2 I=0 .$
+	从而  $f(x) \in J_{A}  ,\ $由上题知$,\  m(x) \mid f(x)  .$在 $ \mathbf{C}[x]$  中,\ 
+	$$f(x)=[x-(1+\mathrm{i})][x-(1-\mathrm{i})].$$
+	显然,\  $ x-(1 \pm \mathrm{i}) \notin J_{A} ,\ $ 因此  $m(x)=f(x)  .$即
+	$$m(x)=x^{2}-2 x+2 .$$
+\end{solution}
+\newpage
+\begin{problem}
+	设 $ f(x),\  g(x) \in \mathbf{C}[x] ,\  $证明: 如果$  f^{-1}(0)=g^{-1}(0) ,\  $且 $ f^{-1}(1)=g^{-1}(1) ,\  $那么 $ f(x)=g(x)  .$
+\end{problem}
+\begin{proof}
+	设$  \max \{\operatorname{deg} f(x) ,\  \operatorname{deg}  g(x)\}=n ,\  $不妨设$  f(x)$  的次数为$  n ,\  $显然 $ f^{-1}(0) \cap f^{-1}(1)=\varnothing ,\  $如果能证明
+	$$\left|f^{-1}(0) \cup f^{-1}(1)\right| \geqslant n+1 .$$
+	那么由于  $f^{-1}(0)=g^{-1}(0) $ 且 $ f^{-1}(1)=g^{-1}(1) ,\ $ 因此 $ f(x)=g(x)  .$
+	设 $ f(x),\  f(x)-1  $的标准分解式分别为
+	$$f(x)=a \prod_{i=1}^{m}\left(x-c_{i}\right)^{r_{i}},\  $$
+	$$f(x)-1=a \prod_{j=1}^{s}\left(x-d_{j}\right)^{t_{j}} $$
+	其中  $\sum\limits_{i=1}^{m} r_{i}=n=\sum\limits_{j=1}^{s} t_{j}  .$显然
+	$$f^{-1}(0)=\{c_1,\ c_2,\ \cdots,\ c_m\},\ f^{-1}(1)=\{d_1,\ d_2,\ \cdots,\ d_m\},\ $$
+	因此$\left|f^{-1}(0) \cup f^{-1}(1)\right|=m+s .$
+	$$\begin{aligned}
+		f^{\prime}(x) & =(f(x)-1)^{\prime} \\
+		& =\prod_{i=1}^{m}\left(x-c_{i}\right)^{r_{i}-1} \cdot \prod_{j=1}^{s}\left(x-d_{j}\right)^{t_{j}-1} \cdot h(x),\ 
+	\end{aligned}$$
+	其中 $ h(x)  $不能被 $ x-c_{i}  $整除$,\   i=1,\ 2,\  \cdots,\  m ;$ 也不能被  $x-d_{j} $ 整除,\  $ j=1,\ 2,\  \cdots,\  s  .$于是
+	$$\sum_{i=1}^{m}\left(r_{i}-1\right)+\sum_{j=1}^{s}\left(t_{j}-1\right) \leqslant \operatorname{deg} f^{\prime}(x)=n-1 .$$
+	另一方面,\ 有
+	$$\begin{aligned}
+		\sum_{i=1}^{m}\left(r_{i}-1\right)+\sum_{j=1}^{s}\left(t_{j}-1\right) & =\sum_{i=1}^{m} r_{i}-m+\sum_{j=1}^{s} t_{j}-s \\
+		& =2 n-(m+s) .
+	\end{aligned}$$
+	因此 $ 2 n-(m+s) \leqslant n-1  .$由此得出$  m+s \geqslant n+1  .$即
+	$$\left|f^{-1}(0) \cup f^{-1}(1)\right| \geqslant n+1 .$$
+	从而
+	$$f(x)=g(x) .$$
+\end{proof}
+\newpage
+\begin{theorem}
+	实数域上的不可约多项式有且只有一次多项式和判别式小于$0$的二次多项式.
+\end{theorem}
+\begin{proof}
+	设$f(x)\in\mathbb{R}[x]$是不可约的,\ 把$f(x)$看成复系数多项式,\ 根据代数基本定理,\ $f(x)$有一个复根$c.$\\
+	情形1:$c$是实数,\ 则$f(x)$在$\mathbb{R}[x]$中有一次因式$x-c.$由于$f(x)$不可约,\ 因此$f(x)\sim (x-c),\ $从而
+	$$f(x)=a(x-c),\ a\in\mathbb{R}^*$$
+	情形2:$c$是虚数,\ 则$\bar{c}\neq c.$故$\bar{c}$也是$f(x)$的一个复根,\ 于是在$\mathbb{C}[x]$中
+	$$(x-c)\mid f(x),\ \qquad (x-\bar{c})\mid f(x).$$
+	由于$x-c$与$x-\bar{c}$互素,\ 因此在$\mathbb{C}[x]$中
+	$$(x-c)(x-\bar{c})\mid f(x),\ $$
+	即
+	$$x^2-(c+\bar{c})x+c\bar{c}\mid f(x).$$
+	由于$c+\bar{c}$与$c\bar{c}$都是实数,\ 且整除性不随数域的扩大而改变,\ 因此在$\mathbb{R}[x]$中
+	$$x^2-(c+\bar{c})x+c\bar{c}\mid f(x),\ $$
+	由于$f(x)$在$\mathbb{R}[x]$中不可约,\ 因此$f(x)\sim (x^2-(c+\bar{c})x+c\bar{c}),\ $从而
+	$$f(x)=a[x^2-(c+\bar{c})x+c\bar{c}],\ \qquad a\in\mathbb{R}^{*}.$$
+	由于$f(x)$有虚根,\ 因此$f(x)$的判别式小于$0.$
+	反之,\ $\mathbb{R}[x]$中任意一个一次多项式都是不可约的,\ 判别式小于$0$的二次多项式由于没有实根,\ 因此没有一次因式,\ 从而也是不可约的.
+\end{proof}
+\newpage
+\begin{problem}
+	设  $f(x)=a_{n} x^{n}+a_{n-1} x^{n-1}+\cdots+a_{1} x+a_{0}$  是一个复系数多项式,\  其次数 $ n \geqslant 1  .$令
+	$$M=\max \left\{\left|a_{n-1}\right|,\ \left|a_{n-2}\right|,\  \cdots,\ \left|a_{0}\right|\right\},\ $$
+	则当 $ |z| \geqslant 1+\frac{M}{\left|a_{n}\right|} $ 时,\  有
+	$$\left|a_{n} z^{n}\right|>\left|a_{n-1} z^{n-1}+\cdots+a_{1} z+a_{0}\right| .$$
+\end{problem}
+\begin{proof}
+	当 $ M=0  $时,\  结论显然成立.下设$  M \neq 0  .$当 $ |z| \geqslant 1+\frac{M}{\left|a_{n}\right|} $ 时,\  有 $ |z|>1$  且 $ \left|a_{n}\right|   \geqslant \frac{M}{|z|-1}  .$从而有
+	$$\begin{aligned}
+		\left|a_{n} z^{n}\right| & =\left|a_{n}\right||z|^{n} \geqslant \frac{M|z|^{n}}{|z|-1}>\frac{M\left(|z|^{n}-1\right)}{|z|-1} \\
+		& =M\left(|z|^{n-1}+\cdots+|z|+1\right) \\
+		& \geqslant\left|a_{n-1}\right||z|^{n-1}+\cdots+\left|a_{1}\right||z|+\left|a_{0}\right| \\
+		& =\left|a_{n-1} z^{n-1}\right|+\cdots+\left|a_{1} z\right|+\left|a_{0}\right| \\
+		& \geqslant\left|a_{n-1} z^{n-1}+\cdots+a_{1} z+a_{0}\right| .
+	\end{aligned}$$
+\end{proof}
+\newpage
+\begin{problem}
+	求多项式  $x^{n}+1  分$别在复数域上和实数域上的标准分解式.
+\end{problem}
+\begin{solution}
+	先求 $ x^{n}+1 $ 的全部复根.
+	$z=r(\cos \theta+\mathrm{isin} \theta) $ 是 $ x^{n}+1  $的复根
+	$$\begin{aligned}
+		\Longleftrightarrow & r^{n}(\cos n \theta+\mathrm{i} \sin n \theta)=\cos \pi+\mathrm{i} \sin \pi \\
+		\Longleftrightarrow & r^{n}=1 \text { 且 } n \theta=\pi+2 k \pi,\  k \in \mathbf{Z} \\
+		\Longleftrightarrow & r=1 \text { 且 } \theta=\frac{(2 k+1) \pi}{n},\  k \in \mathbf{Z} \\
+		\Longleftrightarrow & z=\cos \frac{(2 k+1) \pi}{n}+\mathrm{i} \sin \frac{(2 k+1) \pi}{n},\  k \in \mathbf{Z} .
+	\end{aligned}$$
+	令$$w_{k}=\mathrm{e}^{\mathrm{i} \frac{(2 k+1) \pi}{n}},\  \quad k=0,\ 1,\ 2,\  \cdots,\  n-1 .$$
+	易证$  w_{0},\  w_{1},\  \cdots,\  w_{n-1}  $两两不等,\  从而它们是  $x^{n}+1 $ 的全部复根,\  因此 $ x^{n}+1$  在$  \mathbf{C}[x]$  中的 标准分解式为
+	$$x^{n}+1=\left(x-w_{0}\right)\left(x-w_{1}\right) \cdots\left(x-w_{n-1}\right) .$$
+	当 $ 0 \leqslant k<n $ 时,\  有
+	从而  $\overline{w_{k}}=w_{n-k-1}  .$于是
+	$$w_{k}+w_{n-k-1}=2 \cos \frac{(2 k+1) \pi}{n} .$$
+	情形1: $n=2 m+1  .$此时有
+	$$w_{m}=\mathrm{e}^{\mathrm{i} \frac{(2 m+1) x}{2 m+1}}=-1 .$$
+	从而在$  \mathbf{R}[x] $ 中 $ x^{2 m+1}+1 $ 的标准分解式为
+	$$\begin{aligned}
+		x^{2 m+1}+1&=\left(x-w_{0}\right)\left(x-w_{2 m}\right) \cdots\left(x-w_{m-1}\right)\left(x-w_{m+1}\right)\left(x-w_{m}\right)\\
+		&=\left(x^{2}-2 x \cos \frac{\pi}{2 m+1}+1\right) \cdots\left(x^{2}-2 x \cos \frac{(2 m-1) \pi}{2 m+1}+1\right)(x+1) \\
+		&=(x+1) \prod_{k=1}^{m}\left(x^{2}-2 x \cos \frac{(2 k-1) \pi}{2 m+1}+1\right) .
+	\end{aligned}$$
+	情形2:$n=2 m  .$此时在 $ \mathbf{R}[x] $ 中 $ x^{2 m}+1 $ 的标准分解式为
+	$$\begin{aligned}
+		x^{2 m}+1= & \left(x-w_{0}\right)\left(x-w_{2 m-1}\right) \cdots\left(x-w_{m-2}\right)\left(x-w_{m+1}\right)\left(x-w_{m-1}\right)\left(x-w_{m}\right) \\
+		= & \left(x^{2}-2 x \cos \frac{\pi}{2 m}+1\right) \cdots\left(x^{2}-2 x \cos \frac{(2 m-3) \pi}{2 m}+1\right) \cdot \\
+		& \left(x^{2}-2 x \cos \frac{(2 m-1) \pi}{2 m}+1\right) \\
+		= & \prod_{k=1}^{m}\left(x^{2}-2 x \cos \frac{(2 k-1) \pi}{2 m}+1\right) .
+	\end{aligned}$$
+\end{solution}
+\newpage
+\begin{problem}
+	求多项式  $x^{n}-1  $在实数域上的标准分解式.
+\end{problem}
+\begin{solution}
+	记$  \xi=\mathrm{e}^{\mathrm{i} \frac{2 \pi}{n}}  .$在 $ \mathbf{C}[x] $ 中,\  有
+	$$x^{n}-1=(x-1)(x-\xi)\left(x-\xi^{2}\right) \cdots\left(x-\xi^{n-1}\right) .$$
+	当 $ 0<k<n  $时,\  有  $\xi^{k} \xi^{n-k}=1 ,\  $由于 $ \xi^{k} \overline{\xi^{k}}=\left|\xi^{k}\right|^{2}=1 ,\ $ 因此 $ \xi^{k}=\xi^{n-k}  .$从而  $\xi^{k}+\xi^{n-k}=   2 \cos \frac{2 k \pi}{n}  .$
+	情形1:$n=2 m+1  .$此时有
+	$$\begin{aligned}
+		x^{2 m+1}-1 & =(x-1)(x-\xi)\left(x-\xi^{2 m}\right) \cdots\left(x-\xi^{m}\right)\left(x-\xi^{n+1}\right) \\
+		& =(x-1)\left(x^{2}-2 x \cos \frac{2 \pi}{2 m+1}+1\right) \cdots\left(x^{2}-2 x \cos \frac{2 m \pi}{2 m+1}+1\right) \\
+		& =(x-1) \prod_{k=1}^{m}\left(x^{2}-2 x \cos \frac{2 k \pi}{2 m+1}+1\right) .
+	\end{aligned}$$
+	情形2:$n=2 m  .$此时有 $ \xi^{m}=\mathrm{e}^{\mathrm{i} \frac{\mathrm{i} m \boldsymbol{x}}{2 m}}=\mathrm{e}^{\mathrm{i} \pi}=-1  .$从而
+	$$\begin{aligned}
+		x^{2 m}-1 & =(x-1)(x-\xi)\left(x-\xi^{2 m-1}\right) \cdots\left(x-\xi^{n-1}\right)\left(x-\xi^{n+1}\right)\left(x-\xi^{m}\right) \\
+		& =(x-1)\left(x^{2}-2 x \cos \frac{2 \pi}{2 m}+1\right) \cdots\left(x^{2}-2 x \cos \frac{2(m-1) \pi}{2 m}+1\right)(x+1) \\
+		& =(x-1)(x+1) \prod_{k=1}^{m-1}\left(x^{2}-2 x \cos \frac{k \pi}{m}+1\right) .
+	\end{aligned}$$
+\end{solution}
+\newpage
+\begin{problem}
+	证明:
+	$$\cos \frac{\pi}{2 m+1} \cos \frac{2 \pi}{2 m+1} \cdots \cos \frac{m \pi}{2 m+1}=\frac{1}{2^{m}} .$$
+\end{problem}
+\begin{proof}
+	在上题的公式中$,\   x $ 用$  -1  $代人,\  得
+	$$-2=-2 \prod_{k=1}^{m}\left(2+2 \cos \frac{2 k \pi}{2 m+1}\right).$$
+	从而
+	$$\begin{aligned}
+		\frac{1}{2^{m}} & =\prod_{k=1}^{m}\left(1+\cos \frac{2 k \pi}{2 m+1}\right) \\
+		& =\prod_{k=1}^{m} 2 \cos ^{2} \frac{k \pi}{2 m+1}
+	\end{aligned}$$
+	由此得出
+	$$\frac{1}{2^{m}}=\prod_{k=1}^{m} \cos \frac{k \pi}{2 m+1} .$$
+\end{proof}
+\begin{problem}
+	证明:
+	$$\sin \frac{\pi}{2 m} \sin \frac{2 \pi}{2 m} \cdots \sin \frac{(m-1) \pi}{2 m}=\frac{\sqrt{m}}{2^{m-1}} .$$
+\end{problem}
+\begin{proof}
+	从上题的公式
+	$$x^{2 m}-1=\left(x^{2}-1\right)\left(x^{2(m-1)}+x^{2(m-2)}+\cdots+x^{4}+x^{2}+1\right)$$
+	得
+	$$x^{2(m-1)}+x^{2(m-2)}+\cdots+x^{4}+x^{2}+1=\prod_{k=1}^{m-1}\left(x^{2}-2 x \cos \frac{k \pi}{m}+1\right) .$$
+	$x $ 用 $1$ 代人,\  从上式得
+	于是
+	$$m=\prod_{k=1}^{m-1}\left(2-2 \cos \frac{k \pi}{m}\right) .$$
+	$$\begin{aligned}
+		\frac{m}{2^{m-1}} & =\prod_{k=1}^{m-1}\left(1-\cos \frac{k \pi}{m}\right) \\
+		& =\prod_{k=1}^{m-1} 2 \sin ^{2} \frac{k \pi}{2 m}
+	\end{aligned}$$
+	由此得出
+	$$\frac{\sqrt{m}}{2^{m-1}}=\prod_{k=1}^{m-1} \sin \frac{k \pi}{2 m} .$$
+\end{proof}
+\newpage
+\begin{problem}
+	设实系数多项式  $f(x)=x^{3}+a_{2} x^{2}+a_{1} x+a_{0}$  的 $3 $个复根都是实数,\  证 明:$  a_{2}^{2} \geqslant 3 a_{1}  .$
+\end{problem}
+\begin{proof}
+	设 $ f(x)$  的 $3 $个复根为实数$  c_{1},\  c_{2},\  c_{3}  .$则
+	$$\begin{aligned}
+		0 & \leqslant\left(c_{1}-c_{2}\right)^{2}+\left(c_{2}-c_{3}\right)^{2}+\left(c_{3}-c_{1}\right)^{2} \\
+		& =2\left(c_{1}^{2}+c_{2}^{2}+c_{3}^{2}\right)-2\left(c_{1} c_{2}+c_{2} c_{3}+c_{3} c_{1}\right) \\
+		& =2\left[\left(c_{1}+c_{2}+c_{3}\right)^{2}-2 c_{1} c_{2}-2 c_{1} c_{3}-2 c_{2} c_{3}\right]-2\left(c_{1} c_{2}+c_{2} c_{3}+c_{3} c_{1}\right) \\
+		& =2\left(c_{1}+c_{2}+c_{3}\right)^{2}-6\left(c_{1} c_{2}+c_{1} c_{3}+c_{2} c_{3}\right) \\
+		& =2\left(-a_{2}\right)^{2}-6 a_{1} .
+	\end{aligned}$$
+	从而  $a_{2}^{2} \geqslant 3 a_{1}  .$
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ f(x) $ 是实系数多项式,\  其次数  $n \geqslant 2 ,\ $ 证明: 如果对任意 $ t \in \mathbf{R} $ 都有 $ f(t) \geqslant 0 ,\  $那么存在两个实系数多项式$  g(x),\  h(x) ,\  $使得
+	$$f(x)=g^{2}(x)+h^{2}(x) .$$
+\end{problem}
+\begin{proof}
+	把 $ f(x) $ 因式分解,\  得
+	$$f(x)=a\left(x-c_{1}\right)^{r_{1}} \cdots\left(x-c_{s}\right)^{r_{s}}\left(x^{2}+p_{1} x+q_{1}\right)^{k_{1}} \cdots\left(x^{2}+p_{m} x+q_{m}\right)^{k_{m}} .$$
+	其中 $ c_{1},\  \cdots,\  c_{s} $ 是两两不等的实数;  $\left(p_{1},\  q_{1}\right),\  \cdots,\ \left(p_{m},\  q_{m}\right) $ 是不同的实数对,\  且满足$  p_{i}^{2}-4 q_{i}<0,\  i=1,\ 2,\  \cdots,\  m ; r_{1},\  \cdots,\  r_{i},\  k_{1},\  \cdots,\  k_{m} $ 都是非负整数.由于 $ f(t) \geqslant 0,\  \forall t \in \mathbf{R} ,\  $因 此  $a>0 ,\  $且 $ r_{1},\  \cdots,\  r_{s} $ 都是偶数 (假如有  $r_{j}  $是奇数,\  则可以找到 $ t  $使得$  f(t)<0 $ 矛盾).设 $ r_{i}=2 r_{i}^{\prime} ,\ $ 则
+	\begin{equation}
+		f(x)=a\left(x^{2}-2 c_{1} x+c_{1}^{2}\right)^{r_{1}} \cdots\left(x^{2}-2 c_{s} x+c_{s}^{2}\right)^{r_{s}^{\prime}}\cdot\left(x^{2}+p_{1} x+q_{1}\right)^{k_{1}} \cdots\left(x^{2}+p_{m} x+q_{m}\right)^{k_{m}} .\label{1.6.25}
+	\end{equation}
+	则\eqref{1.6.25}式中出现的二次多项式都形如 $ x^{2}+b x+c ,\  $其中$  b^{2}-4 c \leqslant 0  .$用待定系数法可以证 明这种二次多项式可以表示成
+	\begin{equation}
+		x^{2}+b x+c=\left(d_{1} x+e_{1}\right)^{2}+\left(d_{2} x+e_{2}\right)^{2} \label{1.6.251}
+	\end{equation}
+	分别比较二次项、一次项的系数以及常数项,\  得
+	\begin{align}
+		1 & =d_{1}^{2}+d_{2}^{2},\  \notag\\
+		b & =2 d_{1} e_{1}+2 d_{2} e_{2},\  \label{1.6.26}\\
+		c & =e_{1}^{2}+e_{2}^{2} .\label{1.6.27}
+	\end{align}
+	取  $d_{1}=\frac{1}{2},\  d_{2}=\frac{\sqrt{3}}{2} ,\  则  d_{1}^{2}+d_{2}^{2}=1 ,\  $代人\eqref{1.6.26}式,\  得
+	\begin{equation}
+		b=e_{1}+\sqrt{3} e_{2} .\label{1.6.28}
+	\end{equation}
+	从\eqref{1.6.28}式得,\   $e_{1}=b-\sqrt{3} e_{2} ,\  $代人\eqref{1.6.27}式得
+	\begin{equation}
+		c=b^{2}-2 \sqrt{3} b e_{2}+4 e_{2}^{2} .\label{1.6.29}
+	\end{equation}
+	从\eqref{1.6.29}式可以看出,\  $ e_{2}$  应当是二次方程
+	\begin{equation}
+		4 y^{2}-2 \sqrt{3} b y+b^{2}-c=0\label{1.6.30}
+	\end{equation}
+	的实根.由于二次方程\eqref{1.6.30}的判别式
+	$$\Delta=(-2 \sqrt{3} b)^{2}-4 \cdot 4\left(b^{2}-c\right)=4\left(4 c-b^{2}\right) \geqslant 0,\ $$
+	因此方程\eqref{1.6.30}有实根,\  从而可解得 $ e_{2} ,\ $ 进而可求出  $e_{1}  .$所以\eqref{1.6.251} 式的确成立.
+	设 $ f_{1}(x)=g_{1}^{2}(x)+h_{1}^{2}(x),\  f_{2}(x)=g_{2}^{2}(x)+h_{2}^{2}(x) ,\  $则
+	$$\begin{array}{l}
+		f_{1}(x) f_{2}(x)=\left[g_{1}^{2}(x)+h_{1}^{2}(x)\right]\left[g_{2}^{2}(x)+h_{2}^{2}(x)\right] \\
+		=\left|\begin{array}{cc}
+			g_{1}(x) & -h_{1}(x) \\
+			h_{1}(x) & g_{1}(x)
+		\end{array}\right| \cdot\left|\begin{array}{cc}
+			g_{2}(x) & -h_{2}(x) \\
+			h_{2}(x) & g_{2}(x)
+		\end{array}\right| \\
+		=\left|\begin{array}{ll}
+			g_{1}(x) g_{2}(x)-h_{1}(x) h_{2}(x) & -g_{1}(x) h_{2}(x)-h_{1}(x) g_{2}(x) \\
+			h_{1}(x) g_{2}(x)+g_{1}(x) h_{2}(x) & -h_{1}(x) h_{2}(x)+g_{1}(x) g_{2}(x)
+		\end{array}\right| \\
+		=\left[g_{1}(x) g_{2}(x)-h_{1}(x) h_{2}(x)\right]^{2}+\left[g_{1}(x) h_{2}(x)+h_{1}(x) g_{2}(x)\right]^{2} .
+	\end{array}$$
+	用数学归纳法可以证明: 若  $f_{i}(x)=g_{i}^{2}(x)+h_{i}^{2}(x),\  i=1,\ 2,\  \cdots,\  v ,\  $则存在  $g(x),\  h(x) \in   \mathbf{R}[x] ,\ $ 使得
+	$$f_{1}(x) f_{2}(x) \cdots f_{v}(x)=g^{2}(x)+h^{2}(x) .$$
+	于是由\eqref{1.6.25}式和\eqref{1.6.251}式得,\  存在 $ g(x),\  h(x) \in \mathbf{R}[x] ,\  $使得
+	$$f(x)=g^{2}(x)+h^{2}(x) .$$
+\end{proof}
+\begin{note}
+	证明例 10 的关键是把 $ f(x) $ 分解成实系数不可约多项式的乘积,\  并且从已知 条件推出 $ f(x) $ 的一次因式的幂指数应当都是偶数,\  从而 $ f(x) $ 可分解成二次多项式的方幂的乘积,\  其中每个二次因式都形如$  x^{2}+b x+c ,\  $且满足$  b^{2}-4 c \leqslant 0  .$然后对$  x^{2}+b x+c $ (其中 $ b^{2}-4 c \leqslant 0 $ ) 很容易用待定系数法证明它可以表示成两个一次多项式的平方和,\  最后 可证得所要求的结论.
+\end{note}
+\newpage
+\begin{lemma}
+	(高斯 (Gauss) 引理) 两个本原多项式的乘积还是本原多项式.
+\end{lemma}
+\begin{proof}
+	设
+	$$\begin{array}{l}
+		f(x)=a_{n} x^{n}+\cdots+a_{1} x+a_{0},\  \\
+		g(x)=b_{m} x^{m}+\cdots+b_{1} x+b_{0}
+	\end{array}$$
+	是两个本原多项式.设
+	$$h(x)=f(x) g(x)=c_{n+m} x^{n+m}+\cdots+c_{1} x+c_{0},\ $$
+	其中$  c_{s}=\sum_{i+j=s} a_{i} b_{j},\  s=0,\ 1,\  \cdots,\  n+m  .$
+	假如  $h(x) $ 不是本原多项式,\  则存在一个素数  $p ,\ $ 使得
+	$$p \mid c_{s},\  \quad s=0,\ 1,\ 2,\  \cdots,\  n+m .$$
+	由于 $ f(x)$  是本原多项式,\  因此$  p$  不能同时整除 $ f(x)$  的每一项的系数.于是存在  $k(0 \leqslant k \leqslant n) $ 满足
+	\begin{equation}
+		p\left|a_{0},\  p\right| a_{1},\  \cdots,\  p \mid a_{k-1},\  p \times a_{k} .\label{1.6.31}
+	\end{equation}
+	由于 $ g(x) $ 是本原的,\  因此存在$  l(0 \leqslant l \leqslant m)$  满足
+	\begin{equation}
+		p\left|b_{0},\  p\right| b_{1},\  \cdots,\  p \mid b_{l-1},\  p \times b_{l} .\label{1.6.32}
+	\end{equation}
+	考虑  $h(x) $ 的 $ k+l $ 次项的系数:
+	$$c_{k+1}=a_{k+1} b_{0}+\cdots+a_{k+1} b_{l-1}+a_{k} b_{l}+a_{k-1} b_{l+1}+\cdots+a_{0} b_{k+l}$$
+	由\eqref{1.6.31}\eqref{1.6.32}两式以及  $p \mid c_{k+l}$  得$,\   p \mid a_{k} b_{l}  .$由于  $p$  是素数,\  因此 $ p \mid a_{k} $ 或 $ p \mid b_{l}  .$矛盾.于是$  h(x)  $是本原多项式.
+\end{proof}
+\newpage
+\begin{theorem}
+	设 $ f(x)=a_{n} x^{n}+a_{n-1} x^{n-1}+\cdots+a_{1} x+a_{0} $ 是一个次数  $n $ 大于 $0 $的整系数多 项式,\  如果$  \frac{q}{p}  $是 $ f(x)$  的一个有理根,\  其中 $ p,\  q  $是互素的整数,\  那么 $ p\left|a_{n},\  q\right| a_{0}  .$
+\end{theorem}
+\begin{proof}
+	设  $f(x)=r f_{1}(x) ,\ $ 其中 $ r \in \mathbf{Z}^{*},\  f_{1}(x)  $是本原多项式.设 $ \frac{q}{p} $ 是  $f(x)$  的一个根,\  则 $ 0=f\left(\frac{q}{p}\right)=r f_{1}\left(\frac{q}{p}\right)  .$从而 $ \frac{q}{p} $ 也是  $f_{1}(x) $ 的一个根.于是在 $ \mathbf{Q}[x] $ 中,\   $\left(x-\frac{q}{p}\right) \mid f_{1}(x)  .$因此 $ (p x-q) \mid f_{1}(x)  .$由于 $ (p,\  q)=1 ,\  $因此 $ p x-q  $是本原多项式.
+	$$f_{1}(x)=(p x-q) g(x),\ $$
+	其中 $ g(x)=b_{n-1} x^{n-1}+\cdots+b_{1} x+b_{0}$  是本原多项式.于是
+	$f(x)=r(p x-q) g(x)$
+	分别比较 上 式两边多项式的首项系数与常数项,\  得
+	$$a_{n}=r p b_{n-1},\  \quad a_{0}=-r q b_{0} .$$
+	因此 $ p\left|a_{n},\  q\right| a_{0} .$
+\end{proof}
+\begin{note}
+	从定理  的证明过程看到,\  如果 $ \frac{q}{p}  $是  $f(x)$  的一个有理根,\  且$  (p,\  q)=1 ,\ $ 那么存在一个 整系数多项式 $ g(x) ,\ $ 使得 $ f(x)=(p x-q) g(x)  .$当 $ \frac{q}{p} \neq \pm 1  $时,\  可推出
+	$$\frac{f(1)}{p-q} \in \mathbf{Z},\  \quad \frac{f(-1)}{p+q} \in \mathbf{Z} .$$
+	因此如果计算出 $ \frac{f(1)}{p-q} \notin \mathbf{Z}  $或$  \frac{f(-1)}{p+q} \notin \mathbf{Z} ,\  $那么 $ \frac{q}{p}$  便不是 $ f(x) $ 的根.这种判断方法在求整 系数多项式的有理根时很有用.
+\end{note}
+\newpage
+\begin{theorem}
+	设  $f(x)=a_{n} x^{n}+a_{n-1} x^{n-1}+\cdots+a_{1} x+a_{0} $ 是一个次数  $n$  大于$ 0$ 的整系数多 项式,\ 如果存在一个素数  $p ,\  $使得
+	$$p \mid a_{i},\  \quad i=1,\ 2,\  \cdots,\  n,\  \quad p \times a_{0},\  p^{2} \times a_{n},\ $$
+	那么 $ f(x)  $在  $\mathbf{Q} $ 上不可约.
+\end{theorem}
+\begin{proof}
+	假如 $ f(x)$  在 $ \mathbf{Q} $ 上可约,\  则存在两个次数分别为  $n_{1},\  n_{2}\left(n_{i}<n,\  i=1,\ 2\right)  $的整系 数多项式 $ f_{1}(x),\  f_{2}(x) ,\  $使得
+	$$f(x)=f_{1}(x) f_{2}(x) .$$
+	不定元  $x $ 用 $ \mathbf{Q}(x)$  中的元素$  \frac{1}{x}$  代入,\ 从 从 上式得
+	$$f\left(\frac{1}{x}\right)=f_{1}\left(\frac{1}{x}\right) f_{2}\left(\frac{1}{x}\right)$$
+	在 上式两边乘以$  x^{n} ,\  $得
+	$$x^{n} f\left(\frac{1}{x}\right)=x^{n_{1}} f_{1}\left(\frac{1}{x}\right) x^{n_{2}} f_{2}\left(\frac{1}{x}\right) .$$
+	显然,\  $ x^{n_{i}} f_{i}\left(\frac{1}{x}\right) $ 是整系数多项式,\  且次数为  $n_{i},\  i=1,\ 2  .$
+	$$x^{n} f\left(\frac{1}{x}\right)=a_{n}+a_{n-1} x+\cdots+a_{1} x^{n-1}+a_{0} x^{n} .$$
+	由已知条件,\  据 Eisenstein 判别法得,\  $ x^{n} f\left(\frac{1}{x}\right)  $在 $ \mathbf{Q} $ 上不可约,\  这与上式矛盾.因此$  f(x)$  在 $ \mathbf{Q}  $上不可约.
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ p$  是一个素数,\  多项式
+	$$f_{p}(x)=x^{p-1}+x^{p-2}+\cdots+x+1$$
+	称为$  p$  阶分圆多项式.证明$  f_{p}(x)  $在  $\mathbf{Q} $ 上不可约.
+\end{problem}
+\begin{proof}
+	我们有
+	$x $ 用$  x+1  $代人,\  从上式得
+	$$(x-1) f_{p}(x)=x^{p}-1 .$$
+	$$\begin{aligned}
+		x f_{p}(x+1) & =(x+1)^{p}-1 \\
+		& =x^{p}+p x^{p-1}+\cdots+c_{p}^{k} x^{p-k}+\cdots+p x .
+	\end{aligned}$$
+	于是 $ \quad g(x):=f_{p}(x+1)=x^{p-1}+p x^{p-2}+\cdots+c_{p}^{k} x^{p-k-1}+\cdots+p .$
+	我们知道
+	$$\mathrm{C}_{p}^{k}=\frac{p(p-1) \cdots(p-k+1)}{k !},\  \quad 1 \leqslant k<p .$$
+	由于 $ (p,\  k !)=1 ,\ $ 因此
+	$$k ! \mid(p-1) \cdots(p-k+1) .$$
+	从而 
+	$$  p \mid \mathrm{C}_{p}^{k},\  1 \leqslant k<p .$$
+	又 $ p \times 1,\  p^{2} \times p ,\  $因此$  g(x) $ 在$  \mathbf{Q}$  上不可约,\  从而 $ f_{p}(x) $ 在  $\mathbf{Q} $ 上不可约.
+\end{proof}
+\begin{note}
+	$x^{p-1}+x^{p-2}+\cdots+   x+1=(x-\xi)\left(x-\xi^{2}\right) \cdots\left(x-\xi^{-1}\right) ,\  $其中  $\xi=\mathrm{i}^{\mathrm{i} \frac{2 \pi}{p}}  .$由于$  p$  是素数,\  因此对任意 $ j(1 \leqslant j<p) ,\  $都 有 $ (p,\  j)=1 ,\  $ 得$,\   \xi,\  \xi^{2},\  \cdots,\  \xi^{p-1}  $都是本原 $ p$  次单位根.显然它们是全 部本原 $ p $ 次单位根,\  因此  $x^{p-1}+x^{p-2}+\cdots+x+1  $是$  p  $阶分圆多项式.分圆多项式的定义 如下：
+	设 $ n$  是一个正整数$,\   \eta_{1},\  \eta_{2},\  \cdots,\  \eta_{r} $ 是全部两两不等的本原  $n $ 次单位根,\  令
+	$$f_{n}(x):=\left(x-\eta_{1}\right)\left(x-\eta_{2}\right) \cdots\left(x-\eta_{r}\right),\ $$
+	则称 $ f_{n}(x) $ 是 $ \boldsymbol{n}  $阶分圆多项式.
+\end{note}
+\newpage
+\begin{problem}
+	设 $ m,\  n  $都是正整数,\  且 $ m<n ,\  $证明: 如果  $f(x)  $是$  \mathbf{Q}  $上的  $m $ 次多项式,\  那么对 任意素数$  p ,\ $ 都有$  \sqrt[n]{p} $ 不是 $ f(x) $ 的实根.
+\end{problem}
+\begin{proof}
+	假如  $\sqrt[n]{p} $ 是 $ f(x) $ 的实根,\  则  $f(x)$  作为实数域上的多项式有一次因式 $ x-\sqrt[n]{p}  . $由于  $(\sqrt[n]{p})^{n}=p ,\ $ 因此  $\sqrt[n]{p}$  是多项式 $ g(x)=x^{n}-p  $的一个实根.从而  $g(x)$  作为实数域上的多项式有一次因式 $ x-\sqrt[n]{p}  .$于是在$  \mathbf{R}[x]  $中,\   $f(x) $ 与  $g(x) $ 不互素.由于互素性不随数域 的扩大而改变,\  因此在  $\mathbf{Q}[x]  $中,\  $ f(x) $ 与 $ g(x) $ 也不互素.又由于素数  $p$  能整除 $ g(x) $ 的首 项系数以外的一切系数,\  但不能整除首项系数 $1 ,\  $且$  p^{2} \times p ,\ $ 因此 $ g(x)  $在$  \mathbf{Q}$  上不可约.从 而 $ g(x)$  能整除 $ f(x)  .$由此得出$,\   n \leqslant m  .$这与  m<n  矛盾.因此 $ \sqrt[n]{p} $ 不是  $f(x)  $的实根.
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ f(x)=a_{n} x^{n}+\cdots+a_{1} x+a_{0}  $是一个次数大于 $0$ 的整系数多项式,\  证明: 如 果  $a_{n}+a_{n-1}+\cdots+a_{1}+a_{0} $ 是一个奇数,\ 那么 $1 $和 $ -1$  都不是$  f(x) $ 的根.
+\end{problem}
+\begin{proof}
+	由于 $ f(1)=a_{n}+a_{n-1}+\cdots+a_{1}+a_{0} $ 是奇数,\ 因此 $1$ 不是 $ f(x) $ 的根.设  $f(x)   =m g(x) ,\  $其中$  g(x)  $是本原多项式$,\   m \in \mathbf{Z}^{*}  .$假如 $ -1  $是 $ f(x) $ 的根,\  则 $ 0=f(-1)=   m g(-1) ,\ $ 从而 $ g(-1)=0  .$于是 $ g(x) $ 有一次因式  $x+1  .$据本节性质 4 得,\  存在整系数 多项式  h(x) ,\  使得  g(x)=(x+1) h(x) ,\  于是有
+	$$f(x)=m(x+1) h(x) .$$
+	$x $ 用$ 1 $代人,\  从上式得,\   $f(1)=2 m \cdot h(1)  .$这与$  f(1) $ 是奇数矛盾.因此  $-1 $ 不是 $ f(x)  $的根.
+\end{proof}
+\begin{note}
+	本题不需要什么计算就证明了$-1$ 不 是$  f(x)  $的根.也可以采用下述方法证明这一结论 : 假如  $-1$  是 $ f(x)  $的根,\  则
+	$$0=f(-1)=a_{n}(-1)^{n}+a_{n-1}(-1)^{n-1}+\cdots+a_{1}(-1)+a_{0} .$$
+	当  $n $ 是奇数时,\  从上式得
+	$$\begin{array}{l}
+		a_{n}+a_{n-2}+\cdots+a_{1}=a_{n-1}+a_{n-3}+\cdots+a_{2}+a_{0} . \\
+		a_{n}+a_{n-1}+\cdots+a_{1}+a_{0}=2\left(a_{n}+a_{n-2}+\cdots+a_{1}\right) .
+	\end{array}$$
+	这与已知条件矛盾.当 $ n $ 是偶数时,\  类似的计算可得出与已知条件矛盾.因此  $-1$  不是 $ f(x) $ 的根.
+\end{note}
+\newpage
+\begin{problem}
+	设  $f(x) $ 是一个次数大于 $0 $的首一整系数多项式,\  证明: 如果 $ f(0) $ 与 $ f(1) $ 都 是奇数,\ 那么  $f(x) $ 没有有理根.
+\end{problem}
+\begin{proof}
+	假如 $ f(x) $ 有一个有理根$  b ,\  $由于 $ f(x)  $的首项系数为 $1 ,\  $因此  $b  $必为整数.于是  $x-b  $是本原多项式,\  且  $x-b $ 是  $f(x) $ 的一个因式.又由于$  f(x)  $也是本原多项式,\ 存在整系数多项式  $h(x) ,\  $使得
+	$x  $分别用 $0$ 和 $1 $代人,\  从上式得
+	$$f(x)=(x-b) h(x) .$$
+	$$f(0)=(-b) h(0),\  \quad f(1)=(1-b) h(1) .$$
+	由于$  -b  $和 $ -b+1 $ 必有一个是偶数,\  因此 $ f(0) $ 和 $ f(1) $ 必有一个是偶数.这与已知条件矛 盾,\  所以 $ f(x) $ 没有有理根.
+\end{proof}
+\newpage
+\begin{problem}
+	设$  f(x)=\left(x-a_{1}\right)\left(x-a_{2}\right) \cdots\left(x-a_{n}\right)-1 ,\ $ 其中 $ a_{1},\  a_{2},\  \cdots,\  a_{n}$  是两两不等的整 数.证明 $ f(x) $ 在  $\mathbf{Q}  $上不可约.
+\end{problem}
+\begin{proof}
+	假如$  f(x)  $在 $ \mathbf{Q} $ 上可约,\  则
+	$$f(x)=g_{1}(x) g_{2}(x),\  \quad \operatorname{deg} g_{i}(x)<n,\  \quad g_{i}(x) \in \mathbf{Z}[x],\  i=1,\ 2 .$$
+	$x  $用 $ a_{j} $ 代人,\  从上式得
+	$$-1=f\left(a_{j}\right)=g_{1}\left(a_{j}\right) g_{2}\left(a_{j}\right),\  \quad j=1,\ 2,\  \cdots,\  n .$$
+	从而 $ g_{1}\left(a_{j}\right) $ 与 $ g_{2}\left(a_{j}\right)  $一个为 $1 ,\  $另一个为 $ -1  .$于是  g$_{1}\left(a_{j}\right)+g_{2}\left(a_{j}\right)=0,\  j=1,\ 2,\  \cdots,\  n_. $ 这表明多项式$  g_{1}(x)+g_{2}(x)$  有 $ n  $个不同的根 $ a_{1},\  a_{2},\  \cdots,\  a_{n}  .$但是 $ g_{1}(x)+g_{2}(x)$  的次数 小于  $n ,\ $ 因此$,\   g_{1}(x)+g_{2}(x)=0 ,\  $从而  $f(x)=-g_{1}^{2}(x) . f(x) $ 的首项系数为 $1 ,\ $ 这与 $ -g_{1}^{2}(x) $ 的首项系数为负数矛盾.因此  $f(x)  $在  $\mathbf{Q} $ 上不可约.
+\end{proof}
+\newpage
+\begin{problem}
+	设$  f(x)=\left(x-a_{1}\right)\left(x-a_{2}\right) \cdots\left(x-a_{n}\right)+1 ,\ $ 其中  $a_{1},\  a_{2},\  \cdots,\  a_{n} $ 是两两不等的 整数.\\
+	(1) 证明: 当 $ n  $是奇数时$,\   f(x) $ 在 $ \mathbf{Q} $ 上不可约;\\
+	(2) 证明: 当  $n$  是偶数且 $ n \geqslant 6$  时,\  $ f(x)  在  \mathbf{Q} $ 上不可约;\\
+	(3) 当 $ n=2 $ 或 $4 $时$,\   f(x) $ 在 $ \mathbf{Q} $ 上是否不可约?
+\end{problem}
+\begin{proof}
+	证明 假如 $ f(x) $ 在  $\mathbf{Q} $ 上可约,\  则
+	$$f(x)=g_{1}(x) g_{2}(x),\  \operatorname{deg} g_{i}(x)<n,\  g_{i}(x) \in \mathbf{Z}[x],\  i=1,\ 2 .$$
+	$x $ 用$  a ,\ $ 代人,\ 从上式得
+	$$1=f\left(a_{j}\right)=g_{1}\left(a_{j}\right) g_{2}\left(a_{j}\right),\  \quad j=1,\ 2,\  \cdots,\  n .$$
+	于是$  g_{1}\left(a_{j}\right) $ 与 $ g_{2}\left(a_{j}\right)  $同为 $1 ,\  $或同为 $ -1  .$从而
+	$$g_{1}\left(a_{j}\right)-g_{2}\left(a_{j}\right)=0,\  \quad j=1,\ 2,\  \cdots,\  n .$$
+	这表明多项式 $ g_{1}(x)-g_{2}(x) $ 有 $ n  $个不同的根 $ a_{1},\  a_{2},\  \cdots,\  a_{n}  .$但是 $ g_{1}(x)-g_{2}(x) $ 的次数 小于 $ n ,\  $因此 $ g_{1}(x)-g_{2}(x)=0  .$从而 $ f(x)=g_{1}^{2}(x) ,\  $于是 $ \operatorname{deg} f(x)=2 \operatorname{deg} g_{1}(x)  .$这与 已知  $n  $是奇数矛盾,\  因此$  f(x)  $在 $ \mathbf{Q} $ 上不可约.\\
+	(2) 证明 假如 $ f(x) $ 在  $\mathbf{Q} $ 上可约,\  由第$ (1) $小题的证明过程得,\ $  f(x)=g_{1}^{2}(x)  .$从而 对一切  $t \in \mathbf{R} ,\  $有 $ f(t)=g_{1}^{2}(t) \geqslant 0  .$不妨设
+	$$a_{1}<a_{2}<a_{3}<a_{4}<a_{5}<a_{6}<\cdots<a_{n} .$$
+	$x  $用  $a_{1}+\frac{1}{2}$  代人,\  由 $ f(x) $ 的表达式得
+	$$\begin{aligned}
+		f\left(a_{1}+\frac{1}{2}\right) & =\frac{1}{2}\left(a_{1}+\frac{1}{2}-a_{2}\right) \cdots\left(a_{1}+\frac{1}{2}-a_{n}\right)+1 \\
+		& =(-1)^{n-1} \frac{1}{2}\left(a_{2}-a_{1}-\frac{1}{2}\right) \cdots\left(a_{n}-a_{1}-\frac{1}{2}\right)+1 .
+	\end{aligned}$$
+	由于
+	$$\begin{array}{c}
+		a_{2}-a_{1}-\frac{1}{2} \geqslant 1-\frac{1}{2}=\frac{1}{2},\  \cdots,\  \\
+		a_{1}-a_{1}-\frac{1}{2} \geqslant(j-1)-\frac{1}{2}=\frac{2 j-3}{2},\  \cdots,\  \\
+		a_{n}-a_{1}-\frac{1}{2} \geqslant(n-1)-\frac{1}{2}=\frac{2 n-3}{2},\ 
+	\end{array}$$
+	且 $ n \geqslant 6 ,\  $因此
+	$$\begin{aligned}
+		\frac{1}{2}\left(a_{2}-a_{1}-\frac{1}{2}\right) \cdots\left(a_{n}-a_{1}-\frac{1}{2}\right) & \geqslant \frac{1}{2} \cdot \frac{1}{2} \cdot \frac{3}{2} \cdot \frac{5}{2} \cdot \frac{7}{2} \cdot \frac{9}{2} \cdot \cdots \cdot \frac{2 n-3}{2} \\
+		& \geqslant \frac{1}{2} \cdot \frac{1}{2} \cdot \frac{3}{2} \cdot \frac{5}{2} \cdot \frac{7}{2} \cdot \frac{9}{2} \\
+		& =\frac{15 \times 63}{64}>1 .
+	\end{aligned}$$
+	由于 $ n  $是偶数,\ 因此
+	$$f\left(a_{1}+\frac{1}{2}\right)=-\frac{1}{2}\left(a_{2}-a_{1}-\frac{1}{2}\right) \cdots\left(a_{n}-a_{1}-\frac{1}{2}\right)+1<-1+1=0,\ $$
+	矛盾,\  因此当  $n $ 为偶数且 $ n \geqslant 6 $ 时,\  $ f(x) $ 在 $ \mathbf{Q}  $上不可约.\\
+	(3) 解 当$  n=2 $ 或 $4 $时,\  $ f(x) $ 有可能在$  \mathbf{Q}  $上可约.例如$,\   (x-1)(x+1)+1=x^{2} ,\ $
+	$$\begin{aligned}
+		x(x-1)(x+1)(x+2)+1&=x^{4}+2 x^{3}-x^{2}-2 x+1\\
+		&=\left(x^{2}+x-1\right)^{2}.
+	\end{aligned}$$
+\end{proof}
+\newpage
+\begin{problem}
+	设 $ f(x)=\left(x-a_{1}\right)^{2}\left(x-a_{2}\right)^{2} \cdots\left(x-a_{n}\right)^{2}+1 ,\  $其中 $ a_{1},\  a_{2},\  \cdots,\  a_{n}$  是两两不等的 整数.证明 $ f(x)  $在 $ \mathbf{Q}  $上不可约.
+\end{problem}
+\begin{proof}
+	假如 $ f(x) $ 在 $ \mathbf{Q}$  上可约,\  则
+	$$f(x)=g_{1}(x) g_{2}(x),\  \operatorname{deg} g_{i}(x)<2 n,\  g_{i}(x) \in \mathbf{Z}[x],\  i=1,\ 2 .$$
+	$x  $用 $ a_{j} $ 代人,\  从上式得
+	$$1=f\left(a_{1}\right)=g_{1}\left(a_{1}\right) g_{2}\left(a_{j}\right),\  \quad j=1,\ 2,\  \cdots,\  n .$$
+	于是 $ g_{1}\left(a_{j}\right)$  与 $ g_{2}\left(a_{j}\right) $ 同为 $1 ,\  $或同为 $ -1  .$
+	由于 $ f(x) $ 没有实根,\  因此 $ g_{1}(x)$  和  $g_{2}(x) $ 都没有实根.从而$  g_{i}\left(a_{1}\right),\  g_{1}\left(a_{2}\right),\  \cdots ,\   g_{i}\left(a_{n}\right)  $同号$,\   i=1,\ 2  .$于是不妨设$  g_{i}\left(a_{1}\right)=g_{i}\left(a_{2}\right)=\cdots=g_{i}\left(a_{n}\right)=1,\  i=1,\ 2  .$\\
+	情形  1: $g_{1}(x) $ 与$  g_{2}(x)$  中之一的次数小于$n.$不妨设  $\operatorname{deg} g_{1}(x)<n$ ,\ 由于$g_{1}(a_j)-1 =0,\  j=1,\ 2,\  \cdots,\  n ,\  $因此多项式 $ g_{1}(x)-1 $ 有 $ n $ 个不同的根.于是 $ g_{1}(x)-1=0  .$从而 $ f(x)=g_{2}(x) ,\  $这与 $ \operatorname{deg} g_{2}(x)<2 n $ 矛盾.\\
+	情形  2:$ g_{1}(x) $ 与  $g_{2}(x) $ 的次数都等于  $n  .$由于 $ a_{1},\  a_{2},\  \cdots,\  a_{n}  $都是$  g_{i}(x)-1  $的根,\  且 $ g_{i}(x)-1  $的首项系数为 $1 ,\ $ 因此
+	$$g_{i}(x)-1=\left(x-a_{1}\right)\left(x-a_{2}\right) \cdots\left(x-a_{n}\right),\  \quad i=1,\ 2 . $$
+	从而
+	\begin{align*}
+		f(x)&=\left[\left(x-a_{1}\right)\left(x-a_{2}\right) \cdots\left(x-a_{n}\right)+1\right]^{2} \\
+		&=\left(x-a_{1}\right)^{2}\left(x-a_{2}\right)^{2} \cdots\left(x-a_{n}\right)^{2}+1+2\left(x-a_{1}\right)\left(x-a_{2}\right) \cdots\left(x-a_{n}\right) .
+	\end{align*}
+	由此推出,\ $2  \left(x-a_{1}\right)\left(x-a_{2}\right) \cdots\left(x-a_{n}\right)=0 ,\  $矛盾.
+	由于 $ \operatorname{deg} g_{1}(x)+\operatorname{deg} g_{2}(x)=\operatorname{deg} f(x)=2 n ,\  $因此只有上述两种可能的情形.从而 $ f(x) $ 在 $ \mathbf{Q} $ 上不可约.
+\end{proof}
+\newpage
+\begin{problem}
+	有理系数多项式 $ f(x)=x^{4}+u x^{2}+v $ 何时在 $ \mathbf{Q} $ 上可约?
+\end{problem}
+\begin{solution}
+	先寻找 $ f(x) $ 在$  \mathbf{Q}$  上可约的必要条件.设 $ f(x) $ 在 $ \mathbf{Q} $ 上可约,\ 则$  f(x) $ 在一肷因式 或者有两个二次因式.\\
+	情形  1: $f(x) $ 有 一次因式.此时 $ f(x) $ 有一个有理根  $t ,\ $从而 $ t^{2}$  是二次多项式 $ x^{2}+u x+v $ 的有理根.于是判别式 $ u^{2}-4 v $ 是一个有理数的平方.\\
+	情形  2:$ f(x)  $有两个二肷因式,\ 此时
+	$$f(x)=\left(a_{2} x^{2}+a_{1} x+a_{0}\right)\left(b_{2} x^{2}+b_{1} x+b_{0}\right),\  a_{2} \neq 0,\  b_{2} \neq 0 .$$
+	比较系数,\  得
+	$$\left\{\begin{array}{l}
+		1=a_{2} b_{2},\  \\
+		0=a_{2} b_{1}+a_{1} b_{2},\  \\
+		u=a_{2} b_{0}+a_{1} b_{1}+a_{0} b_{2},\  \\
+		0=a_{1} b_{0}+a_{0} b_{1},\  \\
+		v=a_{0} b_{0} .
+	\end{array}\right.$$
+	
+	不㚴取 $ a_{2}=1,\  b_{2}=1  .$于是 $ b_{1}=-a_{1},\  u=b_{0}-a_{1}^{2}+a_{0},\  a_{1}\left(b_{0}-a_{0}\right)=0,\  v=a_{0} b_{0}  .$
+	若 $ a_{1}=0 ,\  $则  $b_{1}=0,\  u=b_{0}+a_{0},\  v=a_{0} b_{0}  . $于是
+	$$u^{2}-4 v=\left(b_{0}+a_{0}\right)^{2}-4 a_{0} b_{0}=\left(b_{0}-a_{0}\right)^{2} .$$
+	若$  a_{1} \neq 0 ,\ $ 则 $ b_{0}=a_{0},\  u=2 a_{0}-a_{1}^{2},\  v=a_{0}^{2}  .$于是
+	$$\pm 2 \sqrt{v}-u=a_{1}^{2}.$$
+	综上所述,\  $ f(x)$  在$  \mathbf{Q}$  上可约的必要条件是 : $ u^{2}-4 v $ 是一个有理数的平方; 或者 $ v $ 是一 个有理数的平方,\  且 $ \pm 2 \sqrt{v}-u $ 是有理数的平方.
+\end{solution}
+\newpage
+\begin{problem}
+	设$  p(x)$  是 $ n $ 次有理系数多项式,\  $ n$  为大于$ 1 $的奇数,\  且$  p(x)  $在  $\mathbf{Q}$  上不可约. 证明: 如果 $ c_{1} $ 和$  c_{2} $ 是  $p(x) $ 的两个不同的复根,\  那么  $c_{1}+c_{2} $ 不是有理数.
+\end{problem}
+\begin{proof}
+	记$c_1+c_2=c.$假设$c$是有理数,\ 由于
+	$$0=p\left(c_{2}\right)=p\left(c-c_{1}\right),\ $$
+	因此 $ c_{1} $ 是多项式 $ g(x):=p(c-x) $ 的一个复根.由于 $ c $ 是有理数,\  因此  $g(x)  $是有理系数 多项式.由于 $ g(x)$  与 $ p(x)$  有公共复根 $ c_{1} ,\  $因此它们在 $ \mathbf{C}[x] $ 中有公共的一次因式 $ x-c_{1} ,\  $从而不互素.于是它们在 $ \mathbf{Q}[x] $ 中也不互素.由于 $ p(x) $ 在 $ \mathbf{Q}  $上不可约,\  因此 $ p(x) \mid g(x)  .$ 从而存在有理系数多项式 $ h(x) ,\  $使得  $g(x)=p(x) h(x)  .$由于 $ g(x)$  与  $p(x)$  的次数相等,\  因此 $ h(x)$  是非零有理数.由于 $ n $ 是奇数,\  因此 $ g(x) $ 的首项系数是  $p(x)$ 的首项系数的相反数.从而 $ h(x)=-1 ,\  $于是 $ g(x)=-p(x)  .  x$  用 $ \frac{c}{2} $ 代人得$,\   g\left(\frac{c}{2}\right)=-p\left(\frac{c}{2}\right)  .$又 $ g\left(\frac{c}{2}\right)=p\left(c-\frac{c}{2}\right)=p\left(\frac{c}{2}\right) ,\  $从而 $ p\left(\frac{c}{2}\right)=0  .$于是  $p(x)$  在$  \mathbf{Q}[x]  $中有一次因式 $ x-\frac{c}{2}  .$由 于 $ \operatorname{deg} p(x)=n>1 ,\ $ 因此  $p(x) $ 在  $\mathbf{Q}  $上可约,\  矛盾.所以  $c $ 不是有理数.
+\end{proof}
+\begin{note}
+	证明的思路是利用 $ c_{2} $ 是  $p(x)$  的复根,\  得出  $0=p\left(c_{2}\right)=p\left(c-c_{1}\right) ,\  $由此受 到启发去考虑多项式 $ g(x):=p(c-x) ,\  $使得 $ c_{1} $ 是 $ g(x)  $的一个复根,\  从而  $c_{1} $ 是 $ p(x)  $与  $g(x) $ 的一个公共复根.
+\end{note}

@@ -1,0 +1,1651 @@
+	\chapter{Algebra}
+	\section{行列式}
+	\begin{enumerate}
+		\item 二阶行列式:  $\left|\begin{array}{ll}a_{11} & a_{12} \\ a_{21} & a_{22}\end{array}\right|=a_{11} a_{22}-a_{12} a_{21} .$
+		\item 三阶行列式:
+		$$\begin{aligned}
+			\left|\begin{array}{lll}
+				a_{11} & a_{12} & a_{13} \\
+				a_{21} & a_{22} & a_{23} \\
+				a_{31} & a_{32} & a_{33}
+			\end{array}\right| &=a_{11} M_{11}-a_{12} M_{12}+a_{13} M_{13} \\
+			&=a_{11} A_{11}+a_{12} A_{12}+a_{13} A_{13}
+		\end{aligned}$$
+		将  $a_{i j}$  所在的行和列划去,\  剩下的元素按原来的次序组 成低一阶的行列式,\  称为  $a_{i j}$  的余子式,\  记为  $M_{i j} .$ 而  $A_{i j}=(-1)^{i+j} M_{i j}$  称为  $a_{i j}$  的代数余子式.
+		\item  $n$  阶行列式:
+		$$\begin{aligned}
+			|\boldsymbol{A}| &=a_{r 1} A_{r 1}+a_{r 2} A_{r 2}+\cdots+a_{r n} A_{r n} \\
+			&=a_{1 r} A_{1 r}+a_{2 r} A_{2 r}+\cdots+a_{n r} A_{n r}
+		\end{aligned}$$
+		也经常用  $\operatorname{det} \boldsymbol{A} $ 表示 $ \boldsymbol{A}$  的行列式.
+		若 $ r \neq s ,\ $ 则
+		$$\begin{array}{l}
+			a_{r 1} A_{s 1}+a_{r 2} A_{s 2}+\cdots+a_{r n} A_{s n}=0 \\
+			a_{1 r} A_{1 s}+a_{2 r} A_{2 s}+\cdots+a_{n r} A_{n s}=0
+		\end{array}$$
+		\item 行列式的八条性质:
+		\begin{itemize}
+			\item 上(下)三角行列式的值等于其对角线元系之积.
+			\item 某行或某列全部为 0 ,\  则行列式的值等于 0 .
+			\item 用常数  c  乘以行列式的某一行或者某一列,\  新的行列 式值等于原来行列式值的  c  倍.
+			\item 交换行列式不同的两行 (列),\  行列式的值改变符号.
+			\item 若行列式的两行或两列成比例,\  则行列式的值为 0 ,\  特 别地,\  若行列式两行或两列相同,\  则行列式的值为 0 .
+			\item 行列式中,\  某行 (列) 元素均为两项之和,\  则行列式可 表示为两个行列式之和.
+			\item  行列式的某一行 (列) 乘以某个常数加到另一行 (列) 上,\  行列式的值不变.
+			\item 行列式和其转置具有相同的值.
+		\end{itemize}
+		
+		\item Cramer(克莱姆) 法则:
+		
+		$$\left\{\begin{array}{c}
+			a_{11} x_{1}+a_{12} x_{2}+\cdots+a_{1 n} x_{n}=b_{1} \\
+			a_{21} x_{1}+a_{22} x_{2}+\cdots+a_{2 n} x_{n}=b_{2} \\
+			\cdots \cdots \cdots \\
+			a_{n 1} x_{1}+a_{n 2} x_{2}+\cdots+a_{n n} x_{n}=b_{n}
+		\end{array}\right.$$
+		
+		系数行列式记为  $|\boldsymbol{A}| ,\  $若 $|\boldsymbol{A}| \neq 0 ,\  $则方程组有且仅有一 组解. 令  $\left|A_{j}\right| $ 是由 $ |\boldsymbol{A}|  $去掉第$  j $ 列,\  换成方程组右侧的 常数项 $ b_{1},\  b_{2},\  \cdots,\  b_{n}$  组成的列而成. 那么
+		
+		$$x_{1}=\frac{\left|\boldsymbol{A}_{1}\right|}{|\boldsymbol{A}|},\  \quad x_{2}=\frac{\left|\boldsymbol{A}_{2}\right|}{|\boldsymbol{A}|},\  \cdots,\  x_{n}=\frac{\left|\boldsymbol{A}_{n}\right|}{|\boldsymbol{A}|}$$
+		
+		\item Vander Monde(范德蒙) 行列式:
+		
+		$$	\begin{aligned}
+			V_{n} &=\left|\begin{array}{cccccc}
+				1 & x_{1} & x_{1}^{2} & \cdots & x_{1}^{n-2} & x_{1}^{n-1} \\
+				1 & x_{2} & x_{2}^{2} & \cdots & x_{2}^{n-2} & x_{2}^{n-1} \\
+				\vdots & \vdots & \vdots & & \vdots & \vdots \\
+				1 & x_{n-1} & x_{n-1}^{2} & \cdots & x_{n-1}^{n-2} & x_{n-1}^{n-1} \\
+				1 & x_{n} & x_{n}^{2} & \cdots & x_{n}^{n-2} & x_{n}^{n-1}
+			\end{array}\right| \\
+			=&\left(x_{n}-x_{1}\right)\left(x_{n}-x_{2}\right) \cdots\left(x_{n}-x_{n-1}\right) V_{n-1} \\
+			=& \prod_{1 \leqslant i<j \leqslant n}\left(x_{j}-x_{i}\right)
+		\end{aligned}$$
+		
+		\item
+		$$\begin{aligned}
+			F_{n} &=\left|\begin{array}{cccccc}
+				\lambda & 0 & 0 & \cdots & 0 & a_{n} \\
+				-1 & \lambda & 0 & \cdots & 0 & a_{n-1} \\
+				0 & -1 & \lambda & \cdots & 0 & a_{n-2} \\
+				\vdots & \vdots & \vdots & & \vdots & \vdots \\
+				0 & 0 & 0 & \cdots & \lambda & a_{2} \\
+				0 & 0 & 0 & \cdots & -1 & \lambda+a_{1}
+			\end{array}\right| \\
+			&=\lambda F_{n-1}+a_{n} \\
+			&=\lambda^{n}+a_{1} \lambda^{n-1}+a_{2} \lambda^{n-2}+\cdots+a_{n}
+		\end{aligned}$$
+		
+		\item 设 $ \left(k_{1},\  k_{2},\  \cdots,\  k_{n}\right) $ 为 $ 1,\ 2,\  \cdots,\  n$  的一个排列,\ 一个大数排 在一个小数前面,\  则称为一个逆序对. 一个排列的所有逆 序对的总个数称为这个排列的逆序数. 设 $ k_{1} $ 后面有  $m_{1} $ 个数比  $k_{1}  $小,\ $  k_{2}$  后面有  $m_{2}  $个数比$  k_{2}  $小,\   $\cdots \cdots,\  k_{n-1}  $后 面有$  m_{n-1}  $个数比 $ k_{n-1}$  小,\  那么排列  $\left(k_{1},\  k_{2},\  \cdots,\  k_{n}\right) $ 的 逆序数为  $m_{1}+m_{2}+\cdots+m_{n-1} ,\ $ 记为 $ N\left(k_{1},\  k_{2},\  \cdots,\  k_{n}\right) .$ 常序排列  $(1,\ 2,\  \cdots,\  n) $ 的逆序数为$ 0 .$ 逆序数为偶数 (包 括 0) 的排列称为偶排列,\  逆序数为奇数的排列称为奇排 列. 将任意的  $k_{i}$  和  $k_{j}(i \neq j) $ 对换位置,\  其余数不动,\  则 排列的奇偶性改变.
+		
+		\item 设 $ S_{n}  $为 $ 1,\ 2,\  \cdots,\  n$  的所有排列构成的集合,\  则 $ S_{n}$  的元 素个数为 $ n ! . S_{n} $ 中的奇排列和偶排列各占一半.
+		
+		\item 设 $ \left(k_{1},\  k_{2},\  \cdots,\  k_{n}\right) \in S_{n} ,\ $ 通过  $N\left(k_{1},\  k_{2},\  \cdots,\  k_{n}\right)$  次相邻 对换,\ 可将  $\left(k_{1},\  k_{2},\  \cdots,\  k_{n}\right) $ 变成常序排列$  (1,\ 2,\  \cdots,\  n) ,\  $那么
+		$$|\boldsymbol{A}|=\sum_{\left(k_{1},\  k_{2},\  \cdots,\  k_{n}\right) \in S_{n}}(-1)^{N\left(k_{1},\  k_{2},\  \cdots,\  k_{n}\right)} a_{k_{1} 1} a_{k_{2} 2} \cdots a_{k_{n} n}$$
+		
+		\item 设 $ |\boldsymbol{A}| $ 是一个 $ n $ 阶行列式,\ $  k<n . $又$  i_{1},\  i_{2},\  \cdots,\  i_{k}  $及 $ j_{1},\  j_{2},\  \cdots,\  j_{k} $ 是两组自然数且适合条件:
+		
+		$$	\begin{array}{l}
+			1 \leqslant i_{1}<i_{2}<\cdots<i_{k} \leqslant n \\
+			1 \leqslant j_{1}<j_{2}<\cdots<j_{k} \leqslant n
+		\end{array}$$
+		
+		取行列式 $|\boldsymbol{A}| $ 中第 $ i_{1}  $行,\  第  $i_{2}$  行,\   $\cdots ,\ $ 第  $i_{k}  $行以及 第  $j_{1}  $列,\ 第$  j_{2} $ 列,\  $ \cdots ,\  $第  $j_{k} $ 列交点上的元素,\  按原来 $ |\boldsymbol{A}|  $中的相对位置构成一个 $ k  $阶行列式. 我们称之为 $ |\boldsymbol{A}| $ 的一个 $ k $ 阶子式,\  记为
+		\begin{align}
+			\boldsymbol{A}\left(\begin{array}{cccc}
+				i_{1} & i_{2} & \cdots & i_{k} \\
+				j_{1} & j_{2} & \cdots & j_{k}
+			\end{array}\right)\label{eq2.1.1}
+		\end{align}
+		
+		$$\left|\begin{array}{cccc}
+			a_{i_{1} j_{1}} & a_{i_{1} j_{2}} & \cdots & a_{i_{1} j_{k}} \\
+			a_{i_{2} j_{1}} & a_{i_{2} j_{2}} & \cdots & a_{i_{2} j_{k}} \\
+			\vdots & \vdots & & \vdots \\
+			a_{i_{k} j_{1}} & a_{i_{k} j_{2}} & \cdots & a_{i_{k} j_{k}}
+		\end{array}\right|$$
+		
+		在行列式  $|\boldsymbol{A}|  $中去掉第  $i_{1}  $行,\  第  $i_{2} $ 行,\   $\cdots ,\  $第 $ i_{k}  $行以 及第  $j_{1} $ 列,\ 第  $j_{2}  $列,\   $\cdots ,\ $ 第 $ j_{k}  $列以后剩下的元素按原 来的相对位罝构成一个 $ n-k $ 阶行列式. 这个行列式称为 子式\eqref{eq2.1.1}的余子式,\  记为
+		
+		$$	M\left(\begin{array}{cccc}
+			i_{1} & i_{2} & \cdots & i_{k} \\
+			j_{1} & j_{2} & \cdots & j_{k}
+		\end{array}\right)$$
+		
+		若令 $ p=i_{1}+i_{2}+\cdots+i_{k},\  q=j_{1}+j_{2}+\cdots+j_{k} ,\ $ 记
+		
+		$$	\begin{array}{r}
+			\widehat{\boldsymbol{A}}\left(\begin{array}{cccc}
+				i_{1} & i_{2} & \cdots & i_{k} \\
+				j_{1} & j_{2} & \cdots & j_{k}
+			\end{array}\right) \\
+			=(-1)^{p+q} M\left(\begin{array}{cccc}
+				i_{1} & i_{2} & \cdots & i_{k} \\
+				j_{1} & j_{2} & \cdots & j_{k}
+			\end{array}\right)
+		\end{array}$$
+		
+		称之为子式 (1.1) 的代数余子式.
+		
+		\item Laplace 定理: 设 $ |\boldsymbol{A}|  $是 $ n$  阶行列式,\  在  $|\boldsymbol{A}| $ 中任取 $ k $ 行 (列),\ 那么含于这$  k $ 行 (列) 的全部 $ k$  阶子式与它 们所对应的代数余子式的乘积之和等于  $|\boldsymbol{A}| .$ 即若取定 $ k  $个行: $ 1 \leqslant i_{1}<i_{2}<\cdots<i_{k} \leqslant n ,\  $则
+		
+		$$	\begin{array}{c}
+			|\boldsymbol{A}|=\sum\limits_{1 \leqslant j_{1}<j_{2}<\cdots<j_{k} \leqslant n} \\
+			\boldsymbol{A}\left(\begin{array}{cccc}
+				i_{1} & i_{2} & \cdots & i_{k} \\
+				j_{1} & j_{2} & \cdots & j_{k}
+			\end{array}\right) \widehat{\boldsymbol{A}}\left(\begin{array}{cccc}
+				i_{1} & i_{2} & \cdots & i_{k} \\
+				j_{1} & j_{2} & \cdots & j_{k}
+			\end{array}\right)
+		\end{array}$$
+		
+		同样地,\  若取定 $ k $ 个列:  $1 \leqslant j_{1}<j_{2}<\cdots<j_{k} \leqslant n ,\ $ 则
+		$$	\begin{array}{c}
+			|\boldsymbol{A}|=\sum\limits_{1 \leqslant i_{1}<i_{2}<\cdots<i_{L} \leqslant n} \\
+			\boldsymbol{A}\left(\begin{array}{llll}
+				i_{1} & i_{2} & \cdots & i_{k} \\
+				j_{1} & j_{2} & \cdots & j_{k}
+			\end{array}\right) \hat{\boldsymbol{A}}\left(\begin{array}{llll}
+				i_{1} & i_{2} & \cdots & i_{k} \\
+				j_{1} & j_{2} & \cdots & j_{k}
+			\end{array}\right)
+		\end{array}$$
+		
+		\section{矩阵}
+		\item 上三角矩阵:主对角线左下方的元萦全部是 0;
+		下三角矩阵:主对角线右上方的元素全部是 0 .
+		
+		$$\left(\begin{array}{cccc}
+			a_{11} & a_{12} & \cdots & a_{1 n} \\
+			0 & a_{22} & \cdots & a_{2 n} \\
+			\cdots & \cdots & \cdots & \cdots \\
+			0 & 0 & \cdots & a_{n n}
+		\end{array}\right),\ \left(\begin{array}{cccc}
+			a_{11} & 0 & \cdots & 0 \\
+			a_{21} & a_{22} & \cdots & 0 \\
+			\cdots & \cdots & \cdots & \cdots \\
+			a_{n 1} & a_{n 2} & \cdots & a_{n n}
+		\end{array}\right)$$
+		
+		\item 只有行数和列数都相等的两个矩阵才能进行加减法,\  矩阵的加减法就是所有的相同位置的元素分别进行加减法. 矩阵的加减法满足交换律和结合律.	
+		
+		\item  矩阵的数乘运算就是用一个常数与矩阵的所有元系相乘.
+		\item 设有 $ m \times k  $矩阵  $\boldsymbol{A}=\left(a_{i j}\right)_{m \times k}  $以及 $ k \times n  $矩阵 $ \boldsymbol{B}=\left(b_{i j}\right)_{k \times n} ,\  $设  $\boldsymbol{C}=\boldsymbol{A} \boldsymbol{B}=\left(c_{i j}\right)_{m \times n} ,\ $ 则
+		$$c_{i j}=a_{i 1} b_{1 j}+a_{i 2} b_{2 j}+\cdots+a_{i k} b_{k j}$$
+		即使 $ \boldsymbol{A B} $ 和 $ \boldsymbol{B A} $ 都有意义,\  矩阵乘法一般也不满足交 换律,\  即  $\boldsymbol{A} \boldsymbol{B} \neq \boldsymbol{BA} .$
+		\item 矩阵乘法满足以下规则:\\
+		(1) 结合律: $ (\boldsymbol{A B}) \boldsymbol{C}=\boldsymbol{A}(\boldsymbol{BC}) .$\\
+		(2) 分配律: $ \boldsymbol{A}(\boldsymbol{B}+\boldsymbol{C})=\boldsymbol{AB}+\boldsymbol{AC},\ (\boldsymbol{A}+\boldsymbol{B}) \boldsymbol{C}= \boldsymbol{AC}+\boldsymbol{BC} .$\\
+		(3)  $c(\boldsymbol{A} \boldsymbol{B})=(c \boldsymbol{A}) \boldsymbol{B}=\boldsymbol{A}(c \boldsymbol{B}),\  c$  为一个常数.\\
+		(4) 对任意 $ m \times n  $阶矩阵  $\boldsymbol{A} ,\  $有  $\boldsymbol{I}_{m} \boldsymbol{A}=\boldsymbol{A}=\boldsymbol{A} \boldsymbol{I}_{n} ,\  $其 中,\   $\boldsymbol{I}_{m}$  和  $\boldsymbol{I}_{n}$  分别是 $ m  $阶和 $ n$  阶单位矩阵.
+		\item 若  $\boldsymbol{A}$  是方阵,\  则  $\boldsymbol{A}^{r} \boldsymbol{A}^{s}=\boldsymbol{A}^{r+s},\ \left(\boldsymbol{A}^{r}\right)^{s}=\boldsymbol{A}^{r s} .$
+		\item 矩阵转置的运算规则: $ (\boldsymbol{A} \boldsymbol{B})^{\prime}=\boldsymbol{B}^{\prime} \boldsymbol{A}^{\prime} .$
+		\item 若 $ \boldsymbol{A}^{\prime}=\boldsymbol{A} ,\ $ 则称  $\boldsymbol{A}  $为对称阵. 若  $\boldsymbol{A}^{\prime}=-\boldsymbol{A} ,\  $则称 $ \boldsymbol{A} $ 为反对称阵,\  反对称阵的主对角线上的元素均为 $0 .$
+		\item 一个矩阵的共轭矩阵就是将其每一个元素都变成共轭复 数. $ \boldsymbol{A} $ 的共轭矩阵用 $ \bar{\boldsymbol{A}} $ 表示,\   $\boldsymbol{A} $ 的共轭转置矩阵用  $\bar{\boldsymbol{A}}^{\prime}  $表示. 若  $\bar{\boldsymbol{A}}^{\prime}=\boldsymbol{A} ,\  $则称  $\boldsymbol{A} $ 是 Hermite 矩阵. 若 $ \bar{\boldsymbol{A}}'=-\boldsymbol{A} ,\ $ 则称 $ \boldsymbol{A} $ 是斜 Hermite 矩阵.
+		\item  $n $ 阶基础矩阵是指  $n^{2}  $个$  n $ 阶方阵$  \boldsymbol{E}_{i j},\  i,\  j=1,\ 2,\  \cdots,\  n ,\ $ 它的 $ (i,\  j) $ 位置的元素为$ 1 ,\ $ 其它元素全部为 $0 .$
+		\begin{itemize}
+			\item  $\boldsymbol{E}_{i j} \boldsymbol{E}_{k l}=\delta_{j k} \boldsymbol{E}_{i l} .$ 其中  $\delta_{j k} $ 为Kronecker符号,\   $j=k$  时,\   $\delta_{j j}=1 ; j \neq k  $时,\  $ \delta_{j k}=0 .$
+			\item 设 $ \boldsymbol{A}=\left(a_{i j}\right)_{n \times n} ,\ $ 则  $\boldsymbol{E}_{i j} \boldsymbol{A} \boldsymbol{E}_{k l}=a_{j k} \boldsymbol{E}_{i l} .$
+		\end{itemize}
+		\item $$\left(\begin{array}{cc}\cos \theta & \sin \theta \\ -\sin \theta & \cos \theta\end{array}\right)^{n}=\left(\begin{array}{cc}\cos n \theta & \sin n \theta \\ -\sin n \theta & \cos n \theta\end{array}\right) .$$
+		\item 设  $\boldsymbol{A}$  是实对称矩阵,\  若  $\boldsymbol{A}^{2}=\boldsymbol{O} ,\ $ 则  $\boldsymbol{A}=\boldsymbol{O} .  \boldsymbol{O}  $代表所有元素均为$ 0 $的矩阵 (称为零矩阵).
+		\item 设  $\boldsymbol{A}$  是 $ n $ 阶上三角阵且主对角线上元素全为 $0 ,\  $则  $\boldsymbol{A}^{n}=\boldsymbol{O} .$
+		\item 任一  $n$  阶矩阵均可表示为一个对称阵和一个反对称阵之 和.  $\boldsymbol{A}=\frac{1}{2}\left(\boldsymbol{A}+\boldsymbol{A}^{\prime}\right)+\frac{1}{2}\left(\boldsymbol{A}-\boldsymbol{A}^{\prime}\right) .$
+		\item 设 $ \boldsymbol{A},\  \boldsymbol{B} $ 都是 $ n $ 阶方阵,\  若  $\boldsymbol{A B}=\boldsymbol{B A}=\boldsymbol{I}_{n} ,\  $则 称 $ \boldsymbol{B} $ 是 $ \boldsymbol{A} $ 的逆阵,\  同时,\  $ \boldsymbol{A}$  也是 $ \boldsymbol{B} $ 的逆阵,\  记为 $ \boldsymbol{B}=\boldsymbol{A}^{-1},\  \boldsymbol{A}=\boldsymbol{B}^{-1} .$ 凡是有逆阵的矩阵,\  称为可逆阵 或非奇异阵,\  否则称为奇异阵.
+		\item 矩阵求逆运算规则:(以下假设 $ \boldsymbol{A},\  \boldsymbol{B} $ 都是非异阵)\\ 
+		(1) $ \left(\boldsymbol{A}^{-1}\right)^{-1}=\boldsymbol{A} ;$\\
+		(2)$  (\boldsymbol{A B})^{-1}=\boldsymbol{B}^{-1} \boldsymbol{A}^{-1} ;$\\
+		(3) $ c \neq 0,\  \quad(c \boldsymbol{A})^{-1}=c^{-1} \boldsymbol{A}^{-1} ;$\\
+		(4)  $\left(\boldsymbol{A}^{\prime}\right)^{-1}=\left(\boldsymbol{A}^{-1}\right)^{\prime} .$
+		
+		\item 设 $ A_{i j}=(-1)^{i-j} M_{i j}$  为  $a_{i j}  $的代数余子式,\   $\boldsymbol{A} $ 的伴随阵 记为  $\boldsymbol{A}^{*} ,\ $
+		
+		$$	\begin{array}{l}
+			\boldsymbol{A}^{*}=\left(\begin{array}{cccc}
+				A_{11} & A_{21} & \cdots & A_{n 1} \\
+				A_{12} & A_{22} & \cdots & A_{n 2} \\
+				\vdots & \vdots & & \vdots \\
+				A_{1 n} & A_{2 n} & \cdots & A_{n n}
+			\end{array}\right) \\
+			\boldsymbol{A} \boldsymbol{A}^{*}=\boldsymbol{A}^{*} \boldsymbol{A}=|\boldsymbol{A}| \boldsymbol{I}_{n} \\
+			\left|\boldsymbol{A}^{*}\right|=|\boldsymbol{A}|^{n-1},\  \quad(c \boldsymbol{A})^{*}=c^{n-1} \boldsymbol{A}^{*},\  \quad\left(\boldsymbol{A}^{*}\right)^{*}=|\boldsymbol{A}|^{n-2} \boldsymbol{A} \\
+			\boldsymbol{A}^{-1}=\frac{1}{|\boldsymbol{A}|} \boldsymbol{A}^{*} \quad(|\boldsymbol{A}| \neq 0) \\
+			\left(\boldsymbol{A}^{*}\right)^{-1}=\left(\boldsymbol{A}^{-1}\right)^{*} \quad(|\boldsymbol{A}| \neq 0) \\
+			(\boldsymbol{A B})^{*}=\boldsymbol{B}^{*} \boldsymbol{A}^{*},\  \quad\left(\boldsymbol{A}^{-}\right)^{\prime}=\left(\boldsymbol{A}^{\prime}\right)^{-} \\
+		\end{array}$$
+		
+		\item 上 (下) 三角矩阵的逆矩阵也是上 (下) 三角矩阵.
+		(反) 对称矩阵的逆矩阵也是 (反) 对称矩阵.
+		\item 以下形式的矩阵称为循环矩阵:
+		$$
+		\left(\begin{array}{ccccc}
+			a_{1} & a_{2} & a_{3} & \cdots & a_{n} \\
+			a_{n} & a_{1} & a_{2} & \cdots & a_{n-1} \\
+			a_{n-1} & a_{n} & a_{1} & \cdots & a_{n-2} \\
+			\vdots & \vdots & \vdots & & \vdots \\
+			a_{2} & a_{3} & a_{4} & \cdots & a_{1}
+		\end{array}\right)$$
+		同阶循环矩阵之积仍是循环矩阵.
+		\item 三类初等变换:\\
+		(1)第一类:对调矩阵中两行 (列) 的位置;\\
+		(2) 第二类:用一非零常数乘以矩阵的某一行 (列);\\
+		(3) 第三类:将矩阵的某一行 (列) 乘以常数  c  后加到另 一行 (列).\\
+		对单位阵施以第一类、第二类、第三类初等变换后得到 的矩阵,\  分别称为第一类、第二类、第三类初等矩阵.
+		\item 如果一个矩阵$  \boldsymbol{A} $ 经过有限次初等变换后能变成  $\boldsymbol{B} ,\  $则称$  \boldsymbol{A}  $与  $\boldsymbol{B}  $ 是等价的,\  或 $ \boldsymbol{A}  $与  $\boldsymbol{B}  $ 相抵,\  记为  $\boldsymbol{A} \sim \boldsymbol{B} . $任 何一个 $ m \times n $ 矩阵均与一个主对角线上元素等于 $1$ 或$ 0 ,\ $ 而其余元素均为$ 0 $的  $m \times n $ 矩阵相抵. 以下矩阵称为矩 阵 $ \boldsymbol{A}   $的相抵标准型.
+		
+		$$\left(\begin{array}{cccccc}
+			1 & \cdots & 0 & 0 & \cdots & 0 \\
+			\vdots & \ddots & \vdots & \vdots & & \vdots \\
+			0 & \cdots & 1 & 0 & \cdots & 0 \\
+			0 & \cdots & 0 & 0 & \cdots & 0 \\
+			\vdots & & \vdots & \vdots & & \vdots \\
+			0 & \cdots & 0 & 0 & \cdots & 0
+		\end{array}\right)$$
+		
+		\item  任意矩阵经过有限次初等行变换,\  总可以变成阶梯型矩 阵. (阶梯点的列指标随行数严格递增).
+		\item 三 类初等矩阵形状如下:\\
+		第一类: 将单位阵的第 $ i$  行与第$  j  $行对换 (或者第  $i $ 列与第 $ j  $列对换).
+		$$\boldsymbol{P}_{i j}=\left(\begin{array}{ccccccc}
+			1 & & & & & & \\
+			& \ddots & & & & & \\
+			& & 0 & \cdots & 1 & & \\
+			& & \vdots & & \vdots & & \\
+			& & 1 & \cdots & 0 & & \\
+			& & & & & \ddots & \\
+			& & & & & & 1
+		\end{array}\right)$$
+		第二类: 将单位阵的第  $i $ 行乘以常数 $ c . $(或者第  $i $ 列乘 以常数 $c.$)
+		$$\boldsymbol{P}_{i}(c)=\left(\begin{array}{ccccc}
+			1 & & & & \\
+			& \ddots & & & \\
+			& & c & & \\
+			& & & \ddots & \\
+			& & & & 1
+		\end{array}\right)$$
+		第三类:将单位阵的第 $ i  $行乘以$  c  $后加到第 $ j$  行 (或者 第  $j  $列乘以  $c $ 后加到第  $i $ 列).
+		$$\boldsymbol{T}_{i j}(c)=\left(\begin{array}{cccccccc}
+			1 & & & & & & \\
+			& \ddots & & & & & \\
+			& & 1 & \cdots & 0 & & \\
+			& & \vdots & & \vdots & & \\
+			& & c & \cdots & 1 & & \\
+			& & & & & \ddots & \\
+			& & & & & & 1
+		\end{array}\right)$$
+		
+		\item 设  $\boldsymbol{A}  $是一个 $ m \times n $ 矩阵,\  则对  $\boldsymbol{A}$  做一次初等行变换后得 到的矩阵,\  等于用一个  $m  $阶相应的初等矩阵左乘$ \boldsymbol{A} $ 后 得到的积. 矩阵$  \boldsymbol{A} $ 做一次初等列变换后得到的矩阵,\  等 于用一个 $ n $ 阶相应的初等矩阵右乘  $\boldsymbol{A}$  后所得的积.
+		\item 初等矩阵都是非异阵,\  且其逆阵仍是同类初等矩阵.
+		
+		$$P_{i j}^{-1}=P_{i j},\  P_{i}(c)^{-1}=P_{i}\left(\frac{1}{c}\right),\  T_{i j}(c)^{-1}=T_{i j}(-c)$$
+		
+		\item 非异阵经初等变换后仍是非异阵,\  奇异阵经初等变换后 仍是奇异阵.
+		\item 三类初等矩阵的行列式如下:
+		
+		$$	\left|\boldsymbol{P}_{i j}\right|=-1,\ \left|\boldsymbol{P}_{i}(c)\right|=c,\ \left|\boldsymbol{T}_{i j}(c)\right|=1$$
+		
+		\item 矩阵的相抵关系具有下列性质:\\
+		(1) $ \boldsymbol{A} \sim \boldsymbol{A} ;$\\
+		(2) 若 $ \boldsymbol{A} \sim \boldsymbol{B} ,\ $ 则  $B \sim \boldsymbol{A} ;$\\
+		(3) 若 $ \boldsymbol{A} \sim \boldsymbol{B},\  \boldsymbol{B} \sim \boldsymbol{C} ,\ $ 则 $ \boldsymbol{A} \sim \boldsymbol{C} .$
+		\item 设 $ \boldsymbol{A}  $是一个  $n  $阶可逆阵 (非异阵),\  则仅用初等行变换 或仅用初等列变换就可以将它化为单位阵 $ \boldsymbol{I}_{n} .$
+		\item 任一  $n$  阶非异阵均可表示成有限个初等矩阵的积.
+		\item 设  $\boldsymbol{A}  $是一个  $n $ 阶方阵,\ $  \boldsymbol{Q} $ 是一个  $n $ 阶初等矩阵,\  则 $ |\boldsymbol{Q A}|=|\boldsymbol{Q}||\boldsymbol{A}|=|\boldsymbol{A} \boldsymbol{A}| .$
+		
+		\item 一个  $n $ 阶方阵  $A  $为非异阵的充分必要条件是它的行列 式值不等于$ 0 .$
+		\item 设 $ A,\  B $ 都是 $ n  $阶方阵,\  则  $|A B|=|A||B| .$
+		\item 一个奇异阵与任一同阶方阵之积仍为奇异阵,\  两个同阶 非异阵之积仍为非异阵.
+		\item 若 $ \boldsymbol{A} $ 是非异阵,\  则  $\left|\boldsymbol{A}^{-1}\right|=|\boldsymbol{A}|^{-1} .$
+		\item $设  \boldsymbol{A},\  \boldsymbol{B} $ 都是 $ n $ 阶方阵,\  若  $\boldsymbol{A B}=\boldsymbol{I}_{n} $ (或  $\boldsymbol{B} \boldsymbol{A}=\boldsymbol{I}_{n} $ ),\  则  $\boldsymbol{B A}=\boldsymbol{I}_{n} $ (或  $\boldsymbol{A B}=\boldsymbol{I}_{n} $ ),\  即 $ \boldsymbol{B}=\boldsymbol{A}^{-1} .$
+		\item 分块矩阵的加减、数乘、乘法,\  与普通矩阵类似 (略).
+		\item 设 $ \boldsymbol{A},\  \boldsymbol{C}  $分别是  $m $ 阶,\ $  n $ 阶方阵,\  利用 Laplace 定理,\  对 于分块上 (下) 三角行列式有:
+		
+		$$|\boldsymbol{G}|=\left|\begin{array}{ll}
+			\boldsymbol{A} & \boldsymbol{B} \\
+			\boldsymbol{O} & \boldsymbol{C}
+		\end{array}\right|=|\boldsymbol{A}||\boldsymbol{C}|,\  \quad|\boldsymbol{H}|=\left|\begin{array}{ll}
+			\boldsymbol{A} & \boldsymbol{O} \\
+			\boldsymbol{B} & \boldsymbol{C}
+		\end{array}\right|=|\boldsymbol{A}||\boldsymbol{C}|$$
+		
+		\item 设 $ \boldsymbol{A} $ 是 $ m $ 阶方阵,\  $ \boldsymbol{D} $ 是  $n $ 阶方阵,\  $ \boldsymbol{B} $ 是 $ m \times n $ 矩阵,\  $ \boldsymbol{C} $ 是 $ n \times m$  矩阵.
+		若  $\boldsymbol{A} $ 可逆 (对  $\boldsymbol{D} $是否可逆不做要求),\  则
+		
+		$$\left|\begin{array}{ll}
+			\boldsymbol{A} & \boldsymbol{B} \\
+			\boldsymbol{C} & \boldsymbol{D}
+		\end{array}\right|=|\boldsymbol{A}|\left|\boldsymbol{D}-\boldsymbol{C} \boldsymbol{A}^{-1} \boldsymbol{B}\right|$$
+		
+		若$  \boldsymbol{D} $ 可逆 (对$  \boldsymbol{A }$ 是否可逆不做要求),\  则
+		
+		$$	\left|\begin{array}{ll}
+			\boldsymbol{A} & \boldsymbol{B} \\
+			\boldsymbol{C} & \boldsymbol{D}
+		\end{array}\right|=\left|\boldsymbol{D} \| \boldsymbol{A}-\boldsymbol{B} \boldsymbol{D}^{-1} \boldsymbol{C}\right|$$
+		当  $\boldsymbol{A},\  \boldsymbol{D} $ 都是可逆阵时,\ 有如下行列式的降阶公式:
+		$$|\boldsymbol{D}|\left|\boldsymbol{A}-\boldsymbol{B} \boldsymbol{D}^{-1} \boldsymbol{C}\right|=|\boldsymbol{A}|\left|\boldsymbol{D}-\boldsymbol{C} \boldsymbol{A}^{-1} \boldsymbol{B}\right|$$
+		\item 设  $S$ 是有限个向量组成的向量族且至少包含一个非零向量,\  则 $S$的极大无关组一定存在. (一般来说,\  极大无关 组并不唯一.)
+		\item 设 $ A,\  B  $是  $V$ 中的两组向量,\  $ A  $中含有$ r $ 个向量,\   $B$  中 含有  $s$  个向量,\  如果  $A$中向量线性无关且 $ A  $中每个向 量均可用  $B$ 中向量线性表示,\  则  $r \leqslant s .$
+		逆否命题: “多” 若可以用 “少” 来线性表示,\  则 “多” 线性相关.
+		\item 设 $ A,\  B $ 都是线性无关的向量组. 又  $A $ 中任一向量可用$  B$  中向量的线性组合来表示,\  $ B$  中任一向量也可用 $ A $ 中 向量的线性组合来表示,\  则这两个向量组所含的向量个 数相等.
+		\item 设$  A,\  B$  都是向量族  $S  $的极大线性无关组,\  则 $ A $ 与 $ B  $所 含的向量个数相等. 向量族  $S$  的极大无关组所含的向量 个数称为  $S$  的秩,\  记做  $\operatorname{rank}(S) $ 或  $\mathrm{r}(S) .$
+		\item 若向量组 $ A  $和 $ B $ 可以互相线侏表示,\  则称这两个向量 组等价. 等价的向量组有相同的秩.
+		\item 设 $ V $ 是数域 $ \mathbb{K}  $上的线性空闰,\  若在 $ V $ 中存在线侏无关 的向量 $ \left\{e_{1},\  e_{2},\  \cdots,\  e_{n}\right\} ,\ $ 使得 $ V$  中任一向量均可表示为 这组向量的线性组合,\  则称$  e_{1},\  e_{2},\  \cdots,\  e_{n} $ 是 $ V $ 的一组 基,\  线性空回 $ V  $称为  $n $ 维线性空间 (具有维数  $n$  ). 如果 不存在有限个向量组成 $ V  $的一组基,\  则称  $V $ 是无限维 线性空间.
+		\item $n$  维线性空间 $ V$  中任一超过 $ n $ 个向量的向量组必线性 相关.
+		\item 设 $ V $ 是 $ n$  维线性空问,\   $e_{1},\  e_{2},\  \cdots,\  e_{n} $ 是  $V $ 中的  $n $ 个向 量,\  若它们适合下列条件之一,\  则 $ \{e_{1},\  e_{2},\  \cdots,\ $ $e_{n}\} $ 是  $V$  的一组基.\\
+		(1)$  e_{1},\  e_{2},\  \cdots,\  e_{n}$  线性无关.\\
+		(2) $ V$  中任一向量均可由 $ e_{1},\  e_{2},\  \cdots,\  e_{n}  $线性表示.
+		\item 基扩张定理: 设 $ V$  是$  n $ 维线性空间,\   $v_{1},\  v_{2},\  \cdots,\  v_{m}  $是$  V $ 中的  $m(m<n)  $个线性无关的向量,\  又假定 $ \left\{e_{1},\  e_{2},\  \cdots\right. ,\   \left.e_{n}\right\}$  是 $ V $ 的一组基,\  则必可在  $\left\{e_{1},\  e_{2},\  \cdots,\  e_{n}\right\} $ 中选出 $ n-m $ 个向量,\  使之和  $\boldsymbol{v}_{1},\  \boldsymbol{v}_{2},\  \cdots,\  \boldsymbol{v}_{m} $ 一起组成  $V $ 的一 组基. 等价表述: $ n $ 维线性空间  $V$  中任意  $m(m<n)  $个 线性无关的向量均可扩张成 $ V $ 的一组基,\  或  $V $ 的任意 一个子空间的基坸可扩张为  $V  $的一组基.
+		\item 设$  \boldsymbol{A}  $是 $ m \times n $ 矩阵,\  则 $ \boldsymbol{A}  $的$  m  $个行向量的秩称为 $ \boldsymbol{A}  $的行秩.$\boldsymbol{A}$  的 $ n  $个列向量的秩称为$  \boldsymbol{A} $ 的列秩. 矩阵的行 秩和列秩在初等变换下不变. 任一矩阵的行秩等于列秩.
+		\item 设 $ \boldsymbol{A} $ 是  $m \times n  $矩阵且 $ \boldsymbol{A} $ 的第$  j_{1},\  j_{2},\  \cdots,\  j_{r}  $列向量是$  \boldsymbol{A}  $的列向量的极大无关组,\  则对任意的 $ m  $阶非异阵$  \boldsymbol{Q} ,\ $ 矩 阵 $ \boldsymbol{QA} $ 的第 $ j_{1},\  j_{2},\  \cdots,\  j_{r}  $列向量也是 $\boldsymbol{QA} $ 的列向量的 极大无关组.
+		\item 设  $\boldsymbol{A}$  是阶梯形矩阵,\  则$  \boldsymbol{A}$  的列秩等于其非零行的个数,\  且阶梯点所在的列向量是  $\boldsymbol{A}$ 的列向量的极大无关组.
+		\item 对任意一个秩为 $r $ 的 $ m \times n$  矩阵$  \boldsymbol{A} ,\ $ 总存在  $m $ 阶非异 阵 $ P$  和 $ n$  阶非异阵  $\boldsymbol{Q},\  $使得 $ \boldsymbol{PAQ}=\left(\begin{array}{ll}\boldsymbol{I_r} & \boldsymbol{O} \\ \boldsymbol{O} & \boldsymbol{O}\end{array}\right) .$
+		\item 任一矩阵  $\boldsymbol{A} $ 和它的转置  $A^{\prime}$  有相同的秩.
+		\item 任一矩陎与非异阵相乘,\  其秩不变.
+		\item $ n $ 阶方阵 $ \boldsymbol{A}  $为非异阵的充分必要条件是  $\boldsymbol{A} $ 为满秩阵 (秩 等于阶数).
+		\item 两个$  m \times n$ 矩阵等价的充分必要条件是它们具有相同的秩.
+		\item 两个向量组等价的充分必要条件是: 它们的秩相同,\  且 一个向量组可用另一个向量组线性表示.
+		\item 设 $ m \times n $ 矩阵 $ \boldsymbol{A}=\left(a_{i j}\right) $ 有一个  $r$  阶子式不等于 $0 ,\  $且  $\boldsymbol{A}$  中任意  $r+1  $阶子式 (若存在) 都等于$ 0 ,\ $ 则  $\mathrm{r}(\boldsymbol{A})=r .$ 反之,\  若  $\mathrm{r}(\boldsymbol{A})=r ,\ $ 则  $\boldsymbol{A}  $中必有一个  $r$  阶子式不等于$ 0 ,\ $ 而所有$  r+1  $阶子式都等于 $0 .$
+		\item 设 $ \boldsymbol{A}$  是  $m \times n $ 矩阵,\  则\\
+		(1) 若  $\mathrm{r}(\boldsymbol{A})=n ,\  $( $ \boldsymbol{A} $ 是列满秩),\  则必存在秩等于  $n  $的$  n \times m$  矩阵  $\boldsymbol{B} ,\ $ 使$  \boldsymbol{B} \boldsymbol{A}=\boldsymbol{I}_{n} .$\\
+		(2) 若 $ \mathrm{r}(\boldsymbol{A})=m ,\  $($  \boldsymbol{A}  $是行满秩),\  则必存在秩等于 $ m  $的  $n \times m $ 矩阵$ \boldsymbol{C} ,\  $使  $\boldsymbol{AC}=\boldsymbol{I}_{m} .$
+		\item 设 $ \boldsymbol{C}=\left(\begin{array}{ll}\boldsymbol{A} & \boldsymbol{O} \\ \boldsymbol{O} & \boldsymbol{B}\end{array}\right) ,\ $ 则  $\mathrm{r}(\boldsymbol{C})=\mathrm{r}(\boldsymbol{A})+\mathrm{r}(\boldsymbol{B}) .$
+		\item 
+		\begin{itemize}
+			\item $\mathrm{r}(\boldsymbol{A})+\mathrm{r}(\boldsymbol{B})-n \leqslant \mathrm{r}(\boldsymbol{A} \boldsymbol{B}) \leqslant \min \{\mathrm{r}(\boldsymbol{A}),\  \mathrm{r}(\boldsymbol{B})\} .$
+			\item $\mathrm{r}(\boldsymbol{A} \mid \boldsymbol{B}) \leqslant \mathrm{r}(\boldsymbol{A})+\mathrm{r}(\boldsymbol{B}),\  \mathrm{r}\left(\begin{array}{l}\boldsymbol{A} \\ \boldsymbol{B}\end{array}\right) \leqslant \mathrm{r}(\boldsymbol{A})+\mathrm{r}(\boldsymbol{B}) ;$
+			\item $k \neq 0,\  \mathrm{r}(k \boldsymbol{A})=\mathrm{r}(\boldsymbol{A}) $
+			\item $|\mathrm{r}(\boldsymbol{A})-\mathrm{r}(\boldsymbol{B})| \leqslant \mathrm{r}(\boldsymbol{A} \pm \boldsymbol{B}) \leqslant \mathrm{r}(\boldsymbol{A})+\mathrm{r}(\boldsymbol{B}) .$
+			\item  Frobenius 不等式:		
+			$$\mathrm{r}(\boldsymbol{A B C}) \geqslant \mathrm{r}(\boldsymbol{A B})+\mathrm{r}(\boldsymbol{B C})-\mathrm{r}(\boldsymbol{B})$$
+			\item  $\mathrm{r}\left(\boldsymbol{A} \boldsymbol{A}^{\prime}\right)=\mathrm{r}\left(\boldsymbol{A}^{\prime} \boldsymbol{A}\right)=\mathrm{r}(\boldsymbol{A}) .$
+		\end{itemize}
+		
+		\item 设  $\boldsymbol{A} $ 是 $ n  $阶方阵,\ 
+		\begin{itemize}
+			\item $\boldsymbol{A} $ 是幂等矩阵 (即$  \boldsymbol{A}^{2}=\boldsymbol{A} $) 的充分必要条件是:
+			$$
+			\mathrm{r}(\boldsymbol{A})+\mathrm{r}\left(\boldsymbol{I}_{n}-\boldsymbol{A}\right)=n$$
+			
+			\item $\boldsymbol{A}$  是对合矩阵 (即  $\boldsymbol{A}^{2}=\boldsymbol{I_n} $ ) 的充分必要条件是:
+			
+			$$\mathrm{r}\left(\boldsymbol{I}_{n}+\boldsymbol{A}\right)+\mathrm{r}\left(\boldsymbol{I}_{n}-\boldsymbol{A}\right)=n$$
+			
+			\item$\mathbf{r}(\boldsymbol{A})+\mathrm{r}\left(\boldsymbol{I}_{n}+\boldsymbol{A}\right) \geqslant n .$
+			\item 若 $ \boldsymbol{B}$  也是  $n$  阶方阵,\  则:
+			$$\mathrm{r}\left(\boldsymbol{A} \boldsymbol{B}-\boldsymbol{I}_{n}\right) \leqslant \mathrm{r}\left(\boldsymbol{A}-\boldsymbol{I}_{n}\right)+\mathrm{r}\left(\boldsymbol{B}-\boldsymbol{I}_{n}\right)$$
+		\end{itemize}
+		\item 一个矩阵添加一行或一列,\  其秩不变或增加 $1.$
+		\item 设  $\left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{n}\right\}  $是  $n $ 维线性空间 $ V $ 的一组基,\  且
+		$$\begin{aligned}
+			\boldsymbol{\alpha} &=a_{1} \boldsymbol{e}_{1}+a_{2} \boldsymbol{e}_{2}+\cdots+a_{n} \boldsymbol{e}_{n} \\
+			&=b_{1} \boldsymbol{e}_{1}+b_{2} \boldsymbol{e}_{2}+\cdots+b_{n} \boldsymbol{e}_{n}
+		\end{aligned}$$
+		则  $a_{1}=b_{1},\  a_{2}=b_{2},\  \cdots,\  a_{n}=b_{n} .$
+		有序数  $\left(a_{1},\  a_{2},\  \cdots,\  a_{n}\right) $ 称为$  \alpha $ 在基$  \left\{e_{1},\  e_{2},\  \cdots,\  e_{n}\right\} $ 下 的坐标向量.
+		\item 设 $ V,\  U $ 是数域  $\mathbb{K} $ 上的两个线性空间,\  若存在$  V$  到  $U$  上 的一个一一对应的映射  $\varphi ,\  $使得对任意  $V  $中的向量  $\alpha,\  \beta  $以及  $\mathbb{K}  $中的数$  k ,\  $均有
+		$$
+		\begin{aligned}
+			\varphi(\alpha+\beta) &=\varphi(\alpha)+\varphi(\beta) \\
+			\varphi(k \alpha) &=k \varphi(\alpha)
+		\end{aligned}$$
+		则称  $V$  与$  U  $这两个线性空间同构,\  记为  $V \cong U .$
+		\item 数域 $ \mathbb{K}$  上的任一 $ n $ 维线性空间$  V $均与  $\mathbb{K} $ 上的$  n  $维行 向量空间$  \mathbb{K}^{n} $ 同构.
+		\item (1) 设  $\varphi: V \rightarrow U $ 为线性空间的同构,\  则  $\varphi(0)=0 ;$\\
+		(2) $ \varphi  $将线性相关的向量组映成线性相关的向量组,\  将线 性无关的向量组映成线性无关的向量组;\\
+		(3) 同构关系是一个等价关系,\  即\\
+		(i)  $V \cong V ;$\\
+		(ii) 若  $V \cong U ,\ $ 则 $ U \cong V ;$\\
+		(iii) 若  $V \cong U,\  U \cong W ,\  $则$  V \cong W ;$\\
+		(4)数域  $\mathbb{K} $ 上的两个有限维线性空间同构的充分必要条 件是它们具有相同的维数.
+		\item 设 $ \left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{n}\right\} $是线性空间  $V$  的基,\ 设 $ \alpha_{1},\  \alpha_{2},\  \cdots  ,\ \alpha_{m}  $是 $ V $ 中的向量. 它们在这组基下的坐标向量依次 为 $ \widetilde{\boldsymbol{\alpha}}_1,\  \widetilde{\boldsymbol{\alpha}}_2,\  \cdots,\  \widetilde{\boldsymbol{\alpha}}_m ,\  $则向量组  $\widetilde{\boldsymbol{\alpha}}_1,\  \widetilde{\boldsymbol{\alpha}}_2,\  \cdots,\  \widetilde{\boldsymbol{\alpha}}_m  $和向量组$  \boldsymbol{\alpha}_1,\  \boldsymbol{\alpha}_2,\  \cdots,\  \boldsymbol{\alpha}_m $ 有相同的秩.
+		\item 设  $\left\{\boldsymbol{e}_1,\  \boldsymbol{e}_2,\  \cdots,\  \boldsymbol{e}_n\right\} $ 是数域$  \mathbb{K}  $上线性空间$  V  $的一组基,\   $\left\{\boldsymbol{f}_1,\  \boldsymbol{f}_2,\  \cdots,\  \boldsymbol{f}_n\right\}  $是另一组基,\  则 $ \{\boldsymbol{f}_1,\  \boldsymbol{f}_2,\  \cdots$ $,\ \boldsymbol{f}_n\} $ 可用  $\left\{\boldsymbol{e}_1,\  \boldsymbol{e}_2,\  \cdots,\  \boldsymbol{e}_n\right\}  $的下列线性组合表示:
+		
+		$$\left\{\begin{array}{c}
+			\boldsymbol{f}_1=a_{11} \boldsymbol{e}_1+a_{12} \boldsymbol{e}_2+\cdots+a_{1 n} \boldsymbol{e}_n \\
+			\boldsymbol{f}_2=a_{21} \boldsymbol{e_1}+a_{22} \boldsymbol{e}_2+\cdots+a_{2 n} \boldsymbol{e}_n \\
+			\cdots \cdots \cdots \\
+			\boldsymbol{f}_n=a_{n 1} \boldsymbol{e}_1+a_{n 2} \boldsymbol{e}_2+\cdots+a_{n n} \boldsymbol{e}_n
+		\end{array}\right.$$
+		
+		上述表示式中  $\boldsymbol{e}_i $ 的系数组成了一个元系在$  \mathbb{K}  $上的 $n$  阶 矩阵,\  这个矩阵的转置
+		$$\boldsymbol{A}=\left(\begin{array}{cccc}
+			a_{11} & a_{21} & \cdots & a_{n 1} \\
+			a_{12} & a_{22} & \cdots & a_{n 2} \\
+			\vdots & \vdots & & \vdots \\
+			a_{1 n} & a_{2 n} & \cdots & a_{n n}
+		\end{array}\right)$$
+		称为从基 $\left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{n}\right\} $ 到基 $ \left\{\boldsymbol{f}_{1},\  \boldsymbol{f}_{2},\  \cdots,\  \boldsymbol{f}_{n}\right\} $ 的过渡 矩阵. 过渡矩阵必是可逆阵. 从基  $\{\boldsymbol{f}_{1},\  \boldsymbol{f}_{2},\ $ $ \cdots,\  \boldsymbol{f}_{n}\}  $到基 $ \left\{e_{1},\  e_{2},\  \cdots,\  e_{n}\right\} $ 的过渡矩阵就是 $ \boldsymbol{A^{-1}} .$
+		\item 如果从基  $\left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{n}\right\}  $到基$  \left\{\boldsymbol{f}_{1},\  \boldsymbol{f}_{2},\  \cdots,\  \boldsymbol{f}_{n}\right\} $ 的过渡 矩阵是  $\boldsymbol{A} ,\ $ 从基  $\left\{\boldsymbol{f}_{1},\  \boldsymbol{f}_{2},\  \cdots,\  \boldsymbol{f}_{n}\right\} $ 到基  $\left\{\boldsymbol{g}_{1},\  \boldsymbol{g}_{2},\  \cdots,\  \boldsymbol{g}_{n}\right\}  $的过渡矩阵是 $ \boldsymbol{B} ,\ $ 那么从基  $\left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{n}\right\}  $到基$  \left\{\boldsymbol{g}_{1},\  \boldsymbol{g}_{2},\  \cdots,\  \boldsymbol{g}_{n}\right\} $ 的过渡矩阵是  $\boldsymbol{AB} .$
+		\item 设$  V  $是数域$  \mathbb{K} $ 上的线性空间,\  $ V_{0} $ 是 $ V  $的非空子集,\  且 对  $V_{0}  $中的任意两个向量 $ \alpha,\  \beta $ 以及  $\mathbb{K}$中任一数  $k ,\ $ 总有 $ \alpha+\beta \in V_{0}$  及 $ k \alpha \in V_{0} ,\  $则称 $ V_{0}$  是  $V  $的线性子空间,\  简 称子空间.  $V_{0}  $在 $ V  $的加法及数乘下是数域 $ \mathbb{K} $ 上的线性 空间. 任一线性空间  $V $ 至少有两个子空间,\ 一是零向量 $ \{0\}  $组成的子空间,\  称为䨐子空间 (维数规定为$ 0$),\  另一 个是  $V$  自身. 这两个子空间称为平凡子空间.
+		\item 设 $ V_{1},\  V_{2}$是 $ V $ 的子空间,\  定义它们的交 $ V_{1} \cap V_{2}  $为 既在$  V_{1} $ 又在$  V_{2}$  中的全体向量组成的集合,\  定义它们的和 $ V_{1}+V_{2} $ 为所有形如 $ \boldsymbol{\alpha}+\boldsymbol{\beta}$  的向量的集合,\  其中  $\alpha \in V_{1},\  \beta \in V_{2} .
+		V_{1} \cap V_{2},\  V_{1}+V_{2}  $都是 $ V  $的子空间.
+		\item 设$  S $ 是线性空间$  V $ 的子集,\  记 $ L(S) $ 为$  S$ 中向量所有可 能的线侏组合构成的子集. 则  $L(S)  $是 $ V$  的一个子空间,\  称之为由集合 $ S  $生成的子空间,\ 或  $S $ 张成的子空间.\\
+		(1) $ S \subseteq L(S)$  且若$  V_{0}  $是包含集合 $ S$  的子空间,\  则  $L(S) \subseteq V_{0},\ $ 即 $ L(S) $ 是包含 $ S $ 的  $V  $的最小子空间;\\
+		(2)$  L(S) $ 的维数等于 $ S $ 中极大无关组所含向量的个数,\  且若  $\boldsymbol{\alpha}_{1},\  \boldsymbol{\alpha}_{2},\  \cdots,\  \boldsymbol{\alpha}_{m}  $是 $ S$  的极大无关组,\  则
+		$$L(S)=L\left(\boldsymbol{\alpha}_{1},\  \boldsymbol{\alpha}_{2},\  \cdots,\  \boldsymbol{\alpha}_{m}\right)$$
+		\item 设  $V_{1},\  V_{2},\  \cdots,\  V_{m}  $是线性空间  $V$  的子空间,\ 则
+		
+		$$L\left(V_{1} \cup V_{2} \cup \cdots \cup V_{m}\right)=V_{1}+V_{2}+\cdots+V_{m}
+		$$
+		\item 设  $V_{1},\  V_{2} $ 是线性空间 $ V $ 的子空间,\ 则
+		
+		$$\operatorname{dim}\left(V_{1}+V_{2}\right)=\operatorname{dim} V_{1}+\operatorname{dim} V_{2}-\operatorname{dim}\left(V_{1} \cap V_{2}\right)$$
+		
+		\item 设  $V_{1},\  V_{2},\  \cdots,\  V_{m}  $是线性空间  $V  $的子空间,\ 若对一切  $i(i=1,\ 2,\  \cdots,\  m) ,\ $
+		
+		$$V_{i} \cap\left(V_{1}+\cdots+V_{i-1}+V_{i+1}+\cdots+V_{m}\right)=0,\ $$
+		
+		则称和 $ V_{1}+V_{2}+\cdots+V_{m}  $为直接和,\  简称直和,\  记为
+		
+		$$V_{1} \oplus V_{2} \oplus \cdots \oplus V_{m}$$
+		
+		\item 设 $ V_{1},\  V_{2},\  \cdots,\  V_{m}  $是线性空间  $V $ 的子空间,\   $V_{0}=V_{1}+   V_{2}+\cdots+V_{m} ,\ $ 则下列命题等价:\\
+		(i)  $V_{0}=V_{1} \oplus V_{2} \oplus \cdots \oplus V_{m} $ 是直和;
+		(ii) 对任意的  $2 \leqslant i \leqslant m ,\ $
+		$$V_{i} \cap\left(V_{1}+V_{2}+\cdots+V_{i-1}\right)=0 ;$$
+		(iii)  $\operatorname{dim}\left(V_{1}+V_{2}+\cdots+V_{m}\right)=\operatorname{dim} V_{1}+\operatorname{dim} V_{2}+\cdots+   \operatorname{dim} V_{m}$ 
+		(iv)$  V_{1},\  V_{2},\  \cdots,\  V_{m} $ 的一组基可以拼成 $ V_{0}  $的一组基;\\
+		(v)$  V_{0}  $中的向量表示为$  V_{1},\  V_{2},\  \cdots,\  V_{m}  $中的向量之和 时,\ 其表示唯一.
+		\item 设$  U,\  V  $是数域$  \mathbb{K}  $上的两个线性空间,\  $ W=U \times V  $是  $U  $和$  V$  的积集合,\  即 $ W=\{(\boldsymbol{u},\  \boldsymbol{v}) \mid \boldsymbol{u} \in U,\  \boldsymbol{v} \in V\} .$ 在 $ W $ 上定义加法和数乘:
+		$$\begin{aligned}
+			\left(\boldsymbol{u}_{1},\  \boldsymbol{v}_{1}\right)+\left(\boldsymbol{u}_{2},\  \boldsymbol{v}_{2}\right) &=\left(\boldsymbol{u}_{1}+\boldsymbol{u}_{2},\  \boldsymbol{v}_{1}+\boldsymbol{v}_{2}\right) \\
+			k(\boldsymbol{u},\  \boldsymbol{v}) &=(k \boldsymbol{u},\  k \boldsymbol{v})
+		\end{aligned}$$
+		
+		则 $ W $ 是 $ \mathbb{K} $ 上的线性空间 (称为  $U  $和 $ V$  的外直和).
+		\item 每一个$  n $ 维线性空间均可表示为  $n $ 个一维子空间的直 和.
+		\item 设 $ V_{1},\  V_{2},\  \cdots,\  V_{m} $ 是 $ V $ 的 $ m$ 个非平凡子空间,\ 则  $V  $中 必存在一个向量,\  它不属于任何一个 $ V_{i} .$
+		\item $n $ 个末知数  $,\ m  $个方程:
+		$$\left\{\begin{array}{r}
+			a_{11} x_{1}+a_{12} x_{2}+\cdots+a_{1 n} x_{n}=b_{1} \\
+			a_{21} x_{1}+a_{22} x_{2}+\cdots+a_{2 n} x_{n}=b_{2} \\
+			\cdots \cdots \cdots \\
+			a_{m 1} x_{1}+a_{m 2} x_{2}+\cdots+a_{m n} x_{n}=b_{m}
+		\end{array}\right.$$
+		当 $ b_{1},\  b_{2},\  \cdots,\  b_{m}  $全部为 $0$ 时,\  称为齐次线性方程组;
+		不全为$ 0$ 时,\  称为非齐次线性方程组.
+		系数矩阵记为  $\boldsymbol{A} ,\  $增广矩阵记为  $\widetilde{\boldsymbol{A}} $ (把 $ b_{1},\  b_{2},\  \cdots,\  b_{m}$  作 为列向量添加到  $A$  的右侧),\  则:\\
+		(i) 若$  \tilde{\boldsymbol{A}}  $与 $ \boldsymbol{A} $ 的秩都等于 $ n ,\  $则该方程组有唯一一组 解;\\
+		(ii) 若$  \tilde{\boldsymbol{A}} $ 与  $\boldsymbol{A} $ 的秩相等但小于  $n ,\ $ 则该方程组有无穷 多组解;\\
+		(iii) 若$  \tilde{\boldsymbol{A}} $ 与  $\boldsymbol{A} $ 的秩不相等,\  则该方程组无解.
+		\item 设有齐次线性方程组 $ \boldsymbol{A x}=\mathbf{0},\ $ 其中  $\boldsymbol{A}=\left(a_{i j}\right)_{m \times n} .$ 若  $\mathrm{r}(\boldsymbol{A})=r<n ,\ $ 则  $\boldsymbol{A} \boldsymbol{x}=\mathbf{0}$  有非零解. 它的解构成 $ n  $维列 向量空间的一个$  n-r $ 维子空间,\  即:存在 $ n-r  $个向量 构成的基础解系  $\left\{\boldsymbol{\eta}_{1},\  \boldsymbol{\eta}_{2},\  \cdots,\  \boldsymbol{\eta}_{n-r}\right\} ,\ $ 使方程组 $ \boldsymbol{A x}=0  $的任一组解均可表示为 $ \left\{\boldsymbol{\eta}_{1},\  \boldsymbol{\eta}_{2},\  \cdots,\  \boldsymbol{\eta}_{n-r}\right\}  $的线性组合. 当  $\mathrm{r}(\boldsymbol{A})=n  $时只有零解 (称为平凡解).
+		\item 设有 (数域 $ \mathbb{K} $ 中的) 非齐次线性方程组$  \boldsymbol{A x}=\boldsymbol{\beta} ,\ $ 它的 系数矩阵 $ \boldsymbol{A} $ 及增广矩阵  $\tilde{\boldsymbol{A}}  $的秩都等于$  r ,\  $且  $r<n . $假 定$ \boldsymbol{A x}=\boldsymbol{\beta}$ 的相伴齐次线性方程组 $ \boldsymbol{Ax}=\boldsymbol{0} $有基础解系$  \left\{\boldsymbol{\eta}_{1},\  \boldsymbol{\eta}_{2},\  \cdots,\  \boldsymbol{\eta}_{n-r}\right\} ,\ $ 又设  $\gamma $ 是方程组  $\boldsymbol{A x}=\boldsymbol{\beta}$  的任一特解,\  则其所有解均可表示为如下形式:
+		$$k_{1} \boldsymbol{\eta}_{1}+k_{2} \boldsymbol{\eta}_{2}+\cdots+k_{n-r} \boldsymbol{\eta}_{n-r}+\boldsymbol{\gamma}$$
+		其中,\ $  k_{1},\  k_{2},\  \cdots,\  k_{n-r} $ 可取 (  $\mathbb{K}$  中的) 任意数.
+		\item 设  $V_{1},\  V_{2},\  \cdots,\  V_{k}  $是线性空间  $V $ 的  $k$  个真子空间,\ 则$  V  $中必有一组基,\  使得其中每个基向量哮不在诸 $ V_{i}  $的并中.
+		\item 设 $ V_{0}$  是  $\mathbb{K}_{n} $ 的一个非平凡子空间,\  则必存在矩阵$  \boldsymbol{A} ,\  $使 $ V_{0}  $是 $ n$ 元齐次线性方程组  $\boldsymbol{A x}=\mathbf{0} $ 的解空间.
+		\item 反对称矩阵的秩必为偶数.
+		\item 设  $\boldsymbol{A} $ 是矩阵,\  $ |\boldsymbol{D}| $ 是 $ \boldsymbol{A} $ 的 $ r  $阶子式,\  $ \boldsymbol{A}$  中所有包含  $|\boldsymbol{D}|  $为 $ r  $阶子式的  $r+1 $ 阶子式称为  $|\boldsymbol{D}| $ 的  $r+1  $阶加边子 式. 那么,\  矩阵  $A$  的秩等于 $ r $ 的充分必要条件是: $ A $ 存 在一个 $ r$  阶子式 $ |\boldsymbol{D}|  $不等于$ 0 ,\ $ 而  $|\boldsymbol{D}|$  的所有$  r+1  $阶 加边子式全等于$ 0 .$
+		\item 平面上 $ n  $个点 $ \left(x_{1},\  y_{1}\right),\ \left(x_{2},\  y_{2}\right),\  \cdots,\ \left(x_{n},\  y_{n}\right) $位于同一条 直线上的充分必要条件:
+		$$\mathrm{r}\left(\begin{array}{llll}
+			x_{2}-x_{1} & x_{3}-x_{1} & \cdots & x_{n}-x_{1} \\
+			y_{2}-y_{1} & y_{3}-y_{1} & \cdots & y_{n}-y_{1}
+		\end{array}\right) \leqslant 1$$
+		或
+		$$\mathrm{r}\left(\begin{array}{ccccc}
+			x_{1} & x_{2} & x_{3} & \cdots & x_{n} \\
+			y_{1} & y_{2} & y_{3} & \cdots & y_{n} \\
+			1 & 1 & 1 & \cdots & 1
+		\end{array}\right) \leqslant 2$$
+		\item 三维实空间中 $4 $个点  $\left(x_{i},\  y_{i},\  z_{i}\right)(i=1,\ 2,\ 3,\ 4)  $共面的充 分必要条件:
+		
+		$$\mathrm{r}\left(\begin{array}{lll}
+			x_{2}-x_{1} & x_{3}-x_{1} & x_{4}-x_{1} \\
+			y_{2}-y_{1} & y_{3}-y_{1} & y_{4}-y_{1} \\
+			z_{2}-z_{1} & z_{3}-z_{1} & z_{4}-z_{1}
+		\end{array}\right) \leqslant 2$$
+		
+		或
+		
+		$$\mathrm{r}\left(\begin{array}{cccc}
+			x_{1} & x_{2} & x_{3} & x_{4} \\
+			y_{1} & y_{2} & y_{3} & y_{4} \\
+			z_{1} & z_{2} & z_{3} & z_{4} \\
+			1 & 1 & 1 & 1
+		\end{array}\right) \leqslant 3$$
+		
+		\item 通过平面内不在一条直线上的$ 3$ 点  $\left(x_{1},\  y_{1}\right),\ \left(x_{2},\  y_{2}\right) ,\   \left(x_{3},\  y_{3}\right) $ 的圆的方程为:
+		
+		$$\left(\begin{array}{cccc}
+			x^{2}+y^{2} & x & y & 1 \\
+			x_{1}^{2}+y_{1}^{2} & x_{1} & y_{1} & 1 \\
+			x_{2}^{2}+y_{2}^{2} & x_{2} & y_{2} & 1 \\
+			x_{3}^{2}+y_{3}^{2} & x_{3} & y_{3} & 1
+		\end{array}\right)=0$$
+		\section{线性映射}
+		\item 满映射 (映上的映射)、单映射、双射 (既单又满,\ 一一对 应).
+		\item 设  $f$  是集合  $A \rightarrow B $ 的映射,\ 如果存在  $B \rightarrow A $ 的映射$  g ,\ $ 使 $ g f=1_{A},\  f g=1_{B} ,\  $则 $ f  $是双射且 $ g=f^{-1} .$
+		\item 设 $ \varphi $ 是数域$  \mathbb{K}  $上线性空间  $V $ 到  $\mathbb{K}$  上线性空间$  U$  的映 射,\  如果  $\varphi  $适合下列条件:\\
+		(1) $ \varphi(\alpha+\beta)=\varphi(\alpha)+\varphi(\beta),\  \alpha,\  \beta \in V ;$
+		(2) $ \boldsymbol{\varphi}(k \boldsymbol{\alpha})=k \varphi(\alpha),\  k \in \mathbb{K},\  \alpha \in V ,\ $
+		则称 $ \varphi $ 是 $ V \rightarrow U  $的线性映射$,\   V$  到自身的线恈映射称 为 $ V$  上的线性变换. 若 $ \varphi: V \rightarrow U  $作为映射是单的,\  则 称$  \varphi $ 是单线性映射; 若$  \varphi  $作为映射是满的,\  则称  $\varphi$  是 满线性映射. 若$  \varphi $ 是双射,\  则称  $\varphi  $是线性同构,\  简称同 构. 若$  V=U,\  V$  自身上的同构称为自同构. (不同数域 上线性空间之间的映射不是线性映射.)
+		\item 设  $\varphi $ 是  $V \rightarrow U$  的线性映射,\ 则\\
+		(1) $ \varphi(0)=0 ;$
+		(2) $ \varphi(k \alpha+l \beta)=k \varphi(\boldsymbol{\alpha})+l \varphi(\boldsymbol{\beta}),\  \boldsymbol{\alpha},\  \boldsymbol{\beta} \in V,\  k,\  l \in \mathbb{K} ;$\\
+		(3) 若  $\varphi$  是同构,\  则其逆映射 $ \varphi^{-1}$  也是线性映射,\  从而 是 $ U \rightarrow V$  的同构.
+		\item 设 $ \varphi,\  \psi $ 是  $\mathbb{K}$  上线性空间 $ V \rightarrow U  $的线性映射,\ 定义 $ \varphi+\psi $ 为 $ V \rightarrow U  $的映射:
+		$$(\varphi+\psi)(\alpha)=\varphi(\alpha)+\psi(\alpha),\  \alpha \in V$$
+		若$  k \in \mathbb{K} ,\ $定义 $ k \varphi  $为$  V \rightarrow U $ 的映射:
+		$$(k \varphi)(\boldsymbol{\alpha})=k \varphi(\boldsymbol{\alpha}),\  \boldsymbol{\alpha} \in V$$
+		\item 设  $\mathcal{L}(V,\  U)$ 是$  V \rightarrow U  $的线性映射全体,\  则在 (上一条中 的) 线性映射的加法及数乘定义下,\ $  \mathcal{L}(V,\  U) $ 是  $\mathbb{K}  $上的 线性空间. 特别地,\   $V \rightarrow \mathbb{K} $ 上的所有线性函数全体构成 一个线性空间. $ V  $上的所有线性函数构成的线性空间通 常称为  $V $ 的共轭空间,\  记为 $ V^{*} . $当  $V $ 是有限维线性空 间时,\   $V^{*} $ 也称为  $V  $的对偶空间.
+		如果 $ V=U ,\ $那么用  $\mathcal{L}(V)  $来代替 $ \mathcal{L}(V,\  V) ,\ $ 即  $V $ 上线 性变换全体组成的集合.
+		\item 设  $A  $是数域  $\mathbb{K}  $上的线性空间,\ 如果在 $ A$  上定义了一种 乘法 “.” (通常可以省略),\  使对  $A  $中任意元萦 $ a,\  b,\  c $ 及 $ \mathbb{K} $ 中元素$  k ,\ $ 适合下列条件:\\
+		(1) 乘法结合律: $ a \cdot(b \cdot c)=(a \cdot b) \cdot c ;$\\
+		(2) 存在 $ A $ 中元 $ e ,\  $使得对一切  $a \in A ,\  $均有 $ e \cdot a=a \cdot e=a ;$\\
+		(3) 分配律:
+		$$\begin{array}{l}
+			a \cdot(b+c)=a \cdot b+a \cdot c \\
+			(b+c) \cdot a=b \cdot a+c \cdot a ;
+		\end{array}$$
+		(4) 乘法与数乘的相容性: $ (k a) \cdot b=k(a \cdot b)=a \cdot(k b) ,\ $ 则称$  A $ 是数域 $ \mathbb{K}$ 上的代数,\  元素  $e$  称为  $A $ 的恒等元.
+		\item 设 $ V  $是数域  $\mathbb{K} $ 上的线性空间,\  则$  \mathcal{L}(V)  $是$  \mathbb{K} $ 上的代数.
+		\item 在$  \mathcal{L}(V)  $中,\  定义线性变换$  \varphi  $的 $ n$  次幂为$  n$  个  $\varphi  $的复 合,\   $\left(\varphi^{0}=\boldsymbol{I}_{V}\right.  $为恒等变换),\  则
+		$$\varphi^{n} \circ \varphi^{m}=\varphi^{n+m},\  \quad\left(\varphi^{n}\right)^{m}=\varphi^{n m}$$
+		若定义 $ \varphi^{-n}=\left(\varphi^{-1}\right)^{n} ,\  $则有  $\varphi^{-n}=\left(\varphi^{n}\right)^{-1} .$ 线性变换 的复合通常不满足交换律,\ 即一般而言:$  \varphi \circ \psi \neq \psi \circ \varphi  $跃 进一步地,\ $  (\varphi \circ \psi)^{n} \neq \varphi^{n} \circ \psi^{n} .$
+		如果 $ \varphi,\  \psi  $都是可逆线性变换,\ 则  $\varphi \circ \psi $ 也是可逆线性变 换,\  且
+		$$(\boldsymbol{\varphi} \circ \boldsymbol{\psi})^{-1}=\boldsymbol{\psi}^{-1} \circ \boldsymbol{\varphi}^{-1}$$
+		若  $k \neq 0,\  \varphi  $可逆,\  则 $ k \varphi  $也可逆,\  且
+		$$(k \varphi)^{-1}=k^{-1} \varphi^{-1}$$
+		\item 设有 $ \mathbb{K}  $上线性空间$  V  $和  $U,\ \left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{n}\right\} $ 是  $V  $的一 组基,\  则\\
+		(1) 如果有从 $ V  $到 $ U $ 的线性映射 $ \varphi  $和  $\psi ,\ $ 对任意的  $i ,\ $ 都有  $\varphi\left(e_{i}\right)=\psi\left(e_{i}\right) ,\  $则  $\varphi=\psi ;$\\
+		(2) 给定 $U $ 中的$  n $ 个向量  $\left\{\boldsymbol{\beta}_{1},\  \boldsymbol{\beta}_{2},\  \cdots,\  \boldsymbol{\beta}_{n}\right\} ,\  $有且仅有 一个从  $V $ 到  $U $ 的线性映$射  \varphi ,\  $满足  $\varphi\left(e_{i}\right)=\beta_{i}(i=   1,\ 2,\  \cdots,\  n) .$
+		\item 设 $ V  $和  $U$  分别是数域 $ \mathbb{K} $ 上 $ n$  维及 $ m$  维线性空间,\   $\left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{n}\right\}$  是  $V $ 的一组基,\   $\left\{\boldsymbol{f}_{1},\  \boldsymbol{f}_{2},\  \cdots,\  \boldsymbol{f}_{m}\right\}  $是  $U$  的一组基,\ $  \varphi  $是从  $V $ 到$  U  $的线性映射,\  设
+		$$\left\{\begin{array}{c}
+			\boldsymbol{\varphi}\left(\boldsymbol{e}_{1}\right)=a_{11} \boldsymbol{f}_{1}+a_{12} \boldsymbol{f}_{2}+\cdots+a_{1 m} \boldsymbol{f}_{m} \\
+			\boldsymbol{\varphi}\left(\boldsymbol{e}_{2}\right)=a_{21} \boldsymbol{f}_{1}+a_{22} \boldsymbol{f}_{2}+\cdots+a_{2 m} \boldsymbol{f}_{m} \\
+			\boldsymbol{\varphi}\left(\boldsymbol{e}_{n}\right)=a_{n1} \boldsymbol{f}_{1}+a_{n2} \boldsymbol{f}_{2}+\cdots+a_{n m} \boldsymbol{f}_{m}
+		\end{array}\right.$$
+		以上系数矩阵的转置,\  称为 $ \varphi  $在给定基  $\left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{n}\right\}  $和 $ \left\{\boldsymbol{f}_{1},\  \boldsymbol{f}_{2},\  \cdots,\  \boldsymbol{f}_{m}\right\}$  下的表示矩阵,\  简称为  $\varphi $ 在给定基 下的矩阵.
+		\item 设  $\mathcal{L}(V,\  U)$ 是  $V \rightarrow U$  的线性映射全体,\   $M_{m \times n}(\mathbb{K})$  是$  \mathbb{K}  $上全体 $ m \times n$ 矩阵组成的集合,\  $ \boldsymbol{T}  $为从 $ \mathcal{L}(V,\  U)  $到 $ M_{m \times n}(\mathbb{K}) $ 的映射,\  对任意$  \varphi \in \mathcal{L}(V,\  U),\  T(\varphi)=\boldsymbol{A} ,\ $ 其 中  $\boldsymbol{A}$  是 $ \varphi $ 在给定基下的表示矩阵. $\boldsymbol{T}  $是一个一对应. 记  $\eta_{1}  $是  $V$  到  $\mathbb{K}_{n} $ 的线性同构,\  $ \eta_{2}  $是 $ U$  到  $\mathbb{K}_{m} $ 的线性 同构,\  则  $\boldsymbol{T}$ 是一个线性同构,\  且  $\eta_{2} \varphi=\varphi_{A} \eta_{1} ,\ $ 即有如 下交换图:
+		
+		\begin{center}
+			\begin{tikzcd}[column sep=scriptsize, row sep=scriptsize]
+				& V \arrow[r,  "\varphi"] \arrow[d,swap, "\eta_1"]
+				& X \arrow[d,  "\eta_2"] \\
+				& \mathbb{K}_n \arrow[r, "\varphi_A"]
+				& \mathbb{K}_m
+			\end{tikzcd}
+		\end{center}
+		再设  $W $ 是  $\mathbb{K}$ 上的线性空间,\  $ \left\{\boldsymbol{g}_{1},\  \boldsymbol{g}_{2},\  \cdots,\  \boldsymbol{g}_{p}\right\} $ 是 $ W$  的 一组基,\ $  \psi \in \mathcal{L}(V,\  U) ,\  $则 $ T(\psi \varphi)=\boldsymbol{T}(\psi) \boldsymbol{T}(\varphi) .$
+		\item$  \boldsymbol{T}: \mathcal{L}(V) \rightarrow M_{n}(\mathbb{K})  $是线性同构,\  并对任意的 $ \varphi,\  \psi \in   \mathcal{L}(V) ,\  $有 $ \boldsymbol{T}(\psi \varphi)=\boldsymbol{T}(\psi) \boldsymbol{T}(\varphi) ,\ $ 即 $ T  $保持了乘法. 同构  $\boldsymbol{T} $ 还具有下列性质:\\
+		(1)$  \boldsymbol{T}\left(\boldsymbol{I}_{V}\right)=\boldsymbol{I}_{n}.$\\ 
+		(2) $ \varphi $ 是  $V  $上的自同构的充分必要条件是  $T(\varphi)$  是可逆 阵且这时有 $ T\left(\varphi^{-1}\right)=T(\varphi)^{-1} .$
+		\item 设$  V  $是数域 $ \mathbb{K} $ 上的线性空间,\   $\varphi \in \mathcal{L}(V) ,\ $ 又设 $ \left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{n}\right\} $和  $\left\{\boldsymbol{f}_{1},\  \boldsymbol{f}_{2},\  \cdots,\  \boldsymbol{f}_{n}\right\}  $是  $V $ 的两组基,\  且从  $\left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{n}\right\}  $到  $\left\{\boldsymbol{f}_{1},\  \boldsymbol{f}_{2},\  \cdots,\  \boldsymbol{f}_{n}\right\}$  的过渡矩阵为 $ \boldsymbol{P} ,\ $ 若  $\varphi  $在基  $\left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{n}\right\} $ 下的表示矩阵为 $ A ,\ $ 在基$  \left\{\boldsymbol{f}_{1},\  \boldsymbol{f}_{2},\  \cdots,\  \boldsymbol{f}_{n}\right\}  $下的表示矩阵为 $ B ,\ $ 则
+		$$B=P^{-1} A P$$
+		\item 若 $\boldsymbol{A},\  \boldsymbol{B}$  为 $ n$  阶方阵且存在$  n $ 阶非异阵  $\boldsymbol{P} ,\ $ 使 $ \boldsymbol{B}=   \boldsymbol{P}^{-1} \boldsymbol{A} \boldsymbol{P} ,\  $则称 $ \boldsymbol{A}  $与  $\boldsymbol{B} $ 相似,\  记为  $\boldsymbol{A}\approx \boldsymbol{B} . $相似关系是一种等价关系.
+		$V$  上的线性变换 $ \varphi $ 在不同基下的表示矩阵是相似的. 相似的矩阵具有相同的迹.
+		\item 设 $ \boldsymbol{A},\  \boldsymbol{B}  $为 $ n  $阶方阵且 $ \boldsymbol{A} $ 可逆,\  则  $\boldsymbol{AB} $ 与 $ \boldsymbol{BA} $ 相似.
+		\item 设$  \varphi  $是数域  $\mathbb{K} $ 上线性空间 $ V $ 到$  U  $的线性映射,\  $ \varphi$  的全 体像元素组成$  U  $的子集称为 $ \varphi  $的像,\  记为 $ \operatorname{Im} \varphi . $又,\  $ V $ 中在 $ \varphi $ 下映射为零向量的全体向量构成  $V$  的子集,\  称 为$  \varphi  $的核. 记为  $\operatorname{Ker} \boldsymbol{\varphi} .
+		\operatorname{Im} \varphi  $是 $ U  $的子空间. $ \operatorname{Ker} \varphi  $是 $ V  $的子空间. 像空间  $\operatorname{Im} \varphi  $的维数称为  $\varphi  $的秩,\  记为  $\mathrm{r}(\varphi) . $核空间  $\operatorname{Ker} \varphi $ 的 维数称为 $ \varphi  $的零度.
+		\item 线性映射$  \varphi$  是满映射的充分必要条件是
+		$$\operatorname{dim} \operatorname{Im} \varphi=\operatorname{dim} U$$
+		线性映射 $ \varphi $ 是单映射的充分必要条件是
+		$$\operatorname{Ker} \varphi=\mathbf{0}$$
+		\item 设  $\varphi: V \rightarrow U $ 为线性映射,\  $ V^{\prime} \subseteq V,\  U^{\prime} \subseteq U  $为子空间 且满足  $\varphi\left(V^{\prime}\right) \subseteq U^{\prime} ,\ $ 则通过定义域的限制可得到线性映 射 $ \varphi^{\prime}: V^{\prime} \rightarrow U^{\prime} ,\ $ 使得$  \varphi^{\prime}$  与 $ \varphi $具有相同的映射法则. 进 一步,\ 若  $\varphi  $是单映射,\  则 $ \varphi^{\prime} $ 也是单映射.
+		\item 设$ V $ 和 $ U  $分别是数域$  \mathbb{K} $ 上$  n$  维及  $m  $维线性空间,\  $ \left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{n}\right\} $ 是 $ V$  的一组基,\   $\left\{\boldsymbol{f}_{1},\  \boldsymbol{f}_{2},\  \cdots,\  \boldsymbol{f}_{m}\right\}  $是 $ U $ 的一组基,\   $\varphi $ 是从 $ V $ 到 $ U $ 的线性映射,\  它在给定基下 的表示矩阵为 $ \boldsymbol{A} ,\ $ 则
+		$$\begin{array}{c}
+			\operatorname{dim} \operatorname{Im} \varphi=\operatorname{rank}(\boldsymbol{A}),\  \quad \operatorname{dim} \operatorname{Ker} \varphi=n-\operatorname{rank}(\boldsymbol{A}) \\
+			\operatorname{dim} \operatorname{Im} \varphi+\operatorname{dim} \operatorname{Ker} \varphi=\operatorname{dim} V=n
+		\end{array}$$
+		\item $ \varphi $ 是从$  V $ (  $n$  维) 到  $U $ ($  m $ 维) 的线性映射,\ 
+		\begin{itemize}
+			\item$  \varphi $ 是单映射的充分必要条件是:  $\mathrm{r}(\boldsymbol{A})=n ,\ $ 即表示矩 阵  $\boldsymbol{A}  $是一个列满秩阵. 或者,\  存在$  U  $到 $ V $ 的线性映射 $ \psi ,\ $ 使  $\psi \varphi=\boldsymbol{I} d_{V},\ \left(\boldsymbol{I} d_{V}\right. $ 表示 $ V $ 上的恒等映射  ) .
+			\item $ \varphi $ 是满映射的充分必要条件是:$  r(\boldsymbol{A})=m ,\ $ 即表示矩 阵 $A $ 是一个行满秩阵; 或者,\  存在$  U $ 到 $ V $ 的线性映射  $\eta ,\ $ 使  $\varphi \eta=\boldsymbol{I}$ $\boldsymbol{d}_{U},\ \left(\boldsymbol{I} \boldsymbol{d}_{U}\right. $ 表示  $U $ 上的恒等映射  ) .
+			\item $ n $ 维线性空间$  V $ 上的线性变换是可逆变换的充分必要 条件是:它是单映射或它是泍映射.(一个 $ n  $阶方阵可逆 的充分必要条件是: 它是行满秩阵或它是列满秩阵.)
+			\item  $n  $维线性空间 $ V$  上的线性变换是可逆变换的充分必要 条件是:它将 $ V$  的基变为基.
+			\item $n  $维线性空间 $ V $ 上的线性变换是单映射 (或满㘨射) 的 充分必要条件是:它在 $ V $ 的任意一组基下的表示矩阵是 可逆阵.
+		\end{itemize}
+		
+		\item 设  $\varphi $ 是线性空间$  V  $上的线性变换,\  $ U  $是  $V$  的子空问,\  若$  U $ 适合条件: $ \varphi(U)=U ,\ $ 则称  $U$  是  $\varphi $ 的不变子空 间 (或 $ \varphi $-不变子空间). 这时把$  \varphi$  的定义域限制在 $ U  $上,\  则 $ \varphi$  在 $ U $ 上定义了一个线性变换,\  称为由 $ \varphi$  诱导出的 线性变换,\  或称为 $ \varphi $ 在 $ U$  上的限制,\  记为  $\left.\varphi\right|_{U} .$ 零子空间及全空间 $ V $ 称为平凡的  $\varphi$ -不变子空间.
+		\item 线性变换$  \varphi$  的像与核都是  $\varphi $ 的不变子空间. 若  $\varphi $ 是 $ V $ 上的数乘变换,\  即存在常数  $k ,\ $ 使  $\varphi(\alpha)=k \alpha ,\ $ 则 $ V $ 的任一子空间都是  $\varphi  $的不变子空间.
+		\item 设 $ U $ 是  $V  $上的线性变换  $\varphi  $的不变子空间,\  且设$ U  $的基 为 $ \left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{r}\right\} .$ 将$  \left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{r}\right\}  $扩充为  $V$  的一 组基 $ \left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{r},\  \boldsymbol{e}_{r+1},\  \cdots,\  \boldsymbol{e}_{n}\right\} ,\  $则$  \varphi  $在这组基下的 表示矩阵具有下列形式:
+		
+		$$\left(\begin{array}{cccccc}
+			a_{11} & \cdots & a_{r 1} & a_{r+1,\ 1} & \cdots & a_{n 1} \\
+			\vdots & & \vdots & \vdots & & \vdots \\
+			a_{1 r} & \cdots & a_{r r} & a_{r+1,\  r} & \cdots & a_{n r} \\
+			0 & \cdots & 0 & a_{r+1,\  r+1} & \cdots & a_{n,\  r-1} \\
+			\vdots & & \vdots & \vdots & & \vdots \\
+			0 & \cdots & 0 & a_{r+1,\  n} & \cdots & a_{n n}
+		\end{array}\right)$$
+		
+		\item 设 $ V=V_{1} \oplus V_{2} ,\  $且$  V_{1},\  V_{2} $ 都是线性变换  $\varphi $ 的不变子空间. 又  $\{e_{1},\  e_{2},\ $ $\cdots,\  e_{r}\}$  是 $ V_{1} $ 的基,\  $ \{e_{r+1},\  e_{r+2},\ $ $\cdots,\  e_{n}\} $ 是  $V_{2}$  的基,\  则  $\varphi  $在基 $ \left\{e_{1},\  e_{2},\  \cdots,\  e_{n}\right\}$  下的表示矩阵为分 块对角阵  $\left(\begin{array}{cc}\boldsymbol{A}_{1} & \boldsymbol{O} \\ \boldsymbol{O} & \boldsymbol{A}_{2}\end{array}\right) ,\ $ 其中,\ $  \boldsymbol{A}_{1} $ 是  $r $ 阶方阵,\ $  \boldsymbol{A}_{2} $ 是  $n-r  $阶方阵.
+		还可以进一步推广到$ V=V_{1} \oplus V_{2} \oplus \cdots \oplus V_{m} ,\ $ 其中每个 $ V_{i}$  都是 $ \varphi  $的不变子空间,\  那么在  $V  $中存在一组基,\  使 $ \varphi $ 在这组基下的表示矩阵为分块对角阵:
+		
+		$$\left(\begin{array}{llll}
+			\boldsymbol{A}_{1} & & & \\
+			& \boldsymbol{A}_{2} & & \\
+			& & \ddots & \\
+			& & & \boldsymbol{A}_{m}
+		\end{array}\right)$$
+		
+		其中$  \boldsymbol{A}_{i} $ 是  $\left.\varphi\right|_{V_{i}} $ 的表示矩阵,\  它是$  r_{i}=\operatorname{dim} V_{i} $ 阶方阵.
+		\item 设  $\boldsymbol{A},\  \boldsymbol{B} $ 都是数域 $ \mathbb{K} $ 上的$  m \times n  $矩阵,\  则方程  $\boldsymbol{A x}=   0,\  B x=0  $同解的充分必要条件是:存在可逆阵  $P ,\ $ 使$  B=P A .$
+		\item 设 $ \boldsymbol{A}  $是$  n $ 阶方阵,\  则
+		$$\mathrm{r}\left(\boldsymbol{A}^{n}\right)=\mathrm{r}\left(\boldsymbol{A}^{n+1}\right)=\mathrm{r}\left(\boldsymbol{A}^{n+2}\right)=\cdots$$
+		\item 设  $\varphi$  是  $n $ 维线性空间 $ V$  上的线性变换,\  那么必存在正 整数 $ m ,\ $ 使得:
+		$$\begin{array}{c}
+			\operatorname{Im} \varphi^{m}=\operatorname{Im} \varphi^{m+1},\  \quad \operatorname{Ker} \varphi^{m}=\operatorname{Ker} \varphi^{m+1} \\
+			V=\operatorname{Im} \varphi^{m} \oplus \operatorname{Ker} \varphi^{m}
+		\end{array}$$
+		\item 设  $\varphi  $是  $n  $维线性空间  $V$  上的线性变换,\  若  $\mathrm{r}\left(\varphi^{2}\right)=\mathrm{r}(\varphi) ,\ $则  $V=\operatorname{Im} \varphi \oplus \operatorname{Ker} \varphi .$
+		\item 设 $ U  $是有限维线性空间 $ V $ 的子空间,\ $  \varphi  $是  $V $ 上的线性 变换,\ 则
+		$$\begin{array}{c}
+			\operatorname{dim} U-\operatorname{dim} \operatorname{Ker} \varphi \leqslant \operatorname{dim} \varphi(U) \leqslant \operatorname{dim} U \\
+			\operatorname{dim} \varphi^{-1}(U) \leqslant \operatorname{dim} U+\operatorname{dim} \operatorname{Ker} \varphi
+		\end{array}$$
+		\item 设$  V=V_{1} \oplus V_{2} \oplus \cdots \oplus V_{m}  $为线性空间  $V$  关于子空间$  V_{i}(i=1,\ 2,\  \cdots,\  m) $ 的直和分解,\  则  $V $ 中任一向量$  \boldsymbol{v}  $可 分解成  $\boldsymbol{v}=\boldsymbol{v}_{1}+\boldsymbol{v}_{2}+\cdots+\boldsymbol{v}_{m} ,\  $其中 $ \boldsymbol{v}_{i} \in V_{i} . $定义  $\varphi_{i}: V \rightarrow V_{i},\  \varphi_{i}(v)=v_{i} ,\  $称为$  V  $到 $ V_{i}  $的投影变换. 投影变换等价于幂等变换.
+		\item 设 $ \varphi_{1},\  \varphi_{2},\  \cdots,\  \varphi_{m}$  是 $ n $ 维线性空间 $ V  $上的线性变换,\  且 满足条件:
+		$$\begin{array}{c}
+			\varphi_{i}^{2}=\varphi_{i},\  \quad \varphi_{i} \varphi_{j}=0(i \neq j) \\
+			\operatorname{Ker} \varphi_{1} \cap \cdots \cap \operatorname{Ker} \varphi_{m}=0
+		\end{array}$$
+		则  $V=\operatorname{Im} \varphi_{1} \oplus \cdots \oplus \operatorname{Im} \varphi_{m} .$
+		\section{多项式}
+		\item 数域 $ \mathbb{K} $ 上关于未定元  $x  $的一元多项式全体记为  $\mathbb{K}[x] . \mathbb{K}[x]  $也称为  $\mathbb{K}  $上的一元多项式环. 若 $ f(x) \equiv a ,\  $则称 $ f(x)  $为常数多项式,\  当  $a \neq 0 $ 时称为零次多项式; 当  $a=0$  时,\ 称之为零多项式,\  规定其次数为 $ -\infty .$
+		
+		\item 若  $f(x),\  g(x) \in \mathbb{K}[x] ,\ $ 则
+		
+		$$\begin{aligned}
+			\operatorname{deg}(f(x) g(x)) &=\operatorname{deg} f(x)+\operatorname{deg} g(x) \\
+			\operatorname{deg}(c f(x)) &=\operatorname{deg} f(x),\  c \in \mathbb{K},\  c \neq 0 \\
+			\operatorname{deg}(f(x)+g(x)) & \leqslant \max \{\operatorname{deg} f(x),\  \operatorname{deg} g(x)\}
+		\end{aligned}$$
+		
+		\begin{itemize}
+			\item  若 $ f(x) \neq 0,\  g(x) \neq 0 ,\ $ 则  $f(x) g(x) \neq 0 .$
+			\item 右 $ f(x) \neq 0  $且 $ f(x) g(x)=f(x) h(x) ,\ $ 则  $g(x)=h(x) .$
+		\end{itemize}
+		
+		\item  $f(x),\  g(x),\  h(x) \in \mathbb{K} \mid x],\  0 \neq c \in \mathbb{K} ,\ $ 则\\
+		(i) 若  $f(x) \mid g(x) ,\  $则  $c f(x) \mid g(x) ,\  $非零常数多项式  $c $ 是 任一非零多项式的因子;\\
+		(ii)  $f(x) \mid f(x) ;$\\
+		(iii) 若  $f(x)|g(x),\  g(x)| h(x) ,\ $ 则 $ f(x) \mid h(x) ;$\\
+		(iv) 若  $f(x)|g(x),\  \quad f(x)| h(x) ,\ $ 则对任意多项式  $u(x),\  v(x) ,\ $ 有$  f(x) \mid g(x) u(x)+h(x) v(x) ;$\\
+		(v) 若 $ f(x)|g(x),\  g(x)| f(x)  $且 $ f(x),\  g(x) $ 都是非零多项式,\  则存在  $\mathbb{K} $ 中非零元 $ c ,\ $ 使 $ f(x)=c g(x) . $此时,\  這两个多项式称为相伴多项式,\  记为$  f(x) \sim g(x) .$
+		\item 设 $ f(x),\  g(x) \in \mathbb{K}[x],\  g(x) \neq 0 ,\  $则必存在唯一的  $q(x),\  r(x) \in \mathbb{K}[x] ,\ $ 使得
+		$$f(x)=g(x) q(x)+r(x)$$
+		且 $ \operatorname{deg} r(x)<\operatorname{deg} g(x) .$ 那么$  f(x) \mid g(x)  $的充分必要条 件是: $ g(x)  $除  $f(x)  $后的余式 $ r(x)$  为零.
+		\item 设 $ f(x),\  g(x) \in \mathbb{K}[x] ,\  $两者的最大公因式 (g.c.d.) 记为 $ (f(x),\  g(x)) ;$最小公倍式 (l.c.m.) 记为  $[f(x),\  g(x)] .$
+		必存在 $ u(x),\  v(x) \in \mathbb{K}[x] ,\  $使得
+		$$f(x) v(x)+g(x) v(x)=d(x)=(f(x),\  g(x))$$
+		
+		\item 设  $f(x),\  g(x),\  h(x) \in \mathbb{K}[x] ,\  $则
+		$$\begin{aligned}
+			((f(x),\  g(x)),\  h(x)) &=(f(x),\ (g(x),\  h(x))) \\
+			&=(f(x),\  g(x),\  h(x))
+		\end{aligned}$$
+		
+		\item 设  $f(x),\  g(x) \in \mathrm{K}[x] ,\ $ 若  $(f(x),\  g(x))=1 ,\  $则称  $f(x)$  与 $ g(x) $ 互素. 两者互素的充分必要条件是:
+		存在$  u(x),\  v(x) \in \mathbb{K}|x| ,\ $ 使得
+		$$f(x) u(x)+g(x) v(x)=1 .$$
+		如果 $ f(x),\  g(x) $ 互素且次数都大于等于 1 ,\  则还有 $ \operatorname{deg} u(x)<\operatorname{deg} g(x),\  \operatorname{deg} v(x)<\operatorname{deg} f(x) .$
+		当$  f(x),\  g(x)$  都是零次多项式 (常数) 时,\  就没有以上两 个次数不等式.
+		\item
+		\begin{itemize}
+			\item 若 $ f_{1}(x)\left|g(x),\  f_{2}(x)\right| g(x) ,\  $且  $\left(f_{1}(x),\  f_{2}(x)\right)=1 ,\ $ 则
+			$$f_{1}(x) f_{2}(x) \mid g(x)$$
+			\item 若 $ (f(x),\  g(x))=1 ,\ $ 且  $f(x) \mid g(x) h(x) ,\  $则
+			$$f(x) \mid h(x)$$
+			\item 若  $(f(x),\  g(x))=d(x),\  f(x)=f_{1}(x) d(x),\  g(x)=   g_{1}(x) d(x) ,\ $ 则
+			$$\left(f_{1}(x),\  g_{1}(x)\right)=1$$
+			\item 若$ (f(x),\  g(x))=d(x) ,\  $则
+			$$(t(x) f(x),\  t(x) g(x))=t(x) d(x)$$
+			\item 若  $\left(f_{1}(x),\  g(x)\right)=1,\ \left(f_{2}(x),\  g(x)\right)=1 ,\ $ 则
+			$$\left(f_{1}(x) f_{2}(x),\  g(x)\right)=1$$
+			\item 若 $f(x),\  g(x) $ 是非零多项式,\  则
+			$$f(x) g(x) \sim(f(x),\  g(x))[f(x),\  g(x)]$$
+			(对于正整数  $a,\  b  $也存在类似的定理,\   $a b=(a,\  b)[a,\  b] .$)
+		\end{itemize}
+		\item 中国剩余定理 (孙子定理):设 $ \left\{f_{i}(x)\right\}(i=1,\ 2,\  \cdots,\  n)$  是两两互素的多项式,\  $ a_{1}(x),\  a_{2}(x),\  \cdots,\  a_{n}(x)  $是 $ n$  个多 项式,\  则存在多项式  $g(x),\  q_{i}(x)(i=1,\ 2,\  \cdots,\  n) ,\  $使得  $g(x)=f_{i}(x) q_{i}(x)+a_{i}(x)  $对一切  $i$  成立.
+		\item 若 $ (f(x),\  g(x))=1 ,\  $则  $(f(x) g(x),\  f(x)+g(x))=1 .$
+		\item  $(f(x),\  g(x))=1  $的充分必要条件是: 对任意正整数$  m,\  n ,\   \left(f(x)^{m},\  g(x)^{n}\right)=1 .$
+		\item
+		$$\begin{aligned}
+			\left(f(x)^{n},\  g(x)^{n}\right) &=(f(x),\  g(x))^{n} \\
+			{\left[f(x)^{n},\  g(x)^{n}\right] } &=[f(x),\  g(x)]^{n}
+		\end{aligned}$$
+		\item 设 $ f(x)  $是数域 $ \mathbb{K}  $上的非常数多项式,\  若$  f(x) $ 可以分解 成两个次数小于$  f(x) $ 次数的$  \mathbb{K}  $上的多项式之积,\  则称  $f(x) $ 是 $ \mathbb{K}$  上的可约多项式,\  否则,\  称之为$  \mathbb{K}  $上的不可 约多项式. 多项式的可约或不可约与数域密切相关,\  比如 $ x^{2}-2 $ 在有理数域上是不可约多项式,\  但在实数域上是 可约多硕式.
+		\item 设  $f(x) $ 是数域 $ \mathbb{K} $ 上的不可约多项式,\  则对  $\mathbb{K} $ 上任一多 项式  $g(x) ,\  $或者 $ f(x) \mid g(x) ,\  $或者  $(f(x),\  g(x))=1 .$
+		\item 设  $p(x) $ 是数域 $ \mathbb{K}  $上的不可约多项式,\   $f_{i}(x)(i=   1,\ 2,\  \cdots,\  m)  $是 $ \mathbb{K} $ 上多项式且 $ p(x) \mid f_{1}(x) f_{2}(x) \cdots$ $f_{m}(x) ,\ $ 则 $ p(x)  $必可整除其中某个  $f_{i}(x) .$
+		\item 设$  f(x) $ 是数域$  \mathbb{K}  $上的多项式且 $ \operatorname{deg} f(x) \geqslant 1 ,\ $ 则\\
+		(1)$ f(x)  $可以分解为 $ \mathbb{K}  $上的有限个不可约多项式之积;\\
+		(2) 若
+		$$\begin{aligned}
+			f(x) &=p_{1}(x) p_{2}(x) \cdots p_{s}(x) \\
+			&=q_{1}(x) q_{2}(x) \cdots q_{t}(x)
+		\end{aligned}$$
+		是  $f(x)$  的两个不可约分解,\  即  $p_{i}(x),\  q_{i}(x)  $都是  $\mathbb{K} $ 上次 数大于 $0$ 的不可约多项式,\  则 $ s=t ,\ $且经过适当调换因 式的次序以后有:$ q_{i}(x) \sim p_{i}(x)(i=1,\ 2,\  \cdots,\  s) .$
+		\item 设 $f(x),\  g(x)$  是数域 $ \mathbb{K}$  上的两个多项式. 在它们的标准 分解式中适当添加零次项,\ 
+		$$f(x)=c_{1} p_{1}(x)^{\alpha_{1}} p_{2}(x)^{\alpha_{2}} \cdots p_{n}(x)^{\alpha_{n}}$$
+		$$g(x)=c_{2} p_{1}(x)^{\beta_{1}} p_{2}(x)^{\beta_{2}} \cdots p_{n}(x)^{\beta_{n}}$$
+		$\text { 其中,\  } n=\max \{\operatorname{deg} f(x),\  \operatorname{deg} g(x)\},\  \alpha_{i} \geqslant 0,\  \beta_{i} \geqslant 0(i=1,\ 2,\  \cdots,\  n) .$ \\
+		$\text { 则 } f(x),\  g(x) \text { 的最大公因式 }$
+		$$\quad(f(x),\  g(x))=p_{1}(x)^{k_{1}} p_{2}(x)^{k_{2}} \cdots p_{n}(x)^{k_{n}} $$
+		$\text { 其中,\  } k_{i}=\min \left\{\alpha_{i},\  \beta_{i}\right\}(i=1,\ 2,\  \cdots,\  n) . $\\
+		$f(x),\  g(x) \text { 的最小公倍式 }$
+		$${[f(x),\  g(x)]=p_{1}(x)^{h_{1}} p_{2}(x)^{h_{2}} \cdots p_{n}(x)^{h_{n}}}$$
+		$\text { 其中,\  } h_{i}=\max \left\{\alpha_{i},\  \beta_{i}\right\}(i=1,\ 2,\  \cdots,\  n) .$
+		
+		\item 数域 $ \mathbb{K} $ 上的多项式$  f(x) $ 没有重因式的充分必要条件是:  $f(x)  $与 $ f^{\prime}(x)  $互素.
+		\item 设  $d(x)=\left(f(x),\  f^{\prime}(x)\right) ,\ $ 则  $\frac{f(x)}{d(x)} $ 是一个没有重因式的 多项式,\  且这个多项式的不可约因式与  $f(x) $ 的不可约因 式相同 (不计重数).
+		\item 设  $\operatorname{deg} f(x)=n \geqslant 1 ,\ $ 若  $f^{\prime}(x) \mid f(x) ,\  $则  $f(x) $ 有 $ n$  重根.
+		\item$ g(x)^{2} \mid f(x)^{2} $ 的充分必要条件是:$  g(x) \mid f(x) .$
+		\item  $a \neq 0 ,\ $ 则 $ \left(x^{d}-a^{d}\right) \mid\left(x^{n}-a^{n}\right)  $的充分必要条件是:  $d \mid n .$
+		\item 设  $f(x) \in \mathbb{K}[x],\  b \in \mathbb{K} ,\  $则存在$  g(x) \in \mathbb{K}[x] ,\ $ 使
+		$$f(x)=(x-b) g(x)+f(b)$$
+		特别地,\  $ b$  是 $ f(x)  $的根当且仅当 $ (x-b) \mid f(x) .$
+		\item 设 $ f(x)$  是数域 $ \mathbb{K} $ 上的不可约多项式且  $\operatorname{deg} f(x) \geqslant 2 ,\ $ 则 $ f(x)$  在$  \mathbb{K}$  中没有根.
+		\item 设 $ f(x) $ 是数域 $ \mathbb{K} $ 上的  $n$  次多顶式,\  则 $ f(x) $ 在 $ \mathbb{K}  $中最 多只有 $ n $ 个根.
+		\item 设  $f(x),\  g(x)  $是数域$  \mathbb{K}  $上的次数不超过 $ n $ 的两个多项 式,\  若存在$  \mathbb{K}$  上$  n+1  $个不同的数 $ b_{1},\  b_{2},\  \cdots,\ $ $ b_{n+1} ,\  $使
+		$$f\left(b_{i}\right)=g\left(b_{i}\right),\  i=1,\ 2,\  \cdots,\  n+1$$
+		则 $ f(x)=g(x) .$
+		\item 代数基本定理: 每个次数大于$ 0$ 的复数域上的多项式都 至少有一个复数根.
+		\item 复数域上的一元  $n  $次多项式恰有  $n$  个复根 (包括重根). 复数域上的不可约多项式都是一次多项式.\\
+		复数域上的一元$  n  $次多项式必可分解为一次因式的乘 积.
+		
+		\item Vieta 定理: 若数域  $\mathbb{K}$  上的一元 $ n  $次多项式
+		$$f(x)=a_{n} x^{n}+a_{n-1} x^{n-1}+\cdots+a_{1} x+a_{0}$$
+		在$ \mathbb{K} $ 上有  $n $ 个根  $x_{1},\  x_{2},\  \cdots,\  x_{n} ,\ $ 则
+		$$\begin{aligned}
+			\sum_{i=1}^{n} x_{i} &=-\frac{a_{n-1}}{a_{n}} \\
+			\sum_{1 \leqslant i<j \leqslant n}^{n} x_{i} x_{j} &=\frac{a_{n-2}}{a_{n}} \\
+			\sum_{1 \leqslant i<j<k \leqslant n}^{n} x_{i} x_{j} x_{k} &=-\frac{a_{n-3}}{a_{n}} \\
+			\cdots \cdots \cdots \\
+			x_{1} x_{2} \cdots x_{n} &=(-1)^{n} \frac{a_{0}}{a_{n}}
+		\end{aligned}$$
+		
+		\item 考虑形如 $ x^{3}+p x+q=0  $的三次方程. 引入新的末 知数 $ x=u+v ,\ $ 则 $ x^{3}=u^{3}+v^{3}+3 u v(u+v)=   u^{3}+v^{3}+3 u v x ,\ $ 即  $x^{3}-3 u v x-\left(u^{3}+v^{3}\right)=0 ,\  $比较 系数可得:  
+		$$\left\{\begin{aligned}
+			-3 u v &=p\left(u^{3} v^{3}=-\frac{p^{3}}{27}\right) \\ u^{3}+v^{3} &=-q 
+		\end{aligned}\right. ,\ $$
+		于是,\   $u^{3},\  v^{3}$  是二次方程 $ y^{2}+q y-\frac{p^{3}}{27}=0  $的根,\  二次方程的判别式 除以$ 4 $以后仍用 $ \Delta $ 表示,\ $  \Delta=\frac{q^{2}}{4}+\frac{p^{3}}{27} . $那么三次方程  $x^{3}+p x+q=0  $的求根公式可表达如下:
+		$$\left\{\begin{array}{l}
+			x_{1}=\sqrt[3]{-\frac{q}{2}+\sqrt{\Delta}}+\sqrt[3]{-\frac{q}{2}-\sqrt{\Delta}} \\
+			x_{2}=\omega \sqrt[3]{-\frac{q}{2}+\sqrt{\Delta}}+\omega^{2} \sqrt[3]{-\frac{q}{2}-\sqrt{\Delta}} \\
+			x_{3}=\omega^{2} \sqrt[3]{-\frac{q}{2}+\sqrt{\Delta}}+\omega \sqrt[3]{-\frac{q}{2}-\sqrt{\Delta}} \\
+			\text { 其中,\  } w=-\frac{1}{2}+\frac{\sqrt{3}}{2} \text { i. }
+		\end{array}\right.$$
+		四次方程也有求根公式,\  而五次及更高次的一般方程,\  没 有求根公式.
+		\item 设 $ f(x)=a_{n} x^{n}+a_{n-1} x^{n-1}+\cdots+a_{1} x+a_{0}  $是实系数 多项式,\  若复数$  a+b \mathrm{i}(b \neq 0)$  是它的根,\  则$  a-b \mathrm{i}  $也是 它的根.
+		\item 实数域上的不可约多项式为一次或二次多项式$  a x^{2}+   b x+c\left(b^{2}-4 a c<0\right) .$
+		实数域上的多顶式$  f(x)  $必可分解为有限个一次因式及 不可约二次因式的乘积.
+		\item 设有$ n $ 次整系数多项式  $f(x)=a_{n} x^{n}+a_{n-1} x^{n-1}+\cdots   +a_{1} x+a_{0} ,\  $则有理数 $ \frac{q}{p} $ 是 $ f(x) $ 的根的必要条件是$  p\left|a_{n},\  q\right| a_{0} ,\ $ 其中,\  $ p,\  q  $是互素的整数.
+		\item 设有$  n  $次整系数多项式 $ f(x)=a_{n} x^{n}+a_{n-1} x^{n-1}+\cdots   +a_{1} x+a_{0} ,\ $ 若$  a_{n},\  a_{n-1},\  \cdots,\  a_{1},\  a_{0} $ 的最大公约数等于$1 ,\ $ 则称  $f(x) $ 为本原多项式.\\
+		Gauss 引理: 两个本原多项式之积仍是本原多项式.
+		
+		\item 若整系数多项式  $f(x)$  在有理数域上可约,\  则它必可分解 为两个次数较低的整系数多项式之积.
+		\item Eisenstein 判别法: 设有 $ n(n \geqslant 1) $ 次整系数多项式  $f(x)=a_{n} x^{n}+a_{n-1} x^{n-1}+\cdots+a_{1} x+a_{0} ,\ $ 若$  p \mid a_{i}(i=   0,\ 1,\ 2,\  \cdots,\  n-1) ,\  $但  $p $ 不能整除  $a_{n}  $且  $p^{2} $ 不能整除  $a_{0} ,\  $则  $f(x)  $在有理数域上不可约.
+		\item 设 $ n \geqslant 1 ,\  $则  $x^{n}-2  $在有理数域上不可约.这说明,\  存 在任意次的有理数域上的不可约多项式.
+		\item 若  $p  $是萦数,\  则 $ f(x)=x^{p-1}+x^{p-2}+\cdots+x+1  $在有 理数域上不可约.
+		\item  $f(x)=1+x+\frac{x^{2}}{2 !}+\cdots+\frac{x^{n}}{n !} ,\  $当  n  是素数时,\ $  f(x)  $在 有理数域上不可约.
+		\item 若  $f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right)  $和  $g\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right)$  都是数域 $ \mathbb{K} $ 上 的  $n$  元多项式且非$ 0 ,\ $ 则按字典排列法排列后乘积的首 项等于 $ f  $的首项与  $g $ 的首项之积.
+		\item 若 $ f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right) \neq 0,\  g\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right) \neq 0 ,\  则  f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right) g\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right) \neq 0 .$
+		\item 若  $h\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right) \neq 0 ,\ $ 且
+		$$\begin{aligned}
+			& f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right) h\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right) \\
+			=& g\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right) h\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right)
+		\end{aligned}$$
+		则  $f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right)=g\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right) .$
+		\item 设  $f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right)  $是数域  $\mathbb{K}$  上的 $ n  $元非$ 0$ 多项式,\  则必存在 $ \mathbb{K}$  中的元  $k_{1},\  k_{2},\  \cdots,\  k_{n} ,\ $ 使 $ f(k_{1},\  k_{2},\ $ $\cdots,\  k_{n}) \neq \boldsymbol{c}^{2} $
+		\item 数域  $\mathbb{K}  $上的两个$  n  $元多项式 $ f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right) $ 和$  g\left(x_{\text {数 }}\right.   \left.x_{2},\  \cdots,\  x_{n}\right) $ 相等的充分必要条件是:对一切 $ k_{1},\  k_{2},\  \cdots  :  k_{n} \in \mathbb{K} ,\  $均有
+		$$f\left(k_{1},\  k_{2},\  \cdots,\  k_{n}\right)=g\left(k_{1},\  k_{2},\  \cdots,\  k_{n}\right)$$
+		\item 设 $ f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right)  $是数域  $\mathbb{K}  $上的 $ n  $元多项式,\  若对任 意的  $i \neq j(1 \leqslant i,\  j \leqslant n) ,\ $ 均有
+		$$\begin{aligned}
+			& f\left(x_{1},\  \cdots,\  x_{i},\  \cdots,\  x_{j},\  \cdots,\  x_{n}\right) \\
+			=& f\left(x_{1},\  \cdots,\  x_{j},\  \cdots,\  x_{i},\  \cdots,\  x_{n}\right)
+		\end{aligned}$$
+		则称$  f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right) $ 是  $\mathbb{K} $ 上的 $ n $ 元对称多项式.
+		设 $ k_{1},\  k_{2},\  \cdots,\  k_{n} $ 是数组  $(1,\ 2,\  \cdots,\  n)  $的一个全排列,\  则
+		$$f\left(x_{k_{1}},\  x_{k_{2}},\  \cdots,\  x_{k_{n}}\right)=f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right)$$
+		称 $ x_{1} \rightarrow x_{k_{1}},\  x_{2} \rightarrow x_{k_{2}},\  \cdots,\  x_{n} \rightarrow x_{k_{n}} $ 是末定元的一个 置换,\  对称多项式在末定元的任一置换下不变.
+		\item  $n$  元初等对称多项式:
+		$$\begin{array}{l}
+			\sigma_{1}=x_{1}+x_{2}+\cdots+x_{n}=\sum\limits_{i=1}^{n} x_{i} \\
+			\sigma_{2}=x_{1} x_{2}+x_{1} x_{3}+\cdots+x_{n-1} x_{n}=\sum\limits_{1 \leqslant i<j \leqslant n} x_{i} x_{j}\\
+			\cdots\cdots\cdots\\
+			\sigma_{n}=x_{1} x_{2} \cdots x_{n}
+		\end{array}$$
+		对称多项式基本定理: 设  $f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right) $ 是数域 $ \mathbb{K}$  上 的$  n  $元对称多项式,\  则必存在 $ \mathbb{K}  $上唯一的一个多项式$ g\left(y_{1},\  y_{2},\  \cdots,\  y_{n}\right) ,\  $使得
+		$$f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right)=g\left(\sigma_{1},\  \sigma_{2},\  \cdots,\  \sigma_{n}\right)$$
+		\item 记
+		$$\begin{array}{l}
+			s_{0}=n \\
+			s_{k}=x_{1}^{k}+x_{2}^{k}+\cdots+x_{n}^{k}(k \geqslant 1)
+		\end{array}$$
+		设
+		$$\begin{aligned}
+			f(x) &=\left(x-x_{1}\right)\left(x-x_{2}\right) \cdots\left(x-x_{n}\right) \\
+			&=x^{n}-\sigma_{1} x^{n-1}+\sigma_{2} x^{n-2}+\cdots+(-1)^{n} \sigma_{n}
+		\end{aligned}$$
+		则
+		$$x^{k-1} f^{\prime}(x)=\left(s_{0} x^{k}+s_{1} x^{k-1}+\cdots+s_{k}\right) f(x)+g(x)$$
+		其中,\  $ \operatorname{deg} g(x) \leqslant n .$
+		\item Newton 公式: (记号同上) 若 $ k \leqslant n-1 ,\  $则	
+		$$\begin{array}{c}
+			s_{k}-s_{k-1} \sigma_{1}+s_{k-2} \sigma_{2}-\cdots \\
+			+(-1)^{k-1} s_{1} \sigma_{k-1}+(-1)^{k} k \sigma_{k}=0
+		\end{array}$$
+		若 $ k \geqslant n ,\ $ 则
+		$$	s_{k}-s_{k-1} \sigma_{1}+s_{k-2} \sigma_{2}-\cdots+(-1)^{n} s_{k-n} \sigma_{n}=0$$
+		\item 设$  d(x)  $是  $f(x),\  g(x) $ 的最大公因式,\  则 $ d(x) \neq 1$  的充 分必要条件是存在$  \mathbb{K} $ 上的非零多项式 $ u(x),\  v(x) ,\  $使
+		$$f(x) u(x)=g(x) v(x),\ $$
+		且
+		$$\operatorname{deg} u(x)<\operatorname{deg} g(x),\  \operatorname{deg} v(x)<\operatorname{deg} f(x) .$$
+		\item 设
+		$$\begin{array}{l}
+			f(x)=a_{0} x^{n}+a_{1} x^{n-1}+\cdots+a_{n-1} x+a_{n} \\
+			g(x)=b_{0} x^{m}+b_{1} x^{m-1}+\cdots+b_{m-1} x+b_{m}
+		\end{array}$$
+		以下 $ m+n $ 阶行列式称为 $ f(x) $ 与$  g(x)  $的结式,\  或 Sylvester 行列式.
+		$$\begin{array}{l}
+			R(f,\  g)= \\
+			\left|\begin{array}{ccccccccc}
+				a_{0} & a_{1} & a_{2} & \ldots & \ldots & a_{n} & 0 & \ldots & 0 \\
+				0 & a_{0} & a_{1} & \cdots & \ldots & a_{n-1} & a_{n} & \ldots & 0 \\
+				0 & 0 & a_{0} & \cdots & \cdots & a_{n-2} & a_{n-1} & \ldots & 0 \\
+				\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\
+				0 & 0 & \cdots & 0 & a_{0} & \ldots & \ldots & \ldots & a_{n} \\
+				b_{0} & b_{1} & b_{2} & \cdots & \cdots & \ldots & b_{m} & \ldots & 0 \\
+				0 & b_{0} & b_{1} & \cdots & \cdots & \ldots & b_{m-1} & b_{m} & \cdots \\
+				\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\
+				0 & \cdots & 0 & b_{0} & b_{1} & \cdots & \ldots & \cdots & b_{m}
+			\end{array}\right| \\
+			=a_{0}^{m} b_{0}^{n} \prod_{j=1}^{m} \prod_{i=1}^{n}\left(x_{i}-y_{j}\right) \\
+		\end{array}$$
+		
+		其中,\   $x_{1},\  x_{2},\  \cdots,\  x_{n}$  是 $ f(x)  $的根,\  $ y_{1},\  y_{2},\  \cdots,\  y_{m} $ 是  $g(x)$  的根.
+		
+		\item 多项式  $f(x)$  与$  g(x)  $在复数域中有公共根的充分必要条 件是:它们的结式 $ R(f,\  g)=0 . $反之,\  两者互素 (没有公 共根) 的充分必要条件是: $ R(f,\  g) \neq 0 .$
+		\item 设 $ \lambda $ 是任意复数,\  则
+		$$\begin{aligned}
+			R(f(x),\  g(x)(x-\lambda)) &=(-1)^{n} f(\lambda) R(f,\  g) \\
+			R(f(x),\  x-\lambda) &=(-1)^{n} f(\lambda)
+		\end{aligned}$$
+		\item 多项式$  f(x)=a_{0} x^{n}+a_{1} x^{n-1}+\cdots+a_{n-1} x+a_{n} $ 的判 别式:
+		$$\begin{aligned}
+			\Delta(f) &=(-1)^{\frac{1}{2} n(n-1)} a_{0}^{-1} R\left(f,\  f^{\prime}\right) \\
+			&=a_{0}^{2 n-2} \prod_{1 \leqslant i<j \leqslant n}\left(x_{i}-x_{j}\right)^{2}
+		\end{aligned}$$
+		其中,\  $ x_{1},\  x_{2},\  \cdots,\  x_{n}  $是  $f(x) $ 的根.
+		$f(x) $ 有重根的充分必要条件是: 它的判别式 $ \Delta(f)=0 .$
+		\item 设 $ f(x)  $是实系数多项式,\ \\
+		(1) 若$ \Delta(f)<0 ,\ $ 则$  f(x)$  无重根且有奇数对虚根;\\
+		(2) 若 $ \Delta(f)>0 ,\  $则 $ f(x)  $无重根且有偶数对虚根.
+		\item $ R\left(f,\  g_{1} g_{2}\right)=R\left(f,\  g_{1}\right) R\left(f,\  g_{2}\right) .$
+		\item 设 $ f(x)=x^{2 n+1}-1,\  f(x)  $的不等于$ 1 $的根为$  \omega_{1},\ $ $\omega_{2} ,\   \cdots,\  w_{2 n} ,\ $ 则
+		$$\left(1-\omega_{1}\right)\left(1-\omega_{2}\right) \cdots\left(1-\omega_{2 n}\right)=2 n+1$$
+		\item 设  $\varepsilon=\mathrm{e}^{\mathrm{i} \frac{2 \pi}{n}}=\cos \frac{2 \pi}{n}+\mathrm{i} \sin \frac{2 \pi}{n}  $是$ 1 $的  $n$  次单位根,\  则 $ \varepsilon^{m k}(k=1,\ 2,\  \cdots,\  n) $ 是 $ x^{n}-1=0 $ 的全部根的充分必 要条件是: $ (m,\  n)=1 .$
+		\item 设  $f(x) $ 是次数小于  $n $ 的多项式,\   $\varepsilon=\cos \frac{2 \pi}{n}+i \sin \frac{2 \pi}{n} .$ 则
+		$$f(0)=\frac{1}{n} \sum_{k=0}^{n-1} f\left(\varepsilon^{k}\right)$$
+		\item 实系数三次方程$  x^{3}+p x^{2}+q x+r=0 $ 的根的实部全是 负数的充分必要条件是:
+		$$p>0,\  \quad r>0,\  \quad p q>r$$
+		\section{特征值}
+		\item 设$  \varphi $ 是数域  $\mathbb{K}  $上的线性空间 $ V $ 上的线性变换,\ 若  $\lambda \in \mathbb{K},\  x \in V,\  x \neq 0 ,\ $ 使  $\varphi(x)=\lambda x ,\  $则称  $\lambda  $是线 性变换  $\varphi$  的一个 特征值,\  向量 $ x$  称为  $\varphi  $属于特征值 $ \lambda$  的特征向量.  $\varphi  $属于特征值 $ \lambda  $的特征向量全体加上零向 量构成$  V  $的子空间,\  记为 $ V_{\lambda} ,\ $ 称为 $ \varphi  $属于特征值 $ \lambda $ 的 特征子空间 $ V_{\lambda} $ 是  $\varphi $ 的不变子空间.
+		\item 设 $ \boldsymbol{A}$  是数域 $ \mathbb{K} $ 上的 $ n  $阶方阵,\  若存在  $\lambda \in \mathbb{K} $ 以及 $ n  $维 非雩列向量  $\alpha ,\  $使得  $\boldsymbol{A} \alpha=\lambda \alpha ,\ $ 则称  $\lambda  $是矩阵  $\boldsymbol{A}$  的一 个特征值,\  $\alpha  $为  $\boldsymbol{A} $ 关于特征值  $\lambda  $的特征向量. 齐次线性 方程组 $ \left(\lambda \boldsymbol{I}_{n}-\boldsymbol{A}\right) \boldsymbol{x}=\mathbf{0}$  的解空间 $ V_{\lambda} $ 称为  $\boldsymbol{A}  $关于特征 值  $\lambda $ 的特征子空间.  $\left|\lambda \boldsymbol{I}_{n}-\boldsymbol{A}\right|  $称为  $\boldsymbol{A} $ 的特征多项式.
+		
+		\item 若  $\boldsymbol{B} $ 与 $ \boldsymbol{A} $ 相似,\  则 $ \boldsymbol{B}$  与  $\boldsymbol{A}$  具有相同的特征多项式,\  从 而具有相同的特征值 (记重数).
+		$$\begin{aligned}
+			\left|\lambda \boldsymbol{I}_{n}-\boldsymbol{B}\right| &=\left|\boldsymbol{P}^{-1}\left(\lambda \boldsymbol{I}_{n}-\boldsymbol{A}\right) \boldsymbol{P}\right| \\
+			&=\left|\boldsymbol{P}^{-1}\right|\left|\lambda \boldsymbol{I}_{n}-\boldsymbol{A}\right||\boldsymbol{P}|=\left|\lambda \boldsymbol{I}_{n}-\boldsymbol{A}\right|
+		\end{aligned}$$
+		
+		若 $ \varphi  $是$  V  $上的线性变换，它在某组基下的表示矩阵为  $\boldsymbol{A} ,\  $则  $\left|\lambda \boldsymbol{I}_{n}-\boldsymbol{A}\right|  $与基或表示矩阵的选取无关.  $\left|\lambda \boldsymbol{I}_{n}-\boldsymbol{A}\right| $ 也称为  $\varphi  $的特征多项式.
+		\item 任一复数方阵必 (复) 相似于一上 (或下) 三角阵.
+		上 (下) 三角阵的特征值等于主对角线上的全部元素.
+		若数域 $ \mathbb{K}$  上的$  n  $阶方阵  $\boldsymbol{A} $ 的特征值全在  $\mathbb{K} $ 中,\  则存在  $\mathbb{K} $ 上的非异阵  $\boldsymbol{P} ,\ $ 使  $\boldsymbol{P}^{-1} \boldsymbol{A P}$  是一个上 (下) 三角阵.
+		\item 设矩阵  $\boldsymbol{A} $ 是 $ n$  阶方阵,\  $ \lambda_{1},\  \lambda_{2},\  \cdots,\  \lambda_{n}$  是  $\boldsymbol{A}  $的全部特征: 值,\  又  $f(x)  $是一个多项式,\  则  $f\left(\lambda_{1}\right),\  f\left(\lambda_{2}\right),\ $ $\cdots,\  f\left(\lambda_{n}\right)  $是  $f(\boldsymbol{A})  $的全部特征值.
+		\item 方阵的所有特征值之和等于方阵的迹,\  即主对角线上所 有元系之和; 而所有特征值之积等于方阵的行列式.
+		\item 设  $n$  阶方阵  $\boldsymbol{A} $ 适合一个多项式 $ g(x) ,\ $ 即  $g(\boldsymbol{A})=\boldsymbol{O} ,\ $ 则  $\boldsymbol{A} $ 的任一特征值  $\lambda $ 也必适合$  g(x) ,\  $即  $g(\lambda)=0 .$
+		\item 设 $ n$  阶方阵$  \boldsymbol{A}$  是可逆阵,\ $  \boldsymbol{A}  $的全部特征值为 $ \lambda_{1},\  \lambda_{2} ,\   \cdots,\  \lambda_{n} ,\  $则  $\boldsymbol{A}^{-1} $ 的全部特征值为 $ \lambda_{1}^{-1},\  \lambda_{2}^{-1},\  \cdots,\  \lambda_{n}^{-1} .$
+		\item 设  $\boldsymbol{A} $ 是  $n $ 阶方阵,\  则  $\boldsymbol{A} $ 相似于对角阵的充分必要条件 是: $ \boldsymbol{A}$  有 $ n$  个线性无关的特征向量. (这样的矩阵称为可 对角化矩阵).
+		\item 若$  \lambda_{1},\  \lambda_{2},\  \cdots,\  \lambda_{k}$  为数域  $\mathbb{K}  $上 $ n  $维线性空间  $V $ 上的线 性变换$  \varphi $ 的不同的特征值,\  则
+		$$V_{1}+V_{2}+\cdots+V_{k}=V_{1} \oplus V_{2} \oplus \cdots \oplus V_{k}$$
+		\item 线性变换 $ \varphi $ 属于不同特征值的特征向量必线性无关. 若 $ n$  维线性空间  $V$  上的线性变换  $\varphi $ 有 $ n  $个不同的特征 值，则  $\varphi  $必可对角化.
+		\item 设 $ \varphi $ 是  $n$  维线性空间$  V $ 上的线性变换,\   $\lambda_{0}  $是  $\varphi  $的一 个特征值,\   $V_{\lambda_{0}} $ 是属于  $\lambda_{0} $ 的特征子空间,\  称  $\operatorname{dim} V_{\lambda_{0}} $ 为  $\lambda_{0}$  的度数或几何重数.$  \lambda_{0} $ 作为 $ \varphi  $的特征多项式根的重数 称为重数或代数重数. $ \lambda_{0}  $的几何重数总是小于等于其代 数重数.
+		\item 若 $ \varphi $ 的任一特征值的几何重数等于代数重数,\  则称 $ \varphi $ 有 完全的特征向量系.$ \varphi  $可对角化的充分必要条件是: $ \varphi$  有完全的特征向量系.
+		\item 若$  n  $阶方阵$  \boldsymbol{A}  $(或  $n$  维线性空间$  V  $上的线性变换 $ \varphi $ ) 适 合一个非零首一多项式  $m(x) ,\  $且 $ m(x) $ 是  $\boldsymbol{A}$(  或  $\varphi$)  所适 合的非零多项式中次数最小者,\  则称  $m(x)  $是 $ \boldsymbol{A} $ (或  $\varphi) $ 的一个极小多项式或最小多项式.
+		\item 若 $ f(x) $ 是$  \boldsymbol{A} $ 适合的一个多项式,\  则$  A $ 的极小多项式 $ m(x)$  整除 $ f(x) . $任意 $ n  $阶方阵的极小多项式必唯一.
+		\item  $n $ 阶方阵 $ \boldsymbol{A}  $为可逆矩阵的充分必要条件是:  $\boldsymbol{A} $ 的极小多 项式的常数项不为 $0 .$
+		\item 相似的矩阵具有相同的极小多项式.
+		\item 设 $ \boldsymbol{A} $ 是一个分块对角阵,\ 
+		
+		$$\boldsymbol{A}=\left(\begin{array}{llll}
+			\boldsymbol{A}_{1} & & & \\
+			& \boldsymbol{A}_{2} & & \\
+			& & \ddots & \\
+			& & & \boldsymbol{A}_{k}
+		\end{array}\right)$$
+		
+		其中$  \boldsymbol{A}_{i}$  都是方阵,\  则 $ \boldsymbol{A}  $的极小多项式等于诸$  \boldsymbol{A}_{i}  $的极 小多项式的最小公倍式.
+		\item 设  $m(x) $ 是  $n $ 阶方阵  $\boldsymbol{A}  $的极小多项式,\   $\lambda_{0}  $是 $ \boldsymbol{A}$  的特征 值,\  则  $\left(x-\lambda_{0}\right) \mid m(x) .$
+		\item Cayley-Hamilton(凯莱-哈密顿) 定理: 设 $ \boldsymbol{A} $ 是数域 $ \mathbb{K}  $上的 $ n$  阶方阵,\  $ f(x) $ 是$ \boldsymbol{A} $ 的特征多项式,\  则  $f(\boldsymbol{A})=\boldsymbol{O} . $\\
+		\textbf{推论一}:$  n $ 阶方阵$  A  $的极小多项式是其特征多项式的因 式. 特别地,\   $\boldsymbol{A}  $的极小多项式的次数不超过 $ n .$\\
+		\textbf{推论二}:  $n $ 阶方阵 $\boldsymbol{A}  $的极小多项式和特征多项式有相同 的根 (不计重数).\\
+		\textbf{推论三}: 设 $ \varphi $ 是 $ n $ 维线性空间 $ V$  上的线性变换,\  $ f(x) $ 是  $\varphi $ 的特征多项式,\  则 $ f(\varphi)=0 .$
+		\item Gerschgorin(戈氏) 圆盘第一定理: $ \boldsymbol{A}  $是  $n  $阶复方阵$  \boldsymbol{A}=\left(a_{i j}\right)_{n \times n} ,\ $ 则  $\boldsymbol{A} $ 的特征值在复平面上下列圆盘中: $ \left|z-a_{i i}\right| \leqslant R_{i},\  \quad i=1,\ 2,\  \cdots,\  n $
+		其中,\ 
+		
+		$$\begin{aligned}
+			R_{i} &=\sum_{j \neq i}^{n}\left|a_{i j}\right| \\
+			&=\left|a_{i 1}\right|+\cdots+\left|a_{i,\  i-1}\right|+\left|a_{i,\  i-1}\right|+\cdots+\left|a_{i n}\right|
+		\end{aligned}$$
+		
+		\item 设 $f(x)=a_{n} x^{n}+a_{n-1} x^{n-1}+\cdots+a_{1} x+a_{0}$  是  $n $ 次 复系数多项式,\  则  $f(x) $ 的 $ n $ 个根 $ \lambda_{1},\  \lambda_{2},\  \cdots,\  \lambda_{n} $ 都是$  a_{n},\  a_{n-1},\  \cdots,\  a_{1},\  a_{0} $ 的连续函数.
+		\item 戈氏圆盘第二定理: 设矩阵$  \boldsymbol{A}=\left(a_{i j}\right)_{n \times n}$  的 $ n $ 个戈氏 圆盘分成若干个连通区域，若其中一个连通区域包含有  $k$  个戈氏圆盘,\  则有且只有 $ k$  的特征值落在这个连通区 域内. (若两个戈氏圆盘重合,\  需计重数. 又若特征值为重 根,\  也计重数.)
+		\item  $n$  阶复方阵$  \boldsymbol{A}  $可对角化的$ 6$ 条判据:\\
+		(1) 有  $n$  个不同的特征值;\\
+		(2) 有  $n$  个线性无关的特征向量;\\
+		(3) $ \mathbb{C}^{n} $ 是所有特征子空间的直和;\\
+		(4) 有完全的特征向量系 (任一特征值的几何重数等于代数重数);\\
+		(5) 极小多项式无重根;\\
+		(6) Jordan 块都是一阶的 (初等因子都是一次多项式).
+		\section{相似标准型}
+		\item 设  $\boldsymbol{A}(\lambda)=\left(a_{i j}(\lambda)\right)_{m \times n} ,\ $ 它的元素  $a_{i j}(\lambda) $ 是数域  $\mathbb{K}$  上 以  $\lambda $ 为末定元的多项式,\  这样的矩阵称之为多项式矩阵 或$ \lambda$ -矩阵.
+		\item  $\lambda$ -矩阵的初等变换、相抵、初等 $ \lambda$ -矩阵、逆  $\lambda$ -矩阵 (略). (第二类是乘以  $\mathbb{K}$  中的非零常数  $c ,\ $ 第三类是乘以 $ \mathbb{K}  $中 的多项式$  f(\lambda) $ 后再加到另一行 (列) 上去.)
+		\item  $\left(\begin{array}{ll}
+			\lambda & 0 \\ 
+			0 & 1
+		\end{array}\right)$  不是可逆  $\lambda $-矩阵,\  因为矩阵  $\left(\begin{array}{cc}
+			\lambda^{-1} & 0 \\
+			0 & 1
+		\end{array}\right) $ 不是 $ \lambda$ -矩阵  $\left(\lambda^{-1}\right.$ 不是多顶式).
+		\item 设  $\boldsymbol{M}(\lambda)$  是一个 $ n $ 阶  $\lambda $-矩阵,\  则  $\boldsymbol{M}(\lambda)  $可以化为如下 形状:
+		
+		$\boldsymbol{M}(\lambda)=\boldsymbol{M}_{m} \lambda^{m}+\boldsymbol{M}_{m-1} \lambda^{m-1}+\cdots+\boldsymbol{M}_{0}$
+		
+		其中$  \boldsymbol{M}_{i}  $为数域  $\mathbb{K} $ 上的  $n$  阶数字矩阵. 因此,\  一个多项式矩阵可以化为系数为矩阵的多项式,\  反之亦然.
+		若  $\boldsymbol{M}(\lambda)$  是可逆  $\lambda $-矩阵,\  则 $ \boldsymbol{M}_{0}$ 是非异阵.
+		\item 设 $ \boldsymbol{M}(\lambda) $ 与  $\boldsymbol{N}(\lambda)$  是两个  $n  $阶  $\lambda$ -矩阵且都不等于零. 又 设  $\boldsymbol{B}$  为  $n $ 阶数字矩阵,\  则必存在 $ \lambda$ -矩阵 $ \boldsymbol{Q}(\lambda)  $及  $\boldsymbol{S}(\lambda)$  和数字矩阵 $\boldsymbol{R}$  及$  \boldsymbol{T} ,\ $ 使下式成立:
+		
+		$$\begin{array}{c}
+			\boldsymbol{M}(\lambda)=(\lambda \boldsymbol{I}-\boldsymbol{B}) \boldsymbol{Q}(\lambda)+\boldsymbol{R} \\
+			\boldsymbol{N}(\lambda)=\boldsymbol{S}(\lambda)(\lambda \boldsymbol{I}-\boldsymbol{B})+\boldsymbol{T}
+		\end{array}$$
+		
+		\item 设$  \boldsymbol{A},\  \boldsymbol{B}  $是数域 $ \mathbb{K} $ 上的矩阵,\  则$  \boldsymbol{A} $ 与 $ \boldsymbol{B}$  相似的充分必 要条件是  $\lambda$ -矩阵$  \lambda \boldsymbol{I}-\boldsymbol{A}$ 与$  \lambda \boldsymbol{I}-\boldsymbol{B} $ 相抵.
+		\item 设$  \boldsymbol{A}(\lambda)=\left(a_{i j}(\lambda)\right)_{m \times n} $ 是任一非零$  \lambda$ -矩阵,\  则$  \boldsymbol{A}(\lambda)$  必相抵于这样的一个 $ \lambda $-矩阵 $ \boldsymbol{B}(\lambda)=\left(b_{i j}(\lambda)\right)_{m \times n} ,\ $ 其中$  b_{11}(\lambda) \neq 0 $ 且  $b_{11}(\lambda) $ 可整除 $ \boldsymbol{B}(\lambda)$  中的任一元素$  b_{i j}(\lambda) .$
+		\item 设$  \boldsymbol{A}(\lambda) $ 是一个 $ n $ 阶  $\lambda $-矩阵,\  则 $ \boldsymbol{A}(\lambda)$  相抵于对角阵
+		$$\operatorname{diag}\left\{d_{1}(\lambda),\  d_{2}(\lambda),\  \cdots,\  d_{r}(\lambda) ; 0,\  \cdots,\  0\right\}$$
+		
+		其中 $ d_{i}(\lambda)  $是非零首一多项式且 $ d_{i}(\lambda) \mid d_{i+1}(\lambda)(i=   1,\ 2,\  \cdots,\  r-1) .$ 上式中的对角 $ \lambda$ -矩阵称为  $\boldsymbol{A}(\lambda)$  的 法式或相抵标准型.
+		\item 任一 $ n  $阶可逆 $ \lambda $-矩阵都可表示为有限个初等  $\lambda$ -矩阵的 积.
+		\item 设  $\boldsymbol{A}$  是数域  $\mathbb{K} $ 上的$  n$  阶矩阵,\  则  $\boldsymbol{A}$  的特征矩阵  $\lambda \boldsymbol{I}_{n}-\boldsymbol{A}  $必相抵于
+		$$\operatorname{diag}\left\{1,\  \cdots,\  1,\  d_{1}(\lambda),\  d_{2}(\lambda),\  \cdots,\  d_{m}(\lambda)\right\}$$
+		其中 $ d_{i}(\lambda) \mid d_{i+1}(\lambda)(i=1,\ 2,\  \cdots,\  m-1) .$
+		\item 设$  \boldsymbol{A}(\lambda)$ 是 $ n $ 阶  $\lambda $-矩阵,\  $ k$  是小于等于 $ n  $的某个正整数. 如果  $\boldsymbol{A}(\lambda) $ 的所有  $k$  阶子式的最大公因子 (它是首一多 项式) 不等于零,\  则称这个多项式为  $\boldsymbol{A}(\lambda) $ 的  $k$  阶行列 式因子,\  记为 $ D_{k}(\lambda) .$ 如果  $\boldsymbol{A}(\lambda)  $的所有 $ k  $阶子式都等于零,\  则规定  $A(\lambda) $ 的$  k$  阶行列式因子为零.
+		\item 设  $D_{1}(\lambda),\  D_{2}(\lambda),\  \cdots,\  D_{r}(\lambda)  $是  $\lambda $-矩阵 $ \boldsymbol{A}(\lambda)$  的非零行列 式因子,\  则
+		$$\begin{array}{l}
+			D_{i}(\lambda) \mid D_{i+1}(\lambda),\  i=1,\ 2,\  \cdots,\  r-1 . \\
+			g_{1}(\lambda)=D_{1}(\lambda),\  g_{2}(\lambda)=D_{2}(\lambda) / D_{1}(\lambda),\  \cdots,\  g_{r}(\lambda)= \\
+			D_{r}(\lambda) / D_{r-1}(\lambda) \text { 称为 } \boldsymbol{A}(\lambda) \text { 的不变因子. }
+		\end{array}$$
+		\item 相抵的 $ \lambda $-矩阵有相同的行列式因子,\  从而有相同的不变 因子.
+		\item 设  $n $ 阶  $\lambda $-矩阵  $\boldsymbol{A}(\lambda) $ 的法式为
+		$$\Lambda=\operatorname{diag}\left\{d_{1}(\lambda),\  d_{2}(\lambda),\  \cdots,\  d_{r}(\lambda) ; 0,\  \cdots,\  0\right\}$$
+		其中  $d_{i}(\lambda) $ 是非零首一多项式且  $d_{i}(\lambda) \mid d_{i-1}(\lambda)(i=1 ,\   2,\  \cdots,\  r-1) ,\ $ 则 $\boldsymbol{A}(\lambda) $ 的不变因子为 $ d_{1}(\lambda),\  d_{2}(\lambda),\  \cdots ,\   d_{r}(\lambda) .$ 特别,\  法式和不变因子之间相互唯一确定.
+		\item 设 $ \boldsymbol{A}(\lambda),\  \boldsymbol{B}(\lambda)$  为 $ n$  阶 $\lambda $-矩阵,\  则  $\boldsymbol{A}(\lambda)  $与  $\boldsymbol{B}(\lambda) $ 相抵 当且仅当它们有相同的法式.
+		\item  $n $ 阶  $\lambda $-矩阵的法式与初等变换的选取无关.
+		\item 数域 $ \mathbb{K}$  上 $ n$  阶矩阵$  \boldsymbol{A}  $与  $\boldsymbol{B} $ 相似的充分必要条件是它 们的特征矩阵 $ \lambda \boldsymbol{I}-\boldsymbol{A} $ 和  $\lambda \boldsymbol{I}-\boldsymbol{B} $ 具有相同的行列式因 子或不变因子.
+		\item 设  $\mathbb{F} \subseteq \mathbb{K} $ 是两个数域,\   $\boldsymbol{A},\ \boldsymbol{B}$  是  $\mathbb{F}  $上的两个矩阵,\  则  $\boldsymbol{A}  $与$\boldsymbol{B}$  在  $\mathbb{F} $ 上相似的充分必要条件是它们在 $ \mathbb{K} $ 上相似.
+		\item 设 $ r$  阶矩阵
+		
+		$$\boldsymbol{F}=\left(\begin{array}{ccccc}
+			0 & 1 & 0 & \cdots & 0 \\
+			0 & 0 & 1 & \cdots & 0 \\
+			\vdots & \vdots & \vdots & & \vdots \\
+			0 & 0 & 0 & \cdots & 1 \\
+			-a_{r} & -a_{r-1} & -a_{r-2} & \cdots & -a_{1}
+		\end{array}\right)$$
+		
+		则
+		(1) $ \boldsymbol{F} $ 的行列式因子为
+		$$1,\  \cdots,\  1,\  f(\lambda)$$
+		其中共有  $r-1 $ 个 $ 1,\  f(\lambda)=\lambda^{r}+a_{1} \lambda^{r-1}+\cdots+a_{r}$ ,\   $\boldsymbol{F} $ 的不变因子组也由上式给出;\\
+		(2) $ \boldsymbol{F} $ 的极小多项式等于 $ f(\lambda) .$
+		\item 设$  \lambda $-矩阵  $\boldsymbol{A}(\lambda)  $相抵于对角  $\lambda $-矩阵
+		$$\operatorname{diag}\left\{d_{1}(\lambda),\  d_{2}(\lambda),\  \cdots,\  d_{n}(\lambda)\right\}$$
+		$\lambda $-矩阵 $ \boldsymbol{B}(\lambda)  $相抵于对角 $ \lambda $-矩阵
+		$$\operatorname{diag}\left\{d_{1}^{\prime}(\lambda),\  d_{2}^{\prime}(\lambda),\  \cdots,\  d_{n}^{\prime}(\lambda)\right\}$$
+		且  $d_{1}^{\prime}(\lambda),\  d_{2}^{\prime}(\lambda),\  \cdots,\  d_{n}^{\prime}(\lambda) $ 是 $ d_{1}(\lambda),\  d_{2}(\lambda),\  \cdots,\  d_{n}(\lambda) $ 的 一个置换 (若不计次序,\  这两组多项式完全相同),\  则  $\boldsymbol{A}(\lambda)  $相抵于$  \boldsymbol{B}(\lambda) .$
+		
+		\item 设 $ \boldsymbol{A} $ 是数域$  \mathbb{K}$  上的$  n$  阶方阵,\   $\boldsymbol{A}  $的不变因子组为
+		$$1,\  \cdots,\  1,\  d_{1}(\lambda),\  \cdots,\  d_{k}(\lambda)$$
+		其中  $\operatorname{deg} d_{i}(\lambda)=m_{i} ,\  $则  $\boldsymbol{A}$ 相似于下列分块对角阵:
+		$$\boldsymbol{F}=\left(\begin{array}{cccc}
+			\boldsymbol{F}_{1} & & & \\
+			& \boldsymbol{F}_{2} & & \\
+			& & \ddots & \\
+			& & & \boldsymbol{F}_{k}
+		\end{array}\right)$$
+		其中  $\boldsymbol{F}_{i} $ 的阶等于$  m_{i} ,\  $且 $ \boldsymbol{F}_{i} $ 是形如引理 261 中的矩阵,\  $ F_{i}  $的最后一行由$  d_{i}(\lambda)$  系数 (除最高次项) 的负值组成. 上式称为矩阵  $\boldsymbol{A} $ 的有理标准型或 Frobenius(弗罗本 纽斯) 标准型,\  每个$  \boldsymbol{F}_{i}  $称为 Frobenius 块.
+		\item 设数域  $\mathbb{K}  $上的 $ n  $阶矩阵 $ \boldsymbol{A}  $的不变因子为
+		$$1,\  \cdots,\  1,\  d_{1}(\lambda),\  \cdots,\  d_{k}(\lambda)$$
+		其中 $ d_{i}(\lambda) \mid d_{i+1}(\lambda)(i=1,\  \cdots,\  k-1) ,\ $ 则  $\boldsymbol{A}$  的极小多 项式 $ m(\lambda)=d_{k}(\lambda) .$
+		\item 设  $d_{1}(\lambda),\  d_{2}(\lambda),\  \cdots,\  d_{k}(\lambda)$  是数域 $ \mathbb{K} $ 上矩阵$  \boldsymbol{A}  $的非常数 不变因子,\  在  $\mathbb{K}  $上把$  d_{i}(\lambda)  $分解成不可约因式之积:
+		$$\begin{aligned}
+			d_{1}(\lambda) &=p_{1}(\lambda)^{e_{11}} p_{2}(\lambda)^{e_{12}} \cdots p_{t}(\lambda)^{e_{1 t}} \\
+			d_{2}(\lambda) &=p_{1}(\lambda)^{e_{21}} p_{2}(\lambda)^{e_{22}} \cdots p_{t}(\lambda)^{e_{2 t}} \\
+			& \cdots \cdots \cdots \cdots \cdot \cdots \cdot \\
+			d_{k}(\lambda) &=p_{1}(\lambda)^{e_{k 1}} p_{2}(\lambda)^{e_{k 2}} \cdots p_{t}(\lambda)^{e_{k t}}
+		\end{aligned}$$
+		其中 $ e_{i j}$  是非负整数 (注意  $e_{i j} $ 可以为零!). 由于  $d_{i}(\lambda)  |  d_{i-1}(\lambda) ,\ $ 因此$  e_{1 j} \leqslant e_{2 j} \leqslant \cdots \leqslant e_{k j}(j=1,\ 2,\  \cdots,\  t) .$ 若 上 式中的$  e_{i j}>0 ,\  $则称$  p_{j}(\lambda)^{e_{i j}} $ 为 $ \boldsymbol{A} $ 的一个初等 因子,\   $\boldsymbol{A}  $的全体初等因子称为  $\boldsymbol{A} $ 的初等因子组.
+		\item 数域 $ \mathbb{K}$  上的两个矩阵 $ \boldsymbol{A} $ 与  $\boldsymbol{B} $ 相似的充分必要条件是它 们有相同的初等因子组,\  即矩阵的初等因子组是矩阵相 似关系的全系不变量.
+		\item  $r$  阶矩阵
+		$$\boldsymbol{J}=\left(\begin{array}{ccccc}
+			\lambda_{0} & 1 & & & \\
+			& \lambda_{0} & 1 & & \\
+			& & \ddots & \ddots & \\
+			& & & \ddots & 1 \\
+			& & & & \lambda_{0}
+		\end{array}\right)$$
+		的初等因子组为  $\left(\lambda-\lambda_{0}\right)^{r} .$
+		\item 设特征矩阵  $\lambda \boldsymbol{I}-\boldsymbol{A} $ 经过初等变换化为下列对角阵:
+		$$\left(\begin{array}{llll}
+			f_{1}(\lambda) & & & \\
+			& f_{2}(\lambda) & & \\
+			& & \ddots & \\
+			& & & f_{n}(\lambda)
+		\end{array}\right)$$
+		其中 $ f_{i}(\lambda)(i=1,\  \cdots,\  n)  $为非零首一多项式. 将  $f_{i}(\lambda)$  作 不可约分解,\  若  $\left(\lambda-\lambda_{0}\right)^{k} $ 能整除  $f_{i}(\lambda) ,\ $ 但  $\left(\lambda-\lambda_{0}\right)^{k+1} $ 不能整除$  f_{i}(\lambda) ,\  $就称  $\left(\lambda-\lambda_{0}\right)^{k}$  是  $f_{i}(\lambda)  $的一个准素因 子,\  矩阵 $ \boldsymbol{A}$  的初等因子组等于所有  $f_{i}(\lambda)  $的准素因子的 集合.
+		
+		\item 设  $\boldsymbol{J}$  是分块对角阵:
+		$$\left(\begin{array}{llll}
+			\boldsymbol{J}_{1} & & & \\
+			& \boldsymbol{J}_{2} & & \\
+			& & \ddots & \\
+			& & & \boldsymbol{J}_{k}
+		\end{array}\right)$$
+		其中每个  $\boldsymbol{J}_{i} $ 都是形如上式的矩阵,\   $\boldsymbol{J}_{i}  $的初等因子组 为  $\left(\lambda-\lambda_{i}\right)^{r_{i}} ,\  $则 $ \boldsymbol{J} $ 的初等因子组为
+		$$\left(\lambda-\lambda_{1}\right)^{r_{1}},\ \left(\lambda-\lambda_{2}\right)^{r_{2}},\  \cdots,\ \left(\lambda-\lambda_{k}\right)^{r_{k}}$$
+		\item 设  $\boldsymbol{A} $是复数域上的矩阵且 $ \boldsymbol{A} $ 的初等因子组为
+		$$\left(\lambda-\lambda_{1}\right)^{r_{1}},\ \left(\lambda-\lambda_{2}\right)^{r_{2}},\  \cdots,\ \left(\lambda-\lambda_{k}\right)^{r_{k}}$$
+		则 $ \boldsymbol{A}  $相似于分块对角阵:
+		$$\boldsymbol{J}=\left(\begin{array}{llll}
+			\boldsymbol{J}_{1} & & & \\
+			& \boldsymbol{J}_{2} & & \\
+			& & \ddots & \\
+			& & & \boldsymbol{J}_{k}
+		\end{array}\right)$$
+		其中 $ \boldsymbol{J}_{i}  $为  $r_{i}  $阶矩阵,\  且
+		$$\boldsymbol{J}_{i}=\left(\begin{array}{ccccc}
+			\lambda_{i} & 1 & & & \\
+			& \lambda_{i} & 1 & & \\
+			& & \ddots & \ddots & \\
+			& & & \ddots & 1 \\
+			& & & & \lambda_{i}
+		\end{array}\right)$$
+		上式中的矩阵  $\boldsymbol{J} $ 称为 $ \boldsymbol{A}  $的 Jordan 标准型,\  每个  $\boldsymbol{J}_{i}$  称为$  \boldsymbol{A} $ 的一个 Jordan 块.
+		\item 设  $\varphi $ 是复数域上线性空间  $V $ 上的线性变换,\  则必存在 1 的一组基,\  使得  $\varphi  $在这组基下的表示矩阵为上式所示的 Jordan 标准型.
+		\item 设  $\boldsymbol{A}$  是 $ n $阶复矩阵,\  则下列结论等价:\\
+		(1)  $\boldsymbol{A} $ 可对角化;\\
+		(2)  $\boldsymbol{A}$  的极小多项式无重根;\\
+		(3)  $\boldsymbol{A}$ 的初等因子都是一次多项式.
+		\item 设  $\varphi  $是复线性空间  $V $ 上的线性变换,\  则 $ \varphi$  可对角化当 且仅当  $\varphi  $的极小多项式无重根,\ 当且仅当  $\varphi $ 的初等因 子都是一次多项式.
+		\item 设 $ \varphi  $是复线性空间$  V$  上的线性变换,\  $ V_{0} $ 是  $\varphi$  的不变子 空间. 如果  $\varphi  $可对角化,\  则  $\varphi  $在  $V_{0}  $上的限制也可对角 化.
+		\item 设$  \varphi  $是复线性空间  $V $ 上的线性变换,\  且
+		$V=V_{1} \oplus V_{2} \oplus \cdots \oplus V_{k},\ $
+		其中每个 $ V_{i}  $都是  $\varphi $ 的不变子空间,\  则  $\varphi  $可对角化的充 分必要条件是  $\varphi$  在每个  $V_{i} $ 上的限制都可对角化.
+		\item 设  $\boldsymbol{A}$  是数域 $ \mathbb{K}  $上的矩阵,\  如果  $\boldsymbol{A} $ 的特征值全在  $\mathbb{K}$  中,\  则 $ \boldsymbol{A}$  在 $ \mathbb{K}  $上相似于其 Jordan 标准型.
+		\item 线性变换$  \varphi $的特征值 $ \lambda_{1}  $的度数等于 $ \varphi  $的 Jordan 标准 型中属于特征值 $ \lambda_{1}  $的 Jordan 块的个数,\   $\lambda_{1}$  的重数等于 所有属于特征值$  \lambda_{1} $ 的 Jordan 块的阶数之和.
+		\item 设 $ V_{0}  $是线性空间 $ V$  的 $ r  $维子空间,\  $ \psi $ 是$  V $ 上线性变 换. 若存在 $ \boldsymbol{\alpha} \in V_{0} ,\ $ 使  $\left\{\boldsymbol{\alpha},\  \boldsymbol{\psi}(\boldsymbol{\alpha}),\  \cdots,\  \boldsymbol{\psi}^{r-1}(\boldsymbol{\alpha})\right\}  $构成  $V_{0} $ 的一组基且  $\boldsymbol{\psi}^{r}(\boldsymbol{\alpha})=\mathbf{0} ,\ $ 则称  $V_{0}$  为关于线性变换  $\boldsymbol{\psi} $ 的 循环子空间.
+		每个 Jordan 块对应的子空间是一个循环子空间.
+		\item 设 $ \lambda_{0}  $是$  n  $维复线性空间  $V$  上线性变换  $\varphi $ 的特征值,\  则
+		$$R\left(\lambda_{0}\right)=\left\{\boldsymbol{v} \in \boldsymbol{V} \mid\left(\boldsymbol{\varphi}-\lambda_{0} \boldsymbol{I}\right)^{n}(\boldsymbol{v})=\mathbf{0}\right\}$$
+		构成了$  V $ 的一个子空间,\  称为属于特征值 $ \lambda_{0}  $的根子空 间.
+		\item 设 $ \varphi $是  $n$  维复线性空间 $ V  $上的线性变换.\\
+		(1) 若 $ \varphi  $的初等因子组为
+		$$\left(\lambda-\lambda_{1}\right)^{r_{1}},\ \left(\lambda-\lambda_{2}\right)^{r_{2}},\  \cdots,\ \left(\lambda-\lambda_{k}\right)^{r_{k}},\ $$
+		则  $V  $可分解为$  k $ 个不变子空间的直和:
+		$$V=V_{1} \oplus V_{2} \oplus \cdots \oplus V_{k}$$
+		其中  $V_{i}  $的维数等于 $ r_{i}$  且是  $\varphi-\lambda_{i} I $ 的循环子空间;\\
+		(2) 若  $\lambda_{1},\  \cdots,\  \lambda_{s} $ 是  $\varphi $ 的全体不同特征值,\  则  $V$  可分解 为$  s$  个不变子空间的直和:
+		$$V=R\left(\lambda_{1}\right) \oplus R\left(\lambda_{2}\right) \oplus \cdots \oplus R\left(\lambda_{s}\right),\ $$
+		其中  $R\left(\lambda_{i}\right)$  是  $\lambda_{i}  $的根子空间,\   $R\left(\lambda_{i}\right)$  的维数等于$  \lambda_{i}$ 的 重数,\  且每个  $R\left(\lambda_{i}\right)$  又可分解为上式中若干个  $V_{j}  $的 直和.
+		\item 复数域上的方阵 $ \boldsymbol{A} $ 必可分解为两个对称阵的乘积.
+		\item 设  $\boldsymbol{A},\  \boldsymbol{B} $ 是两个  $n $ 阶可对角化复矩阵且$  \boldsymbol{A B}=\boldsymbol{B A} ,\  $则它们可同时对角化,\  即存在可逆阵  $\boldsymbol{P} ,\ $ 使 $ \boldsymbol{P}^{-1} \boldsymbol{A} \boldsymbol{P} $ 和  $\boldsymbol{P}^{-1} \boldsymbol{B P}  $都是对角阵.
+		\item (Jordan-Chevalley 分解) 设  $\boldsymbol{A}  $是  $n  $阶复矩阵,\  则$  \boldsymbol{A}  $可 分解为  $\boldsymbol{A}=\boldsymbol{B}+\boldsymbol{C} ,\ $ 其中$ \boldsymbol{B},\  \boldsymbol{C} $ 适合下面条件:\\
+		(1) $ \boldsymbol{B}$  是一个可对角化矩阵;\\
+		(2)  $\boldsymbol{C}$  是一个幂零阵;\\
+		(3)  $\boldsymbol{B C}=\boldsymbol{C B} $;\\
+		(4) $ \boldsymbol{B},\  \boldsymbol{C}  $均可表示为  $\boldsymbol{A}  $的多项式.
+		不仅如此,\  上述满足条件$  (1) \sim(3)  $的分解是唯一的.
+		\item 设  $f(z)=\sum_{i=0}^{\infty} a_{i} z^{i} $ 是复幂级数,\  则\\
+		(1) 方阵幂级数  $f(\boldsymbol{X}) $ 收敛的充分必要条件是对任一非 异阵  $\boldsymbol{P},\  f\left(\boldsymbol{P}^{-1} \boldsymbol{X} \boldsymbol{P}\right)$  都收敛,\  这时
+		$$f\left(\boldsymbol{P}^{-1} \boldsymbol{X} \boldsymbol{P}\right)=\boldsymbol{P}^{-1} f(\boldsymbol{X}) \boldsymbol{P}$$
+		(2) 若  $\boldsymbol{X}=\operatorname{diag}\left\{\boldsymbol{X}_{1},\  \cdots,\  \boldsymbol{X}_{k}\right\} ,\ $ 则  $f(\boldsymbol{X})  $收敛的充分必 要条件是$  f\left(\boldsymbol{X}_{1}\right),\  \cdots,\  f\left(\boldsymbol{X}_{k}\right) $ 都收敛,\  这时
+		$$f(\boldsymbol{X})=\operatorname{diag}\left\{f\left(\boldsymbol{X}_{1}\right),\  \cdots,\  f\left(\boldsymbol{X}_{k}\right)\right\}$$
+		(3) 若 $ f(z) $ 的收敛半径为  $r,\  J_{0}  $为 $ r $ 阶 Jordan 块
+		$$\boldsymbol{J}_{0}=\left(\begin{array}{ccccc}
+			\lambda_{0} & 1 & & & \\
+			& \lambda_{0} & 1 & & \\
+			& & \ddots & \ddots & \\
+			& & & \ddots & 1 \\
+			& & & & \lambda_{0}
+		\end{array}\right)$$
+		则当  $\left|\lambda_{0}\right|<r $ 时  $f\left(\boldsymbol{J}_{0}\right) $ 收敛,\  且
+		$$\begin{array}{l}
+			f\left(\boldsymbol{J}_{0}\right)= \\
+		\end{array}$$
+		$$f\left(\boldsymbol{J}_{0}\right)=\left(\begin{array}{ccccc}
+			f(\lambda_{0}) & \frac{1}{1!}f'(\lambda_{0}) &\frac{1}{2!}f^{(2)}(\lambda_{0}) &\cdots &\frac{f^{(n-1)}(\lambda_{0})}{(n-1)!} \\
+			&f(\lambda_{0}) & \frac{1}{1!}f'(\lambda_{0}) &\cdots &\frac{f^{(n-2)}(\lambda_{0})}{(n-2)!} \\
+			& & f(\lambda_{0}) & \cdots &\frac{f^{(n-3)}(\lambda_{0})}{(n-3)!}  \\
+			& & & \ddots & \vdots \\
+			& & & & f(\lambda_{0})
+		\end{array}\right)$$
+		\item 设  $f(z)  $是复幂级数,\  收敛半径为  $r . $若  $\boldsymbol{A}$  是  $n $ 阶复方阵,\  特征值为$  \lambda_{1},\  \lambda_{2},\  \cdots,\  \lambda_{n} .$ 记
+		$$\lambda=\max _{1 \leqslant i \leqslant n}\left\{\left|\lambda_{i}\right|\right\}$$
+		则\\
+		(1) 若$  \lambda<r ,\ $ 则 $ f(\boldsymbol{A})$  收敛;\\
+		(2) 若 $ \lambda>r ,\ $ 则  $f(\boldsymbol{A})$发散;\\
+		(3) 若 $ \lambda=r ,\ $ 则 $ f(\boldsymbol{A})$  收敛的充分必要条件是: 对每一 绝对值等于  $r $ 的特征值$  \lambda_{j} ,\ $ 若 $ \boldsymbol{A} $ 的属于$  \lambda_{j}  $的初等因子 中最高幂为 $ n_{j}  $次,\  则$  n_{j} $ 个数值级数
+		$$f\left(\lambda_{j}\right),\  f^{\prime}\left(\lambda_{j}\right),\  \cdots,\  f^{\left(n_{j}-1\right)}\left(\lambda_{j}\right)$$
+		都收敛;\\
+		(4) 若  $f(\boldsymbol{A})  $收敛,\  则$  f(\boldsymbol{A}) $ 的特征值为
+		$$f\left(\lambda_{1}\right),\  f\left(\lambda_{2}\right),\  \cdots,\  f\left(\lambda_{n}\right) .$$
+		\item 一般而言,\  对矩阵 $ \boldsymbol{A},\  \boldsymbol{B},\  \mathrm{e}^{\boldsymbol{A}} \cdot \mathrm{e}^{\boldsymbol{B}} \neq \mathrm{e}^{\boldsymbol{A}+\boldsymbol{B}} ,\ $ 但如果 $ \boldsymbol{A}$  与 $ \boldsymbol{B}  $可交换,\  即  $\boldsymbol{A B}=\boldsymbol{B} \boldsymbol{A} ,\ $ 则  $\mathrm{e}^{\boldsymbol{A}} \cdot \mathrm{e}^{\boldsymbol{B}}=\mathrm{e}^{\boldsymbol{A}+\boldsymbol{B}} .$
+		\section{二次型}
+		\item 设 $ f  $是数域  $\mathbb{K}  $上的$  n  $元二次㐎次多项式:
+		$$\begin{aligned}
+			& f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right) \\
+			=& a_{11} x_{1}^{2}+2 a_{12} x_{1} x_{2}+\cdots+2 a_{1 n} x_{1} x_{n} \\
+			+& a_{22} x_{2}^{2}+\cdots+2 a_{2 n} x_{2} x_{n}+\cdots+a_{n n} x_{n}^{2}
+		\end{aligned}$$
+		称$  f$  为数域 $ \mathbb{K}  $上的  $n$  元二次型,\  简称二次型. 将上式改写成
+		$$f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right)=\boldsymbol{x}^{\prime} \boldsymbol{A} \boldsymbol{x}$$
+		其中
+		$$\boldsymbol{A}=\left(\begin{array}{cccc}
+			a_{11} & a_{12} & \cdots & a_{1 n} \\
+			a_{21} & a_{22} & \cdots & a_{2 n} \\
+			\vdots & \vdots & & \vdots \\
+			a_{n 1} & a_{n 2} & \cdots & a_{n n}
+		\end{array}\right),\  \quad \boldsymbol{x}=\left(\begin{array}{c}
+			x_{1} \\
+			x_{2} \\
+			\vdots \\
+			x_{n}
+		\end{array}\right)$$
+		$\boldsymbol{A} $ 是一个对称阵,\  称为该二次型的相伴矩阵或系数矩阵. 反过来,\  若给定数域$  \mathbb{K} $ 上的  $n $ 阶对称阵  $\boldsymbol{A} ,\ $ 则由 上式,\  我们可以得到一个 $ \mathbb{K}  $上二次型,\  称为对称阵$  \boldsymbol{A}  $的相 伴二次型. 二次型理论的基本问题是要寻找一个线性变 换把它变成只含平方项.
+		\item 设 $ \boldsymbol{A},\  \boldsymbol{B} $ 是数域  $\mathbb{K} $ 上的  $n  $阶矩阵,\  若存在 $ n  $阶非异阵  $\boldsymbol{C},\  $使 $ \boldsymbol{B}=\boldsymbol{C}^{\prime} \boldsymbol{A} \boldsymbol{C} ,\ $ 则称  $\boldsymbol{B}$  与  $\boldsymbol{A}$ 是合同的或称 $\boldsymbol{B}$  与$  \boldsymbol{A}  $具有合同关系. 合同关系是一个等价关系.
+		\item 对称阵 $ \boldsymbol{A}  $的下列变换都是合同变换:\\
+		(1) 对换 $ \boldsymbol{A}  $的第  $i  $行与第  $j $ 行,\  再对换第 $ i $ 列与第  $j  $列;\\
+		(2) 将非零常数 $ k $ 乘以 $ \boldsymbol{A}  $的第  $i $ 行,\  再将$  k $ 乘以第 $ i $ 列;\\
+		(3) 将 $ \boldsymbol{A}  $的第  $i$  行乘以 $ k  $加到第 $ j $ 行上,\  再将第  $i$  列乘 以  $k$  加到第  $j $ 列上.
+		\item 设$  \boldsymbol{A} $是数域  $\mathbb{K}  $上的非零对称阵,\  则必存在非异阵$  \boldsymbol{C} ,\ $ 使  $\boldsymbol{C}^{\prime} \boldsymbol{A} \boldsymbol{C} $ 的第  $(1,\ 1)  $元素不等于零.
+		\item 设 $ \boldsymbol{A} $ 是数域$  \mathbb{K} $ 上的 $ n$  阶对称阵,\  则必存在  $\mathbb{K}  $上的$  n  $阶 非异阵  $\boldsymbol{C} ,\ $ 使 $ \boldsymbol{C}^{\prime} \boldsymbol{A} \boldsymbol{C}  $为对角阵.
+		\item 实反对称阵的行列式总是非负实数.元素全是整数的反对称阵的行列式是某个整数的平方.
+		\item 用配方法化二次型为只含平方项的过程中,\  必须保证变换矩阵是非异阵.
+		\item (惯性定理) 设$  f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right) $ 是一个  $n $ 元实二次型,\  且 $ f $ 可化为两个标准型:
+		$$\begin{array}{l}
+			c_{1} y_{1}^{2}+\cdots+c_{p} y_{p}^{2}-c_{p+1} y_{p+1}^{2}-\cdots-c_{r} y_{r}^{2},\  \\
+			d_{1} z_{1}^{2}+\cdots+d_{k} z_{k}^{2}-d_{k+1} z_{k+1}^{2}-\cdots-d_{r} z_{r}^{2},\ 
+		\end{array}$$
+		其中  $c_{i}>0,\  d_{i}>0 ,\ $ 则必有  $p=k .$
+		\item 设 $ f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right) $ 是一个实二次型,\  若它能化为如下 形式 (规范标准型):
+		$$f=y_{1}^{2}+\cdots+y_{p}^{2}-y_{p+1}^{2}-\cdots-y_{r}^{2}$$
+		则称 $ r $ 是该二次型的秩,\   $p  $是它的正惯性指数,\  $ q=r-p $ 是它的负惯性指数,\ $  s=p-q  $称为 $ f $ 的符号差. 由于 实对称阵与实二次型之间的等价关系,\  将实二次型的秩、 惯性指数及符号差也称为相应的实对称阵的秩、惯性指 数及符号差.
+		\item 溱与符号差 (或正负惯性指数) 是实对称阵在合同关系下 的全系不变量.
+		\item 设  $f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right)=\boldsymbol{x}^{\prime} \boldsymbol{A} \boldsymbol{x} $ 是  $n $ 元实二次型.\\
+		(1) 若对任意 $ n $ 维非零列向量  $\boldsymbol{\alpha} $ 均有 $ \boldsymbol{\alpha}^{\prime} \boldsymbol{A \alpha}>0 ,\  $则称  $f $ 是正定二次型 (简称正定型),\  矩阵$  \boldsymbol{A}  $称为正定矩阵 (简 称正定阵);\\
+		(2) 若对任意  $n  $维非零列向量 $ \boldsymbol{\alpha} $ 均有 $ \boldsymbol{\alpha}^{\prime} \boldsymbol{A}\boldsymbol{\alpha}<0 ,\  $则称 $ f $ 是负定二次型 (简称负定型),\  矩阵  $\boldsymbol{A}  $称为负定矩阵 (简称负定阵);\\
+		(3) 若对任意 $ n $ 维非零列向量  $\boldsymbol{\alpha}  $均有  $\boldsymbol{\alpha}^{\prime} \boldsymbol{A} \boldsymbol{\alpha} \geqslant 0 ,\ $ 则称$  f $ 是半正定二次型 (简称半正定型),\  矩阵 $ \boldsymbol{A} $ 称为半正定 矩阵 (简称半正定阵);\\
+		(4) 若对任意  $n$  维非零列向量 $ \boldsymbol{\alpha} $ 均有  $\boldsymbol{\alpha}^{\prime} \boldsymbol{A} \boldsymbol{\alpha} \leqslant 0 ,\  $则称 $ f $ 是半负定二次型 (简称半负定型),\  矩阵 $ \boldsymbol{A} $ 称为半负定 矩阵 (简称半负定阵);\\
+		(5) 若存在  $\boldsymbol{\alpha} ,\  $使  $\boldsymbol{\alpha}^{\prime} \boldsymbol{A} \boldsymbol{\alpha}>0 ; $又存在 $ \boldsymbol{\beta} ,\ $ 使 $ \boldsymbol{\beta} \boldsymbol{A} \boldsymbol{\beta}<0 ,\ $ 则称 $ f $ 是不定型.
+		\item 实二次型  $f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right)$  是正定型的充分必要条件是 $ f $ 的正惯性指数等于 $ n ;$\\
+		$f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right) $ 是负定型的充分必要条件是  $f$  的负惯 性指数等于  $n ;$\\
+		$f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right)  $是半正定型的充分必要条件是  $f $ 的正 惯性指数等于  $f$  的秩  $r ;$\\
+		$f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right) $ 是半负定型的充分必要条件是  $f  $的负 惯性指数等于  $f$ 的秩  $r .$
+		\item 实对称阵$  \boldsymbol{A}  $是正定阵当且仅当它合同于单位阵 $ \boldsymbol{I}_{n}; \boldsymbol{A} $ 是负定阵当且仅当它合同于 $ -\boldsymbol{I}_{n} ; \boldsymbol{A}  $是半正定阵当且仅 当 $ \boldsymbol{A}$  合同于下列对角阵:
+		$$\left(\begin{array}{ll}
+			\boldsymbol{I}_{r} & \boldsymbol{O} \\
+			\boldsymbol{O} & \boldsymbol{O}
+		\end{array}\right)$$
+		$\boldsymbol{A}$是半负定阵当且仅当  $\boldsymbol{A}$  合同于下列对角阵:
+		$$\left(\begin{array}{cc}
+			-\boldsymbol{I}_{r} & \boldsymbol{O} \\
+			\boldsymbol{O} & \boldsymbol{O}
+		\end{array}\right)$$
+		\item 设 $ \boldsymbol{A}=\left(a_{i j}\right) $ 是$  n $ 阶矩阵,\   $\boldsymbol{A}  $的  $n$  个子式:
+		$$\left|\begin{array}{cccc}
+			a_{11} & a_{12} & \cdots & a_{1 k} \\
+			a_{21} & a_{22} & \cdots & a_{2 k} \\
+			\vdots & \vdots & & \vdots \\
+			a_{k 1} & a_{k 2} & \cdots & a_{k k}
+		\end{array}\right| \quad(k=1,\ 2,\  \cdots,\  n)$$
+		称为  $\boldsymbol{A}  $的顺序圭子式.
+		\item  $n$  阶实对称阵  $\boldsymbol{A}  $是正定阵的充分必要条件是它的 $ n $ 个 顺序主子式全大于零.
+		\item 若 $ \boldsymbol{A}$  是正定阵,\  则:\\
+		(1) $ \boldsymbol{A}  $的任一  $k  $阶主子阵,\  即由$  \boldsymbol{A} $ 的第  $i_{1},\  i_{2},\  \cdots,\  i_{k}  $行 及  $\boldsymbol{A} $ 的第  $i_{1},\  i_{2},\  \cdots,\  i_{k} $ 列交点上元素组成的矩阵,\  必是 正定阵;\\
+		(2)  $\boldsymbol{A}$  的所有主子式全大于零,\  特别地,\  $ \boldsymbol{A} $ 的主对角元 素全大于零;\\
+		(3) $ \boldsymbol{A}  $中绝对值最大的元索仅在主对角线上.
+		\item Hermite 型  $f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right)=\sum_{j=1}^{n} \sum_{i=1}^{n} a_{i j} \bar{x}_{i} x_{j} $ 可写成如 下矩阵相乘形式
+		$$f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right)=\overline{\boldsymbol{x}}^{\prime} \boldsymbol{A} \boldsymbol{x}$$
+		其中
+		$$\boldsymbol{A}=\left(\begin{array}{cccc}
+			a_{11} & a_{12} & \cdots & a_{1 n} \\
+			a_{21} & a_{22} & \cdots & a_{2 n} \\
+			\vdots & \vdots & & \vdots \\
+			a_{n 1} & a_{n 2} & \cdots & a_{n n}
+		\end{array}\right),\  \quad \boldsymbol{x}=\left(\begin{array}{c}
+			x_{1} \\
+			x_{2} \\
+			\vdots \\
+			x_{n}
+		\end{array}\right)$$
+		且满足  $\overline{\boldsymbol{A}}^{\prime}=\boldsymbol{A} ,\  $这样的矩阵称为 Hermite 矩阵.
+		\item 设 $ \boldsymbol{A},\  \boldsymbol{B}  $是两个 Hermite 矩阵,\  若存在非异复矩阵  $\boldsymbol{C} ,\  $使
+		$$\boldsymbol{B}=\bar{\boldsymbol{C}} \boldsymbol{A} \boldsymbol{C}$$
+		则称$  \boldsymbol{A} $ 与$  \boldsymbol{B} $ 是复相合的.
+		\item 若 $ \boldsymbol{A} $ 是一个 Hermite 矩阵,\  则必存在一个非异阵  $\boldsymbol{C} ,\  $使 $ \bar{C} A C$  是一个对角阵且主对角线上的元奚都是实数.
+		\item 设  $f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right)$  是一个 Hermite 型,\  则它总可以化 为如下标准型:
+		$$\bar{y}_{1} y_{1}+\cdots+\bar{y}_{p} y_{p}-\bar{y}_{p+1} y_{p+1}-\cdots-\bar{y}_{r} y_{r}$$
+		且若 $ f$  又可化为另一个标准型:
+		$$\bar{z}_{1} z_{1}+\cdots+\bar{z}_{k} z_{k}-\bar{z}_{k+1} z_{k+1}-\cdots-\bar{z}_{r} z_{r}$$
+		则 $ p=k .$ 称  $r$  为$  f  $的秩,\  $ p$  是它的正惯性指数,\  $ q=r-p  $是它的负惯性指数,\ $  p-q $ 为$  f $ 的符号差. 秩与符号差 (或 正负惯性指数) 是 Hermite 矩阵复相合的全系不变量.
+		\item 设 $ f\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right) $ 是 Hermite 型,\  若对任一组不全为 零的复数 $ c_{1},\  c_{2},\  \cdots,\  c_{n} ,\  $均有
+		$$f\left(c_{1},\  c_{2},\  \cdots,\  c_{n}\right)>0$$
+		则称 $ f$  是正定 Hermite 型,\  它对应的矩阵称为正定 Hermite 矩阵.
+		\item  $n$  阶 Hermite 矩阵 $ \boldsymbol{A}$  为正定的充分必要条件是它的  $n $ 个顺序主子式全大于零.
+		\section{内积空间}
+		\item 设  $V$  是实数域上的线性空间,\  若存在某种规则,\  使对 $ V $ 中任意一组有序向量 $ \{\boldsymbol{\alpha},\  \boldsymbol{\beta}\} ,\  $都唯一地对应一个实数,\  记 为  $(\boldsymbol{\alpha},\  \boldsymbol{\beta}) ,\  $且适合如下规则:\\
+		(1) $ (\boldsymbol{\beta},\  \boldsymbol{\alpha})=(\boldsymbol{\alpha},\  \boldsymbol{\beta}) ;$\\
+		(2) $ (\boldsymbol{\alpha}+\boldsymbol{\beta},\  \boldsymbol{\gamma})=(\boldsymbol{\alpha},\  \boldsymbol{\gamma})+(\boldsymbol{\beta},\  \boldsymbol{\gamma})  i$\\
+		(3) $ (c \boldsymbol{\alpha},\  \boldsymbol{\beta})=c(\boldsymbol{\alpha},\  \boldsymbol{\beta}),\  c$  为任一实数;\\
+		(4)  $(\boldsymbol{\alpha},\ \boldsymbol{\alpha}) \geqslant 0  $且等号成立当且仅当 $ \boldsymbol{\alpha}=0 ,\ $
+		则称在 $ V  $上定义了一个内积. 实数  $(\boldsymbol{\alpha},\  \boldsymbol{\beta})  $称为  $\boldsymbol{\alpha} $ 与  $\boldsymbol{\beta} $ 的内积. 线性空间 $ V  $称为实内积空间. 有限维实内积空 间称为 Euclid 空间,\  简称为欧氏空间.
+		\item 设  $V$  是复数域上的线性空间,\  若存在某种规则,\  使对 $ V $ 中任意一组有序向量$  \{\boldsymbol{\alpha},\  \boldsymbol{\beta}\} ,\  $都唯一地对应一个复数,\  记 为  $(\boldsymbol{\alpha},\  \boldsymbol{\beta}) ,\ $ 且适合如下规则:\\
+		(1) $ (\boldsymbol{\beta},\  \boldsymbol{\alpha})=\overline{(\boldsymbol{\alpha},\  \boldsymbol{\beta})} ;$\\
+		(2) $ (\boldsymbol{\alpha}+\boldsymbol{\beta},\  \boldsymbol{\gamma})=(\boldsymbol{\alpha},\  \boldsymbol{\gamma})+(\boldsymbol{\beta},\  \boldsymbol{\gamma}) ;$\\
+		(3)  $(c \boldsymbol{\alpha},\  \boldsymbol{\beta})=c(\boldsymbol{\alpha},\  \boldsymbol{\beta}),\  c  $为任一复数;\\
+		(4) $ (\boldsymbol{\alpha},\  \boldsymbol{\alpha}) \geqslant 0$  且等号成立当且仅当$  \boldsymbol{\alpha}=\mathbf{0} ,\ $
+		则称在  $V  $上定义了一个内积. 复数 $ (\boldsymbol{\alpha},\  \boldsymbol{\beta})  $称为 $ \boldsymbol{\alpha} $ 与  $\boldsymbol{\beta} $的内积. 线性空间$  V  $称为复内积空间 (complex inner product space). 有限维复内积空间称为酉空间 (Unitary space).
+		\item 设 $ \mathbb{C}_{n}$  是  $n $ 维复列向量空间,\   $\boldsymbol{\alpha}=\left(x_{1},\  x_{2},\  \cdots,\  x_{n}\right)^{\prime},\  \boldsymbol{\beta}=   \left(y_{1},\  y_{2},\  \cdots,\  y_{n}\right)^{\prime} ,\  $定义
+		$$(\boldsymbol{\alpha},\  \boldsymbol{\beta})=x_{1} \bar{y}_{1}+x_{2} \bar{y}_{2}+\cdots+x_{n} \bar{y}_{n}$$
+		则在此定义下 $ \mathbb{C}_{n}  $成为一个酉空间,\  上述内积称为  $\mathbb{C}_{n} $ 的 标准内积.
+		\item 设  $V  $是内积空间 (实或复),\ $  \boldsymbol{\alpha} $ 是$  V $ 中的向量,\  定义  $\boldsymbol{\alpha} $ 的长度 (或范数) 为
+		$$\|\boldsymbol{\alpha}\|=(\boldsymbol{\alpha},\  \boldsymbol{\alpha})^{\frac{1}{2}}$$
+		即实数  $(\boldsymbol{\alpha},\  \boldsymbol{\alpha}) $ 的算术根.
+		\item 设 $ V $ 是实或复的内积空间  ,\  $\boldsymbol{\alpha},\  \boldsymbol{\beta} \in V,\  c $ 是任一常数 (实 数或复数),\  则\\
+		(1)  $\|c \boldsymbol{\alpha}\|=|c|\|\boldsymbol{\alpha}\| ;$\\
+		(2) $ |(\boldsymbol{\alpha},\  \boldsymbol{\beta})| \leqslant\|\boldsymbol{\alpha}\| \cdot\|\boldsymbol{\beta}\| ;$
+		(3) $ \|\boldsymbol{\alpha}+\boldsymbol{\beta}\|\\ \leqslant\|\boldsymbol{\alpha}\|+\|\boldsymbol{\beta}\| .$
+		\item 当  $V$  是实内积空间时,\  定义非零向量 $ \boldsymbol{\alpha},\  \boldsymbol{\beta} $ 的夹角  $\theta  $之 余弦为
+		$$\cos \theta=\frac{(\boldsymbol{\alpha},\  \boldsymbol{\beta})}{\|\boldsymbol{\alpha}\|\|\boldsymbol{\beta}\|}$$
+		当 $ V  $是复内积空间时,\  定义非零向量  $\boldsymbol{\alpha},\  \boldsymbol{\beta}  $的夹角 $ \theta  $之 余弦为
+		$$\cos \theta=\frac{|(\boldsymbol{\alpha},\  \boldsymbol{\beta})|}{\|\boldsymbol{\alpha}\|\|\boldsymbol{\beta}\|}$$
+		内积空间中两个向量 $ \boldsymbol{\alpha},\  \boldsymbol{\beta} $ 若适合  $(\boldsymbol{\alpha},\  \boldsymbol{\beta})=0 ,\ $ 则称  $\boldsymbol{\alpha}  $与 $ \boldsymbol{\beta} $垂直或正交,\  用记号 $ \boldsymbol{\alpha} \perp \boldsymbol{\beta}$  来表示. 显然,\  零向量和任 何向量都正交; 若 $\boldsymbol{\alpha} $与 $ \boldsymbol{\beta}$ 正交,\  则  $\boldsymbol{\beta}$  与 $ \boldsymbol{\alpha}  $也正交; 两个 非零向量  $\boldsymbol{\alpha},\  \boldsymbol{\beta}  $正交时夹角为 $ 90^{\circ} .$
+		\item Cauchy 不等式:
+		$$\begin{array}{c}
+			\left(x_{1} y_{1}+x_{2} y_{2}+\cdots+x_{n} y_{n}\right)^{2} \leqslant \\
+			\left(x_{1}^{2}+x_{2}^{2}+\cdots+x_{n}^{2}\right)\left(y_{1}^{2}+y_{2}^{2}+\cdots+y_{n}^{2}\right)
+		\end{array}$$
+		设  $V  $是 $ [a,\  b]$  上连续函数全体构成的实线性空间,\  内积 定义为  $(f,\  g)=\int_{a}^{b} f(t) g(t) \mathrm{d} t ,\ $ 则有下列 Schwarz 不等 式:
+		$$\left(\int_{a}^{b} f(t) g(t) \mathrm{d} t\right)^{2} \leqslant \int_{a}^{b} f(t)^{2} \mathrm{~d} t \int_{a}^{b} g(t)^{2} \mathrm{~d} t$$
+		\item 设$  V $ 是酉空间,\  $ \left\{\boldsymbol{v}_{1},\  \boldsymbol{v}_{2},\  \cdots,\  \boldsymbol{v}_{n}\right\}  $是  $\boldsymbol{V} $ 的一组基,\   $\boldsymbol{\alpha}=   a_{1} \boldsymbol{v}_{1}+a_{2} \boldsymbol{v}_{2}+\cdots+a_{n} \boldsymbol{v}_{n},\  \boldsymbol{\beta}=b_{1} \boldsymbol{v}_{1}+b_{2} \boldsymbol{v}_{2}+\cdots+b_{n} \boldsymbol{v}_{n} ,\  $ $$\boldsymbol{H}=\left(\begin{array}{cccc}\left(\boldsymbol{v}_{1},\  \boldsymbol{v}_{1}\right) & \left(\boldsymbol{v}_{1},\  \boldsymbol{v}_{2}\right) & \ldots & \left(\boldsymbol{v}_{1},\  \boldsymbol{v}_{n}\right) \\ \left(\boldsymbol{v}_{2},\  \boldsymbol{v}_{1}\right) & \left(\boldsymbol{v}_{2},\  \boldsymbol{v}_{2}\right) & \cdots & \left(\boldsymbol{v}_{2},\  \boldsymbol{v}_{n}\right) \\ \vdots & \vdots & & \vdots \\ \left(\boldsymbol{v}_{n},\  \boldsymbol{v}_{1}\right) & \left(\boldsymbol{v}_{n},\  \boldsymbol{v}_{2}\right) & \cdots & \left(\boldsymbol{v}_{n},\  \boldsymbol{v}_{n}\right)\end{array}\right) $$ 则
+		$$(\boldsymbol{\alpha},\  \boldsymbol{\beta})=\boldsymbol{x}^{\prime} \boldsymbol{H} \bar{\boldsymbol{y}}$$
+		其中$  \boldsymbol{x},\  \boldsymbol{y}  $分别是 $ \boldsymbol{\alpha},\  \boldsymbol{\beta} $ 的坐标向量,\  $ \boldsymbol{H}$  是一个正定 Hermite 矩阵,\  $ \boldsymbol{H} $ 称为基向量  $\left\{\boldsymbol{v}_{1},\  \boldsymbol{v}_{2},\  \cdots,\  \boldsymbol{v}_{n}\right\}$  的  $\operatorname{Gram} $ (格拉姆) 矩阵或内积空间  $V  $为在给定基下的度 量矩阵.
+		\item 设 $ \left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{n}\right\}  $是  $n $ 维内积空间  $V  $的一组基. 若  $e_{i} \perp e_{j}  $对一切$  i \neq j  $成立,\  则称这组基是$  V$ 的一组正交 基. 又若$  V  $的一组正交基中每个向量的长度等于$ 1 ,\  $则 称这组正交基为标准正交基.
+		\item 内积空间  $V  $中的任何一组两两正交的非零向量必线性无 关.
+		\item 若向量$  \boldsymbol{\alpha}  $和向量$  \boldsymbol{\beta}_{1},\  \boldsymbol{\beta}_{2},\  \cdots,\  \boldsymbol{\beta}_{k} $ 中每个向量正交,\  则 $ \boldsymbol{\alpha}$  和由向量  $\boldsymbol{\beta}_{1},\  \boldsymbol{\beta}_{2},\  \cdots,\  \boldsymbol{\beta}_{k}  $生成的子空间中每个向量正交.
+		\item $ n$  维内积空间中任意一个正交非零向量组的向量个数不 超过 $ n .$
+		\item 设 $V $ 是内积空间,\  $ \boldsymbol{u}_{1},\  \boldsymbol{u}_{2},\  \cdots,\  \boldsymbol{u}_{m}$  是$  \boldsymbol{V}  $中  $m  $个线 性无关的向量,\  则在 $V$  中存在 $ m$  个两两正交的非零 向量  $\boldsymbol{v}_{1},\  \boldsymbol{v}_{2},\  \cdots,\  \boldsymbol{v}_{m} ,\  $使  $\boldsymbol{v}_{1},\  \boldsymbol{v}_{2},\  \cdots,\  \boldsymbol{v}_{m}  $张成的 $ V$  的子 空间恰好为由$  \boldsymbol{u}_{1},\  \boldsymbol{u}_{2},\  \cdots,\  \boldsymbol{u}_{m}  $张成的 $ V  $的子空间，即  $\boldsymbol{v}_{1},\  \boldsymbol{v}_{2},\  \cdots,\  \boldsymbol{v}_{m}  $是该子空间的一组正交基.
+		\item Gram-Schmidt(格拉姆-施密特) 正交化方法: 设  $\boldsymbol{v}_{1}=\boldsymbol{u}_{1} ,\  $假定 $ \boldsymbol{v}_{k}$  已定义好 $ (1 \leqslant k<m) ,\  $这时$  \boldsymbol{v}_{i}(1 \leqslant i \leqslant k) $ 两 两正交非零且  $\boldsymbol{v}_{i}(1 \leqslant i \leqslant k)$  皆属于由 $ \boldsymbol{u}_{1},\  \boldsymbol{u}_{2},\  \cdots,\  \boldsymbol{u}_{k}  $张 成的子空间. 令
+		$$\boldsymbol{v}_{k+1}=\boldsymbol{u}_{k+1}-\sum_{j=1}^{k} \frac{\left(\boldsymbol{u}_{k+1},\  \boldsymbol{v}_{j}\right)}{\left\|\boldsymbol{v}_{j}\right\|^{2}} \boldsymbol{v}_{j}$$
+		注意$ \boldsymbol{v}_{k+1} \neq 0 . $对任意的$  1 \leqslant i \leqslant k ,\  $有
+		$$\begin{aligned}
+			\left(\boldsymbol{v}_{k+1},\  \boldsymbol{v}_{i}\right) &=\left(\boldsymbol{u}_{k+1},\  \boldsymbol{v}_{i}\right)-\sum_{j=1}^{k} \frac{\left(\boldsymbol{u}_{k+1},\  \boldsymbol{v}_{j}\right)}{\left\|\boldsymbol{v}_{j}\right\|^{2}}\left(\boldsymbol{v}_{j},\  \boldsymbol{v}_{i}\right) \\
+			&=\left(\boldsymbol{u}_{k+1},\  \boldsymbol{v}_{i}\right)-\left(\boldsymbol{u}_{k+1},\  \boldsymbol{v}_{i}\right)=0
+		\end{aligned}$$
+		因此  $\boldsymbol{v}_{1},\  \boldsymbol{v}_{2},\  \cdots,\  \boldsymbol{v}_{k+1}$  两两正交.
+		\item 任一有限维内积空间均有标准正交基.
+		\item 设 $ U $ 是内积空间  $V$  的子空间. 令
+		$$U^{\perp}=\{\boldsymbol{v} \in \boldsymbol{V} \mid(\boldsymbol{v},\  U)=0\}$$
+		这里 $ (\boldsymbol{v},\  U)=0 $ 表示对一切 $ \boldsymbol{u} \in U ,\  $均有 $ (\boldsymbol{v},\  \boldsymbol{u})=0 .  U^{\perp} $ 是 $ V  $的子空间,\  称为$  U  $的正交补空间.
+		\item 设  $V$  是 $ n$  维内积空间,\  $ U $ 是 $ V  $的子空间,\  则\\
+		(1) $ V=U \oplus U^{\perp} ;$\\
+		(2)  $U$  上的任一组标准正交基均可扩张为  $V$  上的标准正 交基.
+		\item 设  $V $ 是 $ n $ 维内积空间,\   $V_{i}(i=1,\ 2,\  \cdots,\  k)  $是$  V $ 的子空 间. 如果对任意的$  \alpha \in V_{i}  $和任意的  $\beta \in V_{j}(j \neq i) $ 均有  $(\boldsymbol{\alpha},\  \boldsymbol{\beta})=0 ,\  $则称子空间  $V_{i} $ 和  $V_{j}  $正交. 若 $ V=V_{1}+V_{2}+\cdots+V_{k} $ 且  $V_{i}$  两两正交,\  则称 $ V  $是  $V_{i}(i=1,\ 2,\  \cdots,\  k)$ 的正交和,\  记为
+		$$V=V_{1} \perp V_{2} \perp \cdots \perp V_{k}$$
+		\item 正交和必为直和且任一 $ V_{i}  $和其余子空间的和正交.
+		\item 设  $V=V_{1} \perp V_{2} \perp \cdots \perp V_{k} ,\ $ 定义 $ V$  上的线性变换 $ \boldsymbol{E}_{i}(i=1,\ 2,\  \cdots,\  k)  $如下: 若  $\boldsymbol{v}=\boldsymbol{v}_{1}+\cdots+\boldsymbol{v}_{i}+\cdots+   \boldsymbol{v}_{k}\left(\boldsymbol{v}_{i} \in V_{i}\right) ,\  $令 $ \boldsymbol{E}_{i}(\boldsymbol{v})=\boldsymbol{v}_{i} .$ 容易验证  $\boldsymbol{E}_{i}$  是 $ V $ 上的线性 变换且  $\boldsymbol{E}_{i}^{2}=\boldsymbol{E}_{i},\  \boldsymbol{E}_{i} \boldsymbol{E}_{j}=\mathbf{0}(i \neq j),\  \boldsymbol{E}_{1}+\boldsymbol{E}_{2}+\cdots+\boldsymbol{E}_{k}=   \boldsymbol{I}_{V} .$ 线性变换$  \boldsymbol{E}_{i}  $称为$  V $ 到  $V_{i} $ 的正交投影 (简称投影).
+		\item 设 $ U  $是内积空间$  V $ 的子空间,\   $V=U \perp U-.$ $\boldsymbol{E}  $是 $ V  $到$  U  $的正交投影,\  则对任意的 $ \alpha,\  \beta \in V ,\ $ 都有
+		$$(\boldsymbol{E}(\boldsymbol{\alpha}),\  \boldsymbol{\beta})=(\boldsymbol{\alpha},\  \boldsymbol{E}(\boldsymbol{\beta}))$$
+		\item Bessel(塞尔) 不等式: 设  $\boldsymbol{v}_{1},\  \boldsymbol{v}_{2},\  \cdots,\  \boldsymbol{v}_{m}$ 是内积空间  $V $ 中的正交非零向量组,\   $\boldsymbol{y} $ 是 $ V  $中任一向量,\  则
+		$$\sum_{k=1}^{m} \frac{\left|\left(\boldsymbol{y},\  \boldsymbol{v}_{k}\right)\right|^{2}}{\left\|\boldsymbol{v}_{k}\right\|^{2}} \leqslant\|\boldsymbol{y}\|^{2}$$
+		等号成立的充分必要条件是: $ \boldsymbol{y}$  属于由  $\left\{\boldsymbol{v}_{1},\  \boldsymbol{v}_{2},\  \cdots,\  \boldsymbol{v}_{m}\right\} $ 张成的子空间.
+		\item 设  $\boldsymbol{\varphi} $是内积空间  $V  $上的线性算子,\  若存在  $V  $上的线性 算子 $ \boldsymbol{\varphi}^{*} ,\  $使等式
+		$$(\boldsymbol{\varphi}(\boldsymbol{\alpha}),\  \boldsymbol{\beta})=\left(\boldsymbol{\alpha},\  \boldsymbol{\varphi}^{*}(\boldsymbol{\beta})\right)$$
+		对一切  $\boldsymbol{\alpha},\  \boldsymbol{\beta} \in V  $成立,\  则称 $ \boldsymbol{\varphi}^{*}  $是$ \boldsymbol{\varphi}$ 的伴随算子. 简称 为 $ \boldsymbol{\varphi} $ 的伴随.
+		\item 设 $ V  $是$  n$  维内积空间,\   $\boldsymbol{\varphi} $是 $ V$  上的线性变换,\  则存在  $V$  上唯一的线侏变换 $ \boldsymbol{\varphi}^{*} ,\ $ 使对一切 $\boldsymbol{\alpha},\  \boldsymbol{\beta} \in V ,\ $ 成立
+		$$(\boldsymbol{\varphi}(\boldsymbol{\alpha}),\  \boldsymbol{\beta})=\left(\boldsymbol{\alpha},\  \boldsymbol{\varphi}^{*}(\boldsymbol{\beta})\right)$$
+		\item 设  $V$  是 $ n $ 维内积空间,\  $ \left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{n}\right\}$  是$  V$  的一组标 准正交基. 若 $ V$  上的线性算子  $\boldsymbol{\varphi}  $在这组基下的表示矩阵 为 $ \boldsymbol{A}=\left(a_{i j}\right) $,\  则如果  $V $ 是酉空间,\  那么 $ \boldsymbol{\varphi}^{*}  $在同一组基 下的表示矩阵为  $\overline{\boldsymbol{A}}^{\prime}=\left(\bar{a}_{i j}\right)^{\prime} ,\  $即  $\boldsymbol{A}  $的共轭转置. 如果$  V$  是欧氏空间,\  那么 $ \boldsymbol{\varphi}^{*}  $的表示矩阵为$  \boldsymbol{A}^{\prime} ,\ $ 即  $\boldsymbol{A} $ 的转置.
+		\item 设 $ V  $是有限维内积空间,\  若 $ \boldsymbol{\varphi} $ 及 $ \boldsymbol{\psi}  $是$  V  $上的线性变换,\ $  c $ 为常数,\  则\\
+		(1)$\left(\boldsymbol{\varphi}+\boldsymbol{\psi}\right)^{*}=\boldsymbol{\varphi}^{*}+\boldsymbol{\psi}^{*} ;$\\
+		(2)$\left(c \boldsymbol{\varphi}\right)^{*}=\bar{c} \boldsymbol{\varphi}^{*} ;$\\
+		(3) $\left(\boldsymbol{\varphi}\boldsymbol{\psi}\right)^{*}=\boldsymbol{\psi}^{*} \boldsymbol{\varphi}^{*} ;$\\
+		(4)$  \left(\boldsymbol{\varphi}^{*}\right)^{*}=\boldsymbol{\varphi} .$
+		\item 设  $V $ 是 $ n $ 维内积空间,\   $\boldsymbol{\varphi}$ 是  $V $ 上的线性算子.\\
+		(1) 若  $U  $是 $\boldsymbol{\varphi}  $的不变子空间,\  则  $U^{\perp}  $是 $\boldsymbol{\varphi}^{*} $的不变子空 间;\\
+		(2) 若$  \boldsymbol{\varphi} $的全体特征值为  $\lambda_{1},\  \lambda_{2},\  \cdots,\  \lambda_{n} ,\  $则  $\boldsymbol{\varphi}^{*}  $的全体 特征值为 $ \bar{\lambda}_{1},\  \bar{\lambda}_{2},\  \cdots,\  \bar{\lambda}_{n} .$
+		\item 设  $V$  与 $ U$  是域 $ \mathbb{K} $ 上的内积空间,\   $\mathbb{K} $ 是实数域或复数域,\   $\boldsymbol{\varphi} $是$  V \rightarrow U$  的线性映射. 若对任意的 $ \boldsymbol{x},\  \boldsymbol{y} \in V ,\ $ 有
+		$$(\boldsymbol{\varphi}(\boldsymbol{x}),\  \boldsymbol{\varphi}(\boldsymbol{y}))=(\boldsymbol{x},\  \boldsymbol{y})$$
+		则称 $ \boldsymbol{\varphi} $是 $ V \rightarrow U $ 的保持内积的线性映射. 又若  $\boldsymbol{\varphi}$  作为 线性映射是同构. 则称 $ \boldsymbol{\varphi} $是内积空间 $ V $ 到  $U$  上的保积 同构.
+		\item 若  $\boldsymbol{\varphi}$是内积空间  $V  $到内积空间  $U  $的保持范数的线性映 射,\  则  $\boldsymbol{\varphi} $ 保持内积.
+		对于复空间，有
+		$$\begin{aligned}
+			(\boldsymbol{x},\  \boldsymbol{y}) &=\frac{1}{4}\|\boldsymbol{x}+\boldsymbol{y}\|^{2}-\frac{1}{4}\|\boldsymbol{x}-\boldsymbol{y}\|^{2} \\
+			&+\frac{\mathrm{i}}{4}\|\boldsymbol{x}+\mathrm{i} \boldsymbol{y}\|^{2}-\frac{\mathrm{i}}{4}\|\boldsymbol{x}-\mathrm{i} \boldsymbol{y}\|^{2}
+		\end{aligned}$$
+		对于实空间，有
+		$$(\boldsymbol{x},\  \boldsymbol{y})=\frac{1}{4}\|\boldsymbol{x}+\boldsymbol{y}\|^{2}-\frac{1}{4}\|\boldsymbol{x}-\boldsymbol{y}\|^{2}$$
+		\item 设  $V  $与 $ U $ 都是$  n$  维内积空间 (同为实空间或同为复空 间),\  若  $\boldsymbol{\varphi} $是 $ V \rightarrow U$  的线性映射,\  则下列命题等价:\\
+		(1)  $\boldsymbol{\varphi} $ 保持内积;\\
+		(2) $ \boldsymbol{\varphi} $ 是保积同构;\\
+		(3) $ \boldsymbol{\varphi}$  将  $V $ 的任一组标准正交基变成$  U  $的一组标准正交 基;\\
+		(4)$ \boldsymbol{\varphi} $ 将  $V$  的某一组标准正交基变成  $U $ 的一组标准正交 基.
+		\item 两个有限维内积空间$  V $ 与$  U $ (同为实空间或同为复空间) 同构的充分必要条件是它们有相同的维数.
+		\item 设 $ V $ 是欧氏空间,\  若$  \boldsymbol{\varphi}  $是 $ V$  上保持内积的线性变换,\  则 称  $\boldsymbol{\varphi}  $为 $ V $ 上的正交变换或正交算子. 若$  U$  是酉空间,\  则$  U$  上保持内积的线性变换称为酉变换或酉算子.
+		\item 设  $\boldsymbol{\varphi} $是欧氏空间或西空间上的线性变换,\  则  $\boldsymbol{\varphi}$ 是正交变 换或酉变换的充分必要条件是  $\boldsymbol{\varphi}$  非异,\  且
+		$$\boldsymbol{\varphi}^{-1}=\boldsymbol{\varphi}^{n}$$
+		\item 设  $\boldsymbol{A}$  是  $n$  阶实方阵,\  若  $\boldsymbol{A}^{\prime}=\boldsymbol{A}^{-1} ,\  $则称 $ \boldsymbol{A}  $是正交矩阵.正交矩阵满足  $\boldsymbol{A} \boldsymbol{A}^{\prime}=\boldsymbol{A}^{\prime} \boldsymbol{A}=\boldsymbol{I}_{n} ; $又若 $ \boldsymbol{C}  $是  $n$  阶 复方阵且 $ \bar{\boldsymbol{C}}^{\prime}=\boldsymbol{C}^{-1} ,\ $ 则称  $\boldsymbol{C}  $是酉矩阵. 酉矩阵满足  $\boldsymbol{C}\overline{\boldsymbol{C}}^{\prime}=\overline{\boldsymbol{C}}^{\prime} \boldsymbol{C}=\boldsymbol{I}_{n} .$
+		\item 设  $\boldsymbol{\varphi}$ 是欧氏空间 (酉空间) $ V  $上的正交变换 (酉变换),\  则 在  $V$  的任一组标准正交基下,\  $\boldsymbol{\varphi}$的表示矩阵是正交矩阵 (酉矩阵).
+		\item 设 $ \boldsymbol{A}=\left(a_{i j}\right)  $是  $n $ 阶实矩阵,\  则  $\boldsymbol{A} $ 是正交矩阵的充分必 要条件是:
+		$$\begin{array}{c}
+			a_{i 1} a_{j 1}+a_{i 2} a_{j 2}+\cdots+a_{i n} a_{j n}=0,\  \quad i \neq j \\
+			a_{i 1}^{2}+a_{i 2}^{2}+\cdots+a_{i n}^{2}=1
+		\end{array}$$
+		或
+		$$\begin{array}{c}
+			a_{1 i} a_{1 j}+a_{2 i} a_{2 j}+\cdots+a_{n i} a_{n j}=0,\  \quad i \neq j \\
+			a_{1 i}^{2}+a_{2 i}^{2}+\cdots+a_{n i}^{2}=1
+		\end{array}$$
+		换言之,\  $ \boldsymbol{A}  $为正交矩阵的充分必要条件是它的 $ n$  个行 向量是$  n$  维实行向量空间组成的欧氏空间 (取标准内积) 的标准正交基; 或它的  $n  $个列向量是 $ n$  维实列向量空间 组成的欧氏空间 (取标准内积) 的标准正交基.
+		\item 设 $ \boldsymbol{A}=\left(a_{i j}\right) $ 是$  n $ 阶复矩阵,\  则  $\boldsymbol{A} $ 是酉矩阵的充分必要 条件是:
+		$$\begin{array}{c}
+			a_{i 1} \bar{a}_{j 1}+a_{i 2} \bar{a}_{j 2}+\cdots+a_{i n} \bar{a}_{j n}=0,\  \quad i \neq j \\
+			\left|a_{i 1}\right|^{2}+\left|a_{i 2}\right|^{2}+\cdots+\left|a_{i n}\right|^{2}=1
+		\end{array}$$
+		或
+		$$\begin{array}{c}
+			a_{1 i} \bar{a}_{1 j}+a_{2 i} \bar{a}_{2 j}+\cdots+a_{n i} \bar{a}_{n j}=0,\  \quad i \neq j,\  \\
+			\left|a_{1 i}\right|^{2}+\left|a_{2 i}\right|^{2}+\cdots+\left|a_{n i}\right|^{2}=1
+		\end{array}$$
+		换言之,\  $ \boldsymbol{A} $ 为酉矩阵的充分必要条件是它的 $n  $个行向量 是  $n$  维复行向量空间组成的西空问 (取标准内积) 的标 准正交基; 或它的  $n$  个列向量是  $n  $维复列向量空间组成 的酉空间 (取标准内积) 的标准正交基.
+		\item 若 $ n $ 阶实矩阵 $ \boldsymbol{A}  $是正交矩阵,\  则\\
+		(1) $ \boldsymbol{A} $ 的行列式值等于$ 1 $或 $ -1 ;$\\
+		(2)  $\boldsymbol{A}$  的特征值的绝对值 (模长) 等于$ 1.$\\
+		\item 若  $n $ 阶复矩阵$  \boldsymbol{A}  $是酉矩阵,\  则\\
+		(1) $ \boldsymbol{A}$ 的行列式值的模长等于 $1 ;$\\
+		(2) $ \boldsymbol{A} $ 的特征值的绝对值 (模长) 等于$ 1 .$
+		\item (1) 单位阵是正交矩阵也是酉矩阵;\\
+		(2) 对角阵是正交矩阵的充分必要条件是主对角线上的 元素为 $1$ 或  $-1 $.
+		\item 设  $\boldsymbol{A}$  是 $ n  $阶实 (复) 矩阵,\  则 $ \boldsymbol{A}  $可分解为 $ \boldsymbol{A}=\boldsymbol{Q R} ,\ $ 其 中  $\boldsymbol{Q} $ 是正交 (酉) 矩阵,\  $\boldsymbol{R} $ 是一个上三角阵且主对角线 上的元奚均大于等于零,\  并且若 $ \boldsymbol{A}  $是非异阵,\  则这样的 分解必唯一.
+		\item 正交 (酉) 变换的积仍是正交 (酉) 变换,\  正交 (酉) 变换 的逆也是正交 (酉) 变换. 正交 (酉) 矩阵的积仍是正交 (酉) 矩阵,\  正交 (酉) 矩阵的逆仍是正交 (酉) 矩阵.
+		\item 二阶正交矩阵具有下列形状:
+		$$\left(\begin{array}{cc}
+			\cos \theta & -\sin \theta \\
+			\sin \theta & \cos \theta
+		\end{array}\right),\  \quad
+		\left(\begin{array}{cc}
+			\cos \theta & \sin \theta \\
+			\sin \theta & -\cos \theta
+		\end{array}\right)$$
+		\item 上三角 (或下三角) 正交矩阵必是对角阵且主对角线上的 元素为 $1$ 或  $-1 .$
+		\item 欧氏空间中两组标准正交基之间的过渡矩阵是正交矩阵,\  酉空间中两组标准正交基之间的过渡矩阵是酉矩阵.
+		\item 设  $\boldsymbol{A},\  \boldsymbol{B}$  是 $ n$  阶实矩阵,\  若存在正交矩阵  $\boldsymbol{P}$ ,\  使 $ \boldsymbol{B}=   \boldsymbol{P}^{\prime} \boldsymbol{A}\boldsymbol{P}$ 成立,\  则称 $ \boldsymbol{B} $ 和  $\boldsymbol{A}$  正交相似. 设$  \boldsymbol{A},\  \boldsymbol{B}  $是 $ n $ 阶 复矩阵,\  若存在酉矩阵 $ \boldsymbol{P} ,\ $ 使 $ \boldsymbol{B}=\bar{\boldsymbol{P}}^{\prime} \boldsymbol{A} \boldsymbol{P} ,\  $则称 $ \boldsymbol{B} $ 和$  \boldsymbol{A}  $酉相似. 正交 (酉) 相似是等价关系.
+		\item 设  $\boldsymbol{\varphi}$  是内积空间$  V $ 上的线性变换,\ $  \boldsymbol{\varphi}^{*} $ 是  $\boldsymbol{\varphi}$的伴随,\  若$  \boldsymbol{\varphi}^{*}=\boldsymbol{\varphi},\ $ 则称  $\boldsymbol{\varphi}$  是自伴随算子. 在$  V  $是欧氏空间的情 形,\   $\boldsymbol{\varphi}$  称为对称算子或对称变换,\  在  $V $ 是酉空间的情形,\  $ \boldsymbol{\varphi} $称为 Hermite 算子或 Hermite 变换.
+		\item 设  $V$  是 $ n $ 维酉空间,\ $ \boldsymbol{\varphi}$ 是  $V$  上的自伴随算子,\  则  $\boldsymbol{\varphi}$ 的 特征值全是实数且属于不同特征值的特征向量互相正交.
+		\item Hermite 矩阵的特征值全是实数,\  实对称阵的特征值也 全是实数. 这两种矩阵属于不同特征值的特征向量互相 正交.
+		\item 设 $ V $ 是  $n $ 维内积空间,\  $\boldsymbol{\varphi} $是$  V $ 上的自伴随算子,\  则存 在$  V $ 的一组标准正交基,\  使得$ \boldsymbol{\varphi}$ 在这组基下的表示矩阵 为实对角阵,\  且这组基恰为$ \boldsymbol{\varphi}$  的 $ n$  个线性无关的特征向 量.
+		\item 设  $\boldsymbol{A}$  是  $n $ 阶 Hermite 矩阵,\  则存在酉矩阵  $\boldsymbol{P} ,\ $ 使得  $\overline{\boldsymbol{P}}^{\prime} \boldsymbol{A P} $ 为实对角阵,\  即 Hermite 矩阵西相似于实对角 阵. 又若  $\boldsymbol{A} $ 是  $n$  阶实对称阵. 则存在正交矩阵  $\boldsymbol{P} ,\ $ 使得  $\boldsymbol{P}^{\prime} \boldsymbol{A} \boldsymbol{P}  $为对角阵,\  即实对称矩阵正交相似于对角阵. 上 述正交矩阵或西矩阵  $\boldsymbol{P}  $的  $n $ 个列向量恰为矩阵  $\boldsymbol{A} $ 的 $ n  $个两两正交且长度等于 $1 $的特征向量.
+		\item 实对称 (Hermite) 矩阵的特征值是实对称 (Hermite) 矩 阵正交 (酉) 相似的全系不变量.
+		\item 设  $f(\boldsymbol{x})=\boldsymbol{x}^{\prime} \boldsymbol{A} \boldsymbol{x}  $是 $ n$  变元实二次型,\  $ \lambda_{1},\  \lambda_{2},\  \cdots,\  \lambda_{n} $ 是矩 阵 $ \boldsymbol{A} $ 的特征值,\  则  $f  $经正交变换可以化为下列标准型:
+		$$\lambda_{1} y_{1}^{2}+\lambda_{2} y_{2}^{2}+\cdots+\lambda_{n} y_{n}^{2}$$
+		因此,\  $ f $ 的正惯性指数等于 $ \boldsymbol{A} $ 的正特征值的个数,\  负惯 性指数等于  $\boldsymbol{A}  $的负特征值的个数. $ f $ 的秩等于  $\boldsymbol{A} $ 的非 零特征值的个数.
+		\item 设 $ f(\boldsymbol{x})=\boldsymbol{x}^{\prime} \boldsymbol{A} \boldsymbol{x}$  是$  n$  变元实二次型,\  则  $f  $是正定型当且 仅当矩阵  $\boldsymbol{A} $ 的特征值全是正数;$  f  $是负定型当且仅当矩 阵  $\boldsymbol{A}  $的特征值全是负数;  $f $ 是半正定型当且仅当  $\boldsymbol{A} $ 的 特征值全非负;$  f $ 是半负定型当且仅当  $\boldsymbol{A} $ 的特征值全非正.
+		\item 设  $\boldsymbol{\varphi}$  是内积空间 $ V$  上的线性变换,\   $\boldsymbol{\varphi}^{*} $ 是其伴随,\  若 $ \boldsymbol{\varphi} \boldsymbol{\varphi}^{*}=\boldsymbol{\varphi}^{*}\boldsymbol{\varphi} ,\  $则称$ \boldsymbol{\varphi}  $是  $V $ 上的正规算子. 为了不引起混 淆,\  称酉空间 (欧氏空间) $ V$  上的正规算子  $\boldsymbol{\varphi} $为复正规算子 (实正规算子). 一个复矩阵  $A $ 若适合  $\bar{\boldsymbol{A}} \boldsymbol{A}=\boldsymbol{A}\bar{\boldsymbol{A}} ,\ $ 则 称其为复正规矩阵. 一个实矩阵  $\boldsymbol{A} $ 若适合  $\boldsymbol{A}^{\prime} \boldsymbol{A}=\boldsymbol{A} \boldsymbol{A}^{\prime} ,\ $ 则称其为实正规矩阵.
+		\item 设  $\boldsymbol{\varphi}$是内积空间 $ V  $上的正规算子,\  则对任意的 $ \boldsymbol{\alpha}\in V ,\ $ 成立
+		$$\|\boldsymbol{\varphi}(\boldsymbol{\alpha})\|=\left\|\boldsymbol{\varphi}^{*}(\boldsymbol{\alpha})\right\|$$
+		\item 设  $V$  是 $ n $ 维酉空间,\ $ \boldsymbol{\varphi}  $是  $V  $上的正规算子.\\
+		(1) 向量  $\boldsymbol{u}$  是 $ \boldsymbol{\varphi}  $属于特征值  $\lambda  $的特征向量的充分必要条 件为 $ \boldsymbol{u}  $是 $ \boldsymbol{\varphi}^{*}$  属于特征值 $ \bar{\lambda} $ 的特征向量:\\
+		(2) 属于 $ \boldsymbol{\varphi} $不同特征值的特征向量必正交.
+		\item 设  $V  $是  $n  $维酉空间,\   $\boldsymbol{\varphi} $ 是  $V $ 上的线性变换,\  又  $\left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{n}\right\}$  是  $V $ 的一组标准正交基. 设  $\boldsymbol{\varphi}$ 在这组 基下的表示矩阵  $\boldsymbol{A} $是一个上三角阵,\  则  $\boldsymbol{\varphi}$  是正规算子的 充分必要条件是$  \boldsymbol{A}$ 为对角阵.
+		\item Schur(舒尔) 定理:设 $ V  $是$  n  $维酉空间,\ $ \boldsymbol{\varphi} $ 是  $V  $上的 线性算子,\  则存在 $ V $ 的一组标准正交基,\  使 $ \boldsymbol{\varphi} $ 在这组基下的表示矩阵为上三角阵.\\
+		推论: 任一  $n $ 阶复矩阵均酉相似于一个上三角阵.
+		\item 设  $V$  是  $n $ 维酉空问,\  $ \boldsymbol{\varphi}$  是 $ V $ 上的正规算子,\  则  $V  $有一 组标准正交基,\  在这组标准正交基下,\  $ \boldsymbol{\varphi}$ 的表示矩阵是对 角阵,\  且这组基向量恰为$ \boldsymbol{\varphi} $ 的  $n  $个线性无关的特征向量.
+		\item 复矩阵 $ \boldsymbol{A}$  酉相似于对角阵的充分必要条件是  $\boldsymbol{A}$  为复正 规矩阵.
+		\item 设 $\boldsymbol{\varphi}  $ 是 $ n$  维酉空间  $V  $上的线性算子,\  其所有不同的特 征值为 $ \lambda_{1},\  \lambda_{2},\  \cdots,\  \lambda_{k} ,\  $则  $\boldsymbol{\varphi} $ 是正规算子的充分必要条価 是
+		$$V=V_{1} \perp V_{2} \perp \cdots \perp V_{k}$$
+		其中  $V_{i}(i=1,\ 2,\  \cdots,\  k) $ 是属于特征值 $ \lambda_{i}  $的特征子空 间.
+		\item 任一  $n  $阶酉矩阵必西相似于下列对角阵:
+		$$\operatorname{diag}\left\{c_{1},\  c_{2},\  \cdots,\  c_{n}\right\}$$
+		其中 $ c_{i}  $为模长等于$ 1 $的复数.
+		\item 设  $V$  是$  n $ 维欧氏空间,\   $f(x)$  是一个实多顶式,\  若 $ \boldsymbol{\varphi}  $ 是  $V  $上的正规算子,\  则  $f(\boldsymbol{\varphi})  $也是 $ V  $上的正规算子.
+		\item 设 $\boldsymbol{\varphi}   $是欧氏空间 $ V $ 上的正规算子,\  $ f(x),\  g(x) $ 是互素的 实多项式. 假定$  \boldsymbol{u} \in \operatorname{Ker} f(\boldsymbol{\varphi}),\  \boldsymbol{v} \in \operatorname{Ker} g(\boldsymbol{\varphi}) ,\ $ 则
+		$$(\boldsymbol{u},\  \boldsymbol{v})=0$$
+		\item 设  $V $ 是  $n $ 维欧氏空间,\   $\boldsymbol{\varphi}  $ 是$  V $ 上的正规算子. 令$ g(x)$  是  $\boldsymbol{\varphi} $ 的极小多项式,\  且 $ g_{1}(x),\  \cdots,\  g_{k}(x) $ 为  $g(x)  $的所有 互不相同的首一不可约因子,\  则 $ \operatorname{deg} g_{i}(x) \leqslant 2$  且
+		$$g(x)=g_{1}(x) \cdots g_{k}(x)$$
+		又若 $ W_{i}=\operatorname{Ker} g_{i}(\boldsymbol{\varphi}) ,\  $则\\
+		(1) $ W_{i} \perp W_{j}(i \neq j) ;$\\
+		(2)  $V=W_{1} \perp \cdots \perp W_{k} ;$\\
+		(3) $ W_{i}(i=1,\  \cdots,\  k)  $是  $\boldsymbol{\varphi}  $ 的不变子空间,\  且若  $\boldsymbol{\varphi} _{i}  $表示 $\boldsymbol{\varphi}  $ 在 $ W_{i}  $上的限制,\  则  $g_{i}(x) $ 是$  \boldsymbol{\varphi}_{i}$  的极小多项式且 $ \boldsymbol{\varphi}_{i} $ 是  $W_{i}  $上的正规算子.
+		\item 设  $V  $是 $ n$  维欧氏空间,\  $ \boldsymbol{\varphi} $  是 $ V $ 上的正规算子且  $\boldsymbol{\varphi} $ 适合 多项式  $g(x)=x^{2}+1 .$ 设 $ \boldsymbol{v} \in V,\  \boldsymbol{u}=\boldsymbol{\varphi}(\boldsymbol{v}) ,\ $ 则
+		$$\varphi^{*}(v)=-u,\  \quad \varphi^{*}(u)=v$$
+		且 $ \|u\|=\|v\|,\  u \perp v .$
+		\item 设 $ V  $是  $n $ 维欧氏空间,\ $ \boldsymbol{\varphi}  $是 $ V  $上的正规算子且  $\boldsymbol{\varphi} $适合 多项式$  g(x)=(x-a)^{2}+b^{2} ,\ $ 其中  $a,\  b $ 都是实数且 $ b \neq 0 . $设  $\boldsymbol{v} \in V,\  \boldsymbol{u}=b^{-1}(\boldsymbol{\varphi}-a \boldsymbol{I})(\boldsymbol{v}) ,\ $ 则  $\|\boldsymbol{u}\|=\|\boldsymbol{v}\|,\  \boldsymbol{u} \perp \boldsymbol{v} ,\ $ 且
+		$$\begin{array}{l}
+			\boldsymbol{\varphi}(\boldsymbol{v})=a \boldsymbol{v}+b \boldsymbol{u},\  \quad \boldsymbol{\varphi}(\boldsymbol{u})=-b \boldsymbol{v}+a \boldsymbol{u} ; \\
+			\boldsymbol{\varphi} ^{*}(\boldsymbol{v})=a \boldsymbol{v}-b \boldsymbol{u},\  \quad \boldsymbol{\varphi}^{*}(\boldsymbol{u})=b \boldsymbol{v}+a \boldsymbol{u} . \\
+		\end{array}$$
+		\item 设$ \boldsymbol{\varphi} $是$  n$  维欧氏空间 $ V  $上的正规算子,\ $  \varphi$  的极小多项 式为 $ g(x)=(x-a)^{2}+b^{2} ,\ $ 其中$  a,\  b  $是实数且 $ b \neq 0 ,\ $ 则 存在  $s ,\ $ 使 $ g(x)^{s}  $是 $ \varphi $ 的特征多项式且存在 $ V$  的 $ s $ 个二 维子空间$  V_{1},\  \cdots,\  V_{s} ,\  $使
+		$$V=V_{1} \perp \cdots \perp V_{s}$$
+		每个 $ V_{i}  $有标准正交基  $\left\{\boldsymbol{u}_{i},\  \boldsymbol{v}_{i}\right\} ,\  $且
+		$$\boldsymbol{\varphi}\left(\boldsymbol{u}_{i}\right)=a \boldsymbol{u}_{i}-b \boldsymbol{v}_{i},\  \quad \boldsymbol{\varphi}\left(\boldsymbol{v}_{i}\right)=b \boldsymbol{u}_{i}+a \boldsymbol{v}_{i}$$
+		\item 设 $ V $ 是 $ n  $维欧氏空间$\boldsymbol{\varphi} $是 $ V$  上的正规算子,\  则存在 一组标准正交基,\  使 $\boldsymbol{\varphi} $在这组基下的表示矩阵为下列分 块对角阵:
+		$$\operatorname{diag}\left\{\boldsymbol{A}_{1},\  \cdots,\  \boldsymbol{A}_{r},\  c_{2 r+1},\  \cdots,\  c_{n}\right\}$$
+		其中$  c_{j}(j=2 r+1,\  \cdots,\  n)  $是实数,\   $\boldsymbol{A}_{i}$  为形如
+		$$\left(\begin{array}{cc}
+			a_{i} & b_{i} \\
+			-b_{i} & a_{i}
+		\end{array}\right)$$
+		的二阶实矩阵.
+		\item 设 $ \boldsymbol{A}  $是  $n$  阶正交矩阵,\  则$  \boldsymbol{A}$  正交相似于下列分块对角阵:
+		$$\operatorname{diag}\left\{\boldsymbol{A}_{1},\  \cdots,\  \boldsymbol{A}_{r} ; 1,\  \cdots,\  1 ;-1,\  \cdots,\ -1\right\}$$
+		其中
+		$$\boldsymbol{A}_{i}=\left(\begin{array}{cc}
+			\cos \theta_{i} & \sin \theta_{i} \\
+			-\sin \theta_{i} & \cos \theta_{i}
+		\end{array}\right),\  i=1,\  \cdots,\  r$$
+		\item 设 $\boldsymbol{A}$是实反对称阵,\  则  $\boldsymbol{A}$正交相似于下列分块对角阵:
+		$$\operatorname{diag}\left\{\boldsymbol{B}_{1},\  \cdots,\  \boldsymbol{B}_{r} ; 0,\  \cdots,\  0\right\}$$
+		其中
+		$$\boldsymbol{B}_{i}=\left(\begin{array}{cc}
+			0 & b_{i} \\
+			-b_{i} & 0
+		\end{array}\right),\  i=1,\  \cdots,\  r$$
+		\item 实反对称阵的秩必是偶数,\  且其实特征值必为 $0 ,\ $ 虚特征值为纯虚数.
+		\item 谱分解定理: 设 $ V $ 是有限维内积空间,\  $ \boldsymbol{\varphi}$  是  $V $ 上的线性算子,\ 当$  V$  是酉空间时,\   $\boldsymbol{\varphi}$ 为正规算子; 当 $ V$是欧氏空间时,\   $\boldsymbol{\varphi}$  为自伴随算子. $ \lambda_{1},\  \lambda_{2},\  \cdots,\  \lambda_{k}$  是  $\varphi  $全体不 同的特征值,\  $ W_{i}$  为  $\boldsymbol{\varphi}$ 属于  $\lambda_{i}  $的特征子空间,\  则 $ V  $是  $W_{i}(i=1,\ 2,\  \cdots,\  k)  $的正交直和. 这时若设 $\boldsymbol{E}_{i}  $是$  V$  到  $W_{i}$  上的正交投影,\  则 $\boldsymbol{\varphi} $有下列分解式:
+		$$\boldsymbol{\varphi}=\lambda_{1} \boldsymbol{E}_{1}+\lambda_{2} \boldsymbol{E}_{2}+\cdots+\lambda_{k} \boldsymbol{E}_{k}$$
+		\item 若  $f_{j}(x)=\prod_{i \neq j} \frac{1}{\lambda_{j}-\lambda_{i}}\left(x-\lambda_{i}\right) ,\  $则$ \boldsymbol{E}_{j}=f_{j}(\boldsymbol{\varphi}) .$
+		\item 设  $\boldsymbol{\varphi}$是酉空间  $V $ 上的线性算子,\  则 $ \boldsymbol{\varphi}$ 是正规算子的充 分必要条件是存在复系数多项式 $ f(x) ,\  $使 $ \boldsymbol{\varphi}^{*}=f(\varphi) .$
+		\item 设$\boldsymbol{\varphi}$  是内积空间  $V $ 上的自伴随算子,\  若对任意的非零向 量  $\boldsymbol{\alpha} \in V ,\ $ 总有  $(\boldsymbol{\varphi}(\boldsymbol{\alpha}),\  \boldsymbol{\alpha})>0((\boldsymbol{\varphi}(\boldsymbol{\alpha}),\  \boldsymbol{\alpha}) \geqslant 0) ,\ $ 则称  $\boldsymbol{\varphi}$ 为正定 (半正定) 自伴随算子.
+		\item 设 $\boldsymbol{\varphi}$是酉空间 $ V$  上的正规算子. 若$  \boldsymbol{\varphi}$的特征值全是实 数,\  则 $\boldsymbol{\varphi}$ 是自伴随算子; 若 $\boldsymbol{\varphi}$ 的特征值全是非负实数,\  则 $\boldsymbol{\varphi}$是半正定自伴随算子; 若 $\boldsymbol{\varphi}$ 的特征值全是正实数,\  则 $\boldsymbol{\varphi}$是正定自伴随算子; 若$\boldsymbol{\varphi}$ 的特征值的模长等于 $1 ,\  $则 $ \boldsymbol{\varphi}$是酉算子.
+		\item 设  $V  $是有限维内积空间,\  $ \boldsymbol{\varphi}  $是 $ V$  上的半正定自伴随算 子,\  则存在 $ V $上唯一的半正定自伴随算子 $ \boldsymbol{\psi},\  $使$  \boldsymbol{\psi}^{2}=\boldsymbol{\varphi}.$\\
+		推论: 设$\boldsymbol{A}$是半正定实对称 (Hermite) 矩阵,\  则必存在 唯一的半正定实对称 (Hermite) 矩阵  $\boldsymbol{B} ,\ $ 使 $ \boldsymbol{B}^{2}=\boldsymbol{A} .$
+		\item 设 $ V  $是 $ n $ 维酉空间 (欧氏空间),\  $ \boldsymbol{\varphi}$  是 $ V $ 上的任一线性算子,\  则存在  $V $ 上的酉算子 (正交算子)  $\boldsymbol{\omega}$ 以及$  V$  上的 半正定自伴随算子$  \boldsymbol{\psi} ,\  $使  $\boldsymbol{\varphi}=\boldsymbol{\omega}\boldsymbol{\psi}$  (极分解),\  其中$\boldsymbol{\psi}$是 唯一的,\  并且若$ \boldsymbol{\varphi} $是非异线性算子,\  则 $\boldsymbol{\omega} $也唯一.
+		\item 设 $ \boldsymbol{A}$  是 $ n$  阶实矩阵,\  则存在$  n$  阶正交矩阵  $\boldsymbol{Q} $ 以及 $ n  $阶 半正定实对称阵 $ \boldsymbol{S} ,\ $ 使  $\boldsymbol{A}=\boldsymbol{Q S} . $又设  $\boldsymbol{B} $ 是  $n  $阶复矩 阵,\  则存在 $ n$  阶酉矩阵$  \boldsymbol{U}$ 以及 $ n$  阶半正定 Hermite 矩 阵  $\boldsymbol{H} ,\  $使  $\boldsymbol{B}=\boldsymbol{U} \boldsymbol{H} .$ 上述分解式当 $ \boldsymbol{A},\  \boldsymbol{B}  $为非异阵时被 唯一确定.
+		\item 设 $ \boldsymbol{A} $ 是 $ m \times n  $实矩阵,\  如果存在非负实数  $\sigma $ 以及$  n  $维 非零实列向量$  \boldsymbol{\alpha},\  m$  维非零实列向量  $\boldsymbol{\beta} ,\ $ 使
+		$$\boldsymbol{A} \boldsymbol{\alpha}=\sigma \boldsymbol{\beta},\  \quad \boldsymbol{A} \boldsymbol{\beta}=\sigma \boldsymbol{\alpha}$$
+		则称$  \sigma  $是  $\boldsymbol{A}  $的奇异值,\  $\boldsymbol{\alpha},\  \boldsymbol{\beta} $ 分别称为 $\boldsymbol{A}  $关于 $ \sigma$  的右 奇异向量与左奇异向量.
+		\item 设 $ V,\  U$  分别是 $ n$  维,\ $  m $ 维欧氏空间,\  $\boldsymbol{\varphi} $是 $ V \rightarrow U  $的线 性映射. 若存在  $U \rightarrow V  $的线性映射  $\boldsymbol{\varphi} ^{*} ,\ $使得对任意的$ \boldsymbol{v} \in V,\  \boldsymbol{u} \in U ,\  $都有
+		$$(\boldsymbol{\varphi}(\boldsymbol{v}),\  \boldsymbol{u})=\left(\boldsymbol{v},\  \boldsymbol{\varphi}^{*}(\boldsymbol{u})\right)$$
+		成立,\  则称  $\boldsymbol{\varphi} ^{*} $ 是$ \boldsymbol{\varphi} $的伴随. $\boldsymbol{\varphi} $ 的伴随  $\boldsymbol{\varphi} ^{*} $ 存在且唯一. $ \boldsymbol{\varphi} ^{*} \boldsymbol{\varphi} $ 是$  V  $上的半正定自伴随算子,\   $\boldsymbol{\varphi} \boldsymbol{\varphi} ^{*} $ 是$  U $ 上的半正 定自伴随算子.
+		\item 设 $ V,\  U  $分别是$ n$  维,\ $  m $ 维欧氏空间,\  $\boldsymbol{\varphi} $是$  V \rightarrow U  $的线 性映射,\  则存在  $V$  和  $U  $的标准正交基,\  使  $\boldsymbol{\varphi} $在这两组 基下的表示矩阵为
+		$$\left(\begin{array}{ll}
+			\boldsymbol{S} & \boldsymbol{O}  \\
+			\boldsymbol{O}  & \boldsymbol{O} 
+		\end{array}\right)$$
+		其中
+		$$\boldsymbol{S}=\left(\begin{array}{llll}
+			\sigma_{1} & & & \\
+			& \sigma_{2} & & \\
+			& & \ddots & \\
+			& & & \sigma_{r}
+		\end{array}\right)$$
+		是一个 $ r $ 阶对角阵,\   $\sigma_{1} \geqslant \sigma_{2} \geqslant \cdots \geqslant \sigma_{r}>0  $是  $\varphi  $的非 零奇异值.
+		\item 设$  \boldsymbol{A}$  是$  m \times n  $阶实矩阵,\  $ \boldsymbol{A} $ 的秩等于$  r ,\  $则存在$  m $ 阶 正交矩阵  $\boldsymbol{P}$  以及 $ n $ 阶正交矩阵 $ \boldsymbol{Q} ,\ $ 使
+		$$\boldsymbol{P}^{\prime}\boldsymbol{A} \boldsymbol{Q}=\left(\begin{array}{ll}
+			\boldsymbol{S} & \boldsymbol{O} \\
+			\boldsymbol{O} & \boldsymbol{O}
+		\end{array}\right)$$
+		其中
+		$$\boldsymbol{S}=\left(\begin{array}{llll}
+			\sigma_{1} & & & \\
+			& \sigma_{2} & & \\
+			& & \ddots & \\
+			& & & \sigma_{r}
+		\end{array}\right)$$
+		是一个$  r  $阶对角阵,\ $  \sigma_{1} \geqslant \sigma_{2} \geqslant \cdots \geqslant \sigma_{r}>0 $ 是 $ \varphi $ 的非 零奇异值.
+		$\boldsymbol{P}^{\prime} \boldsymbol{A} \boldsymbol{Q}=\left(\begin{array}{ll}
+			\boldsymbol{S} & \boldsymbol{O} \\
+			\boldsymbol{O} & \boldsymbol{O}
+		\end{array}\right)  $称为矩阵  $\boldsymbol{A}  $的正交相抵标准型,\  而  $\boldsymbol{A}=\boldsymbol{P}\left(\begin{array}{ll}
+			\boldsymbol{S} & \boldsymbol{O} \\
+			\boldsymbol{O} & \boldsymbol{O}
+		\end{array}\right)$$ \boldsymbol{Q}^{\prime}  $称为矩阵 $ \boldsymbol{A} $ 的奇异值分解. 通过奇 异值分解很容易得到极分解.
+		\item 设  $W $ 是有限维内积空间 $ V  $的子空间,\   $\boldsymbol{v}\in V ,\ $ 则\\
+		(1) 在  $W$  中存在唯一的向量  $\boldsymbol{u} ,\ $ 使  $\|\boldsymbol{v}-\boldsymbol{u}\| $ 最小且这时  $(\boldsymbol{v}-\boldsymbol{u}) \perp W ;$\\
+		(2) 若 $ \left\{\boldsymbol{e}_{1},\  \cdots,\  \boldsymbol{e}_{m}\right\}  $是$  W  $的标准正交基,\  又  $\left\{\boldsymbol{e}_{m+1},\  \cdots\right. ,\   \left.\boldsymbol{e}_{n}\right\} $ 是 $ W^{\perp} $ 的标准正交基,\  这样  $\left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{n}\right\} $ 就成 为$  V  $的一组标准正交基,\  则
+		$$\begin{aligned}
+			\boldsymbol{u} &=\left(\boldsymbol{v},\  \boldsymbol{e}_{1}\right) \boldsymbol{e}_{1}+\left(\boldsymbol{v},\  \boldsymbol{e}_{2}\right) \boldsymbol{e}_{2}+\cdots+\left(\boldsymbol{v},\  \boldsymbol{e}_{m}\right) \boldsymbol{e}_{m} \\
+			\boldsymbol{v}-\boldsymbol{u} &=\left(\boldsymbol{v},\  \boldsymbol{e}_{m+1}\right) \boldsymbol{e}_{m+1}+\cdots+\left(\boldsymbol{v},\  \boldsymbol{e}_{n}\right) \boldsymbol{e}_{n} \\
+			\|\boldsymbol{v}-\boldsymbol{u}\| &=\left[\left|\left(\boldsymbol{v},\  \boldsymbol{e}_{m+1}\right)\right|^{2}+\cdots+\left|\left(\boldsymbol{v},\  \boldsymbol{e}_{n}\right)\right|^{2}\right]^{\frac{1}{2}}
+		\end{aligned}$$
+		\item 假设有矛盾线性方程组 $ \boldsymbol{A x}=\boldsymbol{\beta}  $(方程个数大于末知数个 数),\  两边左乘 $ \boldsymbol{A}^{\prime} $ 有  $\boldsymbol{A}^{\prime} \boldsymbol{A} \boldsymbol{x}=\boldsymbol{A}^{\prime} \boldsymbol{\beta} ,\  $设  $\boldsymbol{A}$  的秩为 $ n ,\ $ 那 么$  \boldsymbol{A}^{\prime} $ 的秩也是  $n ,\  $故 $ \boldsymbol{A}^{\prime} \boldsymbol{A} $ 为非异  $n  $阶方阵. 于是
+		$$\boldsymbol{x}=\left(\boldsymbol{A}^{\prime} \boldsymbol{A}\right)^{-1} \boldsymbol{A}^{\prime} \boldsymbol{\beta}$$
+		这就是矛盾线性方程组的最小二乘解.
+		\section{双线性型}
+		\item 设$  V  $是数域  $\mathbb{K}  $上的线性空间,\  称  $V \rightarrow \mathbb{K}$  的线性映射  ($\mathbb{K}  $作为一维空间) 为 $ V $ 上的线性函数. 令  $V^{*} $ 为 $ V$  上的线 性函数全体组成的集合. 可以在$  V^{*} $ 上定义加法与数乘,\  使  $V^{*} $ 成为$  \mathbb{K} $ 上的线性空间. $ V^{*} $称为$  V$  的共轭空间,\  当 $ V  $是有限维空间时,\  常称  $V^{*}  $是  $V $ 的对偶空间.
+		\item 引进记号 $ \langle ,\  \rangle : $
+		$$\langle\boldsymbol{f},\  \boldsymbol{x}\rangle=\boldsymbol{f}(\boldsymbol{x})$$
+		其中 $ \boldsymbol{x} \in V,\  \boldsymbol{f} \in V^{*} .\langle ,\  \rangle $有下列性质:\\
+		(1) 若  $\langle\boldsymbol{f},\  \boldsymbol{x}\rangle=0  $对一切  $\boldsymbol{x} \in V  $成立,\  则 $ \boldsymbol{f}=0 ;$\\
+		(2)  $\langle\boldsymbol{f},\  \boldsymbol{x}\rangle=0 $ 对一切  $\boldsymbol{f} \in V^{*}  $成立的充分必要条件是  $\boldsymbol{x}=\mathbf{0} .$
+		\item 设  $V,\  U $ 是数域 $ \mathbb{K}  $上的线性空间,\ $\boldsymbol{\varphi}$ 是 $ V \rightarrow U $ 的线性 映射,\ $  \boldsymbol{\varphi}^{*}: U^{*} \rightarrow V^{*}  $是  $\boldsymbol{\varphi}$的对偶映射,\  则\\
+		(1) 对任意的 $ \boldsymbol{x}\in V$  及任意的 $ \boldsymbol{g} \in U^{*} ,\  $总成立:
+		$$\left\langle\boldsymbol{\varphi}^{*}(\boldsymbol{g}),\  \boldsymbol{x}\right\rangle=\langle\boldsymbol{g},\  \boldsymbol{\varphi}(\boldsymbol{x})\rangle,\ $$
+		若  $\tilde{\boldsymbol{\varphi}}^*$  是 $ U^{*} \rightarrow V^{*}  $的线性映射且等式
+		$$\langle\tilde{\boldsymbol{\varphi}}(\boldsymbol{g}),\  \boldsymbol{x}\rangle=\langle\boldsymbol{g},\  \boldsymbol{\varphi}(\boldsymbol{x})\rangle$$
+		对一切  $\boldsymbol{x} \in V,\  \boldsymbol{g} \in U^{*}  $成立,\  那么  $\tilde{\varphi}=\boldsymbol{\varphi}^{*} ;$\\
+		(2) 若 $ V,\  U$  是有限维线性空间,\  设 $ \left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{n}\right\} $ 是$  V$  的一组基,\  $ \left\{\boldsymbol{f}_{1},\  \boldsymbol{f}_{2},\  \cdots,\  \boldsymbol{f}_{n}\right\}  $是其对偶基;  $\left\{\boldsymbol{u}_{1},\  \boldsymbol{u}_{2},\  \cdots\right. ,\   \left.\boldsymbol{u}_{m}\right\}  $是  $U $ 的一组基,\   $\left\{\boldsymbol{g}_{1},\  \boldsymbol{g}_{2},\  \cdots,\  \boldsymbol{g}_{m}\right\} $ 是其对偶基. 设$  \boldsymbol{\varphi} $ 在基  $\left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{n}\right\}  $和基 $ \left\{\boldsymbol{u}_{1},\  \boldsymbol{u}_{2},\  \cdots,\  \boldsymbol{u}_{m}\right\} $ 下 的表示矩阵是 $ \boldsymbol{A} ,\ $ 则$  \boldsymbol{\varphi}^{*} $ 在基  $\left\{\boldsymbol{g}_{1},\  \boldsymbol{g}_{2},\  \cdots,\  \boldsymbol{g}_{m}\right\} $ 和基底$  \left\{\boldsymbol{f}_{1},\  \boldsymbol{f}_{2},\  \cdots,\  \boldsymbol{f}_{n}\right\}  $下的表示矩阵为$  \boldsymbol{A}^{\prime} .$
+		\item 设 $ V,\  U,\  W$  是数域 $ \mathbb{K}  $上的线性空间,\   $\boldsymbol{\varphi},\  \boldsymbol{\varphi}_{1},\  \boldsymbol{\varphi}_{2} $ 是 $ V \rightarrow \mathbb{Z} $ 的线性映射,\   $\boldsymbol{\psi}  $是  $U \rightarrow W  $的线性映射,\  则\\
+		(1) $ \left(k_{1} \boldsymbol{\varphi}_{1}+k_{2} \boldsymbol{\varphi}_{2}\right)^{*}=k_{1} \boldsymbol{\varphi}_{1}^{*}+k_{2} \boldsymbol{\varphi}_{2}^{*} ,\  $其中  $k_{1},\  k_{2} \in \mathbb{K} ;$\\
+		(2) $ (\boldsymbol{\psi}\boldsymbol{\varphi})^{*}=\boldsymbol{\varphi}^{*} \boldsymbol{\psi}^{*} ;$\\
+		(3) 若$ \boldsymbol{\varphi}: V \rightarrow U  $是线性同构,\  则$  \boldsymbol{\varphi}^{*}: U^{*} \rightarrow V^{*}  $也是 线性同构,\  此时 $ \left(\boldsymbol{\varphi}^{*}\right)^{-1}=\left(\boldsymbol{\varphi}^{-1}\right)^{*} ;$\\
+		(4) 若 $ V,\  U  $都是有限维线性空间,\  则  $\boldsymbol{\varphi}$是单映射的充分 必要条件是$\boldsymbol{\varphi}^{*}  $为满映射,\   $\boldsymbol{\varphi}$是满映射的充分必要条件 是  $\boldsymbol{\varphi}^{*}$  为单映射. 特别地,\ $\boldsymbol{\varphi}$是线性同构的充分必要条件 是  $\boldsymbol{\varphi}^{*} $ 也是线性同构.
+		\item 设 $ U,\  V  $是数域  $\mathbb{K}  $上的线性空间,\ $  U \times V $ 是它们的积集 合. 若存在集合  $U \times V \rightarrow \mathbb{K}  $的映射 $ g ,\ $ 适合下列条件:\\
+		(1) 对任意的 $ \boldsymbol{x},\  \boldsymbol{y} \in U,\  \boldsymbol{z} \in V,\  k \in \mathbb{K} ,\ $
+		$$\begin{aligned}
+			g(\boldsymbol{x}+\boldsymbol{y},\  \boldsymbol{z}) &=g(\boldsymbol{x},\  \boldsymbol{z})+g(\boldsymbol{y},\  \boldsymbol{z}) \\
+			g(k \boldsymbol{x},\  \boldsymbol{z}) &=k g(\boldsymbol{x},\  \boldsymbol{z})
+		\end{aligned}$$
+		(2) 对任意的$  \boldsymbol{x} \in U,\  \boldsymbol{z},\  \boldsymbol{w} \in V,\  k \in \mathbb{K} ,\ $
+		$$\begin{aligned}
+			g(\boldsymbol{x},\  \boldsymbol{z}+\boldsymbol{w}) &=g(\boldsymbol{x},\  \boldsymbol{z})+g(\boldsymbol{x},\  \boldsymbol{w}) \\
+			g(\boldsymbol{x},\  k \boldsymbol{z}) &=k g(\boldsymbol{x},\  \boldsymbol{z})
+		\end{aligned}$$
+		则称  $g $ 是 $ U$  与$  V  $上的双线性函数或双线性型.
+		\item 设 $ g$  是  $U$  和 $ V $ 上的双线性型,\  则必存在 $ U  $的基  $\left\{\boldsymbol{e}_{1},\  \boldsymbol{e}_{2},\  \cdots,\  \boldsymbol{e}_{m}\right\} $ 及 $ V  $的基  $\left\{\boldsymbol{v}_{1},\  \boldsymbol{v}_{2},\  \cdots,\  \boldsymbol{v}_{n}\right\} ,\  $使
+		
+		$$\begin{array}{l}
+			g\left(\boldsymbol{e}_{i},\  \boldsymbol{v}_{j}\right)=\delta_{i j},\ (i,\  j=1,\  \cdots,\  r) \\
+			g\left(\boldsymbol{e}_{i},\  \boldsymbol{v}_{j}\right)=0,\ (i>r \text { 或 } j>r)
+		\end{array}$$
+		
+		其中 $ r$  为$  g$  的秩.
+		\item 设  $g $ 是 $ U $ 和 $ V$  上的双线性型. 令
+		
+		$$\begin{array}{l}
+			L=\{\boldsymbol{u} \in U \mid g(\boldsymbol{u},\  \boldsymbol{y})=0,\  \text { 对一切 } \boldsymbol{y} \in V\},\  \\
+			R=\{\boldsymbol{v} \in V \mid g(\boldsymbol{x},\  \boldsymbol{v})=0,\  \text { 对一切 } \boldsymbol{x} \in U\},\ 
+		\end{array}$$
+		则 $ L $ 与  $R $ 分别是$  U  $与 $ V$  的子空间,\  分别称为$  g  $的左根 子空间与右根子空间.
+		\item 一个双线性型  $g$  称为非退化,\  若$  g $ 的左、右根子空间都 为零.
+		\item $ U $ 和 $ V $ 上的双线性型 $ g $ 为非退化双线性型的充分必要 条件是
+		$$\operatorname{dim} U=\operatorname{dim} V=r$$
+		其中 $ r $ 为 $ g $ 的秩.
+		推论: $ U $ 和 $ V $ 上的双线性型  $g $ 为非退化的充分必要条件 是 $ g$  在  $U $ 和 $ V$  的任意两组基下的表示矩阵是非异阵.
+		\item 设$  g_{1}  $及  $g_{2}  $是  $U  $和 $ V$  上的两个非退化双线性型,\  则存在 $ U $ 上的非异线性变换 $ \boldsymbol{\varphi}  $ 及 $ V$  上的非异线性变换 $ \boldsymbol{\psi}  ,\ $ 使
+		$$g_{2}(\boldsymbol{\varphi}(\boldsymbol{x}),\  \boldsymbol{y})=g_{1}(\boldsymbol{x},\  \boldsymbol{y}),\  \quad g_{2}(\boldsymbol{x},\  \boldsymbol{\psi}(\boldsymbol{y}))=g_{1}(\boldsymbol{x},\  \boldsymbol{y})$$
+		对一切$  \boldsymbol{x} \in U,\  \boldsymbol{y} \in V  $成立.
+		\item 设$  g  $是  $V \times V \rightarrow \mathbb{K} $ 的双线性函数,\  则称  $g$  是$  V  $上的纯 量积或数量积. 若
+		$$g(\boldsymbol{x},\  \boldsymbol{y})=g(\boldsymbol{y},\  \boldsymbol{x})$$
+		对一切  $x,\  y \in V$  成立,\  则称 $ g  $是$  V$  上的对称型. 若
+		$$g(\boldsymbol{x},\  \boldsymbol{y})=-g(\boldsymbol{y},\  \boldsymbol{x})$$
+		对一切 $ \boldsymbol{x} ,\  \boldsymbol{y}  \in V $ 成立,\  则称  $g$  是  $V$  上的交错型 (也称 反对称型).
+		纯量积在不同基下的表示矩阵是合同的.
+		\item 设  $g $ 是$  V  $上的纯量积,\  则在 $ V$  中  $\boldsymbol{x} \perp \boldsymbol{y}   $等价于  $\boldsymbol{y}  \perp \boldsymbol{x}   $的充分必要条件是 $ g  $为对称型或交错型.
+		\item 若 $ g  $是  $V $ 上的对称型或交错型,\   $U $ 是$  V $ 的子空间,\  记
+		$$\begin{array}{c}
+			U^{-t}=\{\boldsymbol{x} \in V \mid g(\boldsymbol{x},\  U)=0\} \\
+			U^{\perp r}=\{\boldsymbol{x} \in V \mid g(U,\  \boldsymbol{x})=0\}
+		\end{array}$$
+		则 $ U^{-t}=U^{\perp r} .$ 特別地,\  $ g $ 的左根子空间等于右根子空 间.
+		这时记  $U^{\perp}=U^{\perp l}=U^{\perp r} ,\  $称为$  U$  的正交补空间.  $g  $的 左右根子空间重合,\  称为  $g  $的根子空间.
+		\item 设  $g $ 是$  n $ 维线性空间  $V  $上非退化的对称型 (交错型),\  $ U $ 是  $V  $的子空间,\  则 $ U \cap U^{\perp}=0 $ 的充分必要条件是$  g  $限 制在  $U $ 上是  $U  $的一个非退化的纯量积. 这时有直和分 解:
+		$$V=U \oplus U^{-}$$
+		\item 设  $g $ 与  $h  $是  $V $ 上的两个非退化的纯量积,\  则存在$  V  $上 唯一的非异线性变换$\boldsymbol{\varphi},\ $ 使
+		$$h(\boldsymbol{x},\  \boldsymbol{y})=g(\boldsymbol{\varphi}(\boldsymbol{x}),\  \boldsymbol{y})$$
+		对一切  $\boldsymbol{x},\  \boldsymbol{y} \in V$  成立.
+		\item 设$  g  $是 $ n  $维线性空间$  V$  上的交错型,\  则存在$  V $ 的一组 基
+		$$\left\{\boldsymbol{u}_{1},\  \boldsymbol{v}_{1},\  \boldsymbol{u}_{2},\  \boldsymbol{v}_{2},\  \cdots,\  \boldsymbol{u}_{r},\  \boldsymbol{v}_{r} ; \boldsymbol{w}_{1},\  \cdots,\  \boldsymbol{w}_{n-2 r}\right\}$$
+		使  $g $ 在这组基下的表示矩阵为分块对角阵:
+		$$\operatorname{diag}\{\boldsymbol{S},\  \boldsymbol{S},\  \cdots,\  \boldsymbol{S} ; 0,\  \cdots,\  0\}$$
+		其中共有$  r $ 个二阶方阵 $ \boldsymbol{S},\  \boldsymbol{S}  $为如下形状:
+		$$\left(\begin{array}{cc}
+			0 & 1 \\
+			-1 & 0
+		\end{array}\right)$$
+		\item 数域  $\mathbb{K}  $上的反对称阵的秩必是偶数,\  且它的行列式等于  $\mathbb{K}$  中某个元素的平方.
+		\item 数域 $ \mathbb{K} $ 上的两个 $ n $ 阶反对称阵合同的充分必要条件是 它们具有相同的秩.
+		\item 设 $ V $ 是  $\mathbb{K}  $上的有限维线侏空间,\  若  $V $ 上定义了一个非 退化的交错型,\  则称 $ V $ 是一个辛空间 (symplectic space)
+		\item 设$  V$  是一个辛空间,\   $\boldsymbol{\varphi}  $是 $ V  $上的非异线性变换,\  且
+		$$g(\boldsymbol{\varphi}(\boldsymbol{x}),\  \boldsymbol{\varphi}(\boldsymbol{y}))=g(\boldsymbol{x},\  \boldsymbol{y})$$
+		对一切  $\boldsymbol{x},\  \boldsymbol{y} \in V $ 成立,\  则$  \varphi $ 称为  $V $上的一个辛变换.
+		\item 设 $ V $ 是数域  $\mathbb{K}  $上的辛空问,\  则\\
+		(1) $ V  $上线性变换 $ \varphi$  是辛变换的充分必要条件是  $\varphi $ 将辛 基变为辛基;\\
+		(2) 两个辛变换之积仍是辛变换;\\
+		(3) 恒等变换是辛变换;\\
+		(4) 辛变换的逆变换是辛变换.
+		\item 设  $V_{i}(i=1,\ 2)$  是有限维线性空间,\   $g_{i}(i=1,\ 2) $ 是$  V_{i} $ 上 非退化的对称型. 若存在  $V_{1} \rightarrow V_{2} $ 的线性同构$  \eta $,\  使
+		$$g_{2}(\boldsymbol{\eta}(\boldsymbol{x}),\  \boldsymbol{\eta}(\boldsymbol{y}))=g_{1}(\boldsymbol{x},\  \boldsymbol{y})$$
+		对一切 $ \boldsymbol{x},\  \boldsymbol{y} \in V_{1}  $成立,\  则称 $\eta $ 是$  V_{1} \rightarrow V_{2}  $的保距同构. 特别地,\  当 $ V_{1}=V_{2}=V,\  g_{1}=g_{2}=g $ 时,\  $ \boldsymbol{\eta} $ 称为 $ (V,\  g)  $上的一个正交变换.
+		\item 设  $V $ 是数域$  \mathbb{K} $ 上的有限维线性空间,\  $ g  $是 $ V$  上非退化 的对称型,\  则\\
+		(1)$V$上两个正交变换之积仍是正交变换;\\
+		(2)$V$上恒等变换是正交变换;\\
+		(3)$V$上正交变换的逆变换也是正交变换.
+		\item Cartan-Dieudonne 定理:设$  V$  是数域$  \mathbb{K} $ 上的$  n $ 维线性 空间,\   $g$  是  $V$  上非退化的对称型. 若  $\boldsymbol{\eta}$ 是$  V  $上的正交变 换,\  则  $\eta $ 可以表示为不超过  $n$  个镜像变换之积.
+		正交几何有许多与欧氏几何相仿的性质,\  但也有一个明 显的不同. 在欧氏空间中,\  任一非零向量不能与自身垂直,\  但在正交几何中这是可能的.
+		\item 设  $V $ 是有限维线性空间,\  $ g$  是 $ V$  上非退化的对称型. 若  $\boldsymbol{v} $ 是  $V $ 中的非零向量,\  且 $ g(\boldsymbol{v},\  \boldsymbol{v})=0 ,\  $则称  $\boldsymbol{v} $ 是 $ V $ 上 的一个迷向向量. 含有迷向向量的子空间称为迷向子空 间,\  不含任何迷向向量的子空间称为全不迷向子空间.若一个子空间的非零向量全是迷向向量,\  则称之为全迷向 子空间.
+		一个二维线性空间若带有一个非退化的对称型且含有迷 向向量,\  则称之为双曲平面. 对双曲平面有如下结论:\\
+		(1)  $V $ 是双曲平面的充分必要条件是$  V  $有一组基 $ \{\boldsymbol{u},\  \boldsymbol{v}\} ,\  $适合条件:
+		$$\begin{array}{l}
+			g(\boldsymbol{u},\  \boldsymbol{u})=g(\boldsymbol{v},\  \boldsymbol{v})=0 \\
+			g(\boldsymbol{u},\  \boldsymbol{v})=g(\boldsymbol{v},\  \boldsymbol{u})=1
+		\end{array}$$
+		即  $g $ 在这组基下的表示矩阵为 $ \left(\begin{array}{ll}
+			0 & 1 \\ 1 & 0
+		\end{array}\right) ;$\\
+		(2) 任何两个双曲平面皆保距同构;\\
+		(3) 任何一个双曲平面有且只有两个一维的全迷向子空 间.
+		\item 设 $ V $ 是实数域上的四维空间,\  若  $g $ 是一个非退化 的对称型且其正惯性指数等于$ 3 $,\  则称  $(V,\  g) $ 是一个 Minkowski(闵可夫斯基) 空间.$  g $ 在 $ V  $的适当基下的 表示矩阵为
+		$$\left(\begin{array}{cccc}
+			1 & 0 & 0 & 0 \\
+			0 & 1 & 0 & 0 \\
+			0 & 0 & 1 & 0 \\
+			0 & 0 & 0 & -1
+		\end{array}\right)$$
+		$V  $上的正交变换称为 Lorentz (洛伦兹) 变换,\   $V $ 中的迷 向向量称为光向量,\ $  V $ 中适合 $ g(\boldsymbol{x},\  \boldsymbol{x})>0 $ 的向量  $\boldsymbol{x}$  称 为空间向量. 而适合 $ g(\boldsymbol{x},\  \boldsymbol{x})<0 $ 的向量 $ \boldsymbol{x}  $称为时间向 量. Minkowski 空间在相对论中有重要应用.
+	\end{enumerate}

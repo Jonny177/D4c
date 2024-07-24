@@ -1,0 +1,90 @@
+\chapter{Weierstrass Approximation Theorem}
+\section{Lemma}
+\begin{lemma}
+	对所有实数$x,\ $
+	$$\sum\limits_{p=0}^{n}(p-nx)^2\binom{n}{p}x^p(1-x)^{n-p}\le\frac{n}{4}.$$
+\end{lemma}
+\begin{proof}
+	考虑二项式
+	$$(x+y)^n=\sum\limits_{p=0}^{n}\binom{n}{p}x^py^{n-p}.$$
+	关于$x$微分,\ 再乘以$x,\ $得
+	$$nx(x+y)^{n-1}=\sum\limits_{p=0}^{n}p\binom{n}{p}x^py^{n-p}.$$
+	类似地,\ 把这个二项式关于$x$微分两次再乘以$x^2$得
+	$$n(n-1)x^2(x+y)^{n-2}=\sum\limits_{p=0}^{n}p(p-1)\binom{n}{p}x^py^{n-p}.$$
+	于是,\ 若令
+	$$r_p(x)=\binom{n}{p}x^p(1-x)^{n-p},\ $$
+	则有
+	$$\sum\limits_{p=0}^{n}r_p(x)=1,\ \quad \sum\limits_{p=0}^{n}pr_p(x)=nx,\ $$
+	$$\sum\limits_{p=0}^{n}p(p-1)r_p(x)=n(n-1)x^2.$$
+	因而
+	\begin{align*}
+		\sum\limits_{p=0}^{n}(p-nx)^2r_p(x)&=n^2x^2\sum\limits_{p=0}^{n}r_p(x)-2nx\sum\limits_{p=0}^{n}pr_p(x)+\sum\limits_{p=0}^{n}p^2r_p(x)\\
+		&=n^2x^2-2nx(nx)+\left[nx+n(n-1)x^2\right]\\
+		&=nx(1-x).
+	\end{align*}
+	但$4x^2-4x+1=(2x-1)^2\ge0,\ $故$x(1-x)\le\frac{1}{4},\ $从而得到
+	$$\sum\limits_{p=0}^{n}(p-nx)^2\binom{n}{p}x^p(1-x)^{n-p}\le\frac{n}{4}.$$
+\end{proof}
+\section{Bernshte\v{i}n多项式}
+\begin{definition}
+	设$f$是定义在区间$\left[0,\ 1\right]$上的实值函数.由
+	$$B_n(f;x)=\sum\limits_{p=0}^{n}\binom{n}{p}f\left(\frac{p}{n}\right)x^p(1-x)^{n-p},\ \quad x\in\left[0,\ 1\right],\ $$
+	定义的函数$B_n(f)$叫做函数$f$的$n$阶Bernshte\v{i}n多项式.$B_n(f)$是次数$\le n$的多项式.
+\end{definition}
+Bernshte\v{i}n多项式关于函数$f$是线性的,\ 即,\ 若$a_1,\ a_2$是常数,\ $f=a_1f_1+a_2f_2,\ $则
+$$B_n(f)=a_1B_n(f_1)+a_2B_n(f_2).$$
+由于在$\left[0,\ 1\right]$上
+$$\binom{n}{p}x^p(1-x)^{n-p}\ge 0,\ $$
+并且
+\begin{equation}
+	\sum\limits_{p=0}^{n}\binom{n}{p}x^p(1-x)^{n-p}=\left[x+(1-x)\right]^n=1,\ \label{eq28}
+\end{equation}
+故当在$\left[0,\ 1\right]$上$m\le f(x)\le M$时有
+$$m\le B_n(f;x)\le M.$$
+
+\begin{theorem}
+	(Bernshte\v{i}n):对$\left[0,\ 1\right]$上的任意连续函数$f,\ \left\{B_n(f)\right\}$在$\left[0,\ 1\right]$上一致收敛于$f.$
+\end{theorem}
+\begin{proof}
+	设在$\left[0,\ 1\right]$上$|f(x)|\le M<+\infty.$由$f$的一致连续性,\ 对任意$\varepsilon>0,\ $存在$\delta>0,\ $使$|x-x'|<\delta$时,\ 就有
+	$$|f(x)-f(x')|<\varepsilon.$$
+	任取$x\in\left[0,\ 1\right],\ $由\eqref{eq28}有
+	$$f(x)=\sum\limits_{p=0}^{n}f(x)\binom{n}{p}x^p(1-x)^{n-p},\ $$
+	因此
+	\begin{equation}
+		\left|B_n(f;x)-f(x)\right|\le\sum_{p=0}^{n}\left|f\left(\frac{p}{n}-f(x)\right)\right|\binom{n}{p}x^p(1-x)^{n-p}.\label{eq29}
+	\end{equation}
+	把数$p=0,\ 1,\ 2,\ \cdots$如此分成两类$A$与$B:$
+	\begin{align*}
+		\text{当}\left|\frac{p}{n}-x\right|<\delta \text{时}p\in A;\\
+		\text{当}\left|\frac{p}{n}-x\right|\ge\delta \text{时}p\in B.
+	\end{align*}
+	则当$p\in A$时有
+	$$\left|f\left(\frac{p}{n}-f(x)\right)\right|<\varepsilon.$$
+	因而由\eqref{eq29}得
+	\begin{align}
+		\sum\limits_{p\in A}^{}\left|f\left(\frac{p}{n}-f(x)\right)\right|\binom{n}{p}x^p(1-x)^{n-p}&<\varepsilon\sum\limits_{p\in A}^{}\binom{n}{p}x^p(1-x)^{n-p}{\nonumber}\\
+		&\le\varepsilon\sum\limits_{p=0}^{n}\binom{n}{p}x^p(1-x)^{n-p}=\varepsilon.\label{eq30}
+	\end{align}
+	当$p\in B$时有
+	$$\frac{(p-nx)^2}{n^2\delta^2}\ge 1,\ $$
+	因而由引理得
+	\begin{align}
+		\sum\limits_{p\in B}^{}\left|f\left(\frac{p}{n}-f(x)\right)\right|\binom{n}{p}x^p(1-x)^{n-p}&\le\frac{2M}{n^2\delta^2}\sum\limits_{p\in B}^{}(p-nx)^2\binom{n}{p}x^p(1-x)^{n-p}\nonumber\\
+		&\le\frac{2M}{n^2\delta^2}\sum\limits_{p=0}^{n}(p-nx)^2\binom{n}{p}x^p(1-x)^{n-p}\nonumber\\
+		&\le\frac{M}{2n\delta^2}\label{eq31}
+	\end{align}
+	结合\eqref{eq29}\eqref{eq30},\ \eqref{eq31}可以看到:对任一$x\in\left[0,\ 1\right],\ $
+	$$\left|B_n(f;x)-f(x)\right|<\varepsilon+\frac{M}{2n\delta^2}.$$
+	而这就是说,\ 只要$n>\frac{M}{2\varepsilon\delta^2},\ $便有
+	$$\left|B_n(f;x)-f(x)\right|<2\varepsilon.$$
+\end{proof}
+\section{Weierstrass}
+\begin{theorem}[Weierstrass Approximation Theorem]
+	设$f(x)$是$[a,\ b]$上的连续函数,\ 则存在多项式函数列$\{f_n(x)\},\ $使得$f_n(x)$一致收敛于$f(x).$
+\end{theorem}
+兹证Weierstrass逼近定理.若$\left[a,\ b\right]=\left[0,\ 1\right],\ $则它是上述定理得直接结果.设$\left[a,\ b\right]\neq\left[0,\ 1\right].$考虑$y$的函数$f(a+y(b-a)).$这个函数在$\left[0,\ 1\right]$上有定义且连续,\ 因此存在多项式$Q(y),\ $使对所有$y\in\left[0,\ 1\right]$有
+$$\left|f(a+y(b-a))-Q(y)\right|<\varepsilon.$$
+当$x\in\left[a,\ b\right]$时,\ $\frac{x-a}{b-a}\in\left[0,\ 1\right].$于是
+$$\left|f(x)-Q(\frac{x-a}{b-a})\right|<\varepsilon.$$
+因而多项式$P(x)=Q(\frac{x-a}{b-a})$即为所求.

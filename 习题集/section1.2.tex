@@ -1,0 +1,1717 @@
+	\section{汪林-数学分析中的问题与反例}
+	\begin{problem}
+		设函数$f$在区间$\left[0,\ 2a\right]$上连续,\ 且$f(0)=f(2a).$证明:在区间$\left[0,\ 2a\right]$上至少存在某个$x,\ $使得$f(x)=f(x + a).$
+	\end{problem}
+	\begin{solution}
+		若$f(a) = f(0),\ $即$f(0) = f(0+a),\ $则命题成立.\\
+		现设$f(a)\neq f(0) = f(2a).$不妨再设$f(a) > f(0).$考虑函数
+		$$F(x)=f(x)-f(x+a) (0\le x \le a).$$
+		因$f$在$\left[0,\ 2a\right]$上连续,\ 故$F$在$\left[0,\ a\right]$上亦连续,\ 而且
+		$$F(0)=f(0)-f(a)<0$$
+		$$F(a)=f(a)-f(2a)>0$$
+		由连续函数介质定理,\ 存在$x\in (0,\ a),\ $使$F(x)=0,\ $即$f(x)=f(x + a).$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$f,\ g$在$\left(a,\ b\right)$内连续,\ 且$f$或$g$递减.假定某个数列$\left\{x_n\right\}$满足$f(x_n) = g(x_{n-1}),\ $且在$\left(a,\ b\right)$中有极限点.证明方程$g(x) = f(x)$在$\left(a,\ b\right)$内有解.
+	\end{problem}
+	
+	\begin{solution}
+		设对一切$x\in\left(a,\ b\right),\ f(x)\neq g(x),\ $不失一般性,\ 可设$f(x)>g(x)(a<x<b).$设$x_0$是$\left\{x_n\right\}$的极限点,\ $x_0\in \left\{x_n\right\},\ $则存在子列$\left\{x_{n_k}\right\}$,\ 使
+		$$\lim\limits_{k\rightarrow \infty}x_{n_k}=x_0.$$
+		由$g(x_0)<f(x_0)$可知存在正整数$p,\ $使得当$k_1,\ k_2\ge p$时,\ 有
+		\begin{equation}
+			g(x_{n_{k_1}})<f(x_{n_{k_2}}).\label{eq3}
+		\end{equation}
+		
+		另一方面,\ 对某个正整数$m,\ n_{p+1}=n_p+m,\ $有
+		$$\begin{aligned}
+			f(x_{n_{p+1}})&=g(x_{n_{p+1}-1})<f(x_{n_{p+1}-1})\\
+			&=g(x_{n_{p+1}-2})<f(x_{n_{p+1}-2})\\ 
+			&<\dots<f(x_{n_{p+1}-(m-1)})=g(x_{n_p}),\ 
+		\end{aligned}$$
+		这与\eqref{eq3}矛盾.因此,\ 方程$f(x)=g(x)$在$\left(a,\ b\right)$内必有解. 
+	\end{solution}
+	\newpage
+	
+	\begin{problem}
+		构造一个无处连续的非常值周期函数,\ 它具有最小正周期.
+	\end{problem}
+	
+	\begin{solution}
+		$$
+		f(x) = \begin{cases}
+			1,\  & 2n\le x < 2n+1 \text{且} x\text{为无理数} \\
+			-1,\  &  2n\le x < 2n+1 \text{且} x\text{为有理数}	\\
+			2,\  & 2n+1\le x < 2(n+1) \text{且} x\text{为无理数} \\
+			-2,\  & 2n+1\le x < 2(n+1) \text{且} x\text{为有理数}
+		\end{cases}
+		$$
+		这里,\ n为整数.显然$f$的最小正周期是2,\ 它是一个无处连续的函数. 
+	\end{solution}
+	
+	\newpage
+	\begin{problem}
+		设$n$为正整数,\ $f_1(x),\ f_2(x),\ \dots,\ f_n(x)$都是多项式,\ 并且$x^n+x^{n-1}+\dots+x^2+x+1|f_1(x^{n+1})+xf_2(x^{n+1})+\dots+x^{n-1}f_n(x^{n+1}),\ $证明:
+		$$(x-1)^n|f_1(x)f_2(x)\dots f_n(x)$$
+	\end{problem}
+	
+	\begin{solution}
+		令$\varepsilon_1,\ \varepsilon_2,\ \dots,\ \varepsilon_n$为$x^n+x^{n-1}+\dots+x^2+x+1=0$的解,\ 则
+		$$\varepsilon^{n+1}-1=0(i=1,\ 2,\ \dots,\ n)$$
+		因为$x^n+x^{n-1}+\dots+x^2+x+1|f_1(x^{n+1})+xf_2(x^{n+1})+\dots+x^{n-1}f_n(x^{n+1}),\ $所以$\varepsilon_1,\ \varepsilon_2,\ \dots,\ \varepsilon_n$必然是$f_1(x^{n+1})+xf_2(x^{n+1})+\dots+x^{n-1}f_n(x^{n+1})=0$的解,\ 即:
+		$$\left\{\begin{matrix} 
+			f_1(1)+\varepsilon_1f_2(1)+\dots+\varepsilon_1^{n-1}f_n(1)=0 \\
+			\dots\dots\dots \\  
+			f_1(1)+\varepsilon_nf_2(1)+\dots+\varepsilon_n^{n-1}f_n(1)=0 
+		\end{matrix}\right. $$
+		而该方程组的系数行列式为范德蒙行列式且$\varepsilon_i\neq\varepsilon_j(i\neq j),\ $故系数矩阵的行列式不为零,\ 根据Cramer法则知$f_1(1)=f_2(1)=\dots=f_n(1)=0,\ $所以
+		$$(x-1)|f_i(x)(i=1,\ 2,\ \dots,\ n)\Rightarrow(x-1)^{n}|f_1(x)f_2(x)\dots f_n(x)$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		试证明以下命题:
+		\begin{itemize}
+			\item[(1)]设$f(x)$在$[0,\ +\infty]$上可导,\ 且$f'(x)$是递减函数,\ $f'(0)=0,\ $则$f(x_1+x_2)\le f(x_1) + f(x_2).$
+			\item [(2)]设$f\in C([a,\ b]),\ $且在$(a,\ b)$上可导.若有$\varepsilon_0>0,\ $
+			$$f(a) < \varepsilon_0,\ \quad f(x) + f'(x)<\varepsilon_0\quad (a<x<b)$$
+			则$f(x)<\varepsilon_0(a<x<b).$
+			\item[(3)] 设$f(x)$在$[0,\ 1]$上有两个零点,\ 若有$|f''(x)|\le 1(0\le x \le 1),\ $则
+			$$|f(x)|\le \frac{1}{2} \quad (0\le x \le 1).$$
+		\end{itemize}
+	\end{problem}
+	
+	\begin{solution}
+		(1)不妨设$0<x_1<x_2,\ $我们有
+		$$\begin{array}{l}
+			f(x_1+x_2)-f(x_1)-f(x_2)=[f(x_1+x_2)-f(x_2)]+[f(x_1)-f(0)]\\
+			=f'(x_2+\theta_1x_1)x_1-f'(\theta_2x_1)x_1\le 0,\ (0<\theta_1,\ \theta_2<1)
+		\end{array} $$
+		
+		(2)作$F(x)=e^x f(x)-\varepsilon_0e^x,\ $我们有
+		$$F'(x)=e^x[f(x) + f'(x) - \varepsilon_0]<0 \quad a < x < b.$$
+		这说明$F(x)$在$(a,\ b)$上递减,\ 又注意到$F(a)=e^a[f(a)-\varepsilon_0]<0,\ $故知$F(x)<0,\ $即$f(x)<\varepsilon_0(a<x<b).$
+		
+		(3)为了应用二阶导函数的估值,\ 我们期望作出一个具有三个零点的函数,\ 如
+		$$F(x)=f(x)-f(x_0)\frac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_1-x_2)},\ $$
+		其中$x_1,\ x_2$是$f(x)$的两个零点,\ $x_0$是异于$x_1,\ x_2$的$\left[0,\ 1\right]$中的点,\ 从而存在$\xi \in \left(0,\ 1\right),\ $使得$F''(\xi)=0,\ $即$f''(\xi)-f(x_0)\frac{2}{(x_0-x_1)(x_0-x_2)}=0.$有此可知$|f(x_0)|=|f''(\xi)|\frac{|(x_0-x_1)(x_0-x_2)|}{2}\le \frac{1}{2},\ $由于$x_0$$\left(\text{与}x_1,\ x_2\text{不同} \right)$是任意取的,\ 即得所证. 
+	\end{solution}
+	
+	\newpage
+	\begin{problem}
+		\textbf{Lemma:}已知等式两端的两个积分都收敛,\ 且$a,\ b>0,\ $求证:
+		$$\int_{0}^{+\infty}f\left(ax+\frac{b}{x}\right)\text{d}x=\frac{1}{a}\int_{0}^{+\infty}f\left(\sqrt{t^2+4ab}\right)\text{d}t$$
+	\end{problem}
+	
+	\begin{solution}
+		左边=$\int_{0}^{\sqrt{\frac{b}{a}}}f\left(ax+\frac{b}{x}\right)\text{d}x+\int_{\sqrt{\frac{b}{a}}}^{+\infty}f\left(ax+\frac{b}{x}\right)\text{d}x$\\
+		令$t = ax+\frac{b}{x},\ $则$x = \frac{t\pm\sqrt{t^2-4ab}}{2a},\ $于是有
+		\begin{align*}
+			&\int_{0}^{\sqrt{\frac{b}{a}}}f\left(ax+\frac{b}{x}\right)\text{d}x+\int_{\sqrt{\frac{b}{a}}}^{+\infty}f\left(ax+\frac{b}{x}\right)\text{d}x\\
+			=&\int_{+\infty}^{2\sqrt{ab}}f(t)\text{d}\left(\frac{t-\sqrt{t^2-4ab}}{2a}\right)+\int_{2\sqrt{ab}}^{+\infty}f(t)\text{d}\left(\frac{t+\sqrt{t^2-4ab}}{2a}\right)\\
+			=&\int_{2\sqrt{ab}}^{\infty}f(t)\text{d}\left(\frac{t+\sqrt{t^2-4ab}}{2a}-\left(\frac{t-\sqrt{t^2-4ab}}{2a}\right)\right)\\
+			=&\int_{2\sqrt{ab}}^{+\infty}f(t)\text{d}\left(\frac{\sqrt{t^2-4ab}}{a}\right)\\
+			=&\frac{1}{a}\int_{2\sqrt{ab}}^{+\infty}f(t)\text{d}\left(\sqrt{t^2-4ab}\right)
+		\end{align*}
+		令$m=\sqrt{t^2-4ab},\ $则$t=\sqrt{m^2+4ab},\ $于是有
+		$$\frac{1}{a}\int_{2\sqrt{ab}}^{+\infty}f(t)\text{d}\left(\sqrt{t^2-4ab}\right)=\frac{1}{a}\int_{0}^{+\infty}f\left(\sqrt{m^2+4ab}\right)\text{d}m$$
+		即等式成立. 
+	\end{solution}
+	\newpage
+	由上述Lemma可计算下面这道积分:
+	\\
+	
+	\begin{problem}
+		$$\int_{0}^{\infty}\frac{2}{\sqrt{4x\pi}}e^{-\frac{a^2}{4x}}e^{-x}\text{d}x$$
+	\end{problem}
+	
+	\begin{solution}
+		\begin{align*}
+			&\int_{0}^{\infty}\frac{2}{\sqrt{4x\pi}}e^{-\frac{a^2}{4x}}e^{-x}\text{d}x\\
+			=&\frac{2}{\sqrt{\pi}}\int_{0}^{\infty}e^{-x^2-\frac{a^2}{4x^2}}\text{d}x\left(\text{令}t=x^2\right)\\
+			=&e^{-a}\frac{2}{\sqrt{\pi}}\int_{0}^{\infty}e^{-\left(x-\frac{a}{2x}\right)^2}\text{d}x\\
+			=&e^a\frac{2}{\sqrt{\pi}}\int_{0}^{\infty}e^{-x^2}\text{d}x\left[\text{令}f(x)=e^{-x^2},\ a=1,\ b=-\frac{a}{2}\text{使用上述Lemma}\right]\\
+			=&e^{a}.
+		\end{align*} 
+	\end{solution}
+	
+	\newpage
+	\begin{problem}
+		若$\alpha(x)\beta(x)\rightarrow 0$且$\beta(x)\rightarrow 0$,\ 则$$\left[1+\beta(x)\right]^{\alpha(x)}-1\sim \alpha(x)\beta(x)$$
+	\end{problem}
+	
+	\begin{solution}
+		其实证明和$(1+x)^\alpha-1\sim \alpha x\left(\alpha\text{为实数}\right)$类似,\ 这里只写出证明过程中条件所起到的作用.\\
+		以下用$\alpha,\ \beta$代替$\alpha(x),\ \beta(x)$\\
+		从而有
+		
+		$$	\lim\limits_{x\rightarrow 0}\frac{\left[1+\beta\right]^\alpha-1}{\alpha\beta}
+		=\frac{e^{\alpha\ln(1+\beta)}-1}{\alpha}$$
+		$	\text{这里只需证明}\alpha\ln(1+\beta)\rightarrow0\text{便可用}e^x-1\sim x$\\
+		由Taylor展开有$\alpha\ln(1+\beta)=\alpha\left(\beta-\frac{1}{2}\beta^2+\frac{1}{6}\beta^3+\cdots\right)\rightarrow 0$即证. 
+	\end{solution}
+	
+	由上面的Lemma可做这样一道题:
+	
+	\begin{problem}
+		$\lim\limits_{x\rightarrow 0}\frac{\sqrt[3]{1-\sqrt{1-x}}}{(1+x)^{\frac{1}{\sqrt[3]{x^2}}}-1}$
+	\end{problem}
+	
+	\begin{solution}
+		由$(1+x)^\alpha-1\sim \alpha x$得$\sqrt[3]{1-\sqrt{1-x}}\sim \sqrt[3]{\frac{x}{2}}$\\
+		由Lemma有$(1+x)^{\frac{1}{\sqrt[3]{x^2}}}-1\sim \sqrt[3]{x} $\\
+		故由等价无穷小可知结果为$\frac{1}{\sqrt[3]{2}}$
+	\end{solution}
+	\newpage
+	\begin{problem}
+		$$\int_{0}^{1}\frac{\arctan x}{x}\frac{1}{\sqrt{1-x^2}}\,\text d x$$
+	\end{problem}
+	
+	\begin{solution}
+		这里使用含参变量的广义积分计算这道题:\\
+		由于$\frac{\arctan x}{x}=\int_{0}^{1}\frac{1}{1+x^2y^2}\,\text d y,\ $\\
+		故原式$=\int_{0}^{1}\int_{0}^{1}\frac{1}{(1+x^2y^2)\sqrt{1-x^2}}\, \text d x \text d y,\ $而
+		\begin{align*}
+			&\int_{0}^{1}\frac{1}{(1+x^2y^2)\sqrt{1-x^2}}\, \text d x=\int_{0}^{\frac{\pi}{2}}\frac{\sin z\,\text d z}{(1+\cos^2 zy^2)\sqrt{1-\cos^2z}}=\int_{0}^{\frac{\pi}{2}}\frac{\frac{1}{\cos^2z}}{\frac{1}{\cos^2z}+y^2}\, \text dz\\
+			=&\int_{0}^{\frac{\pi}{2}}\frac{\text d (\tan z)}{\tan^2 z + 1 + y^2}=\left.\frac{1}{\sqrt{1+y^2}}\arctan\frac{\tan z}{\sqrt{1+y^2}}\right|_0^{\frac{\pi}{2}-}
+			=\frac{\pi}{2\sqrt{1+y^2}}\\
+			&\\
+			\text 而 &\int_{0}^{1}\frac{\pi}{2\sqrt{1+y^2}}\, \text d y=\frac{\pi}{2}\int_{0}^{\frac{\pi}{4}}\sec t\, \text d t=\left.\frac{\pi}{2}\ln\left|\sec t + \tan t\right| \right|^{\frac{\pi}{4}}_{0}=\frac{\pi}{2}\ln(\sqrt{2}+1).
+		\end{align*} 
+	\end{solution}
+	\newpage
+	\begin{problem}设$a,\ b>0.$求$$\int_{0}^{1}\frac{x^b-x^a}{\ln x}\sin(\ln \frac{1}{x})\,\text d x$$
+	\end{problem}
+	
+	\begin{solution}
+		继续使用含参变量的广义积分计算:\\
+		由于$\frac{x^b-x^a}{\ln x}=\int_{a}^{b}x^y.$故原式$=-\int_{a}^{b}\int_{0}^{1}x^y\sin(\ln x)\, \text{d}x\, \text{d} y.$\\
+		以下着重计算$\int_{0}^{1}x^y\sin(\ln x)\, \text{d}x:$
+		\begin{align*}
+			&\int_{0}^{1}x^y\sin(\ln x)\, \text{d}x=\int_{0}^{1}\frac{1}{y+1}\sin(\ln x)\,\text{d}(x^{y+1})=-\int_{0}^{1}\frac{x^y}{y+1}\cos(\ln x)\, \text{d}x\\
+			=&-\frac{1}{(y+1)^2}\int_{0}^{1}\cos(\ln x)\,\text{d} (x^{y+1})=-\frac{1}{(y+1)^2}-\frac{1}{(y+1)^2}\int_{0}^{1}x^y\sin(\ln x)\, \text{d}x\\
+			&\text{故}\int_{0}^{1}x^y\sin(\ln x)\, \text{d}x=-\frac{1}{1+(y+1)^2}\\
+			&\text{则原式}=\int_{a}^{b}\frac{\text{d}(y+1)}{1+(y+1)^2}=\arctan (y+1)\Big|^{b}_{a}=\arctan\frac{b-a}{ab+a+b+2}
+		\end{align*} 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$f$在$\left(a,\ +\infty\right)$上可微,\ 且$\lim\limits_{x\rightarrow+\infty}f'(x)=0.$证明:
+		$$\lim\limits_{x\rightarrow+\infty}\frac{f(x)}{x}=0.$$
+	\end{problem}
+	
+	\begin{solution}
+		由于$\lim\limits_{x\rightarrow+\infty}f'(x)=0,\ $故对任意$\varepsilon>0,\ $存在$M>a,\ $使当$x>M$时,\ 有
+		$$\left|f'(x)\right|<\frac{\varepsilon}{2}.$$
+		又
+		$$\frac{f(x)-f(M)}{x-M}=f'(\zeta)\quad\left(M<\zeta <x\right),\ $$
+		故当$x>M$时,\ 有
+		$$\frac{\left|f(x)-f(M)\right|}{x-M}=f'(\zeta)<\frac{\varepsilon}{2}.$$
+		因此
+		$$\left|f(x)-f(M)\right|<\frac{\varepsilon(x-M)}{2},\ $$
+		$$|f(x)|<|f(M)|+\frac{\varepsilon(x-M)}{2},\ $$
+		从而
+		$$\frac{|f(x)|}{x}<\frac{|f(M)|}{x}+\frac{\varepsilon(x-M)}{2x}\ (x>M).$$
+		固定$M,\ $则有$x_0>M,\ $当$x>x_0$时,\ 
+		$$\frac{|f(M)|}{x}<\frac{\varepsilon}{2}.$$
+		于是,\ 当$x>x_0$时,\ 
+		$$\frac{|f(x)|}{x}<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon,\ $$
+		即
+		$$\lim\limits_{x\rightarrow+\infty}\frac{f(x)}{x}=0.$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$f$在闭区间$\left[a,\ b\right]$上可微,\ $f'$连续、递减且$f'(b)>0.$证明:
+		\begin{itemize}
+			\item[(i)]$b_n=f^{-1}\left[f(b_{n-1})-f'(b_{n-1})(b_{n-1}-a)\right]$存在且满足$a<b_n<b_{n-1}(n=1,\ 2,\ \cdots;b_0=b).$
+			\item[(ii)]数列$\left\{f(b_n)\right\}$收敛于$f(a)$.
+		\end{itemize}
+	\end{problem}
+	
+	\begin{solution}
+		(i)据微分中值定理,\ 存在$\zeta,\ a<\zeta<b,\ $使得
+		$$f(a)=f(b)-f'(\zeta)(b-a).$$
+		由于$f'$递减且$f'(b)>0,\ $故
+		$$f(a)<f(b)-f'(b)(b-a)<f(b).$$
+		由题设可知$f$在$\left[a,\ b\right]$上递增且连续,\ 故$f^{-1}$在$\left[f(a),\ f(b)\right]$上存在且也是递增的连续函数.于是,\ $b_1=f^{-1}\left[f(b)-f'(b)(b-a)\right]$存在且满足$a<b_1<b.$
+		
+		现设$b_n$存在且满足$a<b_n<b_{n-1}.$如同前面一样,\ 在$\left[a_n,\ b_n\right]$上应用微分中值定理,\ 有
+		$$f(a)<f(b_n)-f'(b_n)(b_n-a)<f(b_n).$$
+		因此,\ 数$b_{n+1}=f^{-1}\left[f(b_n)-f'(b_n)(b_n-a)\right]$存在且满足$a<b_{n+1}<b_n.$
+		
+		(ii)数列$\left\{b_n\right\}$递减且有下届$a$,\ 故$\lim\limits_{n\rightarrow\infty}b_n$存在.令$\lim\limits_{n\rightarrow\infty}b_n=x_0,\ $则$a\le x_0<b.$因
+		$$f(b_n)=f(b_{n-1})-f'(b_{n-1})(b_{n-1}-a),\ $$
+		故由$f$及$f'$在$x_0$的连续性可知
+		$$f(x_0)=f(x_0)-f'(x_0)(x_0-a).$$
+		于是$x_0=a$且$\lim\limits_{n\rightarrow\infty}f(b_n)=f(a).$因数列$\left\{b_n\right\}$是递减的,\ 故数列$\left\{f(b_n)\right\}$也是递减的. 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设函数$f$在$\left[0,\ c\right](c>0)$上可微,\ $f'$在在$\left[0,\ c\right]$上递减,\ 且$f(0)=0.$证明对于$0\le a\le b\le a+b\le c,\ $恒有
+		$$f(a+b)\le f(a)+f(b).$$
+	\end{problem}
+	
+	\begin{solution}
+		当$a=0$时,\ 式中等号成立,\ 故结论为真.\\
+		若$a>0,\ $在$\left[0,\ a\right]$上应用微分中值定理,\ 可知存在$\zeta_1(0<\zeta_1<a),\ $使得
+		$$\frac{f(a)}{a}=\frac{f(a)-f(0)}{a-0}=f'(\zeta_1).$$
+		同理,\ 在$\left[b,\ a+b\right]$上应用微分中值定理,\ 可知存在$\zeta_2(b<\zeta_2<a+b).$使得
+		$$\frac{f(a+b)-f(b)}{a}=\frac{f(a)-f(0)}{(a+b)-b}=f'(\zeta_2).$$
+		显然,\ $0<\zeta_1<a\le b<\zeta_2<a+b\le c.$因$f'$在$\left[0,\ c\right]$上递减,\ 故$f'(\zeta_2)\le f'(\zeta_1),\ $即
+		$$\frac{f(a+b)-f(b)}{a}\le \frac{f(a)}{a},\ $$
+		从而
+		$$f(a+b)\le f(a)+f(b).$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$f$在$\left(-\infty,\ \infty\right)$上二次可微,\ 且
+		$$M_k=\underset{-\infty<x<\infty}{\text{sup}} |f^{(k)}(x)|<\infty\qquad(k=0,\ 1,\ 2).$$
+		证明不等式
+		$$M_1^{2}\le 2M_0M_2.$$
+	\end{problem}
+	\begin{solution}
+		不妨设$f$为非常值函数,\ 于是由题设知$M_2\neq 0.$对任意$x\in \left(-\infty,\ \infty\right)$及任意$h>0,\ $据Taylor公式得
+		\begin{align*}
+			f(x+h)&=f(x)+hf'(x)+f''(x+\theta_1h)\frac{h^2}{2}\\
+			f(x-h)&=f(x)-hf'(x)+f''(x-\theta_2h)\frac{h^2}{2},\ \quad0<\theta_1,\ \theta_2<1.
+		\end{align*}
+		两式相减得
+		$$2hf'(x)=f(x+h)-f(x-h)+\left[f''(x-\theta_2h)-f''(x+\theta_1h)\right]\frac{h^2}{2}.$$
+		因此
+		$$M_1\le M_0h^{-1}+\frac{h}{2}M_2.$$
+		特别地,\ 取$h=\sqrt{\frac{2M_0}{M_2}}$得$M_1\le\sqrt{2M_0M_2},\ $即
+		$$M_1^2\le 2M_0M_2$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		构造一个L'Hosptial法则失效的复值函数的不定式.
+	\end{problem}
+	
+	\begin{solution}
+		设$f(x)=x,\ g(x)=x+x^2e^{\frac{\text{i}}{x^2}},\ \quad 0<x<1.$\\
+		由于对一切实数$t,\ $都有$\left|e^{\text i t}\right|=1,\ $因而不难看出
+		$$\lim\limits_{x\rightarrow 0}\frac{f(x)}{g(x)}=1.$$
+		另一方面,\ 有
+		$$g'(x)=1+\left(2x-\frac{2\text i}{x}\right)e^{\frac{\text i}{x^2}},\ \quad 0< x<1,\ $$
+		所以
+		$$\left|g'(x)\right|\ge \left|2x-\frac{2\text i}{x}\right|-1\ge \frac{2}{x}-1.$$
+		于是得到
+		$$\lim\limits_{x\rightarrow0}\frac{f'(x)}{g'(x)}=0.$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		计算$$\int_{0}^{1}\frac{\arctan x}{1+x}\text d x$$
+	\end{problem}
+	
+	\begin{solution}
+		令$\arctan x=\frac{\pi}{4}-\arctan t,\ $则
+		$$x = \tan\left(\frac{\pi}{4}-\arctan t\right)=\frac{1-t}{1+t},\ \quad \text{d}x=\frac{-2}{\left(1+t\right)^2}\text{d}t.$$
+		故
+		\begin{align*}
+			\int_{0}^{1}\frac{\arctan x}{1+x}\,\text d x&=\int_{0}^{1}\frac{\frac{\pi}{4}-\arctan t}{1+t}\,\text{d}t\\
+			&=\frac{\pi}{4}\int_{0}^{1}\frac{\text{d}t}{1+t}-\int_{0}^{1}\frac{\arctan t}{1+t}\,\text{d}t,\ 
+		\end{align*}
+		因此
+		$$\int_{0}^{1}\frac{\arctan x}{1+x}\,\text d x=\frac{\pi}{8}\int_{0}^{1}\frac{1}{1+t}\,\text{d}t=\frac{\pi}{8}\ln 2.$$
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$a_1,\ b_1$为任意取定的实数,\ 定义
+		\begin{align}
+			a_n&=\int_{0}^{1}\max\left\{b_{n-1},\ x\right\}\,\text{d}x\quad(n=2,\ 3,\ \cdots),\ \label{eq4}\\
+			b_n&=\int_{0}^{1}\min\left\{a_{n-1},\ x\right\}\,\text{d}x\quad(n=2,\ 3,\ \cdots).\label{eq5}
+		\end{align}
+		
+		证明:$\left\{a_n\right\}$与$\left\{b_n\right\}$都收敛,\ 并求出它们的极限.
+	\end{problem}
+	
+	\begin{solution}
+		由题目条件可得
+		\begin{equation}
+			a_n\ge \int_{0}^{1}x \,\text{d}x=\frac{1}{2},\ \qquad b_n\le \int_{0}^{1}x \,\text{d}x=\frac{1}{2}\ (n=2,\ 3,\ \cdots)\label{eq6}.
+		\end{equation}
+		代入\eqref{eq4}\eqref{eq5}有如下估计:
+		\begin{equation}
+			\centering{
+				\left\{\begin{matrix} 
+					a_{n+1}\le \int_{0}^{\frac{1}{2}}\frac{1}{2}\,\text{d}x + \int_{\frac{1}{2}}^{1}x\,\text{d}x=\frac{5}{8}\quad (n=2,\ 3,\ \cdots),\  \\ 
+					b_{n+1}\ge \int_{0}^{\frac{1}{2}}x\,\text{d}x + \int_{\frac{1}{2}}^{1}\frac{1}{2}\,\text{d}x=\frac{3}{8}\quad (n=2,\ 3,\ \cdots).\\  
+				\end{matrix}\right. }\label{eq7}
+		\end{equation}
+		由\eqref{eq6}\eqref{eq7}可知
+		\begin{equation}
+			\frac{1}{2}\le a_n \le \frac{5}{8},\ \qquad\frac{3}{8}\le b_n\le \frac{1}{2}\quad (n=2,\ 3,\ \cdots).\label{eq8}
+		\end{equation}
+		代入\eqref{eq4}\eqref{eq5}中,\ 可得$a_n,\ b_n$的递推公式:
+		\begin{align}
+			2a_{n+1}=2\left(\int_{0}^{b_n}b_n\,\text{d}x+\int_{b_n}^{1}x\,\text{d}x\right)&=1+b_n^2\label{eq9}\\
+			2b_{n+1}=2\left(\int_{0}^{a_n}x\,\text{d}x+\int_{a_n}^{1}a_n\,\text{d}x\right)&=2a_n-a_n^2\quad (n=2,\ 3,\ \cdots)\label{eq10},\ 
+		\end{align}
+		由\eqref{eq9}\eqref{eq10}可得如下关系式:
+		\begin{equation}
+			\centering{
+				\left\{\begin{matrix} 
+					a_{n+2}-a_{n+1}=\frac{b_{n+1}+b_{n}}{2}(b_{n+1}-b_n)\quad (n=2,\ 3,\ \cdots),\ \\
+					b_{n+1}-b_n=\frac{2-(a_n+a_{n-1})}{2}(a_n-a_{n-1})\quad   (n=2,\ 3,\ \cdots).
+				\end{matrix}\right.}\label{eq11}
+		\end{equation}
+		由此可得
+		$$a_{n+1}-a_{n+1}=\frac{b_{n+1}+b_n}{2}\cdot \frac{2-(a_n+a_{n-1})}{2}(a_n-a_{n-1}) \quad   (n=2,\ 3,\ \cdots).$$
+		再由\eqref{eq8}可估计出
+		$$|a_{n+2}-a_{n+1}|\le \frac{1}{4}|a_n-a_{n-1}|\quad (n=2,\ 3,\ \cdots)\left[2-(a_n+a_{n-1})\le \frac{2-1}{2}\right]$$
+		反复利用这个估计式,\ 可得
+		\begin{align*}
+			\left|a_{2m+2}-a_{2m+1}\right|&=\frac{1}{4^m}\left|a_2-a_1\right|\quad (m=1,\ 2,\ \cdots),\ \\
+			\left|a_{2m+3}-a_{2m+2}\right|&=\frac{1}{4^m}\left|a_3-a_2\right|\quad (m=1,\ 2,\ \cdots).\\
+		\end{align*}
+		令$m\rightarrow \infty,\ $便得出$a_{2m+2}-a_{2m+1}\rightarrow 0,\ a_{2m+3}-a_{2m+2}\rightarrow 0,\ $从而可推出$\lim\limits_{n\rightarrow \infty}a_n$村在.同理可推出$\lim\limits_{n\rightarrow\infty}b_n$存在.设
+		$$\lim\limits_{n\rightarrow \infty}a_n=a,\ \qquad \lim\limits_{n\rightarrow\infty}b_n=b.$$
+		由\eqref{eq9}\eqref{eq10}可得
+		\begin{equation}
+			\centering{
+				\left\{\begin{matrix} 
+					2a=1+b^2 ,\ \\ 
+					2b=2a-a^2.\\  
+				\end{matrix}\right. }
+		\end{equation}
+		因此,\ $a=2-\sqrt{2},\ b=\sqrt{2}-1.$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设函数$f$在$\left[0,\ \pi\right]$上连续,\ 且
+		$$\int_{0}^{\pi}f(\theta)\cos \theta\, \text{d}\theta=\int_{0}^{\pi}f(\theta)\sin \theta \, \text{d}\theta=0.$$
+		证明存在$\alpha,\ \beta\in (0,\ \pi),\ $使得$f(\alpha)=f(\beta)=0.$
+	\end{problem}
+	
+	\begin{solution}
+		不妨设$f(x) \not\equiv 0.$因
+		$$\int_{0}^{\pi}f(\theta)\cos \theta\, \text{d}\theta=0\qquad\text{且}\qquad\sin \theta > 0\quad (0<\theta < \pi),\ $$
+		故$f$在$\left[0,\ \pi\right]$内必定变号.由$f$的连续性可知,\ 至少存在一点$\alpha\in (0,\ \pi),\ $使得$f(\alpha)=0.$
+		
+		假设$\alpha$是$f$在$\left(0,\ \pi\right)$内的唯一零点,\ 则$f$在$\left(0,\ \alpha\right)$与$\left(\alpha,\ \pi\right)$内异号,\ 于是
+		$$\int_{0}^{\pi}f(\theta)\sin(\theta -\alpha)\,\text{d}\theta \neq 0.$$
+		另一方面,\ 又有
+		$$\int_{0}^{\pi}f(\theta)\sin(\theta - \alpha)\,\text{d}\theta=\cos \alpha\int_{0}^{\pi}f(\theta)\sin\theta\,\text{d}\theta-\sin \alpha \int_{0}^{\pi}f(\theta)\cos \theta\,\text{d}\theta=0,\ $$
+		矛盾.因此,\ 至少存在两点$\alpha,\ \beta\in (0,\ \pi)$使得$f(\alpha)=f(\beta)=0.$
+	\end{solution}
+	\newpage
+	\begin{problem}
+		\textbf{Lemma1:}设数列$\left\{a_n\right\}$收敛,\ 且$a_n>0\quad(n=1,\ 2,\ \cdots).$证明:
+		$$\lim\limits_{n\rightarrow\infty}\sqrt[n]{a_1a_2\cdots a_n}=\lim\limits_{n\rightarrow\infty}a_n.$$
+	\end{problem}
+	
+	\begin{solution}
+		若$\lim\limits_{n\rightarrow\infty}a_n=a,\ $因$a_n>0,\ $故$a\ge 0.$
+		若$a>0,\ $则$\lim\limits_{n\rightarrow\infty}\ln a_n=\ln a.$于是可由Stolz定理得到
+		$$\lim\limits_{n\rightarrow\infty}\frac{\sum\limits_{k=1}^{n}\ln a_k}{n}=\ln a.$$
+		由此可知
+		$$\lim\limits_{n\rightarrow\infty}\sqrt[n]{\prod\limits _{k=1}^{n}a_k}=\lim\limits_{n\rightarrow\infty}e^{\frac{\sum\limits_{k=1}^{n}\ln a_k}{n}}=e^{\ln a}=a.$$
+		
+		若$a=0,\ $则$\lim\limits_{n\rightarrow n}(-\ln a_n)=+\infty.$
+		由此可知
+		$$\lim\limits_{n\rightarrow\infty}\sqrt[n]{\prod\limits _{k=1}^{n}a_k}=\lim\limits_{n\rightarrow\infty}e^{-\frac{\sum\limits_{k=1}^{n}-\ln a_k}{n}}=0=\lim\limits_{n\rightarrow\infty}a_n.$$
+		以上两个极限用到的$\ln x$与$e^x$的连续性. 
+	\end{solution}
+	
+	\begin{problem}
+		\textbf{Lemma2:}设数列$\left\{a_n\right\}$是正数列,\ 且$\lim\limits_{n\rightarrow\infty}\frac{a_{n+1}}{a_n}$存在,\ 证明:$\lim\limits_{n\rightarrow\infty}\sqrt[n]{a_n}$也存在,\ 且
+		$$\lim\limits_{n\rightarrow\infty}\sqrt[n]{a_n}=\lim\limits_{n\rightarrow\infty}\frac{a_{n+1}}{a_n}.$$
+	\end{problem}
+	
+	\begin{solution}
+		令$b_1=a_1,\ b_2=\frac{a_2}{a_1},\ \cdots,\ b_n=\frac{a_n}{a_{n-1}},\ \cdots.$由Lemma1可知有
+		$$\lim\limits_{n\rightarrow\infty}\sqrt[n]{b_1b_2\cdots b_n}=\lim\limits_{n\rightarrow}b_n,\ $$
+		即
+		$$\lim\limits_{n\rightarrow}\sqrt[n]{a_n}=\lim\limits_{n\rightarrow}\frac{a_n}{a_{n-1}}=\lim\limits_{n\rightarrow}\frac{a_{n+1}}{a_n}.$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$f$在$\left[a,\ b\right]$上连续,\ 且对任意区间$\left[\alpha,\ \beta\right]\subset \left[a,\ b\right],\ $均有
+		$$\left|\int_{\alpha}^{\beta}f(x)\,\text{d}x\right|\le M\left(\beta -\alpha\right)^{1+\delta}\quad\left(M>0,\ \delta >0\right).$$
+		证明$f(x)\equiv0.$
+	\end{problem}
+	
+	\begin{solution}
+		反证法,\ 假设存在$\zeta\in\left[a,\ b\right]$而有$f(\zeta)\neq 0.$不妨设$\zeta\in\left(a,\ b\right)$且$f(\zeta)>0.$因$f$连续,\ 故存在以$\zeta$为中心的区间$\left[\alpha,\ \beta\right]\subset\left[a,\ b\right],\ $使对任意$x\in\left[\alpha,\ \beta\right],\ $都有$f(x)>0.$令$\beta_n=\zeta + \varepsilon_n,\ \alpha_n=\zeta-\varepsilon_n,\ \varepsilon_n>0,\ \lim\limits_{
+			n\rightarrow\infty}\varepsilon_n=0.$由积分中值定理得到
+		$$\int_{\zeta-\varepsilon_n}^{\zeta+\varepsilon_n}f(x)\,\text{d}x=2f(\zeta_n)\varepsilon_n,\ \qquad \zeta_n\in\left(\alpha_n,\ \beta_n\right).$$
+		又有题设可知
+		$$\int_{\zeta-\varepsilon_n}^{\zeta+\varepsilon_n}f(x)\,\text{d}x\le M\left(\beta -\alpha\right)^{1+\delta},\ $$
+		故有$f(\zeta_n)\le M(2\varepsilon_n)\delta,\ $从而得到
+		$$f(\zeta)=\lim\limits_{n\rightarrow \infty}f(\zeta_n)\le M\lim\limits_{n\rightarrow\infty}(2\varepsilon_n)^\delta=0,\ \text{矛盾.}$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$f$在$\left[a,\ b\right]$上可积.证明:
+		\begin{align*}
+			\lim\limits_{p\rightarrow+\infty}\int_{a}^{b}f(x)\sin px\,\text{d}x=0,\ \\
+			\lim\limits_{p\rightarrow+\infty}\int_{a}^{b}f(x)\cos px\,\text{d}x=0.
+		\end{align*}
+	\end{problem}
+	
+	\begin{solution}
+		对任意有界闭区间$\left[\alpha,\ \beta\right]$有
+		$$\left|\int_{\alpha}^{\beta}\sin px\,\text{d}x\right|=\left|\frac{\cos p\alpha-\cos p\beta}{p}\right|\le\frac{2}{p}.$$
+		设在$\left[a,\ b\right]$上$\left|f(x)\right|\le M.$任给$\varepsilon>0,\ $则存在$\left[a,\ b\right]$的分划\text{\itshape{T}}:
+		$$a_0=x_0<x_1<\cdots<x_n=b,\ $$
+		使$S(\text{\itshape{T}},\ f)-s(\text{\itshape{T}},\ f)<\frac{\varepsilon}{2},\ $其中$S(\text{\itshape{T}},\ f)$与$s(\text{\itshape{T}},\ f)$分别代表$f$关于$S(\text{\itshape{T}},\ f)$的上,\ 下Darboux和.于是$p\ge4n\frac{M}{\varepsilon}$时,\ 有
+		\begin{align*}
+			\left|\int_{a}^{b}f(x)\sin px\,\text{d}x\right|&=\left|\sum\limits_{k=1}^{n}
+			\int_{x_{k-1}}^{x_k}\left[f(x_k)+f(x)-f(x_k)\right]\sin px\,\text{d}x\right|\\
+			&\le\sum\limits_{k=1}^{n}\left[\left|f(x_k)\right|\left|\int_{x_{k-1}}^{x_k}\sin px\,\text{d}x\right|+\int_{x_{k-1}}^{x_k}\left|f(x)-f(x_k)\right|\left|\sin px\right|\,\text{d}x\right]\\
+			&<\frac{2nM}{p}+\left[S(\text{\itshape{T}},\ f)-s(\text{\itshape{T}},\ f)\right]<\frac{2nM}{p}+\frac{\varepsilon}{2}<\varepsilon.
+		\end{align*}
+		因此
+		$$\lim\limits_{p\rightarrow+\infty}\int_{a}^{b}f(x)\sin px\,\text{d}x=0.$$
+		同理可证
+		$$\lim\limits_{p\rightarrow+\infty}\int_{a}^{b}f(x)\cos px\,\text{d}x=0.$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$f$是闭区间$\left[a,\ b\right]$上的连续正值函数.令$M=\max\limits_{a\le x\le b}f(x).$证明:
+		$$M=\lim\limits_{n\rightarrow\infty}\sqrt[n]{\int_{a}^{b}\left[f(x)\right]^n\,\text{d}x}.$$
+	\end{problem}
+	
+	\begin{solution}
+		显然有
+		$$\sqrt[n]{\int_{a}^{b}\left[f(x)\right]^n\,\text{d}x}\le\sqrt[n]{\int_{a}^{b}M^n\,\text{d}x}=M\sqrt[n]{b-a},\ $$
+		所以
+		$$\varlimsup\limits_{n\rightarrow\infty}\sqrt[n]{\int_{a}^{b}\left[f(x)\right]^n\,\text{d}x}.\le \varlimsup\limits_{n\rightarrow\infty}M\sqrt[n]{b-a}=M.$$
+		因$f$在$\left[a,\ b\right]$上连续,\ 故必存在$x_0\in \left[a,\ b\right],\ $使得$f(x_0)=M.$不妨设$a<x_0<b,\ $则对任意$\varepsilon>0,\ $存在$\delta>0,\ $使得$f(x)>M-\varepsilon\ (x_0\le x<x_0+\delta),\ $故
+		\begin{align*}
+			\sqrt[n]{\int_{a}^{b}\left[f(x)\right]^n\,\text{d}x}&\ge \sqrt[n]{\int_{x_0}^{x_0+\delta}\left[f(x)\right]^n\,\text{d}x}\\
+			&\ge\sqrt[n]{\int_{x_0}^{x_0+\delta}(M-\varepsilon)^n\,\text{d}x}.\\
+			&=(M-\varepsilon)\sqrt[n]{\delta},\ 
+		\end{align*}
+		所以
+		$$\varliminf\limits_{n\rightarrow\infty}\sqrt[n]{\int_{a}^{b}\left[f(x)\right]^n\,\text{d}x}\ge \lim\limits_{n\rightarrow\infty}(M-\varepsilon)\sqrt[n]{\delta}=M-\varepsilon.$$
+		由$\varepsilon$的任意性,\ 得
+		$$\varliminf\limits_{n\rightarrow\infty}\sqrt[n]{\int_{a}^{b}\left[f(x)\right]^n\,\text{d}x}\ge M\ge \varlimsup\limits_{n\rightarrow\infty}\sqrt[n]{\int_{a}^{b}\left[f(x)\right]^n\,\text{d}x},\ $$
+		故
+		$$\lim\limits_{n\rightarrow\infty}\sqrt[n]{\int_{a}^{b}\left[f(x)\right]^n\,\text{d}x}=M.$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设函数$\varphi$与$f$在区间$\left[a,\ b\right]$上正值连续.证明
+		$$\lim\limits_{n\rightarrow\infty}\frac{\int_{a}^{b}\varphi(x)\left[f(x)\right]^{n+1}\,\text{d}x}{\int_{a}^{b}\varphi(x)\left[f(x)\right]^n\,\text{d}x}=\max\limits_{a\le x\le b}f(x).$$
+	\end{problem}
+	
+	\begin{solution}
+		\begin{align*}
+			I_n&=\int_{a}^{b}\varphi(x)\left[f(x)\right]^{n}\,\text{d}x=\int_{a}^{b}\sqrt{\varphi(x)}\left[f(x)\right]^{\frac{n-1}{2}}\sqrt{\varphi(x)}\left[f(x)\right]^{\frac{n+1}{2}}\,\text{d}x.\\
+			I_n^2&\le\int_{a}^{b}\varphi(x)\left[f(x)\right]^{n-1}\,\text{d}x\int_{a}^{b}\varphi(x)\left[f(x)\right]^{n+1}\,\text{d}x=I_{n-1}I_{n+1},\ \left[\text{Cauchy-Schwarz不等式}\right]
+		\end{align*}
+		故
+		$$\frac{I_{n+1}}{I_{n}}\ge\frac{I_n}{I_{n-1}}.$$
+		因此,\ 数列$\left\{\frac{I_{n+1}}{I_n}\right\}$是递增的.又
+		$$\frac{I_{n+1}}{I_n}\le\max\limits_{a\le x\le b}f(x)\frac{I_n}{I_n}=\max\limits_{a\le x\le b}f(x),\ $$
+		故$\left\{\frac{I_{n+1}}{I_n}\right\}$有界,\ 于是,\ $\lim\limits_{n\rightarrow\infty}\frac{I_{n+1}}{I_n}$存在,\ 且
+		$$\lim\limits_{n\rightarrow\infty}\frac{I_{n+1}}{I_n}=\lim\limits_{n\rightarrow\infty}\sqrt[n]{I_n}.$$
+		可证$\lim\limits_{n\rightarrow\infty}\sqrt[n]{I_n}=\max\limits_{a\le x\le b}f(x).$故本题得证. 
+	\end{solution}
+	
+	\newpage
+	\begin{problem}
+		设$f$在$\left[0,\ 1\right]$上有连续的一阶导数,\ 且$f(0)=f(1)=0.$证明
+		$$\left|\int_{0}^{1}f(x)\,\text{d}x\right|\le \frac{1}{4}\max\limits_{0\le x\le 1}\left|f'(x)\right|.$$
+	\end{problem}
+	
+	\begin{proof}
+		法1:
+		\begin{align*}
+			\int_{0}^{1}f(x)\,\text{d}x&=\int_{0}^{1}f(x)\,\text{d}\left(x-\frac{1}{2}\right)\\
+			&=f(x)\left.\left(x-\frac{1}{2}\right)\right|_0^1-\int_{0}^{1}\left(x-\frac{1}{2}\right)f'(x)\,\text{d}x\\
+			&=-\int_{0}^{1}f'(x)\left(x-\frac{1}{2}\right)\,\text{d}x.
+		\end{align*}
+		由基本积分不等式得到
+		\begin{align*}
+			\left|\int_{0}^{1}f(x)\,\text{d}x\right|&\le \int_{0}^{1}\left|f'(x)\right|\left|x-\frac{1}{2}\right|\,\text{d}x\\
+			&\le \max\limits_{0\le x\le 1}\left|f'(x)\right|\int_{0}^{1}\left|x-\frac{1}{2}\right|\,\text{d}x\\
+			&=\max\limits_{0\le x\le 1}\left|f'(x)\right|\left(\int_{0}^{\frac{1}{2}}\left(\frac{1}{2}-x\right)\,\text{d}x+\int_{\frac{1}{2}}^{1}\left(x-\frac{1}{2}\right)\,\text{d}x\right)\\
+			&=\frac{1}{4}\max\limits_{0\le x\le 1}\left|f'(x)\right|.
+		\end{align*}
+		
+		法2:由于$f$有连续的一阶导数,\ 故$f$在$\left[0,\ 1\right]$上有原函数$F(x).$\\
+		由有Larange余项的Taylor展开式有:
+		\begin{align}
+			F(\frac{1}{2})&=F(1)+f(1)\left(-\frac{1}{2}\right)+\frac{1}{2}\frac{f'(\xi_1)}{4}\ \ \xi_1 \in \left(\frac{1}{2},\ 1\right)\label{eq13}\\
+			F(\frac{1}{2})&=F(0)+f(0)\left(\frac{1}{2}\right)+\frac{1}{2}\frac{f'(\xi_2)}{4}\ \ \ \xi_2 \in \left(0,\ \frac{1}{2}\right)\label{eq14}
+		\end{align}
+		由\eqref{eq13}\eqref{eq14}相减可得
+		$$\left|\int_{0}^{1}f(x)\,\text{d}x\right|=\left|F(1)-F(0)\right|=\left|\frac{f'(\xi_1)+f'(\xi_2)}{8}\right|\le\frac{1}{4}\max\limits_{0\le x\le 1}\left|f'(x)\right|.$$ 
+	\end{proof}
+	\newpage
+	\begin{problem}
+		设$f$是$\left[a,\ b\right]$上存在一阶连续导函数的非零函数,\ 且$f(a)=f(b)=0,\ $证明存在一点$c\in\left(a,\ b\right),\ $使得
+		$$\left|f'(c)\right|>\frac{4}{(b-a)^2}\int_{a}^{b}f(x)\,\text{d}x.$$
+	\end{problem}
+	
+	\begin{solution}
+		令$M=\max\limits_{a\le x\le b}\left|f'(x)\right|.$由微分中值定理得到
+		\begin{align*}
+			f(x)&=f'(t)(x-a)\le M(x-a),\ \qquad a\le x\le \frac{a+b}{2}.\\
+			f(x)&=f'(s)(x-b)\le M(b-x),\ \qquad\frac{a+b}{2}\le x\le b,\ \quad a<t<x,\ \quad x<s<b.\\
+		\end{align*}
+		因函数
+		$$D(x) = \begin{cases}
+			M(x-a),\  & a\le x \le \frac{a+b}{2},\  \\
+			M(b-x),\  & \frac{a+b}{2}\le x\le b 	
+		\end{cases}$$
+		在$x=\frac{a+b}{2}$处是不可微的,\ 故不能同时有$f(x)=M(x-a)\left(a\le x\le \frac{a+b}{2}\right)$与$f(x)=M(b-x)\left(\frac{a+b}{2}\le x\le b\right)$.因此,\ 令$m=\frac{a+b}{2},\ $即得
+		\begin{align*}
+			\int_{a}^{b}f(x)\,\text{d}x&<M\int_{0}^{m}(x-a)\,\text{d}x+M\int_{m}^{b}(b-x)\,\text{d}x\\
+			&=M\frac{(b-a)^2}{4},\ 
+		\end{align*}
+		或者
+		$$M>\frac{4}{(b-a)^2}\int_{a}^{b}f(x)\,\text{d}x.$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$f$在$\left[0,\ 1\right]$上有连续的二阶导数,\ 且$f(0)=f(1)=0,\ f(x)\neq 0,\ x\in\left(0,\ 1\right).$
+		证明
+		$$\int_{0}^{1}\left|\frac{f''(x)}{f(x)}\right|\,\text{d}x\ge 4.$$
+	\end{problem}
+	
+	\begin{solution}
+		因$f(0)=f(1)=0,\ $故由微分中值定理Rolle定理,\ 存在$\zeta \in \left(0,\ 1\right)$使得$f'(\zeta)=0.$\\
+		我们在区间$\left[0,\ \zeta\right]$和$\left[\zeta,\ 1\right]$上分别估计$|f(x)|$
+		的值.当$x\in \left[0,\ \zeta\right]$时,\ 因为
+		$$f'(x)=-\int_{x}^{\zeta}f''(x)\,\text{d}x,\ \quad \left|f'(x)\right|\le \int_{0}^{\zeta}\left|f''(x)\right|\,\text{d}x,\ \quad f(x)=\int_{0}^{x}f'(x)\,\text{d}x,\ $$
+		所以
+		\begin{align*}
+			\left|f(x)\right|&\le\int_{0}^{x}\left|f'(x)\right|\,\text{d}x\le \int_{0}^{\zeta}\left|f'(x)\right|\,\text{d}x\\
+			&=\left|f'(\zeta_1)\right|\zeta_1\le \zeta\int_{0}^{\zeta}\left|f''(x)\right|\,\text{d}x,\ 
+		\end{align*}
+		即
+		\begin{equation}
+			\left|f(x)\right|\le \zeta\int_{0}^{\zeta}\left|f''(x)\right|\,\text{d}x,\ \qquad x\in \left[0,\ \zeta\right].\label{eq15}
+		\end{equation}
+		当$x\in \left[\zeta ,\ 1\right]$时,\ 因为
+		$$f'(x)=\int_{\zeta}^{x}f''(x)\,\text{d}x,\ \quad \left|f'(x)\right|\le\int_{\zeta}^{1}\left|f''(x)\right|\,\text{d}x,\ \quad f(x)=-\int_{x}^{1}f'(x)\,\text{d}x,\ $$
+		所以
+		\begin{align*}
+			\left|f(x)\right|&\le \int_{x}^{1}\left|f'(x)\right|\,\text{d}x\le\int_{\zeta}^{1}\left|f'(x)\right|\,\text{d}x\\
+			&=\left(1-\zeta\right)\left|f'(\zeta_2)\right|\le \left(1-\zeta\right)\int_{\zeta}^{1}\left|f''(x)\right|\,\text{d}x,\ 
+		\end{align*}
+		即
+		\begin{equation}
+			\left|f(x)\right|\le (1-\zeta)\int_{\zeta}^{1}\left|f''(x)\right|\,\text{d}x,\ \qquad x\in\left[\zeta,\ 1\right].\label{eq16}
+		\end{equation}
+		由\eqref{eq15}\eqref{eq16}得到
+		\begin{align*}
+			\int_{0}^{1}\left|\frac{f''(x)}{f(x)}\right|\,\text{d}x&=\int_{0}^{\zeta}\left|\frac{f''(x)}{f(x)}\right|\,\text{d}x+\int_{\zeta}^{1}\left|\frac{f''(x)}{f(x)}\right|\,\text{d}x\\
+			&\ge\int_{0}^{\zeta}\frac{\left|f''(x)\right|}{\zeta\int_{0}^{\zeta}\left|f''(x)\right|\,\text{d}x}\,\text{d}x+\int_{\zeta}^{1}\frac{\left|f''(x)\right|}{(1-\zeta)\int_{\zeta}^{1}\left|f''(x)\right|\,\text{d}x}\,\text{d}x\\
+			&=\frac{1}{\zeta}+\frac{1}{1-\zeta}=\frac{1}{\zeta(1-\zeta)}=\frac{1}{\frac{1}{4}-\left(\zeta-\frac{1}{2}\right)^2}\ge4
+		\end{align*} 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$f$在$\left(-\infty,\ \infty\right)$上二次可微且$f''(x)>0,\ $又$\varphi$在$\left[0,\ a\right]\left(a>0\right)$上连续,\ 证明
+		$$\frac{1}{a}\int_{0}^{a}f\left[\varphi\left(t\right)\right]\,\text{d}t\ge f\left[\frac{1}{a}\int_{0}^{a}\varphi\left(t\right)\,\text{d}t\right].$$
+	\end{problem}
+	
+	\begin{solution}
+		令$x_0=\frac{1}{a}\int_{0}^{a}\varphi(t)\,\text{d}t.$由Taylor公式可知
+		\begin{align*}
+			f(x)&=f(x_0)+f'(x_0)(x-x_0)+\frac{f''(\zeta)}{2}(x-x_0)^2\\
+			&\ge f(x_0)+f'(x_0)(x-x_0).
+		\end{align*}
+		因上式对任何$x$均成立,\ 故
+		$$f\left[\varphi\left(t\right)\right]\ge f(x_0)+f'(x_0)\left(\varphi(t)-x_0\right),\ $$
+		从而有
+		\begin{align*}
+			&\int_{0}^{a}f\left[\varphi\left(t\right)\right]\,\text{d}t\ge \int_{0}^{a}f(x_0)+f'(x_0)\left(\varphi(t)-x_0\right)\,\text{d}t\\
+			&=af(x_0)+f'(x_0)\int_{0}^{a}\varphi(t)\,\text{d}t-x_0af'(x_0)\\
+			&=af(x_0)+ax_0f'(x_0)-ax_0f'(x_0)=af(x_0).
+		\end{align*}
+		即
+		$$\frac{1}{a}\int_{0}^{a}f\left[\varphi\left(t\right)\right]\,\text{d}t\ge f\left[\frac{1}{a}\int_{0}^{a}\varphi\left(t\right)\,\text{d}t\right].$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设函数$f_0$在$\left[0,\ 1\right]$上可积,\ 且$f(x_0)>0.$定义函数列
+		$$f_n(x)=\sqrt{\int_{0}^{a}f_{n-1}(t)\,\text{d}t}\qquad(n=1,\ 2,\ \cdots).$$
+		试求$\lim\limits_{n\rightarrow\infty}f_n(x)(0\le x\le 1).$
+	\end{problem}
+	
+	\begin{solution}
+		
+		Toeplitz定理:设数列$\left\{a_n\right\}$的极限是$a$给定一组数$t_{1},\ t_{2},\ \cdots,\ t_{n},\ $其中每个都严格大于$0$,\ 极限为$0$,\ 并且和为$1$,\ 那么极限$\lim\limits_{n\rightarrow\infty}\sum\limits_{k=1}^{n}t_ka_k=a.$
+		
+		设$0<\delta < 1.$因$f_0$在$\left[0,\ 1\right]$上可积且$f_0(x)>0,\ $\\
+		故
+		$$f_1(x)=\sqrt{\int_{0}^{a}f_0(t)\,\text{d}t}$$
+		是$\left[0,\ 1\right]$上的连续函数,\ 于是存在正数$m,\ M$使得
+		$$m<f_1(x)<M.$$
+		对任一正整数$n,\ $用数学归纳法可以证明
+		$$m^{\frac{1}{2n}}a_n(x-\delta)^{1-\frac{1}{2n}}\le f_{n+1}(x)\le M^{\frac{1}{2n}}a_nx^{1-\frac{1}{2n}},\ $$
+		其中
+		$$a_n=\prod\limits_{k=1}^{n-1}\left(\frac{2}{2^{k+1}-1}\right)^{2^{\frac{1}{n-k}}}$$
+		因为
+		$$\ln a_n = \sum\limits_{k=1}^{n-1}\frac{1}{2^{n-k}}\ln \left(\frac{2}{2^{k+1}-1}\right)\qquad(n=1,\ 2,\ \cdots).$$
+		所以根据Toeplitz定理有
+		$$\lim\limits_{n\rightarrow\infty}\ln a_n=\lim\limits_{n\rightarrow\infty}\ln \frac{1}{2-\frac{1}{2^{n-1}}}=\ln\frac{1}{2},\ $$
+		于是
+		\begin{align*}
+			&\lim\limits_{n\rightarrow\infty}M^{\frac{1}{2n}}a_nx^{1-\frac{1}{2n}}=\frac{x}{2}\\
+			&\lim\limits_{n\rightarrow\infty}m^{\frac{1}{2n}}a_n(x-\delta)^{1-\frac{1}{2n}}=\frac{x-\delta}{2}
+		\end{align*}
+		由$\delta$的任意性即知对一切$x\in$ $(0,\ 1]$有
+		$$\lim\limits_{n\rightarrow\infty}f_{n+1}(x)=\frac{x}{2}.$$
+		又因为$\lim\limits_{x\rightarrow 0}f_{n+1}(x)=f_{n+1}(0)=0\quad(n=1,\ 2,\ \cdots),\ $所以对一切$x\in\left[0,\ 1\right]$有
+		$$\lim\limits_{n\rightarrow\infty}f_{n+1}(x)=\frac{x}{2}.$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设函数$f$在$\left[0,\ 1\right]$上连续,\ 且满足$0<m\le f(x)\le M.$\\证明:
+		$$\left(\int_{0}^{1}f(x)\,\text{d}x\right)\left(\int_{0}^{1}\frac{\,\text{d}x}{f(x)}\right)\le \frac{(m+M)^2}{4mM}.$$
+	\end{problem}
+	
+	\begin{solution}
+		由于
+		$$\frac{(f(x)-m)(f(x)-M)}{f(x)}\le 0\qquad\left(0<x<1\right),\ $$
+		即$$\int_{0}^{1}f(x)-(M+m)+\frac{Mm}{f(x)}\,\text{d}x\le0,\ $$
+		故$$\int_{0}^{1}f(x)+\frac{Mm}{f(x)}\,\text{d}x\le m+M.$$
+		令$u=mM\int_{0}^{1}\frac{\,\text{d}x}{f(x)},\ $则
+		$$\int_{0}^{1}f(x)\,\text{d}x+u\le m+M,\ $$
+		$$\text{或}\qquad u\int_{0}^{1}f(x)\,\text{d}x\le \left(m+M\right)u-u^2,\ $$
+		因函数$g(x)=\left(m+M\right)u-u^2$在$u=\frac{m+M}{2}$处取得最大值$\frac{\left(m+M\right)^2}{4},\ $故
+		$$u\int_{0}^{1}f(x)\,\text{d}x\le \frac{\left(m+M\right)^2}{4},\ $$
+		$$\text{即}\quad\left(\int_{0}^{1}f(x)\,\text{d}x\right)\left(\int_{0}^{1}\frac{\,\text{d}x}{f(x)}\right)\le \frac{(m+M)^2}{4mM}.$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设函数$f$在$\left[0,\ 1\right]$上连续可微,\ 证明
+		$$\left|f(x)\right|\le \int_{0}^{1}\left(|f(t)|+|f'(t)|\right)\,\text{d}t.$$
+	\end{problem}
+	
+	\begin{solution}
+		由分部积分公式有:
+		\begin{align}
+			&\int_{0}^{x}tf'(t)\,\text{d}t=xf(x)-\int_{0}^{x}f(t)\,\text{d}t\label{eq17}\\
+			&\int_{x}^{1}(t-1)f'(t)\,\text{d}t=-xf(x)+f(x)-\int_{x}^{1}f(t)\,\text{d}t.\label{eq18}
+		\end{align}
+		\eqref{eq17}\eqref{eq18}两式相加得
+		$$\int_{0}^{x}tf'(t)\,\text{d}t+\int_{x}^{1}tf'(t)\,\text{d}t-\int_{x}^{1}f'(t)\,\text{d}t=f(x)-\int_{0}^{1}f(t)\,\text{d}t.$$
+		即
+		\begin{align*}
+			f(x)&=\int_{0}^{x}tf'(t)\,\text{d}t+\int_{x}^{1}\left[tf'(t)-f'(t)\right]\,\text{d}t+\int_{0}^{1}f(t)\,\text{d}t\\
+			&\le \int_{0}^{x}|f'(t)|\,\text{d}t+\int_{x}^{1}|f'(t)|\,\text{d}t+\int_{0}^{1}|f(t)|\,\text{d}t\\
+			&=\left|f(x)\right|\le \int_{0}^{1}\left(|f(t)|+f'(t)\right)\,\text{d}t.\qquad \text{即证}.
+		\end{align*} 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$f(t)$在$a\le t\le x$上连续且存在$c,\ $使$a<c<x,\ $且
+		$$\int_{a}^{x}f(t)\,\text{d}t=f(c)(x-a).$$
+		证明:若$f$在点$a$可微且$f'(a)\neq 0,\ $则有
+		$$\lim\limits_{x\rightarrow a}\frac{c-a}{x-a}=\frac{1}{2}.$$
+	\end{problem}
+	
+	\begin{solution}
+		考虑
+		$$I=\lim\limits_{x\rightarrow a}\frac{\int_{a}^{x}f(t)\,\text{d}t-xf(a)+af(a)}{(x-a)^2}$$
+		由积分中值定理有
+		\begin{align*}
+			I&=\lim\limits_{x\rightarrow a}\frac{f(c)(x-a)-f(a)(x-a)}{(x-a)^2}\\
+			&=\lim\limits_{x\rightarrow a}\frac{f(c)-f(a)}{x-a}\\
+			&=\lim\limits_{x\rightarrow a}\frac{f(c)-f(a)}{c-a}\cdot\frac{c-a}{x-a}\\
+			&=f'(a)\cdot\lim\limits_{x\rightarrow a}\frac{c-a}{x-a}.
+		\end{align*}
+		另一方面由L'Hosptial法则有
+		$$I=\lim\limits_{x\rightarrow a}\frac{f(x)-f(a)}{2(x-a)}=\frac{f'(a)}{2}.$$
+		因此$\lim\limits_{x\rightarrow a}\frac{c-a}{x-a}=\frac{1}{2}.$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$f$在区间$\left[0,\ 1\right]$上连续,\ 求
+		$$\lim\limits_{n\rightarrow\infty}\int_{0}^{\pi}\left|\sin nx\right|f(x)\,\text{d}x.$$
+	\end{problem}
+	
+	\begin{solution}
+		\begin{align*}
+			&\lim\limits_{n\rightarrow\infty}\int_{0}^{\pi}\left|\sin nx\right|f(x)\,\text{d}x.\\
+			=&\lim\limits_{n\rightarrow\infty}\sum\limits_{k=1}^{n}\int_{\frac{(k-1)\pi}{n}}^{\frac{k\pi}{n}}\left|\sin nx\right|f(x)\,\text{d}x\\
+			=&\lim\limits_{n\rightarrow\infty}\sum\limits_{k=1}^{n}f(\xi_{nk})\int_{\frac{(k-1)\pi}{n}}^{\frac{k\pi}{n}}\left|\sin nx\right|\,\text{d}x\\
+			=&\lim\limits_{n\rightarrow\infty}\frac{1}{n}\sum\limits_{k=1}^{n}f(\xi_{nk})\int_{(k-1)\pi}^{k\pi}\left|\sin t\right|\,\text{d}t\\
+			=&\lim\limits_{n\rightarrow\infty}\frac{1}{n}\sum\limits_{k=1}^{n}f(\xi_{nk})\int_{0}^{\pi}\left|\sin t\right|\,\text{d}t\\
+			=&\frac{2}{\pi}\lim\limits_{n\rightarrow\infty}\frac{\pi}{n}\sum\limits_{k=1}^{n}f(\xi_{nk})=\frac{2}{\pi}f(x)\,\text{d}x.
+		\end{align*} 
+	\end{solution}
+	
+	\newpage
+	\begin{problem}
+		设$f$在$\left[-1,\ 1\right]$上连续,\ 证明:
+		$$\lim\limits_{h\rightarrow0^+}\int_{-1}^{1}\frac{h}{x^2+h^2}f(x)\,\text{d}x=\pi f(0).$$
+	\end{problem}
+	
+	\begin{solution}
+		由于
+		$$\lim\limits_{h\rightarrow0^+}\int_{-1}^{1}\frac{h}{x^2+h^2}\,\text{d}x=\left.\arctan\frac{x}{h}\right|^1_{-1}=\pi.$$
+		故只需证明
+		$$\lim\limits_{h\rightarrow0^+}\int_{-1}^{1}\frac{h}{x^2+h^2}\left[f(x)-f(0)\right]\,\text{d}x=0.$$
+		而
+		\begin{align*}
+			&\left|\int_{1}^{-\sqrt{h}}\frac{h}{x^2+h^2}\left[f(x)-f(0)\right]\,\text{d}x\right|\\
+			\le &2M\int_{1}^{-\sqrt{h}}\frac{h}{x^2+h^2}\,\text{d}x\\
+			=&2M\left.\arctan\frac{x}{h}\right|_{-1}^{-\sqrt{h}}\\
+			\rightarrow&0(h\rightarrow0^+),\ 
+		\end{align*}
+		同理,\ $$\int_{\sqrt{h}}^{1}\frac{h}{x^2+h^2}\left[f(x)-f(0)\right]\,\text{d}x\rightarrow0(h\rightarrow0^+)$$
+		又由积分第一中值定理,\ 得到
+		\begin{align*}
+			&\int_{-\sqrt{h}}^{\sqrt{h}}\frac{h}{x^2+h^2}\left[f(x)-f(0)\right]\,\text{d}x=\left[f(\xi)-f(0)\right]\left.\arctan\right|^{\sqrt{h}}_{-\sqrt{h}}\\
+			&\rightarrow0\cdot\left(\frac{\pi}{2}+\frac{\pi}{2}\right)=0(h\rightarrow0^+)
+		\end{align*}
+		上面三个比较相加,\ 本题得证. 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$f$在$\left[a,\ b\right]$上可积且是凸函数,\ 即对任意$\lambda_1\ge 0,\ \lambda_2\ge 0$且$\lambda_1+\lambda_2=1,\ $都有
+		$$f(\lambda_1x_1+\lambda_2x_2)\le \lambda_1f(x_1)+\lambda_2f(x_2).$$
+		证明
+		$$f\left(\frac{a+b}{2}\right)(b-a)\le \int_{a}^{b}f(x)\,\text{d}x\le\frac{f(a)+f(b)}{2}(b-a).$$
+	\end{problem}
+	\begin{solution}
+		法1:令$\lambda_1=\frac{b-x}{b-a},\ \lambda_2=\frac{x-a}{b-a}.$显然,\ 当$x\in \left[a,\ b\right]$时,\ $\lambda_1,\ \lambda_2\ge 0$且$\lambda_1+\lambda_2=1.$由$f$的凸性得
+		\begin{align*}
+			f(x)&=f(\lambda_1a+\lambda_2b)\le\lambda_1f(a)+\lambda_2f(b)\\
+			&=\frac{b-x}{b-a}f(a)+\frac{x-a}{b-a}f(b).
+		\end{align*}
+		两边从$a$到$b$积分得
+		\begin{align*}
+			\int_{a}^{b}f(x)\,\text{d}x&\le\int_{a}^{b}\left[\frac{b-x}{b-a}f(a)+\frac{x-a}{b-a}f(b)\right]\,\text{d}x\\
+			&=\frac{f(a)+f(b)}{2}(b-a),\ 
+		\end{align*}
+		故右边不等式得证.又由积分的换元法有
+		\begin{align*}
+			\int_{a}^{b}f(x)\,\text{d}x&=\int_{-\frac{b-a}{2}}^{\frac{b-a}{2}}f\left(\frac{a+b}{2}+t\right)\,\text{d}t\\
+			&=\int_{-\frac{b-a}{2}}^{0}f\left(\frac{a+b}{2}+t\right)\,\text{d}t+\int_{0}^{\frac{b-a}{2}}f\left(\frac{a+b}{2}+t\right)\,\text{d}t\\
+			&=\int_{0}^{\frac{b-a}{2}}\left[f\left(\frac{a+b}{2}+t\right)+f\left(\frac{a+b}{2}-t\right)\right]\,\text{d}t\\
+			&\ge\int_{0}^{\frac{b-a}{2}}2f\left[\frac{1}{2}\left(\frac{a+b}{2}+t\right)+\frac{1}{2}\left(\frac{a+b}{2}-t\right)\right]\,\text{d}t\\
+			&=(b-a)f\left(\frac{a+b}{2}\right),\ 
+		\end{align*}
+		故左边的不等式也得证.
+		\newpage
+		法2:
+		(1)证明右面的不等式:
+		$$\int_{a}^{b}f(x)\,\text{d}x\le\frac{f(a)+f(b)}{2}(b-a).$$
+		令
+		$$F(x)=\frac{f(a)+f(x)}{2}(x-a)-\int_{a}^{x}f(t)\,\text{d}t.\quad x\in\left[a,\ b\right]$$
+		则
+		\begin{align*}
+			F'(x)&=\frac{f(x)+f(a)}{2}+\frac{f'(x)}{2}(x-a)-f(x)\\
+			&=\frac{f'(x)}{2}(x-a)+\frac{f(a)-f(x)}{2}
+		\end{align*}
+		且由于$f(x)$为下凸函数,\ 则有$f''(x)> 0$
+		$$	F''(x)=f''(x)(x-a)+\frac{f'(x)}{2}-\frac{f'(x)}{2}=f''(x)(x-a)\ge 0$$
+		故$F'(x)$单增,\ 即$F'(x)\ge F'(a)=0$,\ 即$F(x)$单增,\ $F(x)\ge F(a)=0.$故不等式得证.\\
+		(2)证明左面的不等式:
+		$$f\left(\frac{a+b}{2}\right)(b-a)\le \int_{a}^{b}f(x)\,\text{d}x$$
+		同理,\ 令
+		\begin{equation}
+			G(x)=\int_{a}^{x}f(t)\,\text{d}t-f\left(\frac{x+a}{2}\right)(x-a).\quad x\in \left[a,\ b\right]\label{eq19}
+		\end{equation}
+		
+		则$$G'(x)=f(x)-f(\frac{x+a}{2})-f'(\frac{x+a}{2})\frac{x-a}{2}$$
+		由Taylor展开式有
+		$$f(x)=f(\frac{x+a}{2})+f'(\frac{x+a}{2})\left(\frac{x-a}{2}\right)+\frac{1}{8}f''(\xi)(x-a)^2,\ \quad \xi \in \left[\frac{x+a}{2},\ x\right]$$
+		代入\eqref{eq19}式中得$G'(x)=\frac{1}{8}f''(\xi)(x-a)^2\ge 0$
+		故$G(x)$单增,\ 即$G(x)\ge G(a)=0,\ $故不等式得证.
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$f$在$[0,\ +\infty)$上递增,\ 对于任何$T>0,\ f$在$[0,\ T)$上可积,\ 且
+		$$\lim\limits_{x\rightarrow+\infty}\frac{1}{x}\int_{0}^{x}f(t)\,\text{d}t=C.$$
+		证明:
+		$$\lim\limits_{x\rightarrow+\infty}f(x)=C.$$
+	\end{problem}
+	
+	\begin{solution}
+		设$x>0.$因$f$在$[0,\ +\infty)$上递增,\ 故当$t<x$时,\ 有$f(t)\le f(x).$两边对$t$从$0$到$x$积分,\ 得到
+		$$\int_{0}^{x}f(t)\,\text{d}t\le\int_{0}^{x}f(x)\,\text{d}t=xf(x).$$
+		即
+		\begin{equation}
+			f(x)\ge \frac{1}{x}\int_{0}^{x}f(t)\,\text{d}t.\label{eq20}
+		\end{equation}
+		当$t>x$时有$f(t)\ge f(x).$两边对$t$从$x$到$2x$积分,\ 得到
+		$$\int_{x}^{2x}f(t)\,\text{d}t\ge \int_{x}^{2x}f(x)\,\text{d}t=xf(x),\ $$
+		即
+		\begin{equation}
+			f(x)\le \frac{1}{x}\int_{x}^{2x}f(t)\,\text{d}t=2\cdot\frac{1}{2x}\left[\int_{0}^{2x}f(t)\,\text{d}t-\int_{0}^{x}f(t)\,\text{d}t\right].\label{eq21}
+		\end{equation}
+		由\eqref{eq20}\eqref{eq21}两式得到
+		$$\frac{1}{x}\int_{0}^{x}f(t)\,\text{d}t\le f(x)\frac{2}{2x}\left[\int_{0}^{2x}f(t)\,\text{d}t-\int_{0}^{x}f(t)\,\text{d}t\right].$$
+		因为
+		$$\lim\limits_{x\rightarrow+\infty}\frac{1}{x}\int_{0}^{x}f(t)\,\text{d}t=\lim\limits_{x\rightarrow+\infty}\frac{1}{2x}\int_{0}^{2x}f(t)\,\text{d}t=C,\ $$
+		所以
+		$$C\le \lim\limits_{x\rightarrow+\infty}f(x)\le 2C-C,\ $$
+		即
+		$$\lim\limits_{x\rightarrow+\infty}f(x)=C.$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		证明广义积分$\int_{\pi}^{+\infty}\frac{\sin x}{x}\,\text{d}x$收敛而不绝对收敛.
+	\end{problem}
+	
+	\begin{solution}
+		首先证明该积分收敛,\ 对于任意的$s>\pi,\ $我们有
+		\begin{equation}
+			\int_{\pi}^{s}\frac{\sin x}{x}\,\text{d}x=\int_{\pi}^{s}\frac{-\text{d}\cos x}{x}=-\frac{1}{\pi}-\frac{\cos s}{s}-\int_{\pi}^{s}\frac{\cos x}{x^2}\,\text{d}x\label{eq22}
+		\end{equation}
+		$$\frac{\left|\cos x\right|}{x^2}\le \frac{1}{x^2}\quad\left(\pi\le x \le+\infty\right),\ $$
+		而$\int_{\pi}^{+\infty}\frac{1}{x^2}\,\text{d}x$收敛,\ 故$\int_{\pi}^{s}\frac{\cos x}{x^2}\,\text{d}x$绝对收敛,\ 因而收敛,\ 因此,\ 当$s\rightarrow+\infty$时,\ \eqref{eq22}式右端各项趋于有限极限.所以
+		$$\lim\limits_{s\rightarrow+\infty}\int_{\pi}^{s}\frac{\sin x}{x}\,\text{d}x$$
+		存在.这就证明了$\int_{\pi}^{+\infty}\frac{\sin x}{x}\,\text{d}x$收敛.\\
+		下证广义积分$\int_{\pi}^{+\infty}\frac{\sin x}{x}\,\text{d}x$不绝对收敛.事实上,\ 对于任意正整数$p$,\ 我们有
+		\begin{align*}
+			\int_{\pi}^{p\pi}\frac{\left|\sin x\right|}{x}\,\text{d}x&=\sum\limits_{n=1}^{p-1}\int_{n\pi}^{(n+1)\pi}\frac{\left|\sin x\right|}{x}\,\text{d}x\\
+			&\ge\sum\limits_{n=1}^{p-1}\frac{1}{(n+1)\pi}\int_{n\pi}^{(n+1)\pi}\left|\sin x\right|\,\text{d}x\\
+			&=\frac{1}{\pi}e\sum\limits_{n=1}^{p-1}\frac{1}{n+1}\int_{0}^{\pi}\left|\sin(u+n\pi)\right|\,\text{d}u.
+		\end{align*}
+		现在,\ $\sin(u+n\pi)=\sin u\cos n\pi,\ $而$\cos n\pi = \pm1,\ $故$\left|\sin(u+n\pi)\right|=\left|\sin u\right|.$因此,\ 若$0\le u\le \pi,\ $则$\left|\sin(u+n\pi)\right|=\sin u,\ $所以
+		\begin{align*}
+			\int_{\pi}^{p\pi}\frac{\left|\sin x\right|}{x}\,\text{d}x&\ge\frac{1}{\pi}\sum\limits_{n=1}^{p-1}\frac{1}{n+1}\int_{0}^{\pi}\sin u\,\text{d}u\\
+			&=\frac{2}{\pi}\sum\limits_{n=1}^{p-1}\frac{1}{n+1}=\frac{2}{\pi}\sum\limits_{k=2}^{p}\frac{1}{k}.
+		\end{align*}
+		因级数$\sum\limits_{k=2}^{\infty}\frac{1}{k}$,\ 故$\int_{\pi}^{+\infty}\frac{\left|\sin x\right|}{x}\,\text{d}x$也发散,\ 即$\int_{\pi}^{+\infty}\frac{\sin x}{x}\,\text{d}x$并不绝对收敛. 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$a_1\ge a_2\ge a_3\ge \cdots\ge 0,\ $且级数$\sum\limits_{n=1}^{\infty}a_n$收敛.证明$\lim\limits_{n\rightarrow\infty}na_n=0.$
+	\end{problem}
+	
+	\begin{solution}
+		任给$\varepsilon>0,\ $由题设及Cauchy收敛准则知存在$N_1,\ $当$m>n\ge N_1$时
+		$$\sum\limits_{k=n+1}^{m}a_k<\frac{\varepsilon}{2}.$$
+		又因$a_{n+1}\le a_n,\ $故
+		$$(m-n)a_m<\frac{\varepsilon}{2}.$$
+		又$\lim\limits_{n\rightarrow\infty}a_n=0,\ $故存在$N_2,\ $当$n>N_2$时
+		$$a_n<\frac{\varepsilon}{2N_1}.$$
+		取$n_0=\max\left\{N_1,\ N_2\right\},\ $则当$n>n_0$时
+		$$0\le na_n=N_1a_n+\left(n-N_1\right)a_n<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon,\ $$
+		故$\lim\limits_{n\rightarrow\infty}na_n=0.$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设级数$\sum\limits_{n=1}^{\infty}na_n$收敛,\ 证明级数
+		$$t_n=a_n+2a_{n+1}+3a_{n+2}+\cdots+ka_{n+k-1}+\cdots$$
+		也收敛,\ 且$\lim\limits_{n\rightarrow\infty}t_n=0.$
+	\end{problem}
+	
+	\begin{solution}
+		令$s_n=na_n+(n+1)a_{n+1}+\cdots+(n-m)a_{n+m}+\cdots,\ $则$s_n-s_{n+1}=na_n,\ $即$a_n=\frac{s_n-s_{n+1}}{n}.$
+		由Abel变换得
+		\begin{align*}
+			\sum\limits_{k=0}^{n_0}(k+1)a_{n+k}&=\sum\limits_{k=0}^{n_0}\frac{k+1}{k+n}(s_{n+k}-s_{n+k+1})\\
+			&=\frac{s_n}{n}-\frac{n_0+1}{n_0+n}s_{n+n_0+1}+\sum\limits_{k=0}^{n_0}\left(\frac{k+1}{n+k}-\frac{k}{n+k-1}\right)s_{n+k}.
+		\end{align*}
+		因级数$\sum\limits_{n=1}^{\infty}na_n$收敛,\ 故$\lim\limits_{n\rightarrow\infty}s_n=0.$又
+		$$\sum\limits_{k=1}^{\infty}\left(\frac{k+1}{n+k}-\frac{k}{n+k-1}\right)=1-\frac{1}{n}$$
+		题目所述级数收敛,\ 且有
+		$$t_n=\frac{s_n}{n}-\sum\limits_{k=1}^{\infty}\left(\frac{n+1}{n+k}-\frac{k}{n+k-1}\right)s_{n+k}.$$
+		显然$\lim\limits_{n\rightarrow\infty}t_n=0.$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		证明:如果将收敛级数$\sum\limits_{n=1}^{\infty}a_n$的项重新排列,\ 使得每一项离开原有位置不超过$m$个位置$\left(m\text{为任一给定的正整数}\right),\ $则重拍后的新级数仍收敛,\ 且和不变.
+	\end{problem}
+	
+	\begin{solution}
+		设$\sum\limits_{n=1}^{\infty}a_n$的$n$项部分和为$s_n,\ $和为$s,\ $即
+		\begin{align}
+			\lim\limits_{n\rightarrow\infty}s_n&=s,\ \label{eq23}\\
+			\lim\limits_{n\rightarrow\infty}a_n&=0.\label{eq24}
+		\end{align}
+		由\eqref{eq23}\eqref{eq24}可知,\ 对任意$\varepsilon>0,\ $存在$n_0\in N,\ $当$n>n_0$时,\ 有
+		\begin{equation}
+			|s_n-s|<\frac{\varepsilon}{2},\ |a_{n+1}|<\frac{\varepsilon}{2m},\ |a_{n+2}|<\frac{\varepsilon}{2m},\ \cdots.\label{eq25}
+		\end{equation}
+		设重排后的级数$n$项和为$\sigma _n.$由题设知
+		$$\sigma_n=s_n+b_1+b_2+\cdots+b_m,\ $$
+		其中$b_1,\ b_2,\ \cdots,\ b_m$为原级数$\sum\limits_{n=1}^{\infty}a_n$的第$n+1$项至第$n+2m$项中某$m$项.从\eqref{eq25}知,\ 当$n>n_0$时,\ 有
+		$$|b_k|<\frac{\varepsilon}{2m}\quad(k=1,\ 2,\ \cdots,\ m).$$
+		于是
+		\begin{align*}
+			|\sigma_{n+m}-s|&=|s_n+b_1+b_2+\cdots+b_m-s|\\
+			&\le|s_n-s|+|b_1|+|b_2|+\cdots+|b_m|\\
+			&<\frac{\varepsilon}{2}+\frac{\varepsilon}{2m}+\cdots+\frac{\varepsilon}{2m}=\varepsilon,\ 
+		\end{align*}
+		即
+		$$\lim\limits_{n\rightarrow\infty}\sigma_{n+m}=s.$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$\varphi(x)$对正值$x$有意义,\ 并且当$x$足够大时可以表示为级数
+		$$\varphi(x)=a_0+\frac{a_1}{x}+\cdots+\frac{a_n}{x^n}+\cdots,\ $$
+		这里$a_0,\ a_1$是实数.证明:当且仅当$a_0=a_1=0$时,\ 级数
+		$$\varphi(1)+\varphi(2)+\cdots+\varphi(n)+\cdots$$收敛.
+	\end{problem}
+	
+	\begin{solution}
+		必要性:因为对于足够大的$x,\ $级数
+		$$a_0+\frac{a_1}{x}+\cdots+\frac{a_n}{x^n}+\cdots$$
+		收敛,\ 所以对于某个$x_0,\ $有$\frac{a_n}{x_0^n}\rightarrow0(n\rightarrow\infty).$于是存在$c,\ $使得$a_n\le c^n,\ $从而当$x>2c$时,\ 
+		$$\left|\frac{a_2}{x^2}+\frac{a_3}{x^3}+\cdots+\frac{a_n}{x^n}+\cdots\right|\le\frac{c^2}{x^2}\left(1+\frac{1}{2}+\cdots+\frac{1}{2^n}+\cdots\right)=\frac{2c^2}{x^2},\ $$
+		亦即
+		$$\varphi(n)=a_0+\frac{a_1}{n}+\varepsilon(n),\ $$
+		这里对足够大的$n,\ |\varepsilon(n)|<\frac{K}{n^2}.$现在可以看到,\ 当$a_0=a_1=0$时,\ 级数$\sum\limits_{n=1}^{\infty}\varphi(n)$收敛,\ 这是因为收敛级数$\sum\limits_{n=1}^{\infty}\frac{K}{n^2}$为其优级数.
+		
+		充分性:如果$\sum\limits_{n=1}^{\infty}\varphi(n)$收敛,\ 那么$\varphi(n)\rightarrow0(n\rightarrow\infty).$由此$a_0=0.$如果此时$a_1\neq 0,\ $那么$\varphi(n)=\frac{a_1}{n}+\varepsilon(n)=a_1\left[\frac{1}{n}+O\left(\frac{1}{n}\right)\right].$与调和级数相比较,\ 可见级数$\sum\limits_{n=1}^{\infty}\varphi(n)$发散,\ 矛盾. 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$0<\lambda_n\le\lambda_{n+1}(n=1,\ 2,\ \cdots),\ \varphi$是$\left[\lambda_1,\ +\infty\right]$上的正值非减函数,\ 使得
+		$$\int_{\lambda_1}^{+\infty}\frac{\text{d}t}{t\varphi(t)}<+\infty.$$
+		证明级数$\sum\limits_{n=1}^{\infty}\frac{\lambda_n}{\varphi(\lambda_n)}\left(\frac{1}{\lambda_n}-\frac{1}{\lambda_{n+1}}\right)$收敛.
+	\end{problem}
+	
+	\begin{solution}
+		因为
+		$$\sum\limits_{n=1}^{\infty}\frac{\lambda_n}{\varphi(\lambda_n)}\left(\frac{1}{\lambda_{n+1}}-\frac{1}{\lambda_{n+1}}\right)=\sum\limits_{n=1}^{\infty}\frac{\lambda_{n+1}-\lambda_n}{\lambda_{n+1}\varphi(\lambda_{n+1})}\le\sum\limits_{n=1}^{\infty}\int_{\lambda_n}^{\lambda_{n+1}}\frac{\text{d}t}{t\varphi(t)}<+\infty$$
+		故$\sum\limits_{n=1}^{\infty}\frac{\lambda_n}{\varphi(\lambda_n)}\left(\frac{1}{\lambda_{n+1}}-\frac{1}{\lambda_{n+1}}\right)$收敛.又因
+		\begin{align*}
+			&\sum\limits_{n=1}^{\infty}\frac{\lambda_n}{\varphi(\lambda_n)}\left(\frac{1}{\lambda_n}-\frac{1}{\lambda_{n+1}}\right)-\sum\limits_{n=1}^{\infty}\frac{\lambda_n}{\varphi(\lambda_{n+1})}\left(\frac{1}{\lambda_{n+1}}-\frac{1}{\lambda_{n+1}}\right)\\
+			=&\sum\limits_{n=1}^{\infty}\left(1-\frac{\lambda_n}{\lambda_{n+1}}\right)\left(\frac{1}{\varphi(\lambda_n)}-\frac{1}{\varphi(\lambda_{n+1})}\right)\\
+			<&\sum\limits_{n=1}^{\infty}\left(\frac{1}{\varphi(\lambda_n)}-\frac{1}{\varphi(\lambda_{n+1})}\right)\le\frac{1}{\varphi(\lambda_1)},\ 
+		\end{align*}
+		故级数$\sum\limits_{n=1}^{\infty}\frac{\lambda_n}{\varphi(\lambda_n)}\left(\frac{1}{\lambda_n}-\frac{1}{\lambda_{n+1}}\right)$也收敛. 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		$r$是什么实数时,\ 级数
+		$$\frac{1}{2}+r\cos x+r^2\cos 2x+r^3\cos 4x+\cdots$$
+		的所有部分和对所有的$x$非负.
+	\end{problem}
+	
+	\begin{solution}
+		因为$\frac{1}{2}+r\cos x\ge 0,\ $所以$|r|\le\frac{1}{2}.$我们记$\varphi(y)=r\cos y+r^2\cos 2y,\ $则当$y=k\pi$或$\cos y=-\frac{1}{4r}$时,\ 
+		$$\varphi'(y)=-r\sin y(1+4r\cos y)=0.$$
+		因$|r|\le\frac{1}{2},\ $故在第一种情形下,\ $\varphi(y)\ge-\frac{1}{4};$而在第二种情形下,\ $\varphi(y)=-\frac{1}{4}+r^2\left(\frac{1}{8r^2}-1\right)\ge-\frac{3}{8}.$因此,\ 对任何$y,\ \varphi(y)\ge-\frac{3}{8}.$
+		其次,\ 我们求得
+		\begin{align*}
+			s_{2n+1}&=\frac{1}{2}+\varphi(x)+r^2\varphi(4x)+\cdots+r^{2(n-1)}\varphi(4^{n-1}x)\\
+			&\ge\frac{1}{2}-\frac{3}{8}(1+r^2+\cdots+r^{2(n-1)})\\
+			&\ge\frac{1}{2}-\frac{3}{8}\left(1+\frac{1}{4}+\cdots+\frac{1}{4^{n-1}}\right)\\
+			&=\frac{1}{2}-\frac{4-4^{-(n+1)}}{8}=\frac{1}{2\cdot4^n}=\frac{1}{2^{2n+1}}>0.\\
+			s_{2n+2}&=s_{2n+1}+r^{2n+1}\cos2^{2n}x\ge s_{2n+1}-\frac{1}{2^{2n+1}}\ge 0.
+		\end{align*}
+		因此,\ 当$|r|\le\frac{1}{2}$时,\ 所有部分和非负. 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		证明级数$\sum\limits_{n=2}^{\infty}\frac{\sin n}{\ln n}$为条件收敛级数.
+	\end{problem}
+	
+	\begin{solution}
+		因为
+		$$\sum\limits_{n=2}^{\infty}\sin n=\frac{\cos\frac{3}{2}-\cos\left(m+\frac{1}{2}\right)}{2\sin\frac{1}{2}}\qquad(m=2,\ 3,\ \cdots),\ $$
+		故
+		$$\left|\sum\limits_{n=1}^{\infty}\sin n\right|\le\frac{1}{\sin\frac{1}{2}}\qquad(m=2,\ 3,\ \cdots).$$
+		又$n\ge 2$时,\ $\frac{1}{\ln n}>0$且单调减少趋于$0,\ $故由Dirichlet判别法,\ 级数
+		$$\sum\limits_{n=1}^{\infty}\frac{\sin n}{\ln n}$$
+		收敛.又对任意$x\in\left(-\infty,\ +\infty\right),\ \sin x$与$\sin(x+1)$不同时为$0$,\ 故
+		$$f(x)=|\sin x|+|\sin (x+1)|$$
+		时$\left(-\infty,\ +\infty\right)$上的正值周期连续函数.于是,\ 存在$l>0,\ $使
+		$$f(x)\ge l\quad \left[x\in\left(-\infty,\ +\infty\right)\right].$$
+		因此
+		\begin{align*}
+			\sum\limits_{n=2}^{\infty}\frac{|\sin n|}{\ln n}&=\sum\limits_{k=1}^{\infty}\left(\frac{|\sin 2k|}{\ln 2k}+\frac{|\sin (2k+1)|}{\ln(2k+1)}\right)\\
+			&\ge\sum\limits_{k=1}^{\infty}\frac{|\sin 2k|+|\sin (2k+1)|}{\ln (2k+1)}\\
+			&\ge l\sum\limits_{k=1}^{\infty}\frac{1}{\ln(2k+1)},\ 
+		\end{align*}
+		而$\sum\limits_{k=1}^{\infty}\frac{1}{\ln(2k+1)}$发散,\ 故$\sum\limits_{n=1}^{\infty}\frac{|\sin n|}{\ln n}$发散. 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$\left\{u_n\right\}$与$\left\{v_n\right\}$都是单调递减区域零的数列.证明级数$\sum\limits_{n=1}^{\infty}(-1)^{n-1}u_n$与$\sum\limits_{n=1}^{\infty}(-1)^{n-1}v_n$的乘积函数$\sum\limits_{n=1}^{\infty}(-1)^{n-1}w_n$为收敛的充要条件是:
+		$$w_n=v_1v_n+v_2v_{n-1}+\cdots+u_nv_1\rightarrow0\qquad(n\rightarrow\infty).$$
+	\end{problem}
+	
+	\begin{solution}
+		收敛级数的通项极限为$0$,\ 故必要性显然,\ 今证充分性.令
+		$$A_n=\sum\limits_{n=1}^{n}(-1)^{k-1}u_k,\ \quad B_n=\sum\limits_{n=1}^{n}(-1)^{k-1}v_k,\ \quad C_n=\sum\limits_{n=1}^{n}(-1)^{k-1}w_k.$$
+		并以$A,\ B$分别表示$\sum\limits_{n=1}^{\infty}(-1)^{k-1}v_k,\ \sum\limits_{n=1}^{\infty}(-1)^{k-1}w_k,\ $则
+		\begin{align*}
+			C_n&=w_1-w_2+w_3+\cdots+(-1)^{n-1}w_n\\
+			&=u_1v_1-u_1v_2+u_1v_3-\cdots+(-1)^{n-1}u_1v_n\\
+			&\qquad\ \ -u_2v_1+u_2v_2-\cdots+(-1)^{n-1}u_2v_{n-1}\\
+			&\qquad\ \ \qquad\ \ +u_3v_1-\cdots+(-1)^{n-1}u_3v_{n-2}\\
+			&\qquad\ \ \qquad\ \ \qquad\ \ -\cdots\\
+			&\qquad\ \ \qquad\ \ \qquad\ \ \qquad\ \ +(-1)^{n-1}u_nv_1\\
+			&=u_1B_n-u_2B_{n-1}+u_3B_{n-2}-\cdots+(-1)^{n-1}u_nB_1.
+		\end{align*}
+		从而
+		$$A_nB-C_n=u_1(B-B_n)-u_2(B-B_{n-1})+\cdots+(-1)^{n-1}u_n(B-B_1).$$
+		据题设
+		$$|B-B_n|\le v_{n+1},\ |B-B_{n-1}|\le v_n,\ \cdots,\ |B-B_1|\le v_2,\ $$
+		于是
+		\begin{align*}
+			|A_nB-C_n|&\le u_1v_{n+1}+u_2v_n+\cdots+u_nv_2\\
+			&=w_{n+1}-u_{n+1}v_1\rightarrow0\quad(0\rightarrow\infty),\ 
+		\end{align*}
+		所以
+		$$\lim\limits_{n\rightarrow\infty}C_n=\lim\limits_{n\rightarrow\infty}A_nB=AB.$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		证明:任给一个发散的正项级数$\sum\limits_{n=1}^{\infty}a_n,\ $可以构造一个收敛于零的正数列$\left\{c_n\right\},\ $使$\sum\limits_{n=1}^{\infty}c_na_n$仍然发散.
+	\end{problem}
+	\begin{solution}
+		令$s_n=a_1+a_2+\cdots+a_n,\ $我们先证明级数
+		$$\sum\limits_{n=1}^{\infty}\frac{s_{k+1}-s_k}{s_{k+1}}$$
+		发散.因数列$\left\{s_k\right\}$发散于无穷大,\ 故对任意正整数$m,\ $存在正整数$n$使$s_{n+1}>2s_m.$又,\ 数列$\left\{s_k\right\}$是递增的,\ 因此
+		\begin{align*}
+			\sum\limits_{k=m}^{n}\frac{s_{k+1}-s_k}{s_{k+1}}&\ge\sum\limits_{k=m}^{n}\frac{s_{k+1}-s_k}{s_{n+1}}=\frac{s_{n+1}-s_m}{s_{n+1}}\\
+			&>\frac{s_{n+1}-\frac{1}{2}s_{n+1}}{s_{n+1}}=\frac{1}{2},\ 
+		\end{align*}
+		即对任意正整数$m,\ $存在正整数$n,\ $使
+		$\frac{s_{k+1}-s_k}{s_{k+1}}>\frac{1}{2}.$
+		这表明级数$\sum\limits_{n=1}^{n}\frac{s_{k+1}-s_k}{s_{k+1}}>\frac{1}{2}$的部分和不能形成Cauchy数列,\ 从而
+		$$\sum\limits_{n=1}^{\infty}\frac{s_{k+1}-s_k}{s_{k+1}}>\frac{1}{2}=+\infty.$$
+		但$s_{k+1}-s_k=a_{k+1},\ $因此
+		$$\sum\limits_{n=1}^{\infty}\frac{a_{k+1}}{s_{k+1}}=\sum\limits_{n=1}^{\infty}\frac{a_k}{s_k}=+\infty.$$
+		取$c_k=\frac{1}{s_k},\ $则$k\rightarrow\infty$时$c_k\rightarrow0$且$\sum\limits_{n=2}^{\infty}c_ka_k=+\infty.$\\
+		\begin{note}
+			这个例子特别证明了无论一个正项级数$\sum\limits_{n=1}^{\infty}a_n$怎样慢地发散无穷大,\ 总会有一个正项级数$\sum\limits_{n=1}^{\infty}c_na_n$比它发散得更慢. 
+		\end{note}
+	\end{solution}
+	\newpage
+	\begin{problem}
+		证明任给一个收敛的正项级数$\sum\limits_{n=1}^{\infty}a_n,\ $可以构造一个收敛于零的正数列$\left\{c_n\right\},\ $使$\sum\limits_{n=1}^{\infty}\frac{a_n}{c_n}$仍然收敛.
+	\end{problem}
+	
+	\begin{solution}
+		令$r_n=\sum\limits_{k=n+1}^{\infty}a_k,\ c_n=\sqrt{r_{n-1}}+\sqrt{r_n},\ $因$\sum\limits_{n=1}^{\infty}a_n$收敛,\ 故有
+		$$\lim\limits_{n\rightarrow\infty}c_n=0.$$
+		现证级数$\sum\limits_{n=1}^{\infty}\frac{a_n}{c_n}$收敛.为此令
+		$$s_n=\sum\limits_{k=1}^{n}\frac{a_k}{c_k}=\sum\limits_{k=1}^{n}\frac{r_{k+1}-r_k}{\sqrt{r_{k+1}}+\sqrt{r_k}}=\sum\limits_{k=1}^{n}(\sqrt{r_{k+1}}-\sqrt{r_k}),\ $$
+		则当$n>m$时
+		$$|s_n-s_m|=\sqrt{r_m}-\sqrt{r_n}\rightarrow0\quad(m,\ n\rightarrow\infty).$$
+		据Cauchy收敛准则,\ 知级数$\sum\limits_{k=1}^{n}\frac{a_k}{c_k}$收敛.\\
+		\textbf{注:}这个例子特别证明了无论一个正项级数$\sum\limits_{n=1}^{\infty}a_n$怎样慢地收敛,\ 总会有一个正项级数$\sum\limits_{n=1}^{\infty}\frac{a_n}{c_n}$比它收敛得更慢. 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		证明:存在一个正项级数,\ 使任何正有理数都是它的有限个不同项之和.
+	\end{problem}
+	\begin{proof}
+		调和级数$\sum\limits_{n=1}^{\infty}\frac{1}{n}$具有所需的性质.事实上,\ 设$A,\ B$是正整数,\ 则由此级数的发散性,\ 存在唯一的非负整数$n_0,\ $使
+		$$\sum\limits_{j=0}^{n_0}\frac{1}{j}<\frac{A}{B}\le\sum\limits_{j=0}^{n_0+1}\frac{1}{j}$$
+		$\left(\sum\limits_{j=0}^{0}\text{算作}0,\ \text{而当}n_0\ge1\text{时}\sum\limits_{j=0}^{n_0}\frac{1}{j}\text{理解为}\sum\limits_{j=1}^{n_0}\frac{1}{j}\right).$若等式成立,\ 则已得到所需要的表达式.故设
+		$$\frac{A}{B}<\sum\limits_{j=0}^{n_0+1}\frac{1}{j},\ $$
+		此时,\ $\frac{A}{B}-\sum\limits_{j=0}^{n_0}\frac{1}{j}=\frac{C}{D}<\frac{1}{n_0+1}.$取$n_1$为满足$\frac{1}{n_1+1}\le\frac{C}{D}<\frac{1}{n_1}$的唯一正整数.再设不等式成立(否则问题已解决),\ 并令
+		$$\frac{C}{D}-\frac{1}{n_1+1}=\frac{E}{F}>0.$$
+		但
+		$$\frac{E}{F}=\frac{C(n_1+1)-D}{D(n_1+1)},\ \quad C(n_1+1)-D<C,\ $$
+		因此,\ $\frac{E}{F}$为最简分数时必有$E<C.$由于
+		$$\frac{E}{F}<\frac{1}{n_1(n_1+1)},\ $$
+		故满足$\frac{1}{n_2+1}\le\frac{E}{F}<\frac{1}{n_2}$的唯一的正整数$n_2$也必满足$n_2>n_1.$在有限步后,\ 我们必然得到所需求的表达式,\ 因为,\ 即使在前面各步得不到,\ 也不一定会在所导出的分数的分子为$1$时得到. 
+	\end{proof}
+	\newpage
+	\begin{problem}
+		设$f_n(x)=n^\alpha x\text{e}^{-nx}(n=1,\ 2,\ \cdots),\ $问:当$\alpha$为什么值时,\ \\
+		(i)$\left\{f_n\right\}$在$\left[0,\ 1\right]$上收敛?\\
+		(ii)$\left\{f_n\right\}$在$\left[0,\ 1\right]$上一致收敛?\\
+		(iii)等式$\lim\limits_{n\rightarrow\infty}\int_{0}^{1}f_n(x)\,\text{d}x=\int_{0}^{1}\lim\limits_{n\rightarrow\infty}f_n(x)\,\text{d}x$成立?
+	\end{problem}
+	
+	\begin{solution}
+		(i)当$x=0$时,\ $f_n(x)=0(n=1,\ 2,\ \cdots);$而当$0<x\le 1$时,\ 对任意实数$\alpha,\ $有
+		$$\lim\limits_{n\rightarrow\infty}f_n(x)=\lim\limits_{n\rightarrow\infty}n^\alpha x\text{e}^{-nx}=0.$$
+		因此对任意实数$\alpha,\ \left\{f_n\right\}$在$\left[0,\ 1\right]$上处处收敛于$f\equiv0.$\\
+		(ii)因$f'_n(x)=n^\alpha \text{e}^{-nx}(1-nx),\ $故可知$x_n=\frac{1}{n}$为$f_n(x)$在$\left[0,\ 1\right]$上的最大值点,\ 从而
+		$$0\le f_n(x)\le f_n\left(\frac{1}{n}\right)=n^{\alpha-1}\text{e}^{-1},\ \qquad x\in\left[0,\ 1\right].$$
+		由此可见,\ 当$\alpha<1$时,\ $\left\{f_n\right\}$在$\left[0,\ 1\right]$上一致收敛于零;而当$\alpha\ge 1$时,\ $\left\{f_n\right\}$在$\left[0,\ 1\right]$上不一致收敛于零.\\
+		(iii)因$\int_{0}^{1}\lim\limits_{n\rightarrow\infty}f_n(x)\,\text{d}x=0,\ $
+		$$\lim\limits_{n\rightarrow\infty}\int_{0}^{1}f_n(x)\,\text{d}x=\lim\limits_{n\rightarrow\infty}n^{\alpha-2}(1-\text{e}^{-n}-n\text{e}^{-n}),\ $$
+		故当$\alpha<2$时,\ 
+		$$\lim\limits_{n\rightarrow\infty}f_n(x)\,\text{d}x=\int_{0}^{1}\lim\limits_{n\rightarrow\infty}f_n(x)\,\text{d}x.$$
+		而当$\alpha\ge2$时,\ 
+		$$\lim\limits_{n\rightarrow\infty}f_n(x)\,\text{d}x\neq\int_{0}^{1}\lim\limits_{n\rightarrow\infty}f_n(x)\,\text{d}x.$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		构造$\left[1,\ +\infty\right]$上的正值连续函数$f$,\ 使$\int_{1}^{+\infty}f(x)\,\text{d}x$收敛,\ 而$\sum\limits_{n=1}^{\infty}f(n)$发散.
+	\end{problem}
+	
+	\begin{solution}
+		在各个整数$n>1,\ $令$g(n)=1,\ $在闭区间$\left[n-\frac{1}{n^2},\ n\right]$和$\left[n,\ n+\frac{1}{n^2}\right]$的内部,\ 定义$g$是线性的,\ 而在区间的非整数端点,\ $g$取$0.$最后,\ 在$x\ge1$而$g$尚未定义的点,\ 规定$g(x)$的值为$0.$于是,\ 函数
+		$$f(x)=g(x)+\frac{1}{x^2}$$
+		当$x\ge1$时是正值连续函数,\ 且
+		$$\int_{1}^{+\infty}f(x)\,\text{d}x=\int_{1}^{+\infty}g(x)\,\text{d}x+\int_{1}^{+\infty}\frac{1}{x^2}\,\text{d}x=\sum\limits_{n=1}^{\infty}\frac{1}{n^2}+1<+\infty.$$
+		即$f$在$\left[1,\ +\infty\right]$上广义可积.但是,\ 等式
+		$$\lim\limits_{n\rightarrow\infty}f(n)=0$$
+		并不成立,\ 故级数$\sum\limits_{n=1}^{\infty}f(n)$发散. 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		构造$\left[1,\ +\infty\right]$上的正值连续函数$f$,\ 使$\int_{1}^{+\infty}f(x)\,\text{d}x$发散,\ 而$\sum\limits_{n=1}^{\infty}f(n)$收敛.
+	\end{problem}
+	
+	\begin{solution}
+		对于各个整数$n>1,\ $设$g(n)=0;$在闭区间$\left[n-\frac{1}{n},\ n\right]$和$\left[n,\ n+\frac{1}{n}\right]$的非整数端点处,\ 定义$g$的值等于$1;$而在这些闭区间内部,\ $g$是线性的;最后,\ 在$[1,\ +\infty)$上$g$还没有确定值的点处,\ $g(x)$都定义为$1.$于是
+		$$f(x)=g(x)+\frac{1}{x^2}$$
+		是$[1,\ +\infty)$上的正值连续函数,\ 而
+		$$\int_{1}^{+\infty}f(x)\,\text{d}x=+\infty,\ \quad\sum\limits_{n=1}^{\infty}f(n)=\sum\limits_{n=1}^{\infty}\frac{1}{n^2}<+\infty.$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		构造广义积分$\int_{0}^{+\infty}f(x)\,\text{d}x$收敛而在每个区间$\left(a,\ +\infty\right)(a>0)$上的无界的非负连续函数.
+	\end{problem}
+	
+	\begin{solution}
+		做函数$f:$当$x=n(n>1)$时,\ $f(x)=n;$在闭区间$\left[n-\frac{1}{n^3},\ n\right]$和$\left[n,\ n+\frac{1}{n^3}\right]$的内部,\ 定义$f$是线性的;而在区间$\left[n-\frac{1}{n^3},\ n\right]$和$\left[n,\ n+\frac{1}{n^3}\right]$的非整数端点,\ $f$取$0.$最后,\ 在$x>0$而$f$尚未定义的点,\ 规定$f(x)$的值为$0.$于是,\ $f$为$\left(0,\ +\infty\right)$上的非负连续函数.又
+		$$\int_{0}^{+\infty}f(x)\,\text{d}x=\sum\limits_{n=2}^{\infty}\frac{1}{n^3}n=\sum\limits_{n=2}^{\infty}\frac{1}{n^2}<+\infty,\ $$
+		即$f$在$\left(0,\ +\infty\right)$上广义可积.然而,\ 对于任意实数$a>0,\ f$在$[a,\ +\infty)$上无界. 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		证明:函数$\zeta(x)=\sum\limits_{n=1}^{\infty}\frac{1}{n^x}$在区间$\left(1,\ +\infty\right)$上连续且可微,\ 但在$\left(1,\ +\infty\right)$上不一致连续.
+	\end{problem}
+	
+	\begin{solution}
+		任取$x_0>1,\ $对任意$x\in[x_0,\ +\infty],\ $有
+		$$\sum\limits_{n=1}^{\infty}\frac{1}{n^x}\le\sum\limits_{n=1}^{\infty}\frac{1}{n^{x_0}},\ $$
+		故级数$\sum\limits_{n=1}^{\infty}\frac{1}{n^x}$在$[x_0,\ +\infty)$上一致收敛.又因每一项$\frac{1}{n^x}$连续,\ 故$\zeta(x)$在$[x_0,\ +\infty)$上连续.由$x_0>1$的任意性可知$\zeta(x)$在$\left(1,\ +\infty\right)$上连续.
+		
+		因为$\sum\limits_{n=1}^{\infty}-\frac{\ln x}{n^x}$在$[x_0,\ +\infty)$上也时一致收敛的,\ 所以$\zeta(x)$在$\left(1,\ +\infty\right)$上可微.
+		再证$\zeta(x)$在$\left(1,\ +\infty\right)$上并不一致连续,\ 对$x>1,\ $有
+		\begin{align*}
+			\sum\limits_{n=1}^{\infty}\frac{1}{n^x}&=1+\frac{1}{2^x}+\left(\frac{1}{3^x}+\frac{1}{4^x}\right)+\left(\frac{1}{5^x}+\frac{1}{6^x}+\frac{1}{7^x}+\frac{1}{8^x}\right)+\cdots\\
+			&>1+\frac{1}{2^x}+\frac{2}{4^x}+\frac{4}{8^x}+\cdots\\
+			&=1+\frac{1}{2^x}\left(1+\frac{1}{2^{x-1}}+\frac{1}{4^{x-1}}+\cdots\right)\\
+			&=1+\frac{1}{2^x-2}.
+		\end{align*}
+		因此,\ 当$x\rightarrow1^{+}$时$\zeta(x)\rightarrow+\infty.$若$\zeta(x)$在$\left(1,\ +\infty\right)$上一致连续,\ 则对任给$\varepsilon>0,\ $存在$\delta>0,\ $当$|x-1|<\frac{\delta}{2},\ |x'-1|<\frac{\delta}{2}$时,\ 
+		$$\left|\zeta(x)-\zeta(x')\right|<\varepsilon.$$
+		由Cauchy准则知$\lim\limits_{x\rightarrow1^{+}}\zeta(x)$存在且有限,\ 这与$\lim\limits_{x\rightarrow1^{+}}\zeta(x)=+\infty$发生矛盾. 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$\sum\limits_{n=1}^{\infty}f_n(x)=F(x)$于$\left(a,\ b\right)$上处处收敛,\ 在任意闭区间$\left[\alpha,\ \beta\right](a<\alpha<\beta<b)$上一致收敛,\ $f_n$在$\left(a,\ b\right)$上连续,\ 且有
+		$$\left|F_n(x)\right|=\left|\sum\limits_{k=1}^{n}f_k(x)\right|\le M,\ \quad x\in\left[a,\ b\right],\ n=1,\ 2,\ \cdots.$$
+		证明$\sum\limits_{n=1}^{\infty}f_n(x)$可逐项积分.
+	\end{problem}
+	
+	\begin{proof}
+		易知$F$在$\left(a,\ b\right)$上连续,\ 由$\left|F(x)\right|\le M$知$F$在$\left[a,\ b\right]$上可积.\\
+		任给$\varepsilon>0,\ $取$c,\ d$满足$a<c<d<b,\ $
+		$$c-a<\frac{\varepsilon}{5(M+1)},\ \quad b-d<\frac{\varepsilon}{5(M+1)}.$$
+		在$\left[c,\ d\right]$上$\sum\limits_{n=1}^{\infty}f_n(x)$一致收敛.于是存在$n_0,\ $当$n>n_0$时
+		$$\left|F(x)-F_n(x)\right|<\frac{\varepsilon}{5(d-c)}.$$
+		因此,\ 
+		\begin{align*}
+			\left|\int_{a}^{b}F(x)\,\text{d}x-\int_{a}^{b}F_n(x)\,\text{d}x\right|&\le\int_{a}^{b}\left|F(x)-F_n(x)\right|\le\int_{a}^{c}\left|F(x)-F_n(x)\right|\,\text{d}x\\
+			&+\int_{c}^{d}\left|F_n(x)-F(x)\right|\,\text{d}x+\int_{d}^{b}\left|F(x)-F_n(x)\right|\,\text{d}x\\
+			&\le2M\cdot\frac{\varepsilon}{5(M+1)}+\frac{\varepsilon}{5(d-c)}\cdot(d-c)+2M\cdot\frac{\varepsilon}{5(M+1)}\\
+			&<\varepsilon.
+		\end{align*}
+		即$\sum\limits_{n=1}^{\infty}f_n(x)$可逐项积分. 
+	\end{proof}
+	\newpage
+	\begin{problem}
+		设函数列$\left\{\varphi_n\right\}$满足下列条件:
+		(i)$\varphi_n$是$\left[-1,\ 1\right]$上的非负连续函数,\ 且
+		$$\lim\limits_{n\rightarrow\infty}\int_{-1}^{1}\varphi_n(x)\,\text{d}x=1.$$
+		(ii)对任何$0<c<1,\ \left\{\varphi_n\right\}$在$\left[-1,\ c\right]$及$\left[c,\ 1\right]$上一致收敛于零.\\
+		证明对在$\left[-1,\ 1\right]$上连续的函数$g,\ $有
+		$$\lim\limits_{n\rightarrow\infty}\int_{-1}^{1}g(x)\varphi_n(x)\,\text{d}x=g(0).$$
+	\end{problem}
+	
+	\begin{proof}
+		由(i)知存在$M_1,\ $使$\int_{-1}^{1}\varphi_n(x)\,\text{d}x<M_1(n=1,\ 2,\ \cdots).$又因$g$在$\left[-1,\ 1\right]$上连续,\ 故存在$M_2$使$|g(x)|<M_2,\ x\in\left[-1,\ 1\right].$\\
+		任给$\varepsilon>0,\ $存在$\delta(0<\delta<1),\ $使当$|x|<\delta$时
+		$$\left|g(x)-g(0)\right|<\frac{\varepsilon}{2M_1}.$$
+		由于$\left\{\varphi_n\right\}$在$\left[-1,\ -\delta\right],\ \left[\delta,\ 1\right]$上一致收敛于$0,\ $故存在$n_0,\ $当$n>n_0$时
+		$$0<\varphi_n(x)<\frac{\varepsilon}{8M_2},\ \quad x\in\left[-1,\ -\delta\right]\cup\left[\delta,\ 1\right].$$
+		因此当$n>n_0$时
+		\begin{align*}
+			\left|\int_{-1}^{1}g(x)\varphi_n(x)\,\text{d}x-\int_{-1}^{1}\varphi(x)g(0)\,\text{d}x\right|&\le\left|\int_{-1}^{-\delta}\varphi_n(x)\left[g(x)-g(0)\right]\,\text{d}x\right|\\
+			&+\int_{-\delta}^{\delta}|\varphi_n(x)|\cdot|g(x)-g(0)|\,\text{d}x\\
+			&+\left|\int_{\delta}^{1}\varphi_n(x)\left[g(x)-g(0)\right]\,\text{d}x\right|\\
+			&\le2M_2\cdot\frac{\varepsilon}{8M_2}+M_1\cdot\frac{\varepsilon}{2M_1}+2M_2\cdot\frac{\varepsilon}{8M_2}=\varepsilon.
+		\end{align*}
+		由此知
+		$$\lim\limits_{n\rightarrow\infty}\int_{-1}^{1}g(x)\varphi_n(x)\,\text{d}x=\lim\limits_{n\rightarrow\infty}\int_{-1}^{1}\varphi_n(x)g(0)\,\text{d}x=g(0).$$ 
+	\end{proof}
+	\newpage
+	\begin{problem}
+		求极限:
+		$$\lim\limits_{m,\ n\rightarrow\infty}\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{n}\frac{(-1)^{i+j}}{i+j}.$$
+	\end{problem}
+	
+	\begin{solution}
+		\begin{align*}
+			S_{m,\ n}&=\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{n}\frac{(-1)^{i+j}}{i+j}\\
+			&=\int_{0}^{1}\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{n}(-1)^{i+j}x^{i+j-1}\,\text{d}x\\
+			&=\int_{0}^{1}x\left[\sum\limits_{i=1}^{m}(-x)^{i-1}\right]\left[\sum\limits_{j=1}^{n}(-x)^{j-1}\right]\,\text{d}x\\
+			&=\int_{0}^{1}x\cdot\frac{1-(-x)^m}{1+x}\cdot\frac{1-(-x)^n}{1+x}\,\text{d}x\\
+			&=\int_{0}^{1}\frac{1}{(1+x)^2}\left[x+(-1)^{m+1}x^m+(-1)^{n+1}x+(-1)^{m+n}x^{m+n}\right]\,\text{d}x.\\
+		\end{align*}
+		因
+		$$\int_{0}^{1}\frac{x^k}{(1+x)^2}\,\text{d}x<\int_{0}^{1}x^k\,\text{d}x=\frac{1}{k+1},\ $$
+		故
+		$$\lim\limits_{k\rightarrow\infty}\int_{0}^{1}\frac{x^k}{(1+x)^2}\,\text{d}x=0.$$
+		从而有
+		$$\lim\limits_{m,\ n\rightarrow\infty}S_{m,\ n}=\int_{0}^{1}\frac{x}{(1+x)^2}\,\text{d}x=\ln 2-\frac{1}{2}.$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$f(x,\ y)$满足\\
+		(i)对固定的$y\neq b,\ \lim\limits_{x\rightarrow a}f(x,\ y)=\psi(y);$\\
+		(ii)存在$\eta>0,\ $使$f(x,\ y)$当$y\rightarrow b$时关于$x\in E=\left\{x:0<x<|x-a|<\eta\right\}$存在一致极限$\varphi(x).$证明:
+		$$\lim\limits_{x\rightarrow a}\lim\limits_{y\rightarrow b}f(x,\ y)=\lim\limits_{y\rightarrow b}\lim\limits_{x\rightarrow a}f(x,\ y).$$
+	\end{problem}
+	
+	
+	\begin{solution}
+		由条件(ii),\ 对任意$\varepsilon>0,\ $存在$\delta>0,\ $当$0<|y-b|<\delta$时,\ 
+		$$|f(x,\ y)-\varphi(x)|<\frac{\varepsilon}{2}\quad (x\in E).$$
+		于是,\ 当$0<|y'-b|<\delta$时,\ 
+		$$|f(x,\ y)-f(x,\ y')|<\varepsilon.$$
+		由(i),\ 令$x\rightarrow a$得到
+		$$|\psi(y)-\psi(y')|\le \varepsilon.$$
+		据Cauchy准则,\ 存在有限数$A$使
+		$$\lim\limits_{y\rightarrow b}\psi(y)=A.$$
+		故存在$\delta_1(0<\delta_1<\delta),\ $只要$0<|y-b|<\delta_1,\ $则下列不等式同时成立:
+		\begin{align}
+			f(x,\ y)-\frac{\varepsilon}{2}&<\varphi(x)<f(x,\ y)+\frac{\varepsilon}{2}\quad(x\in E),\ \label{eq26}\\
+			A-\frac{\varepsilon}{2}&<\psi(y)<A+\frac{\varepsilon}{2}.\label{eq27}
+		\end{align}
+		由不等式\eqref{eq26}\eqref{eq27}及条件(i),\ 我们有
+		\begin{align*}
+			A-\varepsilon&<\psi(y)-\frac{\varepsilon}{2}\le \varliminf\limits_{x\rightarrow a}\varphi(x)\le\varlimsup\limits_{x\rightarrow a}\varphi(x)\\
+			&\le\psi(y)+\frac{\varepsilon}{2}<A+\varepsilon.
+		\end{align*}
+		由$\varepsilon>0$的任意性,\ 便得
+		$$\varliminf\limits_{x\rightarrow a}\varphi(x)=\varlimsup\limits_{x\rightarrow a}\varphi(x)=\lim\limits_{x\rightarrow a}\varphi(x)=A.$$
+		即
+		$$\lim\limits_{x\rightarrow a}\lim\limits_{y\rightarrow b}f(x,\ y)=\lim\limits_{y\rightarrow b}\lim\limits_{x\rightarrow a}f(x,\ y).$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设函数$z=f(x,\ y)$在$D=\left\{(x,\ y):0\le x\le 1,\ 0\le y\le 1\right\}$上有定义,\ 且对任意$x_0\in\left[0,\ 1\right],\ f(x,\ y)$于$\left(x_0,\ 0\right)$点连续.证明存在$\delta>0,\ $使$f(x,\ y)$于$D^*=\left\{(x,\ y):0\le x\le 1,\ 0\le y\le\delta\right\}$上有界.
+	\end{problem}
+	
+	\begin{solution}
+		\textbf{证法1:}反证法:假若不然,\ 则对任意$\delta>0,\ f(x,\ y)$在$D^*$上无界.于是有
+		$$(x_n,\ y_n)\in D_n=\left\{(x,\ y):0\le x\le 1,\ 0\le y\le \frac{1}{n}\right\},\ $$
+		使得
+		$$\left|f(x_n,\ y_n)\right|>n\quad (n=1,\ 2,\ \cdots).$$
+		由于$\left\{(x_n,\ y_n)\right\}$有界,\ 故必有子列$\left\{(x_{n_i},\ y_{n_i})\right\},\ $使
+		$$\left\{(x_{n_i},\ y_{n_i})\right\}\rightarrow\left\{(x_n,\ y_n)\right\}\quad (i\rightarrow\infty).$$
+		显然,\ $x_0\in\left[0,\ 1\right],\ y_0=0,\ $从而由$f(x,\ y)$于$(x_0,\ 0)$点的连续性知
+		$$\lim\limits_{i\rightarrow\infty}f(x_{n_i},\ y_{n_i})=f(x_0,\ 0)$$
+		这与$\left|f(x_{n_i},\ y_{n_i})\right|>n_i$矛盾. 
+		
+		\textbf{证法2:}对任意$x_0\in\left[0,\ 1\right],\ $由$f(x,\ y)$在点$\left(x_0,\ 0\right)$的连续性可知存在$\delta_{x_0}>0,\ $使$f(x,\ y)$在开邻域$U_{\delta_x}$覆盖了有界闭集$I=\left\{(x,\ 0):0\le x\le 1\right\},\ $从而有有限个$U_{\delta_x}$便可覆盖$I.$设它们的边长是$2\delta_{x_1},\ \cdots,\ 2\delta_{x_k},\ $取$\delta=\frac{1}{2}\min\limits_{1\le i\le k}\left\{\delta_{x_i}\right\},\ $则$f(x,\ y)$于$D^*$上有界. 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设函数$f(x,\ y)$正在闭单位圆$\left\{(x,\ y):x^2+y^2\le 1\right\}$上有连续的偏导数,\ 并且$f(1,\ 0)=f(0,\ 1).$证明:在单位圆上至少有两点满足方程
+		$$y\frac{\partial}{\partial x}f(x,\ y)=x\frac{\partial}{\partial y}f(x,\ y)$$
+	\end{problem}
+	
+	\begin{solution}
+		令$\varphi(\theta)=f(\cos\theta,\ \sin\theta),\ $则$\varphi$是以$2\pi$为周期的连续函数,\ 且$\varphi(0)=\varphi(\frac{\pi}{2}).$故又Rolle定理可知存在$\theta_1,\ \theta_2(0<\theta_1<\frac{\pi}{2},\ \frac{\pi}{2}<\theta_2<2\pi),\ $使得
+		$$\varphi'(\theta_1)=\varphi(\theta_2)=0.$$
+		由$\varphi'=-y\frac{\partial}{\partial x}f+x\frac{\partial f}{\partial y}$代入$\theta_i(i=1,\ 2)$即得所证. 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设有界点列$z_n=(x_n,\ y_n)(n=1,\ 2,\ \cdots)$满足
+		$$\varliminf\limits_{n\rightarrow\infty}||z_n||=l,\ \qquad \varlimsup\limits_{n\rightarrow\infty}|z_n||=L,\ \qquad\lim\limits_{n\rightarrow\infty}||z_{n+1}-z_n||=0.$$
+		证明对任意$\mu,\ l<\mu<L,\ $圆周$x^2+y^2=\mu^2$上至少有$\left\{z_n\right\}$的一个聚点.
+	\end{problem}
+	
+	\begin{solution}
+		(反证法)假若不然,\ 则存在$\mu_0\in\left(l,\ L\right),\ $使得圆周$R_{\mu_0}:x^2+y^2=\mu_0^2$上无$\left\{z_n\right\}$的聚点,\ 于是,\ 对任意$z\in R_{\mu_0},\ $必有$\delta_z>0,\ $使以$z$为心,\ 以$\delta_z$为半径的开圆$U_{\delta_z}$内不含异于$z$且属于$\left\{z_n\right\}$的点.显然,\ $\left\{U_{\delta_z}:z\in R_{\mu_0}\right\}$覆盖了有界闭集$R_{\mu_0},\ $因此,\ $R_{\mu_0}$可被有限个开圆所覆盖,\ 于是不难看出,\ 存在$\delta>0,\ \mu_0-\delta>l,\ $使圆环
+		$$R_\delta:(\mu_0-\delta)^2<x^2+y^2<\mu_0^2$$
+		不含$\left\{z_n\right\}$中的点,\ 而由上,\ 下极限的性质可知,\ 有正整数$n',\ n'',\ $使
+		$$||z_{n'}||<\mu_0-\delta,\ \qquad||z_{n''}||>\mu_0.$$
+		令$n_1=\max\left\{n:n'\le n<n'',\ ||z_n||<\mu_0-\delta\right\},\ $便有
+		$$||z_{n_1}||<\mu_0-\delta,\ \qquad||z_{n_1+1}||>\mu_0.$$
+		对点列$\left\{z_n\right\}_{n=n_1+1}^\infty$重复上述证明,\ 便有$n_2>n_1+1,\ $使
+		$$||z_{n_2}||<\mu_0-\delta,\ \qquad||z_{n_2+1}||>\mu_0.$$
+		如此下去便有
+		$$||z_{n_k}||<\mu_0-\delta,\ \qquad||z_{n_k+1}||>\mu_0.(k=1,\ 2,\ \cdots).$$
+		从而
+		$$||z_{n_k+1}-z_{n_k}||\ge||z_{n_k+1}||-||z_{n_k}||>\delta>0,\ $$
+		这与$\lim\limits_{n\rightarrow\infty}||z_{n+1}-z_n||=0$矛盾. 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设函数$f(x,\ y)$在区域$G$内对$x$是连续的,\ 而关于$x$对$y$是一致连续的,\ 证明:$f(x,\ y)$在$G$内是连续的.
+	\end{problem}
+	
+	\begin{solution}
+		任意固定一点$P_0(x_0,\ y_0)\in G.$由于$f(x,\ y)$关于$x$对$y$一致连续,\ 故任给$\varepsilon>0,\ $存在$\delta_1=\delta_1(\varepsilon)>0,\ $使当$(x,\ y')\in G,\ (x,\ y'')\in G$且$|y'-y''|<\delta_1$时,\ 就有
+		$$|f(x,\ y')-f(x,\ y'')|<\frac{\varepsilon}{2}.$$
+		又因$f(x,\ y)$在点$(x_0,\ y_0)$关于$x$是连续的,\ 故对上述的$\varepsilon,\ $存在$\delta_2>0,\ $使当$|x-x_0|<\delta_2$时,\ 就有
+		$$|f(x,\ y_0)-f(x_0,\ y_0)|<\frac{\varepsilon}{2}.$$
+		取$0<\delta\le\min\{\delta_1,\ \delta_2\},\ $并使点$(x_0,\ y_0)$的$\delta$邻域包含在$G$内,\ 则当点$(x,\ y)$属于点$(x_0,\ y_0)$的$\delta$邻域时,\ 就有
+		$$|x-x_0|<\delta\le\delta_2,\ \qquad|y-y_0|<\delta\le\delta_1,\ $$
+		从而有
+		$$|f(x,\ y)-f(x_0,\ y_0)|\le|f(x,\ y)-f(x,\ y_0)|+|f(x,\ y_0)-f(x_0,\ y_0)|<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon.$$
+		因此$f(x,\ y)$在$P_0$连续,\ 由$P_0$的任意性知函数$f(x,\ y)$在$G$内是连续的. 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设两个正数$x$与$y$之和为定值,\ 求函数$f(x,\ y)=\frac{x^n+y^n}{2}$的极值,\ 并证明:
+		$$\frac{x^n+y^n}{2}\ge\left(\frac{x+y}{2}\right)^n,\ n\text{为正整数}.$$
+	\end{problem}
+	
+	\begin{solution}
+		设$x+y=a(x>0,\ y>0,\ a\text{为常数}).$令
+		$$F(x,\ y)=\frac{x^n+y^n}{2}+\lambda(x+y-a),\ $$
+		并解方程组,\ 
+		$$
+		\left\{\begin{matrix} 
+			F'_x=\frac{nx^{n-1}}{2}+\lambda=0,\ \\
+			F'_y=\frac{ny^{n-1}}{2}+\lambda=0,\ \\
+			x+y=a.
+		\end{matrix}\right.    
+		$$
+		得唯一驻点$\left(\frac{a}{2},\ \frac{a}{2}\right).$不难验证,\ $f(x,\ y)=\frac{x^n+y^n}{2}$在$\left(\frac{a}{2},\ \frac{a}{2}\right)$达到最小值,\ 从而
+		$$\frac{x^n+y^n}{2}\ge\frac{\left(\frac{a}{2}\right)^n+\left(\frac{a}{2}\right)^n}{2}=\left(\frac{a}{2}\right)^n=\left(\frac{x+y}{2}\right)^n.$$
+	\end{solution}
+	\newpage
+	\begin{problem}
+		证明:在$n$个正数的和为定值的条件
+		$$x_1+x_2+\cdots+x_n=a$$
+		下,\ 这$n$个正数的乘积$x_1x_2\cdots x_n$的最大值$\frac{a^n}{n^n},\ $并由此结果推出$n$个正数的几何平均值不大于算术平均值:
+		$$\sqrt[n]{x_1x_2\cdots x_n}\le\frac{x_1+x_2+\cdots+x_n}{n}.$$
+	\end{problem}
+	
+	\begin{solution}
+		\begin{align*}
+			&x_2x_3\cdots x_n+\lambda=0,\ \qquad\qquad\qquad\qquad\qquad\qquad\quad\qquad(1)\\
+			&x_1x_3\cdots x_n+\lambda=0,\ \qquad\qquad\qquad\qquad\qquad\qquad\quad\qquad(2)\\
+			&\cdots\cdots,\ \\
+			&x_1x_2\cdots x_{n-1}+\lambda=0,\ \qquad\qquad\qquad\qquad\qquad\qquad\qquad(n)\\
+			&x_1+x_2+\cdots+x_n-a=0.\qquad\qquad\qquad\qquad\quad\qquad(n+1)
+		\end{align*}
+		$(1)\times x_1+(2)\times x_2+\cdots+(n)\times x_n,\ $得\\
+		$$n(x_1x_2\cdots x_n)+\lambda(x_1+x_2+\cdots+x_n)=0,\ $$
+		由$x_1+x_2+\cdots+x_n=a$得
+		$$\lambda=-nx_1x_2\cdots\frac{x_n}{a}.$$
+		将$\lambda$分别带入(1),\ (2),\ $\cdots$,\ (n),\ 得
+		$$x_1=x_2=\cdots=x_n=\frac{a}{n}.$$
+		求得唯一的驻点$\left(\frac{a}{n},\ \frac{a}{n},\ \cdots,\ \frac{a}{n}\right),\ $依题意,\ 该点即为$x_1x_2\cdots x_n$的极大值点,\ 且就是最大值点.因此,\ 最大值为
+		$$x_1x_2\cdots x_n=\frac{a^n}{n^n},\ $$
+		从而$\sqrt[n]{x_1x_2\cdots x_n}$的最大值为$\frac{a}{n}.$又,\ 算术平均值为$\frac{x_1+x_2+\cdots+x_n}{n}=\frac{a}{n},\ $故
+		$$\sqrt[n]{x_1x_2\cdots x_n}\le\frac{x_1+x_2+\cdots+x_n}{n}.$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		求函数$f(x,\ y,\ z)=\ln x+\ln y+3\ln z(x>0,\ y>0,\ z>0)$在球面
+		$$x^2+y^2+z^2=5r^2$$
+		上的最大值,\ 并证明对任何正数$a,\ b,\ c,\ $有
+		$$abc^3\le 27\left(\frac{a+b+c}{5}\right)^5.$$
+	\end{problem}
+	
+	\begin{solution}
+		设
+		$$F(x,\ y,\ z)=\ln x+\ln y+3\ln z+\lambda(x^2+y^2+z^2-5r^2).$$
+		求得
+		$$F_x'=\frac{1}{x}+2\lambda x,\ \quad F_y'=\frac{1}{y}+2\lambda y,\ \quad F_z'=\frac{3}{z}+2\lambda z.$$
+		令$F_x'=F_y'=F_z'=0,\ $得
+		$$2\lambda x^2+1=0,\ \quad 2\lambda y^2+1=0,\ \quad 2\lambda z^2+3=0.$$
+		相加得
+		$$2\lambda(x^2+y^2+z^2)+5=0,\ $$
+		故$\lambda=-\frac{1}{2r^2}.$于是,\ 函数$f(x,\ y,\ z)$在条件$x^2+y^2+z^2=5r^2$下可能极值点是$\left(r,\ r,\ \sqrt{3}r\right).$因为在第一象限内球面的三条边界线上函数$f(x,\ y,\ z)$均趋于$-\infty,\ $故最大值必在曲面内部取得.现驻点是唯一的,\ 因而$f(x,\ y,\ z)$在点$\left(r,\ r,\ \sqrt{3}r\right)$处取得最大值
+		$$f(r,\ r,\ \sqrt{3}r)=\ln(3\sqrt{3}r^5).$$
+		由此可知,\ 对任意正数$a,\ b,\ c,\ $有
+		$$f(\sqrt{a},\ \sqrt{b},\ \sqrt{c})=\ln\sqrt{a}+\ln\sqrt{b}+\ln\sqrt{c}\le\ln(3\sqrt{3}r^5),\ $$
+		其中$r=\sqrt{\frac{a+b+c}{5}}.$从而有
+		$$\frac{1}{2}\ln abc^3\le\frac{1}{2}\ln(3\sqrt{3}r^5)^2=\frac{1}{2}\ln27r^10,\ $$
+		即
+		$$abc^3\le 27\left(\frac{a+b+c}{5}\right)^5.$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设函数$  f  $与$  g  $都是 $\left[a,\  b\right]$上递增的连续函数,\  且都不是常值函数. 证明
+		$$(b-a) \int_{a}^{b} f(x) g(x)\,\text{d} x>\int_{a}^{b} f(x) d x \int_{a}^{b} g(x) \,\text{d} x .$$
+	\end{problem}
+	
+	\begin{solution}
+		\begin{align*}
+			S &=(b-a) \int_{a}^{b} f(x) g(x)\,\text{d}x-\int_{a}^{b} g(y)\,\text{d} y \int_{a}^{b} f(x) \,\text{d}x \\
+			&=\int_{a}^{b} \,\text{d} y \int_{a}^{b} f(x) g(x) \,\text{d}x-\int_{a}^{b} \,\text{d} y \int_{a}^{b} f(x) g(y) \,\text{d} x \\
+			&=\int_{a}^{b} \int_{a}^{b} f(x)[g(x)-g(y)] \,\text{d}x\,\text{d} y .
+		\end{align*}
+		交换 $ x  $与  $y$  的位置得
+		$$S=\int_{a}^{b} \int_{a}^{b} f(y)[g(y)-g(x)] \,\text{d}x \,\text{d}y$$
+		所以
+		$$2 S=\int_{a}^{b} \int_{a}^{b}[f(x)-f(y)][g(x)-g(y)] \,\text{d} x \,\text{d}y .$$
+		因$  f  $与 $ g$  都是递增的连续函数,\  故
+		$$[f(x)-f(y)][g(x)-g(y)] \geqslant 0 .$$
+		又因为$  f  $与 $ g$  都不是常值函数,\  所以
+		$$\int_{a}^{b} \int_{a}^{b}[f(x)-f(y)][g(x)-g(y)] \,\text{d} x \,\text{d}y>0,\ $$
+		即$  S>0 ,\ $ 从而
+		$$(b-a) \int_{a}^{b} f(x) g(x)\,\text{d}x>\int_{a}^{b} f(x) \,\text{d}x \int_{a}^{b} g(x)\,\text{d}x.$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$f $ 在区间  $[a,\  b] $ 上连续且恒大于零.证明:
+		$$\int_{a}^{b} f(x) \,\text{d} x \int_{a}^{b} \frac{1}{f(x)} \,\text{d} x \geqslant(b-a)^{2} .$$
+	\end{problem}
+	
+	\begin{solution}
+		因为
+		\begin{align*}
+			\int_{a}^{b} f(x) \,\text{d} x \int_{a}^{b} \frac{1}{f(x)} \,\text{d} x &=\int_{a}^{b} f(x) \,\text{d} x \int_{a}^{b} \frac{1}{f(y)} \,\text{d} y \\
+			&=\iint\limits_{D} \frac{f(x)}{f(y)} \,\text{d} \sigma=\iint\limits_{D} \frac{f(y)}{f(x)} \,\text{d} \sigma
+		\end{align*}
+		其中 $ D: a \leqslant x \leqslant b,\  a \leqslant y \leqslant b ,\ $ 所以
+		\begin{align*}
+			2 \int_{a}^{b} f(x) \,\text{d} x \int_{a}^{b} \frac{1}{f(x)} \,\text{d} x &=\iint\limits_{D} \frac{f(x)}{f(y)} \,\text{d} x \,\text{d} y+\iint\limits_{D} \frac{f(y)}{f(x)} \,\text{d} x \,\text{d} y \\
+			&=\iint\limits_{D} \frac{f^{2}(x)+f^{2}(y)}{f(x) f(y)} \,\text{d} x \,\text{d} y \geqslant \iint\limits_{D} \frac{2 f(x) f(y)}{f(x) f(y)} \,\text{d} x \,\text{d} y \\
+			&=2(b-a)^{2},\ 
+		\end{align*}
+		即
+		$$\int_{a}^{b} f(x) \,\text{d} x \int_{a}^{b} \frac{1}{f(x)} \,\text{d} x \geqslant(b-a)^{2}.$$
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$  f  $在区间 $ [0,\ 1] $ 上具有连续的导数,\ 
+		$$\varepsilon_{n}=\int_{0}^{1} f(x) \,\text{d} x-\frac{1}{n} \sum_{i=1}^{n} f\left(\frac{i}{n}\right).$$
+		求$  \lim\limits _{n \rightarrow \infty} n \varepsilon_{n}.$
+	\end{problem}
+	
+	\begin{solution}
+		\begin{align*}
+			\varepsilon_{n} &=\sum_{i=1}^{n} \int_{\frac{i-1}{n}}^{\frac{i}{n}} f(x) \,\text{d} x-\frac{1}{n} \sum_{i=1}^{n} f\left(\frac{i}{n}\right) \\
+			&=\sum_{i=1}^{n} \int_{\frac{i-1}{n}}^{\frac{i}{n}}\left[f(x)-f\left(\frac{i}{n}\right)\right] \,\text{d} x \\
+			&=-\sum_{i=1}^{n} \int_{\frac{i-1}{n}}^{\frac{i}{n}}\left(\int_{x}^{\frac{i}{n}} f^{\prime}(t) d t\right) \,\text{d} x .
+		\end{align*}
+		交换积分次序,\ 得
+		\begin{align*}
+			\varepsilon_{n} &=-\sum_{i=1}^{n} \int_{\frac{i-1}{n}}^{\frac{i}{n}} f^{\prime}(t) \,\text{d} t \int_{\frac{i-1}{n}}^{t} \,\text{d} x \\
+			&=-\sum_{i=1}^{n} \int_{\frac{i-1}{n}}^{\frac{i}{n}}\left(t-\frac{i-1}{n}\right) f^{\prime}(t) \,\text{d} t .
+		\end{align*}
+		在上述积分中,\  函数$  \left(t-\frac{i-1}{n}\right)  $不变号,\  因而由积分中值定理知有  $\xi_{i},\  \frac{i-1}{n} \leqslant \xi_{i} \leqslant \frac{i}{n} ,\ $ 使
+		\begin{align*}
+			\int_{\frac{i-1}{n}}^{\frac{i}{n}}\left(t-\frac{i-1}{n}\right) f^{\prime}(t) \,\text{d} t &=f^{\prime}\left(\xi_{i}\right) \int_{\frac{i-1}{n}}^{\frac{1}{n}}\left(t-\frac{i-1}{n}\right) \,\text{d} t \\
+			&=f^{\prime}\left(\xi_{i}\right) \frac{1}{2 n^{2}} .
+		\end{align*}
+		于是,\ $n\varepsilon_n=-n\sum\limits_{i=1}^{n}f^{\prime}\left(\xi_{i}\right) \frac{1}{2 n^{2}}=-\frac{1}{2}f^{\prime}\left(\xi_{i}\right) \frac{1}{n}.$因$f^\prime$在$[0,\ 1]$上连续,\ 当然可积,\ 因而有
+		$$\lim\limits_{n\rightarrow\infty}n\varepsilon_n=-\frac{1}{2}\int_{0}^{1}f^\prime(x)\,\text{d}x=-\frac{1}{2}\left[f(1)-f(0)\right]$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$I=\iiint\limits_{\Omega}(x+y-z+10) d v ,\  $其中 $ \Omega  $是球体:$  x^{2}+y^{2}+z^{2} \leqslant 3 . $证明:
+		$$28 \sqrt{3} \pi \leqslant I \leqslant 52 \sqrt{3} \pi .$$
+	\end{problem}
+	
+	\begin{solution}
+		令 $ f(x,\  y,\  z)=x+y-z+10 ,\ $ 则 $ \frac{\partial f}{\partial x},\  \frac{\partial f}{\partial y},\  \frac{\partial f}{\partial z}  $均不为零,\  故  $f$  的极值必定出现 在 $ \Omega $ 的边界上,\  换言之,\  需求  $f$ 在曲面 $ x^{2}+y^{2}+z^{2}=3$  上的条件极值,\  设
+		$$F(x,\  y,\  z)=(x+y-z+10)+\lambda\left(x^{2}+y^{2}+z^{2}-3\right),\ $$
+		并令$  \frac{\partial F}{\partial x}=\frac{\partial F}{\partial y}=\frac{\partial F}{\partial z}=0 ,\ $ 得
+		$$1+2 \lambda x=0,\  \quad 1+2 \lambda y=0,\  \quad-1+2 \lambda z=0,\ $$
+		故 $ x=-\frac{1}{2 \lambda},\  y=-\frac{1}{2 \lambda},\  z=\frac{1}{2 \lambda}.$ 代人方程$  x^{2}+y^{2}+z^{2}=3 ,\  $得到$  \lambda=\pm \frac{1}{2} . $于是
+		$$\left\{\begin{array} { l } 
+			{ x _ { 1 } = - 1 ,\  } \\
+			{ y _ { 1 } = - 1 ,\  } \\
+			{ z _ { 1 } = 1 ; }
+		\end{array} \quad \left\{\begin{array}{l}
+			x_{2}=1 \\
+			y_{2}=1 \\
+			z_{2}=-1
+		\end{array}\right.\right.
+		$$
+		显然,\ $  f(-1,\ -1,\ 1)=7  $是最小值$,\   f(1,\ 1,\ -1)=13 $ 是最大值,\  从而
+		$$7 \leqslant f(x,\  y,\  z) \leqslant 13 .$$
+		另一方面,\  球体  $\Omega: x^{2}+y^{2}+z^{2} \leqslant 3  $的体积为 $ V=4 \sqrt{3} \pi ,\  $故
+		$$7 \cdot 4 \sqrt{3} \pi \leqslant \iint\limits_{\Omega} f(x,\  y,\  z) d v \leqslant 13 \cdot 4 \sqrt{3} \pi,\ $$
+		即
+		$$28 \sqrt{3} \pi \leqslant I \leqslant 52 \sqrt{3} \pi .$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		证明:
+		$$\lim\limits_{R \rightarrow+\infty} \iint\limits_{\substack{|x| \leqslant R \\|y| \leqslant R}}\left(x^{2}+y^{2}\right) e^{-\left(x^{2}+y^{2}\right)} \,\text{d} x \,\text{d} y=\pi.$$
+	\end{problem}
+	
+	\begin{solution}
+		记
+		$$\begin{array}{l}
+			I_{R}=\iint\limits_{\substack{|x| \leqslant R \\
+					|y| \leqslant R}}\left(x^{2}+y^{2}\right) e^{-\left(x^{2}+y^{2}\right)} \,\text{d} x \,\text{d} y \\
+			I_{R}^{\prime}=\iint\limits_{x^{2}+y^{2} \leqslant R^{2}}\left(x^{2}+y^{2}\right) e^{-\left(x^{2}+y^{2}\right)} \,\text{d} x \,\text{d} y
+		\end{array}$$
+		则有
+		$$I_{R}^{\prime} \leqslant I_{R} \leqslant I_{2 R}^{\prime}$$
+		注意
+		$$\begin{aligned}
+			I_{R}^{\prime} &=\int_{0}^{2 \pi} \,\text{d} \theta \int_{0}^{R} r^{3} e^{-r^{2}} \,\text{d} r=\pi \int_{0}^{R^{2}} t e^{-t} \,\text{d} t \\
+			&=\pi\left(1-e^{-R}-R^{2} e^{-R}\right) \rightarrow \pi \quad(R \rightarrow+\infty)
+		\end{aligned}$$
+		故命故得证. 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		计算积分  $$\int_{0}^{\pi} \ln \left(1-2 a \cos x+a^{2}\right)\,\text{d}x .$$
+	\end{problem}
+	
+	\begin{solution}
+		设$  I(a)=\int_{0}^{\pi} \ln \left(1-2 a \cos x+a^{2}\right) \,\text{d}x . $当  $|a|<1$  时,\  因
+		$$1-2 a \cos x+a^{2} \geqslant 1-2|a|+a^{2}=(1-|a|)^{2}>0 \text {,\  }$$
+		故$  \ln \left(1-2 a \cos x+a^{2}\right)  $为连续函数且有连续的导数,\  从而可在积分号下求导数. 将$  I(a) $ 对$  a $ 求导数,\  得
+		$$\begin{aligned}
+			I^{\prime}(a) &=\int_{0}^{\pi} \frac{-2 \cos x+2 a}{1-2 a \cos x+a^{2}} \,\text{d} x \\
+			&=\frac{1}{a} \int_{0}^{\pi}\left(1+\frac{a^{2}-1}{1-2 a \cos x+a^{2}}\right) \,\text{d} x \\
+			&=\frac{\pi}{a}-\frac{1-a^{2}}{a} \int_{0}^{\pi} \frac{\,\text{d} x}{\left(1+a^{2}\right)-2 a \cos x} \\
+			&=\frac{\pi}{a}-\frac{1-a^{2}}{a\left(1+a^{2}\right)} \int_{0}^{\pi} \frac{\,\text{d} x}{1+\left(\frac{-2 a}{1+a^{2}}\right) \cos x} \\
+			&=\frac{\pi}{a}-\left.\frac{2}{a} \arctan \left(\frac{1+a}{1-a} \tan \frac{x}{2}\right)\right|_{0} ^{\pi}=\frac{\pi}{a}-\frac{2}{a} \cdot \frac{\pi}{2}=0 .
+		\end{aligned}$$
+		于是,\  当 $ |a|<1$  时,\   $I(a)=C $ (常数). 但 $ I(0)=0 ,\ $ 故 $ C=0 ,\ $ 从而  $I(a)=0 .$
+		当 $ |a|>1 $ 时. 令 $ b=\frac{1}{a} ,\  $则 $ |b|<1 ,\  $并有 $ I(b)=0 .$ 于是,\  我们有
+		$$\begin{aligned}
+			I(a) &=\int_{0}^{\pi} \ln \left(\frac{b^{2}-2 b \cos x+1}{b^{2}}\right) \,\text{d}x \\
+			&=I(b)-2 \pi \ln |b|=2 \pi \ln |a| .
+		\end{aligned}$$
+		当  $|a|=1 $ 时,\ 
+		$$\begin{aligned}
+			I(1) &=\int_{0}^{\pi}\left(\ln 4+2 \ln \sin \frac{x}{2}\right) \,\text{d} x=2 \pi \ln 2+4 \int_{0}^{\frac{\pi}{2}} \ln \sin t \,\text{d} t \\
+			&=2 \pi \ln 2+4\left(-\frac{\pi}{2} \ln 2\right)=0 .
+		\end{aligned}$$
+		同理可求得 $ I(-1)=0 .$
+		综上所述,\  得到
+		$$\int_{0}^{\pi} \ln \left(1-2 a \cos x+a^{2}\right) \,\text{d} x=\left\{\begin{array}{ll}
+			0,\  & |a| \leqslant 1 \\
+			2 \pi \ln |a|,\  & |a|>1
+		\end{array}\right.$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		研究函数$$ F(y)=\int_{0}^{1} \frac{y f(x)}{x^{2}+y^{2}} \,\text{d} x $$ 的连续性,\  其中$  f  $是闭区间$  [0,\ 1]  $上的正值连续函数.
+	\end{problem}
+	
+	\begin{solution}
+		当$  y \neq 0  $时,\  被积函数是连续的,\  因此,\  $ F$  在 $ y \neq 0$  处是连续的.
+		又,\  $ F(0)=0 .$ 现考察  $y>0 ,\ $ 并设 $ m$  为 $ f$  在 $ [0,\ 1]$  上的最小值,\  则 $ m>0 .$ 由于
+		$$F(y) \geqslant m \int_{0}^{1} \frac{y}{x^{2}+y^{2}} d x=m \cdot \arctan \frac{1}{y}$$
+		及
+		$$\lim\limits_{y \rightarrow 0^+} \arctan \frac{1}{y}=\frac{\pi}{2} \text {,\  }$$
+		因而
+		$$\lim\limits_{y\rightarrow 0^{+}}F(y)\ge\frac{m\pi}{2}>0,\ $$
+		可见$  F$  在 $ y=0$  处不连续. 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		应用积分号下的积分法. 求下列积分:
+		$$I=\int_{0}^{1} \sin \left(\ln \frac{1}{x}\right) \frac{x^{b}-x^{a}}{\ln x} \,\text{d} x \quad(b>a>0) .$$
+	\end{problem}
+	
+	\begin{solution}
+		$$\begin{aligned}
+			I &=\int_{0}^{1} \sin \left(\ln \frac{1}{x}\right) \,\text{d} x \int_{a}^{b} x^{y} \,\text{d} y \\
+			&=\int_{a}^{b} \,\text{d} y \int_{0}^{1} \sin \left(\ln \frac{1}{x}\right) x^{y} \,\text{d} x
+		\end{aligned}$$
+		这里,\  当 $ x=0 $ 时,\ $  \sin \left(\ln \frac{1}{n}\right) x^{y}  $理解为零,\  从而$  \sin \left(\ln \frac{1}{x}\right) x^{y}$  在$  0 \leqslant x \leqslant 1,\  a \leqslant y \leqslant b $上连续,\  故可交换积分次序.
+		做代换  $x=e^{-t} .$ 可得
+		$$\begin{aligned}
+			\int_{0}^{1} \sin \left(\ln \frac{1}{x}\right) x^{y} \,\text{d} x &=\int_{0}^{+\infty} e^{-(y+1) t} \sin t \,\text{d} t \\
+			&=\left.\frac{1}{1+(1+y)^{2}}[-(y+1) \sin t-\cos t] e^{-(y+1) t}\right|_{0} ^{+\infty} \\
+			&=\frac{1}{1+(1+y)^{2}} .
+		\end{aligned}$$
+		于是,\  得到
+		$$\begin{aligned}
+			I &=\int_{a}^{b} \frac{\,\text{d} y}{1+(1+y)^{2}}=\left.\arctan (1+y)\right|_{a} ^{b} \\
+			&=\arctan (1+b)-\arctan (1+a)
+		\end{aligned}$$ 
+	\end{solution}
+	\newpage
+	\begin{problem}
+		设$I(a)=\int_{0}^{+\infty}e^{-ax}\frac{\sin x}{x}\,\text{d}x,\ $其中$0\leqslant a\leqslant b.$\\
+		(i)证明$I(a)$在$\left[0,\ b\right]$上一致收敛;\\
+		(ii) 求 $ I(a) $ 及 $ I(0) $ 的值.
+	\end{problem}
+	
+	\begin{solution}
+		(i) 因 $ \lim\limits_{x \rightarrow 0+} \frac{\sin x}{x} e^{-a x}=1 ,\ $ 故 $ x=0 $ 不是奇点. 由于
+		$$\left|\int_{0}^{A} \sin x \,\text{d} x\right|=|1-\cos A| \leqslant 2,\ $$
+		且当 $ 0 \leqslant a \leqslant b $ 时,\   $\frac{e^{-a x}}{x}$  在$  x>0$  时关于$  x  $递减,\  又由于 $ 0<\frac{e^{-a x}}{x}<\frac{1}{x}(0 \leqslant a \leqslant b) ,\ $ 故$  \frac{e^{-a x}}{x} $ 关于 $ a(0 \leqslant a \leqslant b)$  一致地趋于 $0 .$ 于是,\  由 Dirichlet 判别法知积分
+		$$I(a)=\int_{0}^{+\infty} e^{-a x} \frac{\sin x}{x} \,\text{d} x$$
+		在  [0,\  b]  上一致收敛.\\
+		(ii) 因被积函数  $\frac{e^{-a x} \sin x}{x} $ 及其对  $a$  的偏导数在  $x \geqslant 0$  时是连续的,\  又
+		$$\begin{aligned}
+			\int_{0}^{+\infty} \frac{\partial}{\partial a}\left(e^{-a x} \frac{\sin x}{x}\right) \,\text{d} x &=-\int_{0}^{+\infty} e^{-a x} \sin x \,\text{d} x \\
+			&=-\frac{1}{a^{2}+1},\ 
+		\end{aligned}$$
+		且因  $\left|e^{-a_{0} x} \sin x\right| \leqslant e^{-a_{0} x} ,\  $而 $ \int_{0}^{+\infty} e^{-a_{0} x} \,\text{d} x\left(a_{0}>0\right)  $收敛,\  故积分 $ \int_{0}^{+\infty} e^{-a x} \sin x \,\text{d} x $ 当 $ a \geqslant a_{0}>0 $ 时一致收敛. 因此,\  当 $ a \geqslant a_{0}  $时可在积分号下求导数:
+		$$I^{\prime}(a)=\int_{0}^{+\infty} \frac{\partial}{\partial a}\left(e^{-a x} \frac{\sin x}{x}\right) \,\text{d} x=-\frac{1}{a^{2}+1} .$$
+		由 $ a_{0}>0 $ 的任意性可知上式对一切 $ a>0 $ 都成立. 两端对 $ a  $积分得
+		$$I(a)=-\int \frac{\,\text{d} a}{a^{2}+1}=-\arctan a+C \quad(a>0) .$$
+		因 $ \left|\frac{\sin x}{x}\right| \leqslant 1 ,\ $ 故
+		$$|I(a)| \leqslant \int_{0}^{+\infty} e^{-a x} \,\text{d} x=\frac{1}{a} \quad(a>0),\ $$
+		所以
+		$$\lim_{a \rightarrow+\infty}I(a)=0,\ $$
+		即
+		$$\lim\limits_{a \rightarrow+\infty}(-\arctan a+C)=-\frac{\pi}{2}+C=0,\ $$
+		因而 $ C=\frac{\pi}{2} .$ 于是,\   $I(a)=\frac{\pi}{2}-\arctan a .$
+		前面已经证明,\  $ I(a) $ 在  $[0,\  b] $ 上一致收敛,\  故 $ I(a)  $是$  [0,\  b]  $上的连续函数,\  因此,\ 
+		$$\lim\limits_{a \rightarrow 0} I(a)=I(0),\ $$
+		即
+		$$I(0)=\lim\limits_{a\rightarrow 0}\left(\frac{\pi}{2}-\arctan a\right)=\frac{\pi}{2}.$$ 
+	\end{solution} 
+	\newpage
+	\begin{problem}
+		设 $f  $在$(-\infty,\ +\infty)  $上连续有界. 令
+		$$I=\int_{-\infty}^{+\infty} \frac{y f(t)}{(x-t)^{2}+y^{2}} \,\text{d} t \quad(y>0) .$$
+		证明(i) 对任意  $x,\  I$  绝对收敛.\\
+		(ii)$  \lim\limits _{y \rightarrow 0+} \frac{y}{\pi} \int_{-\infty}^{+\infty} \frac{f(t)}{(x-t)^{2} + y^{2}} \,\text{d} t=f(x) .$
+	\end{problem}
+	
+	\begin{solution}
+		(i) 设$  |f(x)| \leqslant M ,\ $ 因
+		$$\left|\frac{y f(t+x)}{t^{2}+y^{2}}\right|<\frac{y M}{t^{2}+y^{2}} .$$
+		而积分$\int_{-\infty}^{+\infty}\frac{y}{t^2+y^2}\,\text{d}t$收敛,\ 故积分$\int_{-\infty}^{+\infty}\frac{yf(t+x)}{t^2+y^2}\,\text{d}t$绝对收敛.而
+		$$\int_{-\infty}^{+\infty} \frac{y f(t+x)}{t^{2}+y^{3}} \,\text{d} t=\int_{-\infty}^{+\infty} \frac{y f(t)}{(x-t)^{2}+y^{2}} \,\text{d} t .$$
+		故对任意的$x,\ I$都绝对收敛.\\
+		(ii) 任取$  x_{0} \in(-\infty,\ +\infty) ,\ $ 由于
+		$$\frac{y}{\pi} \int_{-\infty}^{+\infty} \frac{\,\text{d} t}{\left(x_{0}-t\right)^{2}+y^{2}}=\frac{y}{x} \int_{-x}^{+\infty} \frac{\,\text{d} t}{t^{2}+y^{2}}=1,\ $$
+		故有
+		$$\begin{aligned}
+			&\left|\frac{y}{\pi} \int_{-\infty}^{+\infty} \frac{f(t)}{\left(x_{0}-t\right)^{2}+y^{2}} \,\text{d} t-        
+			f\left(x_{0}\right)\right|\\
+			=&\frac{y}{\pi}\left|\int_{-\infty}^{+x} \frac{f(t)-f\left(x_{0}\right)}{\left(x_{0}-t\right)^{2}+y^{2}} \,\text{d} t\right| \\
+			\leqslant& \frac{y}{\pi}\left(\int_{x_{0}+\sqrt{y}}^{+\infty}+\int_{x_{0}-\sqrt{y}}^{x_{0}+\sqrt{y}}+\int_{-\infty}^{x_{0}-\sqrt{y}}\right) \frac{\left|f(t)-f\left(x_{0}\right)\right|}{\left(x_{0}-t\right)^{2}+y^{2}} \,\text{d} t \\
+			&=I_{1}+I_{2}+I_{3} .
+		\end{aligned}$$
+		对任给的$  \varepsilon>0 . $因 $ f $ 连续. 故有  $\delta>0 .$ 使当  $|t|<\delta $ 时.
+		$$\left|f\left(x_{0}+t\right)-f\left(x_{0}\right)\right|<\varepsilon .$$
+		因而当$\sqrt{y}<\eta=\min\{\frac{\delta}{2},\ \frac{\varepsilon\pi}{2M}\}$时,\ 便有
+		$$I_{2}=\frac{y}{\pi} \int_{-\sqrt{y}}^{\sqrt{y}} \frac{\left|f\left(x_{0}+t\right)-f\left(x_{0}\right)\right|}{t^{2}+y^{2}} \,\text{d} t<\varepsilon .$$
+		对于$  I_{1} ,\  $我们有
+		$$\begin{aligned}
+			I_{1} & \leqslant \frac{2 M y}{\pi} \int_{\sqrt{y}}^{+\infty} \frac{\,\text{d} t}{t^{2}+y^{2}} \leqslant \frac{2 M y}{x} \int_{\sqrt{y}}^{+\infty} \frac{\,\text{d} t}{t^{2}} \\
+			&=\frac{2 M \sqrt{y}}{\pi}<\varepsilon .
+		\end{aligned}$$
+		对于$I_3$也有类似的估计式.因此,\ 当$0<y<\eta^2$时,\ 
+		$$\left|\frac{y}{\pi}\int_{-\infty}^{+\infty}\frac{f(t)}{(x_0-t)^2+y^2}\,\text{d}t-f(x_0)\right|<3\varepsilon.$$
+		由于$x_0\in\left(-\infty,\ +\infty\right)$是任取的,\ 故
+		$$\lim\limits_{y \rightarrow 0^+} \frac{y}{\pi} \int_{-\infty}^{+\infty} \frac{f(t)}{(x-t)^{2}+y^{2}} \,\text{d} t=f(x).$$ 
+	\end{solution} 
+	\newpage
+	\begin{problem}
+		设$f$是区间$[0,\ 1]$上的正值连续函数.证明极限$$\lim\limits_{\alpha\rightarrow0}\{\int_{0}^{1}\left[f(x)\right]^\alpha\,\text{d}x\}^{\frac{1}{\alpha}}$$存在.
+	\end{problem}
+	
+	\begin{solution}
+		令 $ F(a)=\int_{0}^{1}[f(x)]^{\alpha} \,\text{d} x ,\ $ 找们将要证明
+		$$\lim\limits_{a \rightarrow 0} \frac{\ln F(a)}{\alpha}=\int_{0}^{1} \ln f(x) \,\text{d} x ,\ $$
+		从而由指数函数的连续性可知
+		$$\lim\limits_{\alpha \rightarrow 0}[F(\alpha)]^{\frac{1}{\alpha}}=e^{\int_{0}^{1} \ln f(x) \,\text{d} x}$$
+		因$f$在$\left[0,\ 1\right]$上正值且连续,\ 故存在常数$m,\ M,\ $使
+		$$0<m \leqslant f(x) \leqslant M \quad(0 \leqslant x \leqslant 1)$$
+		因此,\  对任意 $ a>0 . $函数$  [f(x)]^{\alpha}$  和  $[f(x)]^{\alpha} \ln f(x) $ 在矩形区域
+		$$D=\{(x,\  \alpha): 0 \leqslant x \leqslant 1,\ -a \leqslant\alpha \leqslant a\}$$
+		上都是连续的,\  从而$  F $ 在  $\alpha=0 $ 可微,\ 且可积分号下求导数.令$G(\alpha)=\ln F(\alpha) .$ 则 $ F(0)=1,\  G(0)=0 ,\  $且
+		$$\begin{aligned}
+			\lim\limits_{\alpha \rightarrow 0} \frac{G(\alpha)}{\alpha} &=\lim\limits_{\alpha \rightarrow 0} \frac{G(\alpha)-G(0)}{\alpha}=G^{\prime}(0) \\
+			&=\frac{F^{\prime}(0)}{F(0)}=\int_{0}^{1} \ln f(x) \,\text{d} x
+		\end{aligned}$$ 
+	\end{solution}
